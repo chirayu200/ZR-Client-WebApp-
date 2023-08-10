@@ -1,0 +1,30 @@
+<!-- 
+    <svg width="89" height="89" viewBox="0 0 89 89" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g style="mix-blend-mode:multiply">
+<circle cx="44.5" cy="44.5" r="44.5" fill="url(#pattern0)"/>
+<circle cx="44.5" cy="44.5" r="44.5" fill="url(#pattern1)"/>
+</g>
+<defs>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_6176_76354" transform="translate(0 -0.147096) scale(0.00126263)"/>
+</pattern>
+<pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0_6176_76354" transform="matrix(0.00175747 0 0 0.0018018 -0.247803 0)"/>
+</pattern>
+</defs>
+</svg>
+ -->
+ <svg width="89" height="89" viewBox="0 0 89 89" fill="none">
+  <g style="mix-blend-mode:multiply">
+    <circle cx="44.5" cy="44.5" r="44.5" fill="url(#pattern0)"/>
+    <circle cx="44.5" cy="44.5" r="44.5" fill="url(#pattern1)"/>
+  </g>
+  <defs>
+    <pattern id="pattern0" width="1" height="1">
+      <use href="#image0_6176_76354" transform="translate(0 -0.147096) scale(0.00126263)"/>
+    </pattern>
+    <pattern id="pattern1" width="1" height="1">
+      <use href="#image0_6176_76354" transform="matrix(0.00175747 0 0 0.0018018 -0.247803 0)"/>
+    </pattern>
+  </defs>
+</svg>
