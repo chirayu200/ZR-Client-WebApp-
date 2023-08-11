@@ -143,23 +143,21 @@
 
 .form-fullwidth-field .field-section label {
     color: #5b5b5b;
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%;
-    /* 22.5px */
+    line-height: 125%; /* 22.5px */
     text-transform: capitalize;
 }
 
 .signup-form label {
     color: #5b5b5b;
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%;
-    /* 22.5px */
+    line-height: 125%; /* 22.5px */
     text-transform: capitalize;
 }
 
@@ -181,12 +179,11 @@
     justify-content: space-between;
     align-items: center;
     color: #525252;
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%;
-    /* 17.5px */
+    line-height: 125%; /* 17.5px */
     text-transform: capitalize;
 }
 
@@ -215,12 +212,11 @@
 
 .signup-footer p {
     color: rgba(0, 0, 0, 0.7);
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%;
-    /* 20px */
+    line-height: 125%; /* 20px */
     text-transform: capitalize;
 }
 
@@ -241,24 +237,22 @@
 
 .forgot-main h3 {
     color: #003087;
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
-    line-height: 130%;
-    /* 39px */
+    line-height: 130%; /* 39px */
     letter-spacing: -0.3px;
     text-transform: uppercase;
 }
 
 .forgot-main .forgot-description {
     color: #525252;
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%;
-    /* 20px */
+    line-height: 125%; /* 20px */
 }
 
 .forgot-main .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
@@ -295,12 +289,11 @@
 
 .error-danger {
     color: #f54135;
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%;
-    /* 20px */
+    line-height: 125%; /* 20px */
     text-transform: capitalize;
 }
 
@@ -365,7 +358,7 @@
 
 .header-text {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
@@ -391,7 +384,7 @@
 
 .warning-section p {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -411,10 +404,12 @@
     width: 42%;
     height: 297px;
     border-radius: 20px;
-    background: linear-gradient(180deg,
+    background: linear-gradient(
+            180deg,
             #32b2ac 62.33%,
             #289691 92.01%,
-            #1f807b 100%);
+            #1f807b 100%
+    );
 }
 
 .schedule-section .visit-schedule {
@@ -434,8 +429,7 @@
     font-size: 45px;
     font-style: normal;
     font-weight: 400;
-    line-height: 111.3%;
-    /* 50.085px */
+    line-height: 111.3%; /* 50.085px */
 }
 
 .dashboard-container .achievements-section {
@@ -452,7 +446,7 @@
     padding: 10px 23px 7px 23px !important;
 }
 
-.dashboard-container .top-achieved-list {
+.top-achieved-list {
     margin-top: 20px;
     width: 100%;
     border-radius: 20px;
@@ -471,6 +465,7 @@
 
 .achieved-header .heading {
     color: var(--c-1, #003087);
+    font-family: Univers LT Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -479,6 +474,7 @@
 
 .top-achieved-list .description {
     color: #003087;
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -511,6 +507,7 @@
 
 .holders-item p {
     color: #003087;
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -563,15 +560,15 @@
     color: #003087;
 }
 
-.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 3) .counter {
+.items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 3) .counter {
     background-color: #32b2ac;
 }
 
-.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 2) .counter {
+.items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 2) .counter {
     background-color: #003087;
 }
 
-.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 1) .counter {
+.items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 1) .counter {
     background-color: #e35205;
 }
 
@@ -602,13 +599,13 @@
 .stepText {
     color: #000;
     text-align: center;
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     display: block;
 }
-
 
 
 .circlePBar .css-oxts8u-MuiCircularProgress-circle {
@@ -623,15 +620,12 @@
 
 /* End */
 /* ---------------------M-styling start---------------- */
-html,
-body,
-#root,
-.global {
+html, body, #root, .global {
     min-height: 100vh;
     height: auto;
 }
 
-main>.css-1r9jet7 {
+main > .css-1r9jet7 {
     display: none;
 }
 
@@ -710,10 +704,16 @@ main>.css-1r9jet7 {
 .profileBtn.MuiButtonBase-root {
     width: max-content;
     padding: 0;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 25px;
     transform: translate(-50%, 0px);
     left: 50%;
+}
+
+.profileBtn > img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%
 }
 
 .proceedBtn.MuiButtonBase-root.Mui-disabled {
@@ -746,8 +746,7 @@ main>.css-1r9jet7 {
     width: 100%;
 }
 
-.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(1) p:nth-of-type(1),
-.codeBox p {
+.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(1) p:nth-of-type(1), .codeBox p {
     color: #000;
     font-weight: 700;
     font-size: 16px;
@@ -781,8 +780,7 @@ main>.css-1r9jet7 {
     flex-direction: column;
 }
 
-.checkProcess>div,
-.purchaseCard {
+.checkProcess > div, .purchaseCard {
     border-radius: 32px;
     background: #fff;
     box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
@@ -803,12 +801,11 @@ main>.css-1r9jet7 {
     top: -15px
 }
 
-.codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
-.codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+.codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:after, .codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
     border-bottom-style: dotted;
 }
 
-.summaryBox>p {
+.summaryBox > p {
     color: #003087;
     font-size: 18px;
     font-weight: 700;
@@ -817,7 +814,7 @@ main>.css-1r9jet7 {
     margin-bottom: 15px;
 }
 
-.summaryBox>div {
+.summaryBox > div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -837,7 +834,7 @@ main>.css-1r9jet7 {
     padding: 30px 20px;
 }
 
-.checktext>p:nth-of-type(1) {
+.checktext > p:nth-of-type(1) {
     font-size: 24px;
     font-weight: 700;
     color: #000;
@@ -885,7 +882,7 @@ main>.css-1r9jet7 {
     align-items: flex-start;
 }
 
-.purchaseFlex>div {
+.purchaseFlex > div {
     width: 49%;
 }
 
@@ -906,8 +903,7 @@ main>.css-1r9jet7 {
     text-transform: capitalize;
 }
 
-.purchaseCard .top p:nth-of-type(2),
-.purchaseCard .item p:nth-of-type(1) {
+.purchaseCard .top p:nth-of-type(2), .purchaseCard .item p:nth-of-type(1) {
     font-size: 17px;
     font-weight: 700;
     color: #000;
@@ -993,13 +989,12 @@ main>.css-1r9jet7 {
     color: #E35205;
 }
 
-.notifyWrap .item>p,
-.notifyWrap .item>.MuiBox-root p:nth-of-type(2) {
+.notifyWrap .item > p, .notifyWrap .item > .MuiBox-root p:nth-of-type(2) {
     font-size: 14px;
     color: #00000080;
 }
 
-.notifyWrap .item>.MuiBox-root p:nth-of-type(1) {
+.notifyWrap .item > .MuiBox-root p:nth-of-type(1) {
     color: #000;
     font-weight: 700;
     font-size: 16px;
@@ -1021,8 +1016,7 @@ main>.css-1r9jet7 {
     border-bottom: none;
 }
 
-.notifyWrap .item.unread>p,
-.notifyWrap .item.unread>.MuiBox-root p:nth-of-type(2) {
+.notifyWrap .item.unread > p, .notifyWrap .item.unread > .MuiBox-root p:nth-of-type(2) {
     color: #000;
 }
 
@@ -1042,7 +1036,7 @@ main>.css-1r9jet7 {
     align-items: center;
 }
 
-.locationHead>div:nth-of-type(1) {
+.locationHead > div:nth-of-type(1) {
     padding: 7px 10px;
     border-radius: 20px;
     box-shadow: 0px 0px 8px 0px #0000001A;
@@ -1051,13 +1045,14 @@ main>.css-1r9jet7 {
     align-items: center;
 }
 
-.locationHead>div:nth-of-type(1) .MuiSvgIcon-root {
+.locationHead > div:nth-of-type(1) .MuiSvgIcon-root {
     width: 15px;
     color: #003087;
     margin-right: 5px;
 }
 
-.locationHead>div:nth-of-type(1) p {
+.locationHead > div:nth-of-type(1) p {
+    font-family: Univers LT Std;
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
@@ -1067,7 +1062,7 @@ main>.css-1r9jet7 {
 
 }
 
-.locationHead>p:nth-of-type(1) {
+.locationHead > p:nth-of-type(1) {
     background: #32B2AC;
     color: #fff;
     padding: 10px 20px;
@@ -1080,7 +1075,7 @@ main>.css-1r9jet7 {
 
 }
 
-.locationHead>p:nth-of-type(2) {
+.locationHead > p:nth-of-type(2) {
     font-size: 15px;
     font-weight: 400;
     line-height: 14px;
@@ -1088,7 +1083,7 @@ main>.css-1r9jet7 {
 
 }
 
-.locationSidebar>button {
+.locationSidebar > button {
     margin-bottom: 20px;
 }
 
@@ -1108,17 +1103,18 @@ main>.css-1r9jet7 {
     border-bottom: 1px solid #00000029;
 }
 
-.dirBox>div:nth-of-type(1) {
+.dirBox > div:nth-of-type(1) {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.dirBox>div>div {
+.dirBox > div > div {
     margin-bottom: 20px;
 }
 
 .dirBox p:nth-of-type(1) {
+    font-family: Univers LT Std;
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
@@ -1127,6 +1123,7 @@ main>.css-1r9jet7 {
 }
 
 .dirBox p:nth-of-type(2) {
+    font-family: Univers LT Std;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
@@ -1155,14 +1152,14 @@ main>.css-1r9jet7 {
     position: relative;
 }
 
-.phaseFlex .item>img {
+.phaseFlex .item > img {
     margin: 0 auto;
     display: block;
     width: 44px;
     margin-bottom: 5px;
 }
 
-.phaseFlex .item>span {
+.phaseFlex .item > span {
     font-size: 12px;
     display: block;
     text-align: center;
@@ -1177,7 +1174,7 @@ main>.css-1r9jet7 {
     display: block !important;
 }
 
-.progresswrap>img {
+.progresswrap > img {
     width: 50px;
     position: absolute;
     top: 50%;
@@ -1226,6 +1223,7 @@ main>.css-1r9jet7 {
 }
 
 .memBox div p:nth-of-type(1) {
+    font-family: Bebas Neue;
     font-size: 38px;
     font-weight: 400;
     line-height: 42px;
@@ -1233,6 +1231,7 @@ main>.css-1r9jet7 {
 }
 
 .memBox div p:nth-of-type(2) {
+    font-family: Univers LT Std;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
@@ -1245,7 +1244,7 @@ main>.css-1r9jet7 {
     align-items: flex-start;
 }
 
-.bundleBox>div {
+.bundleBox > div {
     width: 49%;
     border-radius: 20px;
     background: #fff;
@@ -1254,16 +1253,16 @@ main>.css-1r9jet7 {
 
 }
 
-.bundleBox div p:nth-of-type(1),
-.historyBox p:nth-of-type(1) {
+.bundleBox div p:nth-of-type(1), .historyBox p:nth-of-type(1) {
+    font-family: Univers LT Std;
     font-size: 20px;
     font-weight: 700;
     line-height: 24px;
 
 }
 
-.bundleBox div p:nth-of-type(2),
-.historyBox p:nth-of-type(2) {
+.bundleBox div p:nth-of-type(2), .historyBox p:nth-of-type(2) {
+    font-family: Univers LT Std;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
@@ -1279,6 +1278,7 @@ main>.css-1r9jet7 {
     background: #fff;
     padding: 30px 30px;
     border-radius: 32px
+
 }
 
 /* membership filters */
@@ -1289,7 +1289,7 @@ main>.css-1r9jet7 {
     border-radius: 50px;
 }
 
-.MuiOutlinedInput-notchedOutline {
+.membership-filters .MuiOutlinedInput-notchedOutline {
     border-color: #fff !important;
 }
 
@@ -1307,7 +1307,7 @@ main>.css-1r9jet7 {
 }
 
 .expiryBtn.MuiButtonBase-root {
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
@@ -1381,7 +1381,7 @@ main>.css-1r9jet7 {
     width: 254px !important;
     padding: 10px !important;
     border: 0 !important;
-
+    font-family: Univers LT Std;
     font-size: 16px;
     text-transform: inherit;
     font-weight: 700;
@@ -1390,12 +1390,11 @@ main>.css-1r9jet7 {
 .schedule-section-action p {
     color: #fff;
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%;
-    /* 21px */
+    line-height: 150%; /* 21px */
 }
 
 .header-text .dialog-link.MuiLink-root {
@@ -1434,7 +1433,7 @@ main>.css-1r9jet7 {
 
 .appointment-header .top-header .header-text {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -1464,7 +1463,7 @@ main>.css-1r9jet7 {
 
 .appointment-dropdown .MuiFormLabel-root.MuiInputLabel-root {
     color: var(--20, #333);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1488,7 +1487,7 @@ main>.css-1r9jet7 {
 .custom-select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
     color: #003087;
 
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1523,7 +1522,9 @@ main>.css-1r9jet7 {
     font-weight: 600;
 }
 
-.MuiDayCalendar-header .MuiPickersCalendarHeader-switchViewButton .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
+.MuiDayCalendar-header
+.MuiPickersCalendarHeader-switchViewButton
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
     color: #003087 !important;
 }
 
@@ -1567,7 +1568,7 @@ main>.css-1r9jet7 {
 
 .text-field .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1592,7 +1593,7 @@ main>.css-1r9jet7 {
 .drag-drop-box .drop-box-text {
     color: #003087;
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1618,7 +1619,7 @@ main>.css-1r9jet7 {
 
 .available-slots {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -1640,7 +1641,7 @@ main>.css-1r9jet7 {
 
 .slots-wrap .slot-title {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -1713,7 +1714,7 @@ main>.css-1r9jet7 {
 
 .booking-notes .heading {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -1722,19 +1723,18 @@ main>.css-1r9jet7 {
 
 .booking-notes .description {
     color: rgba(0, 0, 0, 0.7);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
-    /* 142.857% */
+    line-height: 20px; /* 142.857% */
     text-transform: lowercase;
 }
 
 .booking-notes .see-more {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1763,7 +1763,7 @@ main>.css-1r9jet7 {
 
 .attendee-header p {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -1774,7 +1774,7 @@ main>.css-1r9jet7 {
 
 .attendee-value p {
     color: var(--rgb-000, #000);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -1805,7 +1805,7 @@ main>.css-1r9jet7 {
 
 .radio-main .MuiFormControlLabel-root .MuiFormControlLabel-label {
     color: var(--rgb-000, #000);
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
@@ -1866,12 +1866,11 @@ main>.css-1r9jet7 {
 .save-card p {
     color: var(--rgb-000, #000);
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 100%;
-    /* 14px */
+    line-height: 100%; /* 14px */
     letter-spacing: 0.14px;
 }
 
@@ -1912,7 +1911,7 @@ main>.css-1r9jet7 {
 
 .card-list-section .heading {
     color: var(--rgb-000, #000);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1921,7 +1920,7 @@ main>.css-1r9jet7 {
 
 .card-list-section .sub-heading {
     color: rgba(0, 0, 0, 0.7);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1936,19 +1935,18 @@ main>.css-1r9jet7 {
 
 .gray-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: rgba(0, 0, 0, 0.5);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
-    /* 142.857% */
+    line-height: 20px; /* 142.857% */
     text-decoration: none;
     cursor: pointer;
 }
 
 .blue-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1959,7 +1957,7 @@ main>.css-1r9jet7 {
 
 .red-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: #e35205;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1969,10 +1967,8 @@ main>.css-1r9jet7 {
 }
 
 .MuiOutlinedInput-input[type="number"] {
-    -moz-appearance: textfield;
-    /* For Firefox */
-    appearance: none;
-    /* For Chrome, Safari, and newer versions of Firefox */
+    -moz-appearance: textfield; /* For Firefox */
+    appearance: none; /* For Chrome, Safari, and newer versions of Firefox */
 }
 
 /* Remove the inner and outer spin buttons for WebKit browsers */
@@ -1987,7 +1983,7 @@ main>.css-1r9jet7 {
 }
 
 .card-input .MuiInputBase-input.MuiOutlinedInput-input {
-    color: rgba(0, 48, 135, 0.5);
+    color: #003087;
     font-family: Inter;
     font-size: 16px;
     font-style: normal;
@@ -2024,7 +2020,7 @@ main>.css-1r9jet7 {
 
 .video-main p {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -2051,7 +2047,7 @@ main>.css-1r9jet7 {
 
 .signature-box .see-more {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -2081,12 +2077,11 @@ main>.css-1r9jet7 {
 
 .link-line.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%;
-    /* 24px */
+    line-height: 150%; /* 24px */
     text-decoration-line: underline;
     text-decoration-color: #003087;
     cursor: pointer;
@@ -2094,7 +2089,7 @@ main>.css-1r9jet7 {
 
 .red-link-line.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: var(--primary-orange, #e35205);
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     text-decoration-color: #e35205;
     font-size: 16px;
     font-style: normal;
@@ -2152,7 +2147,7 @@ main>.css-1r9jet7 {
     box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.1);
     color: var(--primary-blue, #003087);
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -2165,11 +2160,15 @@ main>.css-1r9jet7 {
     width: 49px !important;
 }
 
-.filter-dropdown-section .custom-select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
+.filter-dropdown-section
+.custom-select
+.MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
     min-height: 0;
 }
 
-.filter-dropdown-section .card-input .MuiInputBase-input.MuiOutlinedInput-input {
+.filter-dropdown-section
+.card-input
+.MuiInputBase-input.MuiOutlinedInput-input {
     padding-top: 0;
     padding-bottom: 0;
     height: 3rem;
@@ -2246,7 +2245,7 @@ main>.css-1r9jet7 {
 
 .custom-heading.MuiTypography-root.MuiTypography-body1 {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -2256,7 +2255,7 @@ main>.css-1r9jet7 {
 .service-wrap .avatar-list p {
     color: #000;
     text-align: right;
-    font-family: Myriad Pro;
+    font-family: UniversLTStd;
     font-size: 11px;
     font-style: normal;
     font-weight: 600;
@@ -2311,7 +2310,7 @@ main>.css-1r9jet7 {
 
 .overlay-content p {
     color: #fff;
-
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -2322,7 +2321,7 @@ main>.css-1r9jet7 {
 
 .overlay-content .header .heading {
     color: #fff;
-
+    font-family: Univers LT Std;
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
@@ -2332,7 +2331,7 @@ main>.css-1r9jet7 {
 
 .img-footer .heading.MuiTypography-root.MuiTypography-body1 {
     color: #fff;
-
+    font-family: Univers LT Std;
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
@@ -2377,7 +2376,7 @@ main>.css-1r9jet7 {
 
 .credit-remain p:first-of-type {
     color: #e35205;
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -2387,7 +2386,7 @@ main>.css-1r9jet7 {
 
 .credit-remain p:nth-of-type(2) {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -2439,12 +2438,11 @@ main>.css-1r9jet7 {
 
 .credit-header p {
     color: var(--rgb-000, #000);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 150%;
-    /* 24px */
+    line-height: 150%; /* 24px */
 }
 
 .credit-box .credit-footer {
@@ -2457,7 +2455,7 @@ main>.css-1r9jet7 {
 
 .credit-footer p:nth-child(even) {
     color: #003087;
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -2498,7 +2496,7 @@ main>.css-1r9jet7 {
 
 .main-schedule-box p:first-child {
     color: var(--primary-blue, #003087);
-
+    font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -2507,7 +2505,7 @@ main>.css-1r9jet7 {
 
 .class-section-box .class-section p:first-child {
     color: var(--rgb-000, #000);
-
+    font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -2517,7 +2515,7 @@ main>.css-1r9jet7 {
 .class-section-box .class-section p:nth-child(2) {
     color: #003087;
     /*text-align: center;*/
-
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -2582,7 +2580,7 @@ main>.css-1r9jet7 {
 .with-footer .checked-in {
     color: #003087;
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -2594,7 +2592,7 @@ main>.css-1r9jet7 {
 .with-footer .cancel {
     color: #e35205;
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -2605,7 +2603,7 @@ main>.css-1r9jet7 {
 .with-footer .absent {
     color: rgba(0, 0, 0, 0.7);
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -2628,7 +2626,7 @@ main>.css-1r9jet7 {
 .shop-cart p {
     color: #003087;
     text-align: center;
-
+    font-family: Univers LT Std;
     font-size: 14.6px;
     font-style: normal;
     font-weight: 400;
@@ -2693,7 +2691,7 @@ main>.css-1r9jet7 {
 .heading.MuiTypography-root.MuiTypography-body1 {
     color: #003087;
     /* text-align: center; */
-
+    font-family: Univers LT Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -2735,7 +2733,8 @@ main>.css-1r9jet7 {
     padding: 40px;
 }
 
-.slider-section .content-section>p.heading.MuiTypography-root.MuiTypography-body1 {
+.slider-section .content-section > p.heading.MuiTypography-root.MuiTypography-body1 {
+    font-family: Univers LT Std;
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
@@ -2743,6 +2742,7 @@ main>.css-1r9jet7 {
 }
 
 .slider-section .content-section .MuiBox-root p {
+    font-family: Univers LT Std;
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
@@ -2750,6 +2750,7 @@ main>.css-1r9jet7 {
 }
 
 .slider-section .content-section button.MuiButtonBase-root {
+    font-family: Univers LT Std;
     font-size: 12px;
     font-weight: 700;
     line-height: 14px;
@@ -2857,117 +2858,316 @@ main>.css-1r9jet7 {
     /*width: 60px !important;*/
 }
 
-/* ------------ Settings Style Start ------------------------*/
-.setting-text {
-    color: #000000 !important;
+/*profile*/
+.profile-main {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+}
+
+.profile-main .dp-section {
+    position: relative;
+    width: 167px;
+    height: 168px;
+}
+
+.profile-main .dp-section > img {
+    border-radius: 50%;
+    width: 162px;
+    height: 156px;
+}
+
+.profile-main .dp-section .img-input {
+    right: -12px;
+    position: absolute;
+    top: 29px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.img-input img {
+
+    width: 50px;
+    height: 50px;
+
+}
+
+.img-input > input {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+
+
+}
+
+.profile-main .form-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-section .input-item-wrap {
+    width: 49%;
+
+}
+
+.form-section .section-heading {
+    color: var(--c-1, #003087);
+    font-family: Univers LT Std;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.18px;
+    width: 100%;
+}
+
+.input-item-wrap .liability-btn-wrap {
+    background: white;
+    padding: 13px 23px;
+    border-radius: 34px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.liability-btn-wrap .expiryBtn {
+    margin: 0;
+}
+
+.liability-btn-wrap svg {
+    color: #32B2AC;
+}
+
+.form-inputs .MuiInputBase-root.MuiOutlinedInput-root {
+    background: white;
+    border-radius: 40px !important;
+    padding-left: 21px;
+    color: #003087;
+}
+
+.form-inputs .MuiOutlinedInput-notchedOutline {
+    border: 0;
+}
+
+.form-inputs .MuiInputBase-input.MuiOutlinedInput-input {
+    padding: 15.5px 14px;
+}
+
+.form-inputs .MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
+    background: #fff;
+}
+
+/*dog profile*/
+.input-toggle-wrap {
+
+}
+
+.input-toggle-wrap .toggle-btn.MuiButtonBase-root.MuiToggleButton-root {
+    background: transparent;
+    border-radius: 33px;
+    color: #003087;
+    width: 120px;
+    border: 2px solid #003087;
+}
+
+.input-toggle-wrap .toggle-btn.MuiButtonBase-root.MuiToggleButton-root.Mui-selected {
+    color: white;
+    background: #003087;
+}
+
+.toggle-btn.MuiButtonBase-root.Mui-disabled.MuiToggleButton-root.Mui-selected {
+    border: 2px solid rgba(0, 48, 135, 0.29);
+    background: rgba(0, 48, 135, 0.29);
+}
+
+.toggle-btn.MuiButtonBase-root.MuiToggleButton-root.Mui-disabled {
+    border-color: rgba(0, 48, 135, 0.29);
+    color: rgba(0, 48, 135, 0.29);
+}
+
+.input-toggle-wrap {
+    margin-bottom: 20px;
+}
+
+.input-toggle-wrap .MuiToggleButtonGroup-root {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 3%;
+}
+
+.input-toggle-wrap > p {
+    color: var(--rgb-000, #000);
+    font-family: Univers LT Std;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: -0.28px;
+    margin-bottom: 20px;
+}
+
+.input-item-wrap .liability-btn-wrap.upload {
+    border: 2px dashed #003087;
+}
+.input-item-wrap.q-and-a{
+    width: 100%;
+}
+.input-toggle-wrap .text-field {
+    width: 100%;
+    background: white;
+    height: 100%;
+    border-radius: 30px;
+    padding: 16px;
+}
+.input-toggle-wrap .text-field .MuiOutlinedInput-notchedOutline {
+    border: 0 ;
+}
+.input-toggle-wrap .text-field .MuiInputBase-input.MuiOutlinedInput-input{
+    height: auto
+}
+.input-item-wrap > label{
+    margin-bottom: 15px;
+
+}
+.input-item-wrap .custom-select .MuiInputBase-input.MuiOutlinedInput-input{
+    padding-left: 32px;
+}
+.dropdown-select .MuiSvgIcon-root{
+    display: none;
+}
+.dropdown-select .MuiSelect-nativeInput{
+    height: 100%;
+}
+.custom-select .dropdown-select .MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiAutocomplete-inputRoot{
+    padding-right: 16px;
+}
+.custom-select .dropdown-select .MuiAutocomplete-input{
+    color: #003087;
+}
+
+.sidebar-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    position: absolute;
+    left: 50%;
+    width: max-content;
+    bottom: 0;
+    transform: translate(-50%, 0px);
+
+}
+
+/* ----------- Settings Style Start ---------------------*/
+.setting-text{
+    color:#000000 !important;
     font-weight: 700 !important;
     font-size: 16px !important;
 }
 
-.header-text-blue {
-    font-family: 'UniversLTStd';
-    color: #003087 !important;
+.header-text-blue{
+    font-family: 'UniversLTStd' !important;
+    color:#003087 !important;
     line-height: 21.6px !important;
 }
-
-.header-text-black {
-    font-family: 'UniversLTStd';
-    color: #000000 !important;
-
+.header-text-black{
+    font-family: 'UniversLTStd' !important;
+    color:#000000 !important;
+    
 }
 
-.header-text-orange {
+.header-text-orange{
     font-family: 'UniversLTStd' !important;
-    color: #E35205 !important;
+    color:#E35205 !important;
     font-size: 16px !important;
 }
-
-.font-weight-400 {
-    font-weight: 400 !important;
+.font-weight-400{
+    font-weight:400 !important;
+}
+.font-weight-700{
+    font-weight:700 !important;
 }
 
-.font-weight-700 {
-    font-weight: 700 !important;
-}
-
-.line-height-19 {
+.line-height-19{
     line-height: 19.2px !important;
 }
-
-.back-ground {
+.back-ground{
     background-color: white !important;
 }
 
-.icon-style {
+.icon-style{
     color: #003087 !important;
 }
 
-.p-11 {
+.p-11{
     padding: 11px !important;
 }
 
-.cursor-pointer {
+.cursor-pointer{
     cursor: pointer !important;
 }
 
-.display-flex {
+.display-flex{
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
 }
 
-.book-btn-payment {
+.book-btn-payment{
     font-family: 'UniversLTStd' !important;
-    font-weight: 700 !important;
+    font-weight:700 !important;
     font-size: 18px !important;
     padding: 12px 28px !important;
     border: 0 !important;
 }
 
-.twiter-style {
-    color: #00ACEE !important;
+.twiter-style{
+    color:#00ACEE !important;
 }
 
-.facebook-style {
+.facebook-style{
     color: #3B5998 !important;
 }
 
-.f-12 {
+.f-12{
     font-size: 12px !important;
 }
 
-.f-14 {
+.f-14{
     font-size: 14px !important;
 }
 
-.f-16 {
-    font-size: 16px !important;
+.f-16{
+    font-size:  16px !important;
 }
 
-.f-18 {
+.f-18{
     font-size: 18px !important;
 }
 
-.height-90 {
+.height-90{
     height: 90px !important;
 }
 
-.d-flex {
+.d-flex{
     display: flex !important;
-    gap: 10px !important;
+    gap:10px !important;
     align-items: center !important;
 }
-
-.white-btn.MuiButtonBase-root {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 14px;
-    background: #fff;
-    color: #003087;
-    padding: 15px 30px;
-    border-radius: 30px;
-    text-transform: capitalize;
-    letter-spacing: 0.1px; 
-}
-
-/* ------------ Settings Style End ------------------------*/
+/* ----------- Settings Style End ---------------------*/

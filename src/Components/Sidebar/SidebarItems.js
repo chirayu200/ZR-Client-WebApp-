@@ -28,6 +28,6 @@ export const SidebarItems = [
 	{
 		icon: <SettingsIcon />,
 		name: "Settings",
-		path: "/",
+		path: "/Settings",
 	},
 ];
