@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { CustomButton } from "../../Components/Common";
 
-import { Avatar, Typography, Box, List, ListItem, ListItemIcon, Grid } from "@mui/material";
+import { Avatar, Typography, Box, List, ListItem, ListItemIcon, Grid, Button } from "@mui/material";
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Payments from "./Payments";
@@ -85,7 +85,7 @@ export default function Settings() {
                                         </Box>
 
                                     </Box>
-                                   
+
                                 </Box>
                                 <List sx={{ width: '100%', maxWidth: 360 }}>
                                     <ListItem>
@@ -165,24 +165,10 @@ export default function Settings() {
                                 </List>
                                 <Grid container spacing={2} sx={{ mt: 4 }}>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <CustomButton
-                                            className='item-detail-btn-sub header-text-blue font-weight-700 f-16'
-                                            title={"Privacy policy"}
-                                            color='#003087'
-                                            backgroundColor='white'
-                                            width="100%"
-                                            height="30px"
-                                        />
+                                        <Button className="white-btn f-16" fullWidth> Privacy policy </Button>
                                     </Grid>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <CustomButton
-                                            className='item-detail-btn-sub header-text-blue font-weight-700 f-16'
-                                            title={"Terms and condition"}
-                                            color='#003087'
-                                            backgroundColor='white'
-                                            width="100%"
-                                            height="30px"
-                                        />
+                                        <Button className="white-btn f-16" fullWidth> Terms and condition </Button>
                                     </Grid>
                                 </Grid>
                             </>

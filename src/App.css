@@ -2958,4 +2958,16 @@ main>.css-1r9jet7 {
     align-items: center !important;
 }
 
+.white-btn.MuiButtonBase-root {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    background: #fff;
+    color: #003087;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-transform: capitalize;
+    letter-spacing: 0.1px; 
+}
+
 /* ------------ Settings Style End ------------------------*/
