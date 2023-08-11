@@ -2,7 +2,7 @@ name: AWS OIDC Connect Demo
 on:
   push:
     branches:
-      - Development 
+      - QualityAssurance 
 env:
   AWS_REGION : "us-east-1"
   AWS_BUCKET_NAME : "react-test-clientzr"
@@ -14,7 +14,7 @@ permissions:
 jobs:
   DemoOIDC:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/Development' 
+    if: github.ref == 'refs/heads/QualityAssurance' 
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
@@ -34,7 +34,7 @@ jobs:
 
   DemoBuild:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/Development'
+    if: github.ref == 'refs/heads/QualityAssurance'
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
