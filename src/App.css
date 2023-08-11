@@ -21,7 +21,7 @@
     align-items: center;
 }
 
-.splash-container .css-1oqqzyl-MuiContainer-root {
+.splash-container.MuiContainer-root {
     padding: 0 !important;
     box-sizing: unset !important;
 }
@@ -54,7 +54,7 @@
 
 /* splash End */
 /* sign up */
-.signup-container.css-1oqqzyl-MuiContainer-root {
+.signup-container.MuiContainer-root {
     background-color: #e35205;
     height: 100%;
     padding: 0 !important;
