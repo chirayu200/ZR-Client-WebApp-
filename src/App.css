@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'UniversLTStd';
+    src: url('assets/fonts/UniversLTStd.ttf') format('truetype');
+}
+
 /* circular progress */
 .progress-wrap {
     display: flex;
@@ -142,7 +147,8 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 22.5px */
+    line-height: 125%;
+    /* 22.5px */
     text-transform: capitalize;
 }
 
@@ -152,7 +158,8 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 22.5px */
+    line-height: 125%;
+    /* 22.5px */
     text-transform: capitalize;
 }
 
@@ -178,7 +185,8 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 17.5px */
+    line-height: 125%;
+    /* 17.5px */
     text-transform: capitalize;
 }
 
@@ -211,7 +219,8 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 20px */
+    line-height: 125%;
+    /* 20px */
     text-transform: capitalize;
 }
 
@@ -236,7 +245,8 @@
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
-    line-height: 130%; /* 39px */
+    line-height: 130%;
+    /* 39px */
     letter-spacing: -0.3px;
     text-transform: uppercase;
 }
@@ -247,7 +257,8 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 20px */
+    line-height: 125%;
+    /* 20px */
 }
 
 .forgot-main .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
@@ -288,7 +299,8 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 125%; /* 20px */
+    line-height: 125%;
+    /* 20px */
     text-transform: capitalize;
 }
 
@@ -353,7 +365,7 @@
 
 .header-text {
     color: #003087;
-    
+
     font-size: 17px;
     font-style: normal;
     font-weight: 400;
@@ -379,7 +391,7 @@
 
 .warning-section p {
     color: #003087;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -399,12 +411,10 @@
     width: 42%;
     height: 297px;
     border-radius: 20px;
-    background: linear-gradient(
-            180deg,
+    background: linear-gradient(180deg,
             #32b2ac 62.33%,
             #289691 92.01%,
-            #1f807b 100%
-    );
+            #1f807b 100%);
 }
 
 .schedule-section .visit-schedule {
@@ -424,7 +434,8 @@
     font-size: 45px;
     font-style: normal;
     font-weight: 400;
-    line-height: 111.3%; /* 50.085px */
+    line-height: 111.3%;
+    /* 50.085px */
 }
 
 .dashboard-container .achievements-section {
@@ -459,7 +470,7 @@
 }
 
 .achieved-header .heading {
-    color: var(--c-1, #003087);    
+    color: var(--c-1, #003087);
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -467,7 +478,7 @@
 }
 
 .top-achieved-list .description {
-    color: #003087;    
+    color: #003087;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -499,7 +510,7 @@
 }
 
 .holders-item p {
-    color: #003087;    
+    color: #003087;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
@@ -552,15 +563,15 @@
     color: #003087;
 }
 
-.items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 3) .counter {
+.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 3) .counter {
     background-color: #32b2ac;
 }
 
-.items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 2) .counter {
+.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 2) .counter {
     background-color: #003087;
 }
 
-.items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 1) .counter {
+.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 1) .counter {
     background-color: #e35205;
 }
 
@@ -590,7 +601,7 @@
 
 .stepText {
     color: #000;
-    text-align: center;    
+    text-align: center;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -612,12 +623,15 @@
 
 /* End */
 /* ---------------------M-styling start---------------- */
-html, body, #root, .global {
+html,
+body,
+#root,
+.global {
     min-height: 100vh;
     height: auto;
 }
 
-main > .css-1r9jet7 {
+main>.css-1r9jet7 {
     display: none;
 }
 
@@ -732,7 +746,8 @@ main > .css-1r9jet7 {
     width: 100%;
 }
 
-.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(1) p:nth-of-type(1), .codeBox p {
+.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(1) p:nth-of-type(1),
+.codeBox p {
     color: #000;
     font-weight: 700;
     font-size: 16px;
@@ -766,7 +781,8 @@ main > .css-1r9jet7 {
     flex-direction: column;
 }
 
-.checkProcess > div, .purchaseCard {
+.checkProcess>div,
+.purchaseCard {
     border-radius: 32px;
     background: #fff;
     box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
@@ -787,11 +803,12 @@ main > .css-1r9jet7 {
     top: -15px
 }
 
-.codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:after, .codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
+.codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:after,
+.codeBox .css-v4u5dn-MuiInputBase-root-MuiInput-root:before {
     border-bottom-style: dotted;
 }
 
-.summaryBox > p {
+.summaryBox>p {
     color: #003087;
     font-size: 18px;
     font-weight: 700;
@@ -800,7 +817,7 @@ main > .css-1r9jet7 {
     margin-bottom: 15px;
 }
 
-.summaryBox > div {
+.summaryBox>div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -820,7 +837,7 @@ main > .css-1r9jet7 {
     padding: 30px 20px;
 }
 
-.checktext > p:nth-of-type(1) {
+.checktext>p:nth-of-type(1) {
     font-size: 24px;
     font-weight: 700;
     color: #000;
@@ -868,7 +885,7 @@ main > .css-1r9jet7 {
     align-items: flex-start;
 }
 
-.purchaseFlex > div {
+.purchaseFlex>div {
     width: 49%;
 }
 
@@ -889,7 +906,8 @@ main > .css-1r9jet7 {
     text-transform: capitalize;
 }
 
-.purchaseCard .top p:nth-of-type(2), .purchaseCard .item p:nth-of-type(1) {
+.purchaseCard .top p:nth-of-type(2),
+.purchaseCard .item p:nth-of-type(1) {
     font-size: 17px;
     font-weight: 700;
     color: #000;
@@ -904,162 +922,409 @@ main > .css-1r9jet7 {
     background-color: #E7EFF9;
     padding: 9px 29px;
 }
+
 /*-------- notification sidebar --------*/
-.notifyHead{padding: 20px; display: flex; justify-content: space-between; align-items: center;}
-.closeNotify.MuiButtonBase-root{width: 30px; height: 30px; background: #E7EFF9; border-radius: 50%; min-width: 30px; color: #003087;}
-.notifySidebar .MuiPaper-root{border-radius: 15px 0 0 15px;} 
-.MuiBackdrop-root.MuiModal-backdrop {background: #00308780;}
-.notifyHead p:nth-of-type(1){color: #003087; font-weight: 700; font-size: 17px; text-transform: uppercase;}
-.notifyHead button:nth-of-type(2){color: #000; font-weight: 400; text-transform: none; font-size: 16px; }
-.notifyHead button:nth-of-type(3){color: #003087;}
-.notifyWrap{position: relative;}
-.notifyWrap .item{padding: 30px 30px 30px 15px; display: flex; justify-content:  space-between; align-items: center; border-bottom: 1px solid #00000029;}
-.notifyWrap .iconWrap{z-index: 2; margin: 0 10px; box-shadow: 0px 4px 4px 0px #00000080;width: 40px; height: 40px; background-color: #fff; border-radius: 50%; flex-shrink: 0; display: inline-flex; justify-content: center; align-items: center; color: #E35205;}
-.notifyWrap .item>p, .notifyWrap .item>.MuiBox-root p:nth-of-type(2){font-size: 14px; color: #00000080;}
-.notifyWrap .item>.MuiBox-root p:nth-of-type(1){color: #000; font-weight: 700; font-size: 16px;}
-.notifyWrap .item:before{content:""; width: 3px; height: 100%; position: absolute;z-index: 1; left: 105px; top:0; background: #b3c1db; }
-.notifyWrap .item.unread{ background: #E7EFF9; border-bottom: none;}
-.notifyWrap .item.unread>p, .notifyWrap .item.unread>.MuiBox-root p:nth-of-type(2){color: #000;}
+.notifyHead {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeNotify.MuiButtonBase-root {
+    width: 30px;
+    height: 30px;
+    background: #E7EFF9;
+    border-radius: 50%;
+    min-width: 30px;
+    color: #003087;
+}
+
+.notifySidebar .MuiPaper-root {
+    border-radius: 15px 0 0 15px;
+}
+
+.MuiBackdrop-root.MuiModal-backdrop {
+    background: #00308780;
+}
+
+.notifyHead p:nth-of-type(1) {
+    color: #003087;
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.notifyHead button:nth-of-type(2) {
+    color: #000;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+}
+
+.notifyHead button:nth-of-type(3) {
+    color: #003087;
+}
+
+.notifyWrap {
+    position: relative;
+}
+
+.notifyWrap .item {
+    padding: 30px 30px 30px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00000029;
+}
+
+.notifyWrap .iconWrap {
+    z-index: 2;
+    margin: 0 10px;
+    box-shadow: 0px 4px 4px 0px #00000080;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #E35205;
+}
+
+.notifyWrap .item>p,
+.notifyWrap .item>.MuiBox-root p:nth-of-type(2) {
+    font-size: 14px;
+    color: #00000080;
+}
+
+.notifyWrap .item>.MuiBox-root p:nth-of-type(1) {
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.notifyWrap .item:before {
+    content: "";
+    width: 3px;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 105px;
+    top: 0;
+    background: #b3c1db;
+}
+
+.notifyWrap .item.unread {
+    background: #E7EFF9;
+    border-bottom: none;
+}
+
+.notifyWrap .item.unread>p,
+.notifyWrap .item.unread>.MuiBox-root p:nth-of-type(2) {
+    color: #000;
+}
+
 /*---------- location sidebar -------------*/
-.locationSidebar{padding: 30px;}
-.locationSidebar .MuiPaper-root{border-radius: 15px 0 0 15px;}
-.locationHead{margin-bottom: 20px; display:  flex; justify-content: space-between; align-items: center;}
-.locationHead>div:nth-of-type(1){padding: 7px 10px; border-radius: 20px; box-shadow: 0px 0px 8px 0px #0000001A;
-    display: flex; justify-content: center; align-items: center;}
-.locationHead>div:nth-of-type(1) .MuiSvgIcon-root{width: 15px; color: #003087; margin-right: 5px;}
-.locationHead>div:nth-of-type(1) p{    
-font-size: 12px;
-font-weight: 700;
-line-height: 14px; color: #003087; letter-spacing: 0.1px;
+.locationSidebar {
+    padding: 30px;
+}
+
+.locationSidebar .MuiPaper-root {
+    border-radius: 15px 0 0 15px;
+}
+
+.locationHead {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.locationHead>div:nth-of-type(1) {
+    padding: 7px 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 8px 0px #0000001A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.locationHead>div:nth-of-type(1) .MuiSvgIcon-root {
+    width: 15px;
+    color: #003087;
+    margin-right: 5px;
+}
+
+.locationHead>div:nth-of-type(1) p {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    color: #003087;
+    letter-spacing: 0.1px;
 
 
 }
-.locationHead>p:nth-of-type(1){background: #32B2AC; color:#fff;
-    padding: 10px 20px ;
-    border-radius: 37px;
-   
-font-size: 12px;
-font-weight: 700;
-margin: 0 10px;
 
-   
-     }
-     .locationHead>p:nth-of-type(2){
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 14px; color: #D13A00;
-       
-        }
-        .locationSidebar>button{margin-bottom: 20px;}
-       .locationSidebar .main-schedule-box{ display: flex; flex-direction: column;  gap: 20px; padding: 25px; margin-bottom: 20px; border-radius: 20px; box-shadow: 0px 2px 20px 0px #1E386033;}
-       .dirBox{margin-bottom: 20px; padding: 20px 0;border-bottom: 1px solid #00000029;}
-       .dirBox>div:nth-of-type(1){display: flex; justify-content: space-between; align-items: flex-start;}
-       .dirBox>div>div{margin-bottom: 20px;}
-       .dirBox  p:nth-of-type(1) {        
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: 0em;
-    color:#003087;
-        }
-       .dirBox p:nth-of-type(2){
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: 0em;
-        color:#000;
-        }
-        .dirBox button{color: #003087; 
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 21px;
-            letter-spacing: 0em;
-           
-            }
+.locationHead>p:nth-of-type(1) {
+    background: #32B2AC;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 37px;
+
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0 10px;
+
+
+}
+
+.locationHead>p:nth-of-type(2) {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #D13A00;
+
+}
+
+.locationSidebar>button {
+    margin-bottom: 20px;
+}
+
+.locationSidebar .main-schedule-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 20px 0px #1E386033;
+}
+
+.dirBox {
+    margin-bottom: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #00000029;
+}
+
+.dirBox>div:nth-of-type(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dirBox>div>div {
+    margin-bottom: 20px;
+}
+
+.dirBox p:nth-of-type(1) {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #003087;
+}
+
+.dirBox p:nth-of-type(2) {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #000;
+}
+
+.dirBox button {
+    color: #003087;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0em;
+
+}
+
 /*-------- index phase section -------*/
-.phaseFlex{  padding-top: 40px; display: flex; justify-content: space-between; align-items: center;}
-.progresswrap{position: relative;}
-.phaseFlex .item>img{margin: 0 auto; display: block; width: 44px; margin-bottom: 5px;}
-.phaseFlex .item>span{font-size: 12px; display: block;
-    text-align: center; margin-bottom: 25px;}
-    .circlePBar {
-      
-        width: 70px !important;
-        height: 70px !important;
-        margin: 0 auto;
+.phaseFlex {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progresswrap {
+    position: relative;
+}
+
+.phaseFlex .item>img {
+    margin: 0 auto;
+    display: block;
+    width: 44px;
+    margin-bottom: 5px;
+}
+
+.phaseFlex .item>span {
+    font-size: 12px;
+    display: block;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.circlePBar {
+
+    width: 70px !important;
+    height: 70px !important;
+    margin: 0 auto;
     display: block !important;
-    }
-    .progresswrap>img{ width: 50px; position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);}
-    .phaseFlex .item{position: relative;}
-    .phaseFlex .item:after{content: ''; position: absolute; width: 100%; height: 3px; border-bottom: 3px dotted #D5DCEA; right: -100%;
-        top: 30px;}
-        .phaseFlex .item.done:after{border-bottom: 3px solid #D5DCEA;}
-        .phaseFlex .item:nth-last-of-type(1):after{width: 50%;right:-50%;}
- /*----------- membership right side----------*/
- .memberRight{width: 50%;gap:20px; display: flex; flex-direction: column;}
- .memBox{display: flex; justify-content: space-between; align-items: center; background: #003087; padding: 30px; border-radius: 20px;}
- .memBox div p:nth-of-type(1) {
+}
+
+.progresswrap>img {
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.phaseFlex .item {
+    position: relative;
+}
+
+.phaseFlex .item:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    border-bottom: 3px dotted #D5DCEA;
+    right: -100%;
+    top: 30px;
+}
+
+.phaseFlex .item.done:after {
+    border-bottom: 3px solid #D5DCEA;
+}
+
+.phaseFlex .item:nth-last-of-type(1):after {
+    width: 50%;
+    right: -50%;
+}
+
+/*----------- membership right side----------*/
+.memberRight {
+    width: 50%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.memBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #003087;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.memBox div p:nth-of-type(1) {
     font-size: 38px;
     font-weight: 400;
     line-height: 42px;
     color: #fff;
-    }
-    .memBox div p:nth-of-type(2){
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 17px;
-        color: #fff;
-        }
-        .bundleBox{display: flex; justify-content: space-between; align-items: flex-start;}
-        .bundleBox>div{width: 49%;
-            border-radius: 20px; background: #fff; text-align: center; padding: 30px;
-           
-            }
-        .bundleBox div p:nth-of-type(1), .historyBox p:nth-of-type(1){
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 24px;
-           
-            }
-        .bundleBox div p:nth-of-type(2), .historyBox p:nth-of-type(2){
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 17px;
-            
-            }
-            .bundleBox div:nth-of-type(2){background:  #FFF0E8;}
-            .historyBox{ text-align: center;
-               background: #fff; padding: 30px 30px;
-border-radius: 32px
+}
 
-            }
-            /* membership filters */
-            .membership-filters .dropdown-select{width: 100%; background: #fff;
-                border: none;
-                border-radius: 50px;}
-            .MuiOutlinedInput-notchedOutline{border-color: #fff !important;}
-            .membership-filters .dropdown-select .MuiButtonBase-root{border: none !important;}
-            .dropItem.MuiMenuItem-root{display: flex; justify-content: space-between; align-items: center;border-bottom: 1px solid #00000033;
-                background: transparent !important;
-                padding: 14px 25px;}
-                .expiryBtn.MuiButtonBase-root{
-                    
-font-size: 14px;
-font-weight: 400;
-line-height: 17px;
-text-decoration: underline;
+.memBox div p:nth-of-type(2) {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #fff;
+}
+
+.bundleBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.bundleBox>div {
+    width: 49%;
+    border-radius: 20px;
+    background: #fff;
+    text-align: center;
+    padding: 30px;
+
+}
+
+.bundleBox div p:nth-of-type(1),
+.historyBox p:nth-of-type(1) {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+
+}
+
+.bundleBox div p:nth-of-type(2),
+.historyBox p:nth-of-type(2) {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+
+}
+
+.bundleBox div:nth-of-type(2) {
+    background: #FFF0E8;
+}
+
+.historyBox {
+    text-align: center;
+    background: #fff;
+    padding: 30px 30px;
+    border-radius: 32px
+}
+
+/* membership filters */
+.membership-filters .dropdown-select {
+    width: 100%;
+    background: #fff;
+    border: none;
+    border-radius: 50px;
+}
+
+.MuiOutlinedInput-notchedOutline {
+    border-color: #fff !important;
+}
+
+.membership-filters .dropdown-select .MuiButtonBase-root {
+    border: none !important;
+}
+
+.dropItem.MuiMenuItem-root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #00000033;
+    background: transparent !important;
+    padding: 14px 25px;
+}
+
+.expiryBtn.MuiButtonBase-root {
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    text-decoration: underline;
     color: #003087;
     text-transform: capitalize;
     display: block;
     margin: 10px auto;
-                }
+}
+
 /* ---------------------M-styling-end---------------- */
 /* Custom Modal for schedule a visit*/
 .dialog-main .MuiPaper-root {
     border-radius: 30px;
     background: #fff;
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.19);
-    padding: 35px 20px 0px 35px; 
+    padding: 35px 20px 0px 35px;
 }
 
 .dialog-main .dialog-actions {
@@ -1092,13 +1357,13 @@ text-decoration: underline;
 }
 
 .schedule-section-wrap .schedule-section-box:nth-of-type(1) {
-   
+
     background: url('./assets/images/banner1.jpg') center no-repeat;
     background-size: cover;
 }
 
 .schedule-section-wrap .schedule-section-box:nth-of-type(2) {
-   
+
     background: url('./assets/images/banner.jpg') center no-repeat;
     background-size: cover;
 }
@@ -1116,7 +1381,7 @@ text-decoration: underline;
     width: 254px !important;
     padding: 10px !important;
     border: 0 !important;
-    
+
     font-size: 16px;
     text-transform: inherit;
     font-weight: 700;
@@ -1125,11 +1390,12 @@ text-decoration: underline;
 .schedule-section-action p {
     color: #fff;
     text-align: center;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 21px */
+    line-height: 150%;
+    /* 21px */
 }
 
 .header-text .dialog-link.MuiLink-root {
@@ -1168,7 +1434,7 @@ text-decoration: underline;
 
 .appointment-header .top-header .header-text {
     color: #003087;
-    
+
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -1198,7 +1464,7 @@ text-decoration: underline;
 
 .appointment-dropdown .MuiFormLabel-root.MuiInputLabel-root {
     color: var(--20, #333);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1222,7 +1488,7 @@ text-decoration: underline;
 .custom-select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
     color: #003087;
 
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1257,9 +1523,7 @@ text-decoration: underline;
     font-weight: 600;
 }
 
-.MuiDayCalendar-header
-.MuiPickersCalendarHeader-switchViewButton
-.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
+.MuiDayCalendar-header .MuiPickersCalendarHeader-switchViewButton .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
     color: #003087 !important;
 }
 
@@ -1303,7 +1567,7 @@ text-decoration: underline;
 
 .text-field .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1328,7 +1592,7 @@ text-decoration: underline;
 .drag-drop-box .drop-box-text {
     color: #003087;
     text-align: center;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1354,7 +1618,7 @@ text-decoration: underline;
 
 .available-slots {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -1376,7 +1640,7 @@ text-decoration: underline;
 
 .slots-wrap .slot-title {
     color: #003087;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -1449,7 +1713,7 @@ text-decoration: underline;
 
 .booking-notes .heading {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -1458,18 +1722,19 @@ text-decoration: underline;
 
 .booking-notes .description {
     color: rgba(0, 0, 0, 0.7);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
+    /* 142.857% */
     text-transform: lowercase;
 }
 
 .booking-notes .see-more {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1498,7 +1763,7 @@ text-decoration: underline;
 
 .attendee-header p {
     color: #003087;
-    
+
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -1509,7 +1774,7 @@ text-decoration: underline;
 
 .attendee-value p {
     color: var(--rgb-000, #000);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -1601,11 +1866,12 @@ text-decoration: underline;
 .save-card p {
     color: var(--rgb-000, #000);
     text-align: center;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 100%; /* 14px */
+    line-height: 100%;
+    /* 14px */
     letter-spacing: 0.14px;
 }
 
@@ -1646,7 +1912,7 @@ text-decoration: underline;
 
 .card-list-section .heading {
     color: var(--rgb-000, #000);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1655,7 +1921,7 @@ text-decoration: underline;
 
 .card-list-section .sub-heading {
     color: rgba(0, 0, 0, 0.7);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1670,18 +1936,19 @@ text-decoration: underline;
 
 .gray-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: rgba(0, 0, 0, 0.5);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
+    /* 142.857% */
     text-decoration: none;
     cursor: pointer;
 }
 
 .blue-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1692,7 +1959,7 @@ text-decoration: underline;
 
 .red-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: #e35205;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1702,8 +1969,10 @@ text-decoration: underline;
 }
 
 .MuiOutlinedInput-input[type="number"] {
-    -moz-appearance: textfield; /* For Firefox */
-    appearance: none; /* For Chrome, Safari, and newer versions of Firefox */
+    -moz-appearance: textfield;
+    /* For Firefox */
+    appearance: none;
+    /* For Chrome, Safari, and newer versions of Firefox */
 }
 
 /* Remove the inner and outer spin buttons for WebKit browsers */
@@ -1732,7 +2001,8 @@ text-decoration: underline;
     border-radius: 30px;
     /* padding: 13px 18px 12px 26px; */
 }
-.card-input.search img{
+
+.card-input.search img {
     background: rgb(231, 239, 249);
     border-radius: 50%;
     padding: 6px;
@@ -1754,7 +2024,7 @@ text-decoration: underline;
 
 .video-main p {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -1781,7 +2051,7 @@ text-decoration: underline;
 
 .signature-box .see-more {
     color: #003087;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -1811,11 +2081,12 @@ text-decoration: underline;
 
 .link-line.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 24px */
+    line-height: 150%;
+    /* 24px */
     text-decoration-line: underline;
     text-decoration-color: #003087;
     cursor: pointer;
@@ -1881,7 +2152,7 @@ text-decoration: underline;
     box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.1);
     color: var(--primary-blue, #003087);
     text-align: center;
-    
+
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -1894,15 +2165,11 @@ text-decoration: underline;
     width: 49px !important;
 }
 
-.filter-dropdown-section
-.custom-select
-.MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
+.filter-dropdown-section .custom-select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
     min-height: 0;
 }
 
-.filter-dropdown-section
-.card-input
-.MuiInputBase-input.MuiOutlinedInput-input {
+.filter-dropdown-section .card-input .MuiInputBase-input.MuiOutlinedInput-input {
     padding-top: 0;
     padding-bottom: 0;
     height: 3rem;
@@ -1911,7 +2178,7 @@ text-decoration: underline;
 .cards-list-wrap {
     display: flex;
     flex-direction: row;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     gap: 20px;
     width: 100%;
@@ -1979,7 +2246,7 @@ text-decoration: underline;
 
 .custom-heading.MuiTypography-root.MuiTypography-body1 {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -2044,7 +2311,7 @@ text-decoration: underline;
 
 .overlay-content p {
     color: #fff;
-    
+
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -2055,7 +2322,7 @@ text-decoration: underline;
 
 .overlay-content .header .heading {
     color: #fff;
-    
+
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
@@ -2065,7 +2332,7 @@ text-decoration: underline;
 
 .img-footer .heading.MuiTypography-root.MuiTypography-body1 {
     color: #fff;
-    
+
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
@@ -2110,7 +2377,7 @@ text-decoration: underline;
 
 .credit-remain p:first-of-type {
     color: #e35205;
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -2120,7 +2387,7 @@ text-decoration: underline;
 
 .credit-remain p:nth-of-type(2) {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -2172,11 +2439,12 @@ text-decoration: underline;
 
 .credit-header p {
     color: var(--rgb-000, #000);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 150%; /* 24px */
+    line-height: 150%;
+    /* 24px */
 }
 
 .credit-box .credit-footer {
@@ -2189,7 +2457,7 @@ text-decoration: underline;
 
 .credit-footer p:nth-child(even) {
     color: #003087;
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -2207,8 +2475,8 @@ text-decoration: underline;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-   padding: 25px;
-   
+    padding: 25px;
+
 
 }
 
@@ -2230,7 +2498,7 @@ text-decoration: underline;
 
 .main-schedule-box p:first-child {
     color: var(--primary-blue, #003087);
-    
+
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -2239,7 +2507,7 @@ text-decoration: underline;
 
 .class-section-box .class-section p:first-child {
     color: var(--rgb-000, #000);
-    
+
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -2249,7 +2517,7 @@ text-decoration: underline;
 .class-section-box .class-section p:nth-child(2) {
     color: #003087;
     /*text-align: center;*/
-    
+
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -2314,7 +2582,7 @@ text-decoration: underline;
 .with-footer .checked-in {
     color: #003087;
     text-align: center;
-    
+
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -2326,7 +2594,7 @@ text-decoration: underline;
 .with-footer .cancel {
     color: #e35205;
     text-align: center;
-    
+
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -2337,7 +2605,7 @@ text-decoration: underline;
 .with-footer .absent {
     color: rgba(0, 0, 0, 0.7);
     text-align: center;
-    
+
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
@@ -2360,7 +2628,7 @@ text-decoration: underline;
 .shop-cart p {
     color: #003087;
     text-align: center;
-    
+
     font-size: 14.6px;
     font-style: normal;
     font-weight: 400;
@@ -2413,7 +2681,7 @@ text-decoration: underline;
     border-radius: 20px;
     background: #fff;
     width: 100%;
-   
+
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -2425,7 +2693,7 @@ text-decoration: underline;
 .heading.MuiTypography-root.MuiTypography-body1 {
     color: #003087;
     /* text-align: center; */
-    
+
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -2436,7 +2704,7 @@ text-decoration: underline;
     border-radius: 20px;
     background: #e7eff9;
     width: 100%;
-   
+
     flex-shrink: 0;
     display: flex;
     flex-direction: row;
@@ -2447,13 +2715,13 @@ text-decoration: underline;
 .slider-section .image-section {
     width: 200px;
     align-self: stretch;
-    
+
 }
 
 .image-section img {
     width: 100%;
     height: 100%;
-   
+
     border-radius: 20px;
 }
 
@@ -2466,27 +2734,33 @@ text-decoration: underline;
     gap: 25px;
     padding: 40px;
 }
-.slider-section .content-section>p.heading.MuiTypography-root.MuiTypography-body1{
+
+.slider-section .content-section>p.heading.MuiTypography-root.MuiTypography-body1 {
     font-size: 16px;
     font-weight: 700;
     line-height: 24px;
-    color: #000; 
-    }
-    .slider-section .content-section .MuiBox-root p{
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 17px;
-       color:#003087
-        }
-        .slider-section .content-section button.MuiButtonBase-root{
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 14px;
-          background: #fff; color: #003087;padding: 10px 30px;
-          border-radius: 30px;
-          text-transform: capitalize;
-          letter-spacing: 0.1px;
-            }
+    color: #000;
+}
+
+.slider-section .content-section .MuiBox-root p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    color: #003087
+}
+
+.slider-section .content-section button.MuiButtonBase-root {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    background: #fff;
+    color: #003087;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-transform: capitalize;
+    letter-spacing: 0.1px;
+}
+
 /* template  */
 .template-list-main {
     border-radius: 32px;
@@ -2582,3 +2856,106 @@ text-decoration: underline;
     /*height: 60px !important;*/
     /*width: 60px !important;*/
 }
+
+/* ------------ Settings Style Start ------------------------*/
+.setting-text {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+}
+
+.header-text-blue {
+    font-family: 'UniversLTStd';
+    color: #003087 !important;
+    line-height: 21.6px !important;
+}
+
+.header-text-black {
+    font-family: 'UniversLTStd';
+    color: #000000 !important;
+
+}
+
+.header-text-orange {
+    font-family: 'UniversLTStd' !important;
+    color: #E35205 !important;
+    font-size: 16px !important;
+}
+
+.font-weight-400 {
+    font-weight: 400 !important;
+}
+
+.font-weight-700 {
+    font-weight: 700 !important;
+}
+
+.line-height-19 {
+    line-height: 19.2px !important;
+}
+
+.back-ground {
+    background-color: white !important;
+}
+
+.icon-style {
+    color: #003087 !important;
+}
+
+.p-11 {
+    padding: 11px !important;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.display-flex {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.book-btn-payment {
+    font-family: 'UniversLTStd' !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    padding: 12px 28px !important;
+    border: 0 !important;
+}
+
+.twiter-style {
+    color: #00ACEE !important;
+}
+
+.facebook-style {
+    color: #3B5998 !important;
+}
+
+.f-12 {
+    font-size: 12px !important;
+}
+
+.f-14 {
+    font-size: 14px !important;
+}
+
+.f-16 {
+    font-size: 16px !important;
+}
+
+.f-18 {
+    font-size: 18px !important;
+}
+
+.height-90 {
+    height: 90px !important;
+}
+
+.d-flex {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+}
+
+/* ------------ Settings Style End ------------------------*/
