@@ -175,11 +175,7 @@ export default function Settings() {
                         )
                 }
             })()}
-        </>
-
-
-
-
+        </> 
     )
 }
 

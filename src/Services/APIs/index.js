@@ -8,4 +8,7 @@ export {
     GetFeaturedItemDetail,
     GetBundleDetail
 } from './shop';
-export {GetClientDetailByEmailId,GetAllPets} from './client'
+export {GetClientDetailByEmailId, GetAllPets} from './client'
+export {
+    CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail
+} from './profile';
