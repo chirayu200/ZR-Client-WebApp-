@@ -1,32 +1,35 @@
-import React, {useState} from "react";
-import {Box, Container, Typography} from "@mui/material";
-
-
-import {CustomButton, NotificationSection} from "../../Components/Common";
-import ConfirmBooking from "./ConfirmBooking";
-import BookAppointment from "./BookAppointment";
-import Checkout from "./Checkout";
-import BookingTerms from "./BookingTerms";
-import BookingSuccess from "./BookingSuccess";
-import BuyCredit from "./BuyCredit";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {Box, Container, Typography} from "@mui/material";
+import {CustomButton, NotificationSection} from "../../Components/Common";
+import {default as backArrow} from "../../assets/images/orangeArrow.svg";
+import ParentProfile from "./ParentProfile";
+import DogProfile from "./DogProfile";
+import {CheckClientDetail, GetDogDetail} from "../../Services/APIs";
 
 
-const backArrow = require("../../assets/images/orangeArrow.svg").default;
-
-export default function Appointment() {
-    const [active, setActive] = useState(0);
+export default function ProfileMain({clientDetail}) {
+    const [active, setActive] = useState(0)
+    const [userDetail, setUserDetail] = useState('')
+    const [dogDetail, setDogDetail] = useState('')
     const navigate = useNavigate();
+    useEffect(() => {
+        CheckClientDetail(clientDetail.sortKey)
+            .then((response) => {
+            const [data] = response.data.Items;
+            setUserDetail(data);
+        })
+        GetDogDetail(clientDetail.sortKey,"iiii")
+            .then((response) => {
+                const [data] = response.data.Items;
+                setDogDetail(data);
+            })
+    }, [])
     const childComponent = [
-        {title: "Book An Appointment", component: <BookAppointment handleNext={() => setActive(1)}/>},
-        {title: "Confirm Booking", component: <ConfirmBooking handleNext={() => setActive(2)}/>},
-        {title: "Checkout", component: <Checkout handleNext={() => setActive(3)}/>},
-        {title: "Book An Appointment", component: <BookingTerms handleNext={() => setActive(4)}/>},
-        {title: "", component: <BookingSuccess handleBack={() => setActive(0)}/>},
-        {title: "Buy Credit", component: <BuyCredit handleBack={() => setActive(0)}/>},
+        {title: 'Edit Profile', component: <ParentProfile userDetail={userDetail}/>},
+        {title: 'Edit Dog Profile', component: <DogProfile dogDetail={dogDetail}/>},
 
     ]
-
     return (
         <Container className='appointment-container'>
             <Box className='appointment-header'>
@@ -41,8 +44,6 @@ export default function Appointment() {
                                 onClick={() => {
                                     if (active === 0) {
                                         navigate('/')
-                                    } else {
-                                        setActive(active - 1)
                                     }
                                 }}
                             />
@@ -60,5 +61,5 @@ export default function Appointment() {
             </Box>
             {childComponent[active].component}
         </Container>
-    );
+    )
 }

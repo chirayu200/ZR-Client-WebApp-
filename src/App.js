@@ -1,22 +1,23 @@
-import "./App.css";
-import React, { lazy, Suspense, useEffect, useState } from "react";
-import { Box, CircularProgress } from "@mui/material";
 import "./assets/fonts/fonts.css";
-import { BrowserRouter as Router, Navigate, Route, Routes, } from "react-router-dom";
-import { GetClientDetailByEmailId } from "./Services/APIs";
+import "./App.css";
+import React, {lazy, Suspense, useEffect, useState} from "react";
+import {Box, Button, CircularProgress} from "@mui/material";
+
+import {BrowserRouter as Router, Navigate, Route, Routes,} from "react-router-dom";
+import {GetClientDetailByEmailId} from "./Services/APIs";
 
 const withSuspense = (Component) => (props) =>
-(
-    <Suspense
-        fallback={
-            <Box className='progress-wrap'>
-                <Box className='loader'> <CircularProgress size={60} /> </Box>
-            </Box>
-        }
-    >
-        <Component {...props} />
-    </Suspense>
-);
+    (
+        <Suspense
+            fallback={
+                <Box className='progress-wrap'>
+                    <Box className='loader'> <CircularProgress size={60}/> </Box>
+                </Box>
+            }
+        >
+            <Component {...props} />
+        </Suspense>
+    );
 
 const Sidebar = withSuspense(
     lazy(() => import("./pages/../Components/Sidebar/MainSideBar.jsx"))
@@ -25,13 +26,16 @@ const AuthenticationMain = withSuspense(lazy(() => import("./pages/Accounts")));
 const Dashboard = withSuspense(lazy(() => import("./pages/Dashboard-Home")));
 const Appointment = withSuspense(lazy(() => import("./pages/Appointments")));
 const Shop = withSuspense(lazy(() => import("./pages/Shop")));
-const Settings = withSuspense(lazy(() => import("./pages/Settings")))
+const Profile = withSuspense(lazy(() => import("./pages/Profile")));
+const Settings = withSuspense(lazy(() => import("./pages/Settings")));
 
-const Layout = ({ loggedIn, Component, name, path }) => {
+const Layout = ({loggedIn, Component, name, path,clientDetail}) => {
     return (
         <>
             {loggedIn ? (
-                <Sidebar name={name} Component={Component} path={path} />
+                <>
+                <Sidebar name={name} Component={Component} path={path} clientDetail={clientDetail}/>
+                </>
             ) : (
                 Component
             )}
@@ -79,12 +83,13 @@ function App() {
                         path='/account'
                         element={
                             loggedIn ? (
-                                <Navigate to='/' />
+                                <Navigate to='/'/>
                             ) : (
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Authentication'
-                                    Component={<AuthenticationMain onLogin={handleLogin} />}
+                                    clientDetail={clientDetail}
+                                    Component={<AuthenticationMain onLogin={handleLogin}/>}
                                 />
                             )
                         }
@@ -97,10 +102,11 @@ function App() {
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Home'
-                                    Component={<Dashboard clientDetail={clientDetail} />}
+                                    clientDetail={clientDetail}
+                                    Component={<Dashboard clientDetail={clientDetail}/>}
                                 />
                             ) : (
-                                <Navigate to='/account' />
+                                <Navigate to='/account'/>
                             )
                         }
                     />
@@ -111,11 +117,12 @@ function App() {
                             loggedIn ? (
                                 <Layout
                                     loggedIn={loggedIn}
+                                    clientDetail={clientDetail}
                                     name='Appointment'
-                                    Component={<Appointment clientDetail={clientDetail} />}
+                                    Component={<Appointment clientDetail={clientDetail}/>}
                                 />
                             ) : (
-                                <Navigate to='/account' />
+                                <Navigate to='/account'/>
                             )
                         }
                     />
@@ -126,17 +133,27 @@ function App() {
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Shop'
-                                    Component={<Shop clientDetail={clientDetail} />}
+                                    clientDetail={clientDetail}
+                                    Component={<Shop clientDetail={clientDetail}/>}
                                 />
                             ) : (
-                                <Navigate to='/account' />
+                                <Navigate to='/account'/>
                             )
                         }
                     />
-                    {/* Default route */}
                     <Route
-                        path='/'
-                        element={<Navigate to={loggedIn ? "/" : "/account"} />}
+                        path='/profile'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    name='Profile'
+                                    Component={<Profile clientDetail={clientDetail}/>}
+                                />
+                            ) : (
+                                <Navigate to='/account'/>
+                            )
+                        }
                     />
                     <Route
                         path='/Settings'
@@ -151,6 +168,11 @@ function App() {
                                 <Navigate to='/account' />
                             )
                         }
+                    />					
+                    {/* Default route */}
+                    <Route
+                        path='/'
+                        element={<Navigate to={loggedIn ? "/" : "/account"}/>}
                     />
                 </Routes>
             </Router>
