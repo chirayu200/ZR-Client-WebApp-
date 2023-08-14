@@ -1,15 +1,18 @@
-// apiConstants.js
+const API_URL_DEV   = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
+const API_URL_TEST  = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
+const API_URL_STG   = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
+const API_URL_PROD  = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
 
-const API_URL_DEV   = process.env.REACT_APP_API_URL_DEV;
-const API_URL_TEST  = process.env.REACT_APP_API_URL_PROD;
-const API_URL_STG   = process.env.REACT_APP_API_URL_PROD;
-const API_URL_PROD  = process.env.REACT_APP_API_URL_PROD;
-
+console.log(process.env.REACT_APP_ENV);
 export const getApiBaseUrl = () => {
-    if (process.env.NODE_ENV === 'development') {
-        return API_URL_DEV;
-    } else {
+    if (process.env.REACT_APP_ENV === 'prod') {
         return API_URL_PROD;
+    } else if (process.env.REACT_APP_ENV === 'stage') {
+        return API_URL_STG;
+    } else if (process.env.REACT_APP_ENV === 'test') {
+        return API_URL_TEST;
+    } else {
+        return API_URL_DEV;
     }
 };
 

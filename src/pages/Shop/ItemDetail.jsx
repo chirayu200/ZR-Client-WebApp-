@@ -107,7 +107,8 @@ export default function ItemDetail({handleNext, selected, selectedType,handleBac
                     fullWidth
                     onClick={handleBack}
                 />
-                {selectedType === 'Item#01' ? <Box sx={{width:'100%'}}></Box> : <CustomButton
+                {selectedType === 'Item#01' ?
+                    <Box sx={{width:'100%'}}></Box> : <CustomButton
                     className='book-btn'
                     title={"Add to Cart"}
                     color='#fff'

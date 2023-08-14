@@ -3,28 +3,24 @@ import {Box, Container, Typography} from "@mui/material";
 
 
 import {CustomButton, NotificationSection} from "../../Components/Common";
-import ConfirmBooking from "./ConfirmBooking";
-import BookAppointment from "./BookAppointment";
-import Checkout from "./Checkout";
-import BookingTerms from "./BookingTerms";
-import BookingSuccess from "./BookingSuccess";
-import BuyCredit from "./BuyCredit";
+import AchievementMain from './AchievementMain';
+import TrophyShelf from './TrophyShelf';
+import AllJourney from './AllJourney';
+import IndividualJourney from './IndividualJourney';
 import {useNavigate} from "react-router-dom";
 
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
-export default function Appointment() {
+export default function Achievements() {
     const [active, setActive] = useState(0);
     const navigate = useNavigate();
     const childComponent = [
-        {title: "Book An Appointment", component: <BookAppointment handleNext={() => setActive(1)}/>},
-        {title: "Confirm Booking", component: <ConfirmBooking handleNext={() => setActive(2)}/>},
-        {title: "Checkout", component: <Checkout handleNext={() => setActive(3)}/>},
-        {title: "Book An Appointment", component: <BookingTerms handleNext={() => setActive(4)}/>},
-        {title: "", component: <BookingSuccess handleBack={() => setActive(0)}/>},
-        {title: "Buy Credit", component: <BuyCredit handleBack={() => setActive(0)}/>},
-
+        {title: "Trophy Shelf", component: <AchievementMain setActive={setActive} />},
+        {title: "Trophies", component: <TrophyShelf handleNext={() => setActive(2)}/>},
+        {title: "All Journey", component: <AllJourney handleNext={() => setActive(3)}/>},
+        {title: "Individual Journey", component: <IndividualJourney handleNext={() => setActive(4)}/>},
+       
     ]
 
     return (
@@ -42,17 +38,19 @@ export default function Appointment() {
                                     if (active === 0) {
                                         navigate('/')
                                     } else {
-                                        setActive(active - 1)
+                                        if(active === 2){
+                                            setActive(0)
+                                        }
+                                        else{
+                                            setActive(active - 1)
+                                        }
+                                        
                                     }
                                 }}
                             />
                             <Typography className='header-text'>{childComponent[active].title}</Typography>
                         </Box>
-                        {active === 5 && (
-                            <Box className='shop-cart'>
-                                <Typography>Available Credits</Typography>
-                            </Box>
-                        )}
+                       
                     </Box>
                 </>}
 

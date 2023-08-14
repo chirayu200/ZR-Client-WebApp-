@@ -1,6 +1,6 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import {styled} from "@mui/material/styles";
+import {useNavigate} from "react-router-dom";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -13,9 +13,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import LogoutIcon from '@mui/icons-material/Logout';
 import {SidebarItems} from './SidebarItems';
 const logo = require("../../assets/images/sidebarLogo.svg").default;
 const profile = require("../../assets/images/profile.svg").default;
+const chat = require("../../assets/images/chat.svg").default;
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
 	width: drawerWidth,
@@ -60,64 +62,77 @@ const Drawer = styled(MuiDrawer, {
 		"& .MuiDrawer-paper": closedMixin(theme),
 	}),
 }));
-export default function SideBar({ name, Component }) {
-	const navigate = useNavigate();
-	const [open, setOpen] = React.useState(false);
-	const handleDrawerClose = () => {
-		setOpen(!open);
-	};
-	
-	
-	const onItemClick = (path) => {
-		
-		navigate(path);
-	};
-	return (
-		<Box sx={{ display: "flex" }} className='global'>
-			<CssBaseline />
-			<Drawer variant='permanent' open={open} className='mainSidebar'>
-				<DrawerHeader>
-					<img src={logo} className='sideLogo' alt='logo' />
-					<IconButton onClick={handleDrawerClose} className='drawerCloseBtn'>
-						{!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-					</IconButton>
-				</DrawerHeader>
-				<List>
-					{SidebarItems?.map(
-						(item, index) => (
-							<ListItem key={index} disablePadding sx={{ display: "block" }}>
-								<ListItemButton
-									sx={{
-										minHeight: 48,
-										justifyContent: open ? "initial" : "center",
-										px: 2.5,
-										background: item.name === name && "#E35205",
-									}}
-									onClick={() => onItemClick(item.path)}
-								>
-									<ListItemIcon
-										sx={{
-											minWidth: 0,
-											mr: open ? 3 : "auto",
-											justifyContent: "center",
-										}}
-									>
-										{item.icon}
-									</ListItemIcon>
-									<ListItemText primary={item.name} sx={{ opacity: open ? 1 : 0 }} />
-								</ListItemButton>
-							</ListItem>
-						)
-					)}
-				</List>
-				<Button className='profileBtn'>
-					<img src={profile} alt='profile' />
-				</Button>
-			</Drawer>
-			<Box component='main' sx={{ flexGrow: 1, p: 3 }}>
-				<DrawerHeader />
-				{Component}
-			</Box>
-		</Box>
-	);
+export default function SideBar({name, Component, clientDetail}) {
+    const navigate = useNavigate();
+    const [open, setOpen] = React.useState(false);
+    const handleDrawerClose = () => {
+        setOpen(!open);
+    };
+
+
+    const onItemClick = (path) => {
+
+        navigate(path);
+    };
+    return (
+		<>
+        <Box sx={{display: "flex"}} className='global'>
+            <CssBaseline/>
+            <Drawer variant='permanent' open={open} className='mainSidebar'>
+                <DrawerHeader>
+                    <img src={logo} className='sideLogo' alt='logo'/>
+                    <IconButton onClick={handleDrawerClose} className='drawerCloseBtn'>
+                        {!open ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
+                    </IconButton>
+                </DrawerHeader>
+                <List>
+                    {SidebarItems?.map(
+                        (item, index) => (
+                            <ListItem key={index} disablePadding sx={{display: "block"}}>
+                                <ListItemButton
+                                    sx={{
+                                        minHeight: 48,
+                                        justifyContent: open ? "initial" : "center",
+                                        px: 2.5,
+                                        background: item.name === name && "#E35205",
+                                    }}
+                                    onClick={() => onItemClick(item.path)}
+                                >
+                                    <ListItemIcon
+                                        sx={{
+                                            minWidth: 0,
+                                            mr: open ? 3 : "auto",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        {item.icon}
+                                    </ListItemIcon>
+                                    <ListItemText primary={item.name} sx={{opacity: open ? 1 : 0}}/>
+                                </ListItemButton>
+                            </ListItem>
+                        )
+                    )}
+                </List>
+                <Box className='sidebar-footer'>
+                    <Button className='profileBtn' onClick={()=>navigate('/profile')}>
+                        <img src={clientDetail ? clientDetail.profileImage : profile} alt='profile'/>
+                    </Button>
+                    <Button className='profileBtn' onClick={() => {
+                        localStorage.clear();
+                        window.location.reload();
+
+                    }}>
+                        <LogoutIcon sx={{color: 'white'}}/>
+                    </Button>
+                </Box>
+            </Drawer>
+            <Box component='main' sx={{flexGrow: 1, p: 3}}>
+                <DrawerHeader/>
+                {Component}
+            </Box>
+        </Box>
+			<Button className="chatBtn"><img src={chat} alt="chat" /> </Button>
+
+			</>
+    );
 }

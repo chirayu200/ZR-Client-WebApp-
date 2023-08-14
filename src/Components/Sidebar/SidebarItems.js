@@ -23,11 +23,11 @@ export const SidebarItems = [
 	{
 		icon: <StarBorderIcon />,
 		name: "Achievements",
-		path: "/",
-	},	
+		path: "/achievements",
+	},
 	{
 		icon: <SettingsIcon />,
 		name: "Settings",
-		path: "/Settings",
-	}
+		path: "/",
+	},
 ];

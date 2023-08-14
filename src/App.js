@@ -1,7 +1,8 @@
+import "./assets/fonts/fonts.css";
 import "./App.css";
 import React, { lazy, Suspense, useEffect, useState } from "react";
-import { Box, CircularProgress } from "@mui/material";
-import "./assets/fonts/fonts.css";
+import { Box, Button, CircularProgress } from "@mui/material";
+
 import { BrowserRouter as Router, Navigate, Route, Routes, } from "react-router-dom";
 import { GetClientDetailByEmailId } from "./Services/APIs";
 
@@ -25,13 +26,20 @@ const AuthenticationMain = withSuspense(lazy(() => import("./pages/Accounts")));
 const Dashboard = withSuspense(lazy(() => import("./pages/Dashboard-Home")));
 const Appointment = withSuspense(lazy(() => import("./pages/Appointments")));
 const Shop = withSuspense(lazy(() => import("./pages/Shop")));
-const Settings = withSuspense(lazy(() => import("./pages/Settings")))
+const Settings = withSuspense(lazy(() => import("./pages/Settings")));
 
-const Layout = ({ loggedIn, Component, name, path }) => {
+const Profile = withSuspense(lazy(() => import("./pages/Profile/Profile")));
+const ProfilePartners = withSuspense(lazy(() => import("./pages/Profile/ProfilePartners")));
+const YourTeam = withSuspense(lazy(() => import("./pages/Profile/YourTeam")));
+const AddUser = withSuspense(lazy(() => import("./pages/Profile/AddUser")));
+
+const Layout = ({ loggedIn, Component, name, path, clientDetail }) => {
     return (
         <>
             {loggedIn ? (
-                <Sidebar name={name} Component={Component} path={path} />
+                <>
+                    <Sidebar name={name} Component={Component} path={path} clientDetail={clientDetail} />
+                </>
             ) : (
                 Component
             )}
@@ -84,6 +92,7 @@ function App() {
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Authentication'
+                                    clientDetail={clientDetail}
                                     Component={<AuthenticationMain onLogin={handleLogin} />}
                                 />
                             )
@@ -97,6 +106,7 @@ function App() {
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Home'
+                                    clientDetail={clientDetail}
                                     Component={<Dashboard clientDetail={clientDetail} />}
                                 />
                             ) : (
@@ -111,6 +121,7 @@ function App() {
                             loggedIn ? (
                                 <Layout
                                     loggedIn={loggedIn}
+                                    clientDetail={clientDetail}
                                     name='Appointment'
                                     Component={<Appointment clientDetail={clientDetail} />}
                                 />
@@ -126,6 +137,7 @@ function App() {
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Shop'
+                                    clientDetail={clientDetail}
                                     Component={<Shop clientDetail={clientDetail} />}
                                 />
                             ) : (
@@ -133,10 +145,19 @@ function App() {
                             )
                         }
                     />
-                    {/* Default route */}
                     <Route
-                        path='/'
-                        element={<Navigate to={loggedIn ? "/" : "/account"} />}
+                        path='/profile'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    name='Profile'
+                                    Component={<Profile clientDetail={clientDetail} />}
+                                />
+                            ) : (
+                                <Navigate to='/account' />
+                            )
+                        }
                     />
                     <Route
                         path='/Settings'
@@ -151,6 +172,56 @@ function App() {
                                 <Navigate to='/account' />
                             )
                         }
+                    />              
+                    {/* Profile partner*/}
+                    <Route
+                        path='profile/profile-partner'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    name='Profilepartner'
+                                    Component={<ProfilePartners clientDetail={clientDetail} />}
+                                />
+                            ) : (
+                                <Navigate to='/account' />
+                            )
+                        }
+                    />
+                    {/* Your team */}
+                    <Route
+                        path='profile/profile-partner/your-team'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    name='YourTeam'
+                                    Component={<YourTeam clientDetail={clientDetail} />}
+                                />
+                            ) : (
+                                <Navigate to='/account' />
+                            )
+                        }
+                    />
+                    {/* Add New User */}
+                    <Route
+                        path='profile/add-user'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    name='AddUser'
+                                    Component={<AddUser clientDetail={clientDetail} />}
+                                />
+                            ) : (
+                                <Navigate to='/account' />
+                            )
+                        }
+                    />
+                    {/* Default route */}
+                    <Route
+                        path='/'
+                        element={<Navigate to={loggedIn ? "/" : "/account"} />}
                     />
                 </Routes>
             </Router>
