@@ -1,6 +1,6 @@
 import {Avatar, Box, Container, Link, Stack, Typography} from "@mui/material";
 import React, {useState} from "react";
-import {CustomButton, Header, NotificationSection} from "../../Components/Common";
+import {CustomButton, Header, LeadershipBoard, NotificationSection} from "../../Components/Common";
 import {CustomDialogue} from "../../Components/Modals";
 import CircularProgress from "@mui/material/CircularProgress";
 import HistoryIcon from '@mui/icons-material/History';
@@ -214,113 +214,7 @@ export default function Home({clientDetail}) {
                                 </Box>
                             </Box>
                         </Box>
-                        <Box className='top-achieved-list'>
-                            <Box className='achieved-header'>
-                                <Typography className='heading'>
-                                    Leaderboard: All Locations
-                                </Typography>
-                                <Box>
-                                    <CustomButton
-                                        className='arrow-btn'
-                                        color='#fff'
-                                        icon={back}
-                                        backgroundColor='#32B2AC'
-                                    />
-                                    <CustomButton
-                                        className='arrow-btn'
-                                        color='#fff'
-                                        icon={next}
-                                        backgroundColor='#32B2AC'
-                                    />
-                                </Box>
-                            </Box>
-                            <Typography className='description'>
-                                Most Training Session across all zoom Room Past Year
-                            </Typography>
-                            <Box className='items-wrapper'>
-                                <Stack className='holders-item'>
-                                    <Box className='item-content'>
-                                        <Box className='first-section'>
-                                            <Box className='counter'>
-                                                <Typography className='text'>1st</Typography>
-                                            </Box>
-                                            <Box className='avatar'>
-                                                <Box className='border-white '>
-                                                    <Avatar alt='Remy Sharp' src={dog1}/>
-                                                </Box>
-                                            </Box>
-                                            <Typography>Cooper</Typography>
-                                        </Box>
-                                        <Typography>88 Session</Typography>
-                                    </Box>
-                                </Stack>
-
-                                <Stack className='holders-item selected'>
-                                    <Box className='item-content'>
-                                        <Box className='first-section'>
-                                            <Box className='counter'>
-                                                <Typography className='text'>2nd</Typography>
-                                            </Box>
-                                            <Box className='avatar'>
-                                                <Box className='border-white '>
-                                                    <Avatar alt='Remy Sharp' src={dog1}/>
-                                                </Box>
-                                            </Box>
-                                            <Typography>Cooper</Typography>
-                                        </Box>
-                                        <Typography>70 Session</Typography>
-                                    </Box>
-                                </Stack>
-                                <Stack className='holders-item'>
-                                    <Box className='item-content'>
-                                        <Box className='first-section'>
-                                            <Box className='counter'>
-                                                <Typography className='text'>3rd</Typography>
-                                            </Box>
-                                            <Box className='avatar'>
-                                                <Box className='border-white '>
-                                                    <Avatar alt='Remy Sharp' src={dog1}/>
-                                                </Box>
-                                            </Box>
-                                            <Typography>Cooper</Typography>
-                                        </Box>
-                                        <Typography>60 Session</Typography>
-                                    </Box>
-                                </Stack>
-                                <Stack className='holders-item'>
-                                    <Box className='item-content'>
-                                        <Box className='first-section'>
-                                            <Box className='counter'>
-                                                <Typography className='text'>1st</Typography>
-                                            </Box>
-                                            <Box className='avatar'>
-                                                <Box className='border-white '>
-                                                    <Avatar alt='Remy Sharp' src={dog1}/>
-                                                </Box>
-                                            </Box>
-                                            <Typography>Cooper</Typography>
-                                        </Box>
-                                        <Typography>88 Session</Typography>
-                                    </Box>
-                                </Stack>
-                                <Stack className='holders-item'>
-                                    <Box className='item-content'>
-                                        <Box className='first-section'>
-                                            <Box className='counter'>
-                                                <Typography className='text'>1st</Typography>
-                                            </Box>
-                                            <Box className='avatar'>
-                                                <Box className='border-white '>
-                                                    <Avatar alt='Remy Sharp' src={dog1}/>
-                                                </Box>
-                                            </Box>
-                                            <Typography>Cooper</Typography>
-                                        </Box>
-                                        <Typography>88 Session</Typography>
-                                    </Box>
-                                </Stack>
-                            </Box>
-                        </Box>
+                        <LeadershipBoard/>
                     </Box>
 
                 </Container> :
