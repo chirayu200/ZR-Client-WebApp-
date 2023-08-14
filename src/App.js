@@ -28,6 +28,8 @@ const Appointment = withSuspense(lazy(() => import("./pages/Appointments")));
 const Shop = withSuspense(lazy(() => import("./pages/Shop")));
 const Settings = withSuspense(lazy(() => import("./pages/Settings")));
 
+const Achievements = withSuspense(lazy(() => import("./pages/Achievements")));
+
 const Profile = withSuspense(lazy(() => import("./pages/Profile/Profile")));
 const ProfilePartners = withSuspense(lazy(() => import("./pages/Profile/ProfilePartners")));
 const YourTeam = withSuspense(lazy(() => import("./pages/Profile/YourTeam")));
@@ -160,7 +162,7 @@ function App() {
                         }
                     />
                     <Route
-                        path='/Settings'
+                        path='/settings'
                         element={
                             loggedIn ? (
                                 <Layout
@@ -218,6 +220,22 @@ function App() {
                             )
                         }
                     />
+                    {/* Achivment route */}
+                    <Route
+                        path='/achievements'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    name='Achievements'
+                                     clientDetail={clientDetail}
+                                    Component={<Achievements clientDetail={clientDetail}/>}
+                                />
+                            ) : (
+                                <Navigate to='/account'/>
+                            )
+                        }
+                    />                    
                     {/* Default route */}
                     <Route
                         path='/'
