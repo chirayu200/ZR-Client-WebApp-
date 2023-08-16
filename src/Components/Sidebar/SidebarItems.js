@@ -24,7 +24,7 @@ export const SidebarItems = [
 		icon: <StarBorderIcon />,
 		name: "Achievements",
 		path: "/achievements",
-	},		
+	},
 	{
 		icon: <SettingsIcon />,
 		name: "Settings",

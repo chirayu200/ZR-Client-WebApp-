@@ -5,18 +5,48 @@ import {
 	CustomInput, CustomButton
 } from "../../Components/Common";
 
+import MobileStepper from '@mui/material/MobileStepper';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const badges = require("../../assets/images/badges.svg").default;
 const hundred = require("../../assets/images/hundred.svg").default;
 const gift = require("../../assets/images/gift.svg").default;
 
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 
 export default function Memberships({handleNext}) {
 
 	const [selectedOption, setSelectedOption] = useState("Filters");
 	const [open, setOpen] = React.useState(false);
+	const [activeStep, setActiveStep] = React.useState(0);
+	const images = [
+		{
+			label: 'San Francisco – Oakland Bay Bridge, United States',
+			imgPath:
+				'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+		},
+		{
+			label: 'Bird',
+			imgPath:
+				'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+		},
+		{
+			label: 'Bali, Indonesia',
+			imgPath:
+				'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
+		},
 
+	];
+	const maxSteps = images.length;
+
+
+
+	const handleStepChange = (step) => {
+		setActiveStep(step);
+	};
 	const handleClose = () => {
 		setOpen(false);
 	};
@@ -28,6 +58,7 @@ export default function Memberships({handleNext}) {
 	const handleDropdownChange = (event) => {
 		setSelectedOption(event.target.value);
 	};
+
 	return (
 		<Box className='membership-main'>
 			<Box className='filter-slider-wrap'>
@@ -81,28 +112,43 @@ export default function Memberships({handleNext}) {
 				</Box>
 				<Box className='slider-wrap'>
 					<Typography className='heading'>Featured Items</Typography>
-					<Box className='slider-section'>
-						<Box className='image-section'>
-							<img
-								src='https://s3-alpha-sig.figma.com/img/58f4/53aa/3ac7189fa8550c36bdf84e8f8d35eafb?Expires=1691971200&Signature=ZiH9YG7e5M3HvehO05CnTmBOZm31WsfOaKmf3UUV-x6Iv7KhCK4lfW1Y0tNhPX68obQxD0dKOniZqWqtSN1vCfj7xdfaVGBY~EOwJJgXRCoi43DWSZUc57Px-KrfM0zuxww5A4qWW82r0mXGsYt0Wmg19W1pjhd1uoefoKT88pc385OZExfEOZHHhq-xfmkoNmQV95M6rE4OhBxejGtH8gkxryf6rT8R~SrRbVTGH4UOiuRiH~3-ZHTpEmNrcz5keUHRtG9gZW8OF1iPVpO479LFn~qOvWhSCl~PsI-YF7gZvGgVcQqRjBB4toPnSyeoBNaBHFSCtE-0X1aUUqg8Jg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
-								alt='dog'
-							/>
-						</Box>
-						<Box className='content-section'>
-							<Typography className="heading">New Puppy Bundle</Typography>
-							<Box>
-								<Typography>New Puppy BundleNew Puppy Bundle</Typography>
-								<Typography>New Puppy BundleNew Puppy Bundle</Typography>
-								<Typography>New Puppy BundleNew Puppy Bundle</Typography>
-								<Typography>New Puppy BundleNew Puppy Bundle</Typography>
-							</Box>
-							<Button onClick={()=> {
-								handleNext('Featured Items');
+					<AutoPlaySwipeableViews
+						index={activeStep}
+						onChangeIndex={handleStepChange}
+						enableMouseEvents
+						autoplay={true}
+					>
+						{images.map((step, index) => (
+									<Box className='slider-section'>
+										<Box className='image-section'>
+											<img
+												src='https://s3-alpha-sig.figma.com/img/58f4/53aa/3ac7189fa8550c36bdf84e8f8d35eafb?Expires=1693180800&Signature=JH-3dYnVldbSqUtM~LlJ56gJPQd-w-VzUrz~bsKoTIfQZ8xkhv2nTIIrbhiMzpbrHxuFRyiyId7Ur6Are6HP29MwBsAM5GiicK~LvGemKfwA1evGBCd28Q4EeKg1HxMa~r8SrQKyABuQZCmG7YNUYr~VbkUmL27hbxwWBNGJS66R1ePdDoK6-q2JaHRZD6YvyD9rljQWUSsQ5cBGoLaGYnzE1ixoIatv5SmTBVRlKrjvluT6nUFfTEDtCgOxmGJZacx1vgU1O90lbWe5PmEFnGjTXIPhhMfjN5ImLrEukCWomw9z7cemXeYVPp~YbPtRk40HaXomdEpHhzR7cb0jCw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'
+												alt='dog'
+											/>
+										</Box>
+										<Box className='content-section'>
+											<Typography className="heading">New Puppy Bundle</Typography>
+											<Box>
+												<Typography>New Puppy BundleNew Puppy Bundle</Typography>
+												<Typography>New Puppy BundleNew Puppy Bundle</Typography>
+												<Typography>New Puppy BundleNew Puppy Bundle</Typography>
+												<Typography>New Puppy BundleNew Puppy Bundle</Typography>
+											</Box>
+											<Button onClick={()=> {
+												handleNext('Featured Items');
+											}}> View Detail </Button>
+										</Box>
+									</Box>
 
 
-							}}> View Detail </Button>
-						</Box>
-					</Box>
+						))}
+					</AutoPlaySwipeableViews>
+					<MobileStepper
+						steps={maxSteps}
+						position="static"
+						activeStep={activeStep}
+					/>
+
 				</Box>
 			</Box>
 			<Box className="memberRight">

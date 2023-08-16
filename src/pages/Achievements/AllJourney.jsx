@@ -4,12 +4,12 @@ const DogBadge = require("../../assets/images/dogBadge.svg").default;
 const journey1 = require("../../assets/images/journey1.svg").default;
 const journey2 = require("../../assets/images/jouney2.svg").default;
 const blueCheck = require("../../assets/images/blueCheck.svg").default;
-
-export default function AllJourney() {
+const fox = require("../../assets/images/fox.svg").default;
+export default function AllJourney({handleNext}) {
   return (
     <>
       <Box className="journeyFlex">
-        <Box className="jouneyItem">
+        <Box className="jouneyItem" onClick={handleNext}>
           <Box>
             <img src={DogBadge} alt="dog" />
             <Typography>Agile Dog</Typography>
@@ -94,6 +94,11 @@ export default function AllJourney() {
           </Box>
         </Box>
       </Box>
+      <Box className="foxWrap">
+      <img src={fox} alt="fox" />
+      <Typography>Now, You are all set to go.</Typography>
+      </Box>
+
 
     </>
   )

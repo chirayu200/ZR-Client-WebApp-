@@ -11,7 +11,7 @@ export default function BookingTerms({ handleNext }) {
 			<Box className='display-booking-wrap video-main'>
 				<Box className='booking-wrap'>
 					<Typography className='heading'>Orientation Videos</Typography>
-					<Box className='video-wrap'>
+					<Box className='video-wrap'  >
 						<img src={videoImg} alt='video-img' />
 						<IconButton>
 							<PlayCircleIcon />

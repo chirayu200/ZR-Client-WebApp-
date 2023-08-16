@@ -112,7 +112,7 @@ export const maskCardNumber = (cardNumber, full) => {
     const cardNumberStr = cardNumber.toString();
     const last4Digits = cardNumberStr.slice(-4);
     const remainingDigits = full ? cardNumberStr : cardNumberStr.slice(0, -4);
-    console.log(cardNumber, 'cardNumber', remainingDigits);
+
     const maskedDigits = remainingDigits
         .replace(/\d{4}(?=.)/g, '$&-')
         .replace(/\d/g, 'x');

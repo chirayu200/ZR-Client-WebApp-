@@ -3,6 +3,7 @@ import {ApiServices} from "../ApiServices";
 const Base_URL =
     process.env.CLIENT_BASE_URL ||
     "https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/";
+// "https://ifcxqbb98k.execute-api.us-east-1.amazonaws.com/dev/";
 const locationId = encodeURIComponent('LOC#e857e7a7-4fde-4d2a-baad-114d6a85ff63');
 export const CheckClientDetail = async (clientId) => {
     const encodedClientId = encodeURIComponent(clientId);
@@ -17,11 +18,11 @@ export const CheckClientDetail = async (clientId) => {
 
     }
 }
-export const UpdateClientDetail = async (payload) => {
-
+export const UpdateClientDetail = async (payload,clientId) => {
+    const encodedClientId = encodeURIComponent(clientId);
     try {
         return await ApiServices.put(
-            `${Base_URL}client?id=${payload.id}`,
+            `${Base_URL}client?id=${encodedClientId}`,
             payload
         );
 

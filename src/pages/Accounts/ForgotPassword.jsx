@@ -29,7 +29,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     });
     useEffect(() => {
         if (authState?.from !== '') {
-            console.log(authState, "auth")
+
             setFormData({email: authState.from})
             setSteps(1)
         }
@@ -53,7 +53,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     }, [isCounting, authState]);
 
     const sendCodeAgain = async () => {
-        console.log("counter", counter);
+
 
         if (authState?.from) {
             ResendConfirmationCode({email: authState?.from}).then((response) => {
