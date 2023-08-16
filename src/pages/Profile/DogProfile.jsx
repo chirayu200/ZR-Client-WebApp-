@@ -120,7 +120,7 @@ const DogProfile = () => {
         // Perform form submission and API call here
         // ...
 
-        console.log('Form data:', formData);
+
     };
 
 

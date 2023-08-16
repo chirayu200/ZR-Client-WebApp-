@@ -35,7 +35,7 @@ export default function ExploreService({handleNext}) {
         setSelectedButton(buttonIndex);
         handleFilterClick(buttonIndex)
     };
-    console.log(allExploreList, "allExploreList");
+
 
 
     useEffect(() => {

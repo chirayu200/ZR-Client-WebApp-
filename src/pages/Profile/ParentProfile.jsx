@@ -3,21 +3,35 @@ import {Box, Button, InputLabel, Typography} from "@mui/material";
 import {CustomButton, CustomDropdown, CustomInput} from "../../Components/Common";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import {ProfileModals} from "../../Components/Modals";
+import {Country, State} from 'country-state-city';
+import {UpdateClientDetail} from "../../Services/APIs";
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
 const dragDrop = require("../../assets/images/dragdrop.svg").default;
-const options = [
-    {label: "Option 1", value: "option1"},
-    {label: "Option 2", value: "option2"},
-    {label: "Option 3", value: "option3"},
-    {label: "Select Location", value: "Select Location"},
+const referralSourcesOptions = [
+    {label: "LinkedIn", value: "LinkedIn"},
+    {label: "Friends", value: "Friends"},
+    {label: "Whatsapp", value: "Whatsapp"},
+    {label: "Twitter", value: "Twitter"},
+    {label: "FaceBook", value: "FaceBook"},
+    {label: "Family", value: "Family"},
+    {label: "Instagram", value: "Instagram"},
+    {label: "Others", value: "Others"},
 ];
-const ParentProfile = ({userDetail}) => {
-    const [selectedOption, setSelectedOption] = useState('');
-    const [selectedImage, setSelectedImage] = useState(null);
-    console.log(userDetail, "userDetail")
+const locationOptions = Country.getAllCountries().map((item) => ({
+    label: item.name,
+    value: item
+}))
+
+const ParentProfile = ({userDetail,handleNext}) => {
+
+    const [open, setOpen] = useState(false);
+    const [confirmOpen, setConfirmOpen] = useState(false);
+    const [teamOpen, setTeamOpen] = useState(false);
+    const [stateOptions, setStateOptions] = useState([]);
     const [formData, setFormData] = useState({
         location: '',
         profileImage: "",
@@ -30,30 +44,55 @@ const ParentProfile = ({userDetail}) => {
         addressLine2: '',
         state: '',
         city: '',
+        birthDate: '',
         postalCode: '',
         emergencyContactName: '',
         emergencyContactEmail: '',
         emergencyContactPhone: '',
         emergencyContactRelationShip: '',
-        isLiabilityWaiverChecked: false
+        isLiabilityWaiverSigned: false,
+        signature: null,
+        policyCheck: false,
     });
-    // useEffect(() => {
-    //     setFormData(userDetail)
-    // }, [userDetail])
+
+    useEffect(() => {
+        if (userDetail) {
+            setFormData(userDetail)
+        }
+
+    }, [userDetail])
+
     const [errors, setErrors] = useState({});
     const onSelectImage = (e) => {
         if (e.target.files && e.target.files.length > 0) {
             const imageFile = e.target.files[0];
             if (imageFile) {
-                setSelectedImage(URL.createObjectURL(imageFile));
+
+                setFormData({...formData, profileImage: URL.createObjectURL(imageFile)})
             }
         }
     };
 
 
-    const handleDropdownChange = (event,value) => {
-        console.log(event,"dropdownvalue")
-        setSelectedOption(value);
+    const handleDropdownChange = (name, value) => {
+
+        if (name === 'location' && value) {
+            const options = State.getStatesOfCountry(value.value.isoCode)
+                .map((item) => ({
+                    label: item.name,
+                    value: item
+                }))
+
+            setStateOptions(options)
+        }
+        setFormData({...formData, [name]: value?.label || ''})
+        if (errors [name]) {
+            setErrors((prevFormErrors) => ({
+                ...prevFormErrors,
+                [name]: "",
+            }));
+        }
+
     };
 
     const handleInputChange = (event) => {
@@ -70,12 +109,6 @@ const ParentProfile = ({userDetail}) => {
         }
     };
 
-    const handleLiabilityWaiverCheck = () => {
-        setFormData(prevData => ({
-            ...prevData,
-            isLiabilityWaiverChecked: !prevData.isLiabilityWaiverChecked
-        }));
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -85,28 +118,26 @@ const ParentProfile = ({userDetail}) => {
             'firstName',
             'lastName',
             'email',
-            'mobileNumber',
-            'address1',
-            'address2',
+            'mobilePhone',
+            'addressLine1',
+            'addressLine2',
             'state',
             'city',
-            'zipCode',
-            'emergencyEmail',
-            'emergencyPhoneNumber',
-
+            'postalCode',
+            'emergencyContactName',
+            'emergencyContactPhone',
         ];
 
         const newErrors = {};
         let hasErrors = false;
 
         requiredFields.forEach(field => {
-            if (!formData[field].trim()) {
+            if (!formData[field]) {
                 newErrors[field] = 'This field is required';
                 hasErrors = true;
             }
         });
 
-        // Additional validation: Check email format
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if (!emailPattern.test(formData.email)) {
             newErrors.email = 'Please enter a valid email address';
@@ -119,39 +150,51 @@ const ParentProfile = ({userDetail}) => {
         }
         const form = new FormData();
         form.append('locationId', '1db14353-2d7c-4a16-8fac-abd4b9c08edb');
-        form.append('firstName', 'Harshit');
-        form.append('lastName', 'Khatri');
-        form.append('mobilePhone', '123-456-7890');
+        form.append('firstName', formData.firstName);
+        form.append('email', formData.email);
+        // form.append('location', formData?.location || '');
+        form.append('lastName', formData.lastName);
+        form.append('mobilePhone', formData.mobilePhone);
         form.append('workPhone', '');
         form.append('homePhone', '');
-        form.append('profileImage', '');
-        form.append('addressLine1', '123 Main St');
-        form.append('addressLine2', '');
-        form.append('state', 'California');
-        form.append('city', 'Los Angeles');
-        form.append('postalCode', '90001');
-        form.append('birthDate', '01-01-1990');
-        form.append('referralSource', 'Friend');
-        form.append('emergencyContactName', '');
-        form.append('emergencyContactPhone', '');
-        form.append('emergencyContactEmail', '');
-        form.append('emergencyContactRelationShip', '');
-        form.append('signatureImage', '');
-        form.append('isLiabilityWaiverSigned', 'true');
+        form.append('profileImage', formData.profileImage || '');
+        form.append('addressLine1', formData.addressLine1);
+        form.append('addressLine2', formData.addressLine2);
+        form.append('state', formData?.state);
+        form.append('city', formData.city);
+        form.append('postalCode', formData.postalCode);
+        // form.append('birthDate', formData.birthDate||'');
+        form.append('referralSource', formData.referralSource);
+        form.append('emergencyContactName', formData.emergencyContactName);
+        form.append('emergencyContactPhone', formData.emergencyContactPhone);
+        form.append('emergencyContactEmail', formData.emergencyContactEmail);
+        form.append('emergencyContactRelationShip', formData.emergencyContactRelationShip);
+        form.append('signatureImage', formData.signature);
+        form.append('isLiabilityWaiverSigned', true);
         form.append('updatedBy', '10000');
-        form.append('status', '');
-        // Perform form submission and API call here
-        // ...
+        form.append('status', 1);
+        UpdateClientDetail(form,formData.sortKey).then((response) => {
+            if (response) {
+                setConfirmOpen(true);
+            }
+        })
 
-        console.log('Form data:', formData);
     };
+    const handleActionBtn = (type) => {
+        if (type === 'notNow') {
+            setConfirmOpen(false);
+        } else if (type === 'yes') {
+            setConfirmOpen(false);
+            setTeamOpen(true);
 
+        }
+    }
 
     return (
         <Box className='profile-main'>
             <Box className='dp-section'>
                 <img
-                    src={selectedImage ? selectedImage : 'https://s3-alpha-sig.figma.com/img/113f/a25a/235312cc53dcd4c8780648145d59e3c2?Expires=1692576000&Signature=DQzFy6mNoe093Tu552CMN4nwwW0nU42rEroD07e71QJWs48DDCsgnsgvfnaCOaMbOon3Mj7is0UY2pDJfIOUONFU8zwxhWWJZDNUrS2ABweppFf7actt4IHk79tiHW36IA4KiwUn3rBVI2SjdLHeU-2IW3PKJvVAUfWpI0ISeLtRdH1ctUL5PS-YTrdSJa5eMfalB80~U7TtuZo2NaagKTaTLV7~eSWZ9GxY0E76TRqcBk5RpUj9bCMHOdqBJI1-bkgHc0xHxfkYc0tOEANljLZjBAzChNMf0fzu8huGK~WKKAKUVPYaYXa3rGwIZxE9eSABevElK2r6lOj-K6bauA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
+                    src={formData?.profileImage ? formData?.profileImage : 'https://s3-alpha-sig.figma.com/img/113f/a25a/235312cc53dcd4c8780648145d59e3c2?Expires=1692576000&Signature=DQzFy6mNoe093Tu552CMN4nwwW0nU42rEroD07e71QJWs48DDCsgnsgvfnaCOaMbOon3Mj7is0UY2pDJfIOUONFU8zwxhWWJZDNUrS2ABweppFf7actt4IHk79tiHW36IA4KiwUn3rBVI2SjdLHeU-2IW3PKJvVAUfWpI0ISeLtRdH1ctUL5PS-YTrdSJa5eMfalB80~U7TtuZo2NaagKTaTLV7~eSWZ9GxY0E76TRqcBk5RpUj9bCMHOdqBJI1-bkgHc0xHxfkYc0tOEANljLZjBAzChNMf0fzu8huGK~WKKAKUVPYaYXa3rGwIZxE9eSABevElK2r6lOj-K6bauA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
                     alt={'profile'}/>
                 <Box className='img-input'>
                     <img src={require('../../assets/images/camera-plus-outline.svg').default}
@@ -164,11 +207,12 @@ const ParentProfile = ({userDetail}) => {
                     <Box className='input-item-wrap'>
                         <InputLabel>Select Location</InputLabel>
                         <CustomDropdown
-                            value={selectedOption}
-placeHolder={'Select Location'}
+                            value={formData.location}
+                            placeHolder={formData.location || 'Select Location'}
                             onChange={handleDropdownChange}
-                            options={options}
+                            options={locationOptions}
                             icon={downArrow}
+                            name='location'
                             error={!!errors.location}
                             helperText={errors.location}
                         />
@@ -220,7 +264,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='tel'
                             label={'Mobile Number'}
-                            name='mobileNumber'
+                            name='mobilePhone'
                             className='form-inputs'
                             placeholder='Mobile Number'
                             fullWidth
@@ -233,10 +277,15 @@ placeHolder={'Select Location'}
                     <Box className='input-item-wrap'>
                         <InputLabel>Referral Sources</InputLabel>
                         <CustomDropdown
-                            value={selectedOption}
+                            value={formData.referralSource}
+                            placeHolder={formData.referralSource || 'Referral Sources'}
+                            name='referralSources'
                             onChange={handleDropdownChange}
-                            options={options}
+                            options={referralSourcesOptions}
                             icon={downArrow}
+                            error={!!errors.referralSource}
+                            helperText={errors.referralSource}
+
                         />
                     </Box>
                     <Typography className='section-heading'>Address Details</Typography>
@@ -244,7 +293,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='text'
                             label={'Address 1'}
-                            name='address1'
+                            name='addressLine1'
                             className='form-inputs'
                             placeholder='Address 1'
                             fullWidth
@@ -258,7 +307,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='text'
                             label={'Address 2'}
-                            name='address2'
+                            name='addressLine2'
                             className='form-inputs'
                             placeholder='Address 2'
                             fullWidth
@@ -271,10 +320,14 @@ placeHolder={'Select Location'}
                     <Box className='input-item-wrap'>
                         <InputLabel>State</InputLabel>
                         <CustomDropdown
-                            value={selectedOption}
+                            value={formData.state}
+                            placeHolder={formData.state || 'Select State'}
+                            name='state'
                             onChange={handleDropdownChange}
-                            options={options}
+                            options={stateOptions}
                             icon={downArrow}
+                            error={!!errors.state}
+                            helperText={errors.state}
                         />
                     </Box>
 
@@ -296,7 +349,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='text'
                             label={'Zip Code'}
-                            name='zipCode'
+                            name='postalCode'
                             className='form-inputs'
                             placeholder='Zip Code'
                             fullWidth
@@ -311,7 +364,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='text'
                             label={'Name'}
-                            name='emergencyName'
+                            name='emergencyContactName'
                             className='form-inputs'
                             placeholder='Name'
                             fullWidth
@@ -325,7 +378,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='email'
                             label={'Email'}
-                            name='emergencyEmail'
+                            name='emergencyContactEmail'
                             className='form-inputs'
                             placeholder='Email'
                             fullWidth
@@ -339,7 +392,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='tel'
                             label={'Phone Number'}
-                            name='emergencyPhoneNumber'
+                            name='emergencyContactPhone'
                             className='form-inputs'
                             placeholder='Phone Number'
                             fullWidth
@@ -353,7 +406,7 @@ placeHolder={'Select Location'}
                         <CustomInput
                             type='text'
                             label={'Relationship'}
-                            name='emergencyRelationship'
+                            name='emergencyContactRelationShip'
                             className='form-inputs'
                             placeholder='Relationship'
                             fullWidth
@@ -365,10 +418,10 @@ placeHolder={'Select Location'}
                     </Box>
                     <Box className='input-item-wrap'>
                         <Box className='liability-btn-wrap'>
-                            <Button className="expiryBtn" onClick={handleLiabilityWaiverCheck}>
+                            <Button className="expiryBtn" onClick={() => setOpen(true)}>
                                 Liability Waiver
                             </Button>
-                            {formData.isLiabilityWaiverChecked && <CheckCircleIcon/>}
+                            {(formData.isLiabilityWaiverSigned) && <CheckCircleIcon/>}
                         </Box>
                     </Box>
                     <Box className='input-item-wrap'>
@@ -379,16 +432,19 @@ placeHolder={'Select Location'}
                             className='book-btn'
                             title={"Update"}
                             color='#fff'
+                            disabled={formData.signature === null}
                             backgroundColor='#32B2AC'
                             iconJsx={<ChevronRightIcon/>}
                             fullWidth
                             type="submit"
-                            // onClick={handleNext}
-
                         />
                     </Box>
                 </Box>
             </form>
+            <ProfileModals fullWidth open={open} handleClose={() => setOpen(false)} setFormData={setFormData}
+                           formData={formData}/>
+            <ProfileModals open={confirmOpen} type={'confirm'} handleActionBtn={handleActionBtn}/>
+            <ProfileModals open={teamOpen} handleClose={() => setTeamOpen(false)} type={'team'} handleNext={handleNext}/>
         </Box>
     )
 }

@@ -8,7 +8,7 @@ const location = require("../../assets/images/location.svg").default;
 
 
 export function Header({clientDetail}) {
-    console.log(clientDetail?.lastName, "lastName")
+
     const [notifyOpen, setNotifyOpen] = useState(false);
     const [timeOfDay, setTimeOfDay] = useState('');
 

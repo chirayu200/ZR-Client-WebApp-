@@ -7,12 +7,12 @@ import {GetBundleDetail, GetFeaturedItemDetail, GetMembershipDetail} from "../..
 
 
 export default function ItemDetail({handleNext, selected, selectedType,handleBack}) {
-    console.log(selected, "selected")
+
     const [detail, setDetail] = useState([])
     const [loader, setLoader] = useState(true)
     useEffect(() => {
         if (selectedType === 'Featured Items') {
-            console.log(selected, "Featured")
+
             GetFeaturedItemDetail(selected).then((response) => {
 
                 const modifiedData = response.data.Items.map(item => ({
@@ -26,7 +26,7 @@ export default function ItemDetail({handleNext, selected, selectedType,handleBac
             })
         } else if (selectedType === 'Bundle') {
 
-            console.log(selected, "Bundle")
+
             GetBundleDetail(selected).then((response) => {
 
                 const modifiedData = response.data.Items.map(item => ({
