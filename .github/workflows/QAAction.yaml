@@ -54,7 +54,7 @@ jobs:
          echo Build started on `date`
          rm -rf package.lock.json && rm -rf node_modules
          rm -rf ./build
-         npm install
+         npm install --legacy-peer-deps
          export CI=false && npm run build
       - name: Deploy app build to S3 bucket
         run: aws s3 rm s3://${{ env.AWS_BUCKET_NAME }} --recursive && aws s3 cp ./build/ s3://${{ env.AWS_BUCKET_NAME }} --recursive
