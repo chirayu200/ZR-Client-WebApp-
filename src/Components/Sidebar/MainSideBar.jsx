@@ -107,26 +107,28 @@ export default function SideBar({name, Component, clientDetail}) {
                                     >
                                         {item.icon}
                                     </ListItemIcon>
-                                    <ListItemText primary={item.name} sx={{opacity: open ? 1 : 0}}/>
+                                    <ListItemText primary={item.name}
+                                                  sx={{ display: open ? 'block' : 'none'}}/>
                                 </ListItemButton>
                             </ListItem>
                         )
                     )}
                 </List>
                 <Box className='sidebar-footer'>
-                    <Button className='profileBtn' onClick={()=>navigate('/profile')}>
-                        <img src={clientDetail ? clientDetail.profileImage : profile} alt='profile'/>
+                    <Button className='profileBtn' onClick={() =>
+                        navigate('/profile')
+                    }>
+                        <img src={clientDetail ? clientDetail?.profileImage : profile} alt='profile'/>
                     </Button>
                     <Button className='profileBtn' onClick={() => {
                         localStorage.clear();
                         window.location.reload();
-
                     }}>
                         <LogoutIcon sx={{color: 'white'}}/>
                     </Button>
                 </Box>
             </Drawer>
-            <Box component='main' sx={{flexGrow: 1, p: 3}}>
+            <Box component='main' sx={{flexGrow: 1, p: 3, maxWidth: "100%", overflow: 'hidden'}}>
                 <DrawerHeader/>
                 {Component}
             </Box>

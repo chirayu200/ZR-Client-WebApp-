@@ -1,23 +1,23 @@
 import "./assets/fonts/fonts.css";
 import "./App.css";
-import React, { lazy, Suspense, useEffect, useState } from "react";
-import { Box, Button, CircularProgress } from "@mui/material";
+import React, {lazy, Suspense, useEffect, useState} from "react";
+import {Box, CircularProgress} from "@mui/material";
 
-import { BrowserRouter as Router, Navigate, Route, Routes, } from "react-router-dom";
-import { GetClientDetailByEmailId } from "./Services/APIs";
+import {BrowserRouter as Router, Navigate, Route, Routes,} from "react-router-dom";
+import {GetClientDetailByEmailId} from "./Services/APIs";
 
 const withSuspense = (Component) => (props) =>
-(
-    <Suspense
-        fallback={
-            <Box className='progress-wrap'>
-                <Box className='loader'> <CircularProgress size={60} /> </Box>
-            </Box>
-        }
-    >
-        <Component {...props} />
-    </Suspense>
-);
+    (
+        <Suspense
+            fallback={
+                <Box className='progress-wrap'>
+                    <Box className='loader'> <CircularProgress size={60}/> </Box>
+                </Box>
+            }
+        >
+            <Component {...props} />
+        </Suspense>
+    );
 
 const Sidebar = withSuspense(
     lazy(() => import("./pages/../Components/Sidebar/MainSideBar.jsx"))
@@ -26,21 +26,16 @@ const AuthenticationMain = withSuspense(lazy(() => import("./pages/Accounts")));
 const Dashboard = withSuspense(lazy(() => import("./pages/Dashboard-Home")));
 const Appointment = withSuspense(lazy(() => import("./pages/Appointments")));
 const Shop = withSuspense(lazy(() => import("./pages/Shop")));
+const Achievements = withSuspense(lazy(() => import("./pages/Achievements")));
+const Profile = withSuspense(lazy(() => import("./pages/Profile")))
 const Settings = withSuspense(lazy(() => import("./pages/Settings")));
 
-const Achievements = withSuspense(lazy(() => import("./pages/Achievements")));
-
-const Profile = withSuspense(lazy(() => import("./pages/Profile/Profile")));
-const ProfilePartners = withSuspense(lazy(() => import("./pages/Profile/ProfilePartners")));
-const YourTeam = withSuspense(lazy(() => import("./pages/Profile/YourTeam")));
-const AddUser = withSuspense(lazy(() => import("./pages/Profile/AddUser")));
-
-const Layout = ({ loggedIn, Component, name, path, clientDetail }) => {
+const Layout = ({loggedIn, Component, name, path,clientDetail}) => {
     return (
         <>
             {loggedIn ? (
                 <>
-                    <Sidebar name={name} Component={Component} path={path} clientDetail={clientDetail} />
+                <Sidebar name={name} Component={Component} path={path} clientDetail={clientDetail}/>
                 </>
             ) : (
                 Component
@@ -55,7 +50,7 @@ function App() {
 
     const [clientDetail, setClientDetail] = useState('');
     const handleLogin = (username) => {
-        console.log(username);
+
         localStorage.setItem('token', username.accessToken);
         localStorage.setItem('user_detail', JSON.stringify(username.userDetails));
         callClientDetail(username.userDetails)
@@ -89,13 +84,13 @@ function App() {
                         path='/account'
                         element={
                             loggedIn ? (
-                                <Navigate to='/' />
+                                <Navigate to='/'/>
                             ) : (
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Authentication'
                                     clientDetail={clientDetail}
-                                    Component={<AuthenticationMain onLogin={handleLogin} />}
+                                    Component={<AuthenticationMain onLogin={handleLogin}/>}
                                 />
                             )
                         }
@@ -109,10 +104,10 @@ function App() {
                                     loggedIn={loggedIn}
                                     name='Home'
                                     clientDetail={clientDetail}
-                                    Component={<Dashboard clientDetail={clientDetail} />}
+                                    Component={<Dashboard clientDetail={clientDetail}/>}
                                 />
                             ) : (
-                                <Navigate to='/account' />
+                                <Navigate to='/account'/>
                             )
                         }
                     />
@@ -125,10 +120,10 @@ function App() {
                                     loggedIn={loggedIn}
                                     clientDetail={clientDetail}
                                     name='Appointment'
-                                    Component={<Appointment clientDetail={clientDetail} />}
+                                    Component={<Appointment clientDetail={clientDetail}/>}
                                 />
                             ) : (
-                                <Navigate to='/account' />
+                                <Navigate to='/account'/>
                             )
                         }
                     />
@@ -140,10 +135,10 @@ function App() {
                                     loggedIn={loggedIn}
                                     name='Shop'
                                     clientDetail={clientDetail}
-                                    Component={<Shop clientDetail={clientDetail} />}
+                                    Component={<Shop clientDetail={clientDetail}/>}
                                 />
                             ) : (
-                                <Navigate to='/account' />
+                                <Navigate to='/account'/>
                             )
                         }
                     />
@@ -154,73 +149,14 @@ function App() {
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Profile'
-                                    Component={<Profile clientDetail={clientDetail} />}
+                                    clientDetail={clientDetail}
+                                    Component={<Profile clientDetail={clientDetail}/>}
                                 />
                             ) : (
-                                <Navigate to='/account' />
+                                <Navigate to='/account'/>
                             )
                         }
                     />
-                    <Route
-                        path='/settings'
-                        element={
-                            loggedIn ? (
-                                <Layout
-                                    loggedIn={loggedIn}
-                                    name='Settings'
-                                    Component={<Settings clientDetail={clientDetail} />}
-                                />
-                            ) : (
-                                <Navigate to='/account' />
-                            )
-                        }
-                    />              
-                    {/* Profile partner*/}
-                    <Route
-                        path='profile/profile-partner'
-                        element={
-                            loggedIn ? (
-                                <Layout
-                                    loggedIn={loggedIn}
-                                    name='Profilepartner'
-                                    Component={<ProfilePartners clientDetail={clientDetail} />}
-                                />
-                            ) : (
-                                <Navigate to='/account' />
-                            )
-                        }
-                    />
-                    {/* Your team */}
-                    <Route
-                        path='profile/profile-partner/your-team'
-                        element={
-                            loggedIn ? (
-                                <Layout
-                                    loggedIn={loggedIn}
-                                    name='YourTeam'
-                                    Component={<YourTeam clientDetail={clientDetail} />}
-                                />
-                            ) : (
-                                <Navigate to='/account' />
-                            )
-                        }
-                    />
-                    {/* Add New User */}
-                    <Route
-                        path='profile/add-user'
-                        element={
-                            loggedIn ? (
-                                <Layout
-                                    loggedIn={loggedIn}
-                                    name='AddUser'
-                                    Component={<AddUser clientDetail={clientDetail} />}
-                                />
-                            ) : (
-                                <Navigate to='/account' />
-                            )
-                        }
-                    />
-                    {/* Achivment route */}
                     <Route
                         path='/achievements'
                         element={
@@ -235,11 +171,25 @@ function App() {
                                 <Navigate to='/account'/>
                             )
                         }
-                    />                    
+                    />
+                     <Route
+                        path='/settings'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    name='Settings'
+                                    Component={<Settings clientDetail={clientDetail} />}
+                                />
+                            ) : (
+                                <Navigate to='/account' />
+                            )
+                        }
+                    />      
                     {/* Default route */}
                     <Route
                         path='/'
-                        element={<Navigate to={loggedIn ? "/" : "/account"} />}
+                        element={<Navigate to={loggedIn ? "/" : "/account"}/>}
                     />
                 </Routes>
             </Router>

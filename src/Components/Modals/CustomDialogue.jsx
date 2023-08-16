@@ -113,7 +113,10 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                                     <Typography>Superdog</Typography>
                                     <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Typography>
                                 </Box>
-                                <LinearProgressBar  color={'#003087'} />
+                                <Box className="linearProgressWrap">
+                                    <span>70%</span>
+                                <LinearProgressBar  classes='modalProgress' />
+                                </Box>
                             </Box>
                             </DialogContent>
                             :

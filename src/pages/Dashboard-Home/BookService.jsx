@@ -18,14 +18,14 @@ export default function BookService({handleNext, selected}) {
     const handleDropdownChange = (event) => {
         setSelectedOption(event.target.value);
     };
-    console.log(dogList, "secletec")
+
     let payload = useMemo(() => ({
         locationId: "LOC#e857e7a7-4fde-4d2a-baad-114d6a85ff63",
         occurrenceId: selected?.sortKey,
     }), [selected?.sortKey])
     useEffect(() => {
         GetExploreScheduleDetail(payload).then((response) => {
-            console.log(response, "GetExploreScheduleDetail");
+
             if (response) {
                 const [data] = response.data.Items;
                 setServiceDetail(data || selected)

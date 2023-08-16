@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Typography, InputLabel, TextField, Link, Button } from "@mui/material";
 import { LeadershipBoard, CustomButton } from "../../Components/Common";
 import CircularProgress from "@mui/material/CircularProgress";
+import LinearProgressBar from '../../Components/Common/LinearProgress';
 
 const Dog = require("../../assets/images/dog-round.svg").default;
 const StarDog = require("../../assets/images/starDog.svg").default;
@@ -53,9 +54,14 @@ export default function AchievementMain({ setActive }) {
                   <Box>
                      <Typography>UNDER DOG</Typography>
                      <Typography>Class Attended: 4/5</Typography>
+                     <Box className="linearProgressWrap">
+                                    <span>70%</span>
+                                <LinearProgressBar  classes='achieveProgress' />
+                                </Box>
 
                   </Box>
                </Box>
+               
                <Box className="trophyScroller">
                   <img src={badge1} alt="dog" />
                   <img src={badge2} alt="dog" />
@@ -83,6 +89,7 @@ export default function AchievementMain({ setActive }) {
                      backgroundColor='#32B2AC'
                   />
                </Box>
+              
                <Box className="trophyScroller">
                   <Box className="progresswrap">
                      <CircularProgress

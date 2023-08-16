@@ -13,7 +13,7 @@ export const Popup = ({type, errorText}) => {
         setAlert(true);
       }, []); 
 
-    console.log(type, errorText);
+
 	return (
         <>
        {alert && 

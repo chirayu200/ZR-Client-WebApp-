@@ -5,12 +5,12 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {GetAllBuyCredits} from "../../Services/APIs/checkout";
 
 export default function BuyCredit({handleNext, selected}) {
-    console.log(selected, "selected")
+
     const [creditList, setCreditList] = useState([])
     const [loader, setLoader] = useState(true)
     useEffect(() => {
         GetAllBuyCredits(selected).then((response) => {
-            console.log(response, "response");
+
             setCreditList(response?.data?.Items);
             setLoader(false)
         })

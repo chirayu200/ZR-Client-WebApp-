@@ -11,10 +11,10 @@ import Security from "./Security";
 import AboutApp from "./AboutApp";
 import HelpAndSupport from "./HelpAndSupport";
 
-const notification = require("../../assets/images/notification.png");
-const security = require("../../assets/images/security.png");
-const aboutApp = require("../../assets/images/aboutapp.png");
-const helpAndSupport = require("../../assets/images/help&support.png");
+const notification      = require("../../assets/images/notification.png");
+const security          = require("../../assets/images/security.png");
+const aboutApp          = require("../../assets/images/aboutapp.png");
+const helpAndSupport    = require("../../assets/images/help&support.png");
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
@@ -24,7 +24,7 @@ export default function Settings() {
     // const components = [
 
     //     <Payments />
-    // ]
+    // ] 
     return (
         <>
             {(() => {

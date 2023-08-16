@@ -1,7 +1,7 @@
 const API_URL_DEV   = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
-const API_URL_TEST  = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
-const API_URL_STG   = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
-const API_URL_PROD  = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/';
+const API_URL_TEST  = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/qa/api/';
+const API_URL_STG   = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/stage/api/';
+const API_URL_PROD  = 'https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/prod/api/';
 
 console.log(process.env.REACT_APP_ENV);
 export const getApiBaseUrl = () => {

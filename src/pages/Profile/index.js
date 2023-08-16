@@ -24,9 +24,9 @@ export default function ProfileMain({clientDetail}) {
                 const [data] = response.data.Items;
                 setDogDetail(data);
             })
-    }, [])
+    }, [clientDetail])
     const childComponent = [
-        {title: 'Edit Profile', component: <ParentProfile userDetail={userDetail}/>},
+        {title: 'Edit Profile', component: <ParentProfile userDetail={userDetail} handleNext={()=>setActive(1)}/>},
         {title: 'Edit Dog Profile', component: <DogProfile dogDetail={dogDetail}/>},
 
     ]
