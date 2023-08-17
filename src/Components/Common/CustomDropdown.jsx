@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Autocomplete, Backdrop, FormControl, FormHelperText, TextField} from "@mui/material";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
@@ -8,15 +8,15 @@ import {CustomButton} from "./CustomButton";
 export const CustomDropdown = ({
                                    value,
                                    onChange,
-                                   options,
+                                   options = [],
                                    placeHolder,
-                                   icon,
-                                   date,
+                                   icon = null,
+                                   date = false,
                                    name,
                                    error,
                                    helperText
                                }) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClose = () => {
         setOpen(false);
@@ -25,16 +25,25 @@ export const CustomDropdown = ({
     const handleOpen = () => {
         setOpen(!open);
     };
-const handleChange=(event,value)=>{
-    onChange(name,value);
-}
+
+    const handleChange = (_, newValue) => {
+        onChange(name, newValue);
+    };
+
+    const handleDateChange = (newValue) => {
+        onChange(name, newValue);
+    };
+
+
     return (
         <>
             <FormControl className='custom-select' fullWidth>
                 {date ? (
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DesktopDatePicker
+                            format={'MM-DD-YYYY'}
                             className="custom-date-select"
+                            onChange={handleDateChange}
                         />
                     </LocalizationProvider>
                 ) : (
@@ -46,7 +55,7 @@ const handleChange=(event,value)=>{
                         name={name}
                         onClose={handleClose}
                         onOpen={handleOpen}
-                        options={options ?? []}
+                        options={options}
                         isOptionEqualToValue={(option, value) => option.label === value}
                         getOptionLabel={(option) => option?.label || placeHolder}
                         renderInput={(params) => (

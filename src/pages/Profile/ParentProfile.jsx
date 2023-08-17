@@ -6,11 +6,10 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {ProfileModals} from "../../Components/Modals";
 import {Country, State} from 'country-state-city';
 import {UpdateClientDetail} from "../../Services/APIs";
+import {getLocalData, setFullLocationId} from "../../Utils";
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
-const dateIcon = require("../../assets/images/calenderDate.svg").default;
-const dragDrop = require("../../assets/images/dragdrop.svg").default;
 const referralSourcesOptions = [
     {label: "LinkedIn", value: "LinkedIn"},
     {label: "Friends", value: "Friends"},
@@ -26,13 +25,14 @@ const locationOptions = Country.getAllCountries().map((item) => ({
     value: item
 }))
 
-const ParentProfile = ({userDetail,handleNext}) => {
+const ParentProfile = ({userDetail, handleNext}) => {
 
     const [open, setOpen] = useState(false);
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [teamOpen, setTeamOpen] = useState(false);
     const [stateOptions, setStateOptions] = useState([]);
     const [formData, setFormData] = useState({
+        locationId: setFullLocationId(getLocalData('locationId')),
         location: '',
         profileImage: "",
         firstName: '',
@@ -86,7 +86,7 @@ const ParentProfile = ({userDetail,handleNext}) => {
             setStateOptions(options)
         }
         setFormData({...formData, [name]: value?.label || ''})
-        if (errors [name]) {
+        if (errors[name]) {
             setErrors((prevFormErrors) => ({
                 ...prevFormErrors,
                 [name]: "",
@@ -149,7 +149,7 @@ const ParentProfile = ({userDetail,handleNext}) => {
             return;
         }
         const form = new FormData();
-        form.append('locationId', '1db14353-2d7c-4a16-8fac-abd4b9c08edb');
+        form.append('locationId', formData.locationId);
         form.append('firstName', formData.firstName);
         form.append('email', formData.email);
         // form.append('location', formData?.location || '');
@@ -173,7 +173,8 @@ const ParentProfile = ({userDetail,handleNext}) => {
         form.append('isLiabilityWaiverSigned', true);
         form.append('updatedBy', '10000');
         form.append('status', 1);
-        UpdateClientDetail(form,formData.sortKey).then((response) => {
+
+        UpdateClientDetail(form, formData.sortKey).then((response) => {
             if (response) {
                 setConfirmOpen(true);
             }
@@ -444,7 +445,10 @@ const ParentProfile = ({userDetail,handleNext}) => {
             <ProfileModals fullWidth open={open} handleClose={() => setOpen(false)} setFormData={setFormData}
                            formData={formData}/>
             <ProfileModals open={confirmOpen} type={'confirm'} handleActionBtn={handleActionBtn}/>
-            <ProfileModals open={teamOpen} handleClose={() => setTeamOpen(false)} type={'team'} handleNext={handleNext}/>
+            {/*<ProfileModals open={true} handleClose={() => setTeamOpen(false)} type={'invite'}*/}
+            {/*               handleNext={handleNext}/>*/}
+            <ProfileModals open={teamOpen} handleClose={() => setTeamOpen(false)} type={'team'}
+                           handleNext={handleNext}/>
         </Box>
     )
 }

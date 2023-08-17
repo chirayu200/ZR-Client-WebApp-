@@ -1,58 +1,96 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Box, Button, InputLabel, TextField, ToggleButton, ToggleButtonGroup, Typography} from "@mui/material";
 import {CustomButton, CustomDropdown, CustomInput} from "../../Components/Common";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import {dateFormat} from "../../Utils";
+import {UpdateDogProfile} from "../../Services/APIs";
+import {ProfileModals} from "../../Components/Modals";
 
 
-const downArrow = require("../../assets/images/dropdownArrow.svg").default;
+
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
-const dragDrop = require("../../assets/images/dragdrop.svg").default;
-const options = [
-    {label: "Option 1", value: "option1"},
-    {label: "Option 2", value: "option2"},
-    {label: "Option 3", value: "option3"},
-];
-const DogProfile = () => {
-    const [alignment, setAlignment] = React.useState('yes');
 
 
-    const [selectedOption, setSelectedOption] = useState("");
-    const [selectedImage, setSelectedImage] = useState(null);
-    const handleChange = (event, newAlignment) => {
-        setAlignment(newAlignment);
-    };
-    const [formData, setFormData] = useState({
-        location: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        mobileNumber: '',
-        referralSource: '',
-        address1: '',
-        address2: '',
-        state: '',
-        city: '',
-        zipCode: '',
-        emergencyName: '',
-        emergencyEmail: '',
-        emergencyPhoneNumber: '',
-        emergencyRelationship: '',
-        isLiabilityWaiverChecked: false
-    });
-
+const DogProfile = ({dogDetail}) => {
+    const [confirmOpen, setConfirmOpen] = useState(false);
     const [errors, setErrors] = useState({});
+
+    const [formData, setFormData] = useState({
+        clientId: "",
+        firstName: "",
+        lastName: "",
+        profileImage: "",
+        birthDate: "",
+        gender: "",
+        acquisitionSource: "",
+        breed: "",
+        notes: "",
+        veterinarian: "",
+        allergies: "",
+        barking: "",
+        strangers: "",
+        biting: "",
+        possessive: "",
+        advanced: "",
+        social: "",
+        completed: [],
+        rabiesExpiration: "",
+        bordetellaExpiration: "",
+        dhppExpiration: "",
+
+    });
+    const [completeObj, setCompleteObj] = useState({
+        orientation: 'No',
+        evaluation: 'No',
+        agility: 'No',
+        tricks: 'No'
+    })
+    useEffect(() => {
+        if (dogDetail) {
+            setFormData(dogDetail);
+        }
+
+    }, [dogDetail])
+    const handleChange = (name, value) => {
+        console.log(name, "name<=>value", value)
+        if (name === 'completed') {
+
+            setFormData({
+                ...formData,
+                [name]: value,
+
+            });
+            setCompleteObj({...completeObj, [value]: 'Yes'})
+        }
+        setFormData({...formData, [name]: value})
+    };
     const onSelectImage = (e) => {
         if (e.target.files && e.target.files.length > 0) {
             const imageFile = e.target.files[0];
             if (imageFile) {
-                setSelectedImage(URL.createObjectURL(imageFile));
+                setFormData({...formData, profileImage: URL.createObjectURL(imageFile)})
+            }
+        }
+    };
+    const onSelectImageVacination = (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+            const imageFile = e.target.files[0];
+            if (imageFile) {
+                setFormData({...formData, vacinationReport: URL.createObjectURL(imageFile)})
             }
         }
     };
 
 
-    const handleDropdownChange = (event) => {
-        setSelectedOption(event.target.value);
+    const handleDateChange = (name, value) => {
+        setFormData({...formData, [name]: dateFormat(value) || ''})
+        if (errors[name]) {
+            setErrors((prevFormErrors) => ({
+                ...prevFormErrors,
+                [name]: "",
+            }));
+        }
+
     };
 
     const handleInputChange = (event) => {
@@ -69,30 +107,12 @@ const DogProfile = () => {
         }
     };
 
-    const handleLiabilityWaiverCheck = () => {
-        setFormData(prevData => ({
-            ...prevData,
-            isLiabilityWaiverChecked: !prevData.isLiabilityWaiverChecked
-        }));
-    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        // Basic validation: Check if required fields are filled
         const requiredFields = [
             'firstName',
             'lastName',
-            'email',
-            'mobileNumber',
-            'address1',
-            'address2',
-            'state',
-            'city',
-            'zipCode',
-            'emergencyEmail',
-            'emergencyPhoneNumber',
-
         ];
 
         const newErrors = {};
@@ -105,30 +125,82 @@ const DogProfile = () => {
             }
         });
 
-        // Additional validation: Check email format
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!emailPattern.test(formData.email)) {
-            newErrors.email = 'Please enter a valid email address';
-            hasErrors = true;
-        }
 
         if (hasErrors) {
             setErrors(newErrors);
             return;
         }
 
-        // Perform form submission and API call here
-        // ...
 
+        const form = new FormData();
+        form.append('clientId', formData.clientId);
+        form.append('firstName', formData.firstName || "");
+        form.append('lastName', formData.lastName || '');
+        form.append('profileImage', formData.profileImage || '');
+        form.append('birthDate', formData.birthDate || '');
+        form.append('gender', formData.gender || '');
+        form.append('acquisitionSource', formData.acquisitionSource || '');
+        form.append('breed', formData.breed || '');
+        form.append('notes', formData.notes || '');
+        form.append('veterinarian', formData.veterinarian || '');
+        form.append('allergies', formData.allergies || '');
+        form.append('barking', formData.barking || '');
+        form.append('strangers', formData.strangers || '');
+        form.append('biting', formData.biting || '');
+        form.append('possessive', formData.possessive || '');
+        form.append('advanced', formData.advanced || '');
+        form.append('social', formData.social || '');
+        form.append('completed[orientation]', completeObj['orientation']||'');
+        form.append('completed[evaluation]', completeObj['evaluation']||'');
+        form.append('completed[agility]', completeObj['agility']||'');
+        form.append('completed[tricks]', completeObj['tricks']||'');
+        form.append('rabiesExpiration', formData.rabiesExpiration || '');
+        form.append('bordetellaExpiration', formData.bordetellaExpiration || '');
+        form.append('dhppExpiration', formData.dhppExpiration || '');
+        form.append('updatedBy', '1000');
+        form.append('status', 1);
+        console.log(form, 'alldata', formData);
+        UpdateDogProfile(form, '#PET#2U3jAO3JcJLBwlJWyyjuoM6VnJl').then((response) => {
+            if (response) {
+                setConfirmOpen(true);
+            }
+        })
 
     };
 
+    function calculateAge() {
 
+        const dateOfBirth = new Date(formData.birthDate);
+        const currentDate = new Date();
+        const birthYear = dateOfBirth.getFullYear();
+        const birthMonth = dateOfBirth.getMonth();
+        const birthDay = dateOfBirth.getDate();
+
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth();
+        const currentDay = currentDate.getDate();
+
+        let years = currentYear - birthYear;
+        let months = currentMonth - birthMonth;
+        let weeks = Math.floor((currentDate - dateOfBirth) / (7 * 24 * 60 * 60 * 1000));
+
+        if (months < 0 || (months === 0 && currentDay < birthDay)) {
+            years--;
+            months += 12;
+        }
+
+        return {years, months, weeks};
+    }
+
+    const handleActionBtn = (type) => {
+        setConfirmOpen(false);
+
+    }
     return (
         <Box className='profile-main'>
             <Box className='dp-section'>
                 <img
-                    src={selectedImage ? selectedImage : 'https://s3-alpha-sig.figma.com/img/7b3c/835d/f1dff291fc821211e847e359bb77f85b?Expires=1692576000&Signature=TTNOG7uioQbh4y5bX4nJat1kESmaPnN7yaKihz6M86R6-z0w~6GMvWmckS77zkOf9WILqDNQ22M23AZpLb1jL5n1rMc0fhpUqxE1WTcn~abXNWPoqbqp2x9iuDQGOpe7nkEUUcaYgeQqq3GazHgVHxW21uD4NGVsfbjfRX7h6E1EjyNwGHTf4LHa50Uy6zGIbkEootbjUoXFqYWpRNTesVHs7fe0Df2bhxMvJFzRpiE19w8GI6BLS7lqyGgy9j5tMO9ilYfGzMe8YWIW7jxAC1fqHT4HCbsWMhVboV7tNerSET-6v0JpbQFcDVeXqICsYd9JPbfDl6v78nT2-fe8Qw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
+                    src={formData?.profileImage ? formData?.profileImage : 'https://s3-alpha-sig.figma.com/img/7b3c/835d/f1dff291fc821211e847e359bb77f85b?Expires=1692576000&Signature=TTNOG7uioQbh4y5bX4nJat1kESmaPnN7yaKihz6M86R6-z0w~6GMvWmckS77zkOf9WILqDNQ22M23AZpLb1jL5n1rMc0fhpUqxE1WTcn~abXNWPoqbqp2x9iuDQGOpe7nkEUUcaYgeQqq3GazHgVHxW21uD4NGVsfbjfRX7h6E1EjyNwGHTf4LHa50Uy6zGIbkEootbjUoXFqYWpRNTesVHs7fe0Df2bhxMvJFzRpiE19w8GI6BLS7lqyGgy9j5tMO9ilYfGzMe8YWIW7jxAC1fqHT4HCbsWMhVboV7tNerSET-6v0JpbQFcDVeXqICsYd9JPbfDl6v78nT2-fe8Qw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
                     alt={'profile'}/>
                 <Box className='img-input'>
                     <img src={require('../../assets/images/camera-plus-outline.svg').default}
@@ -170,12 +242,13 @@ const DogProfile = () => {
                         {/*Date of Birdth*/}
                         <InputLabel>Date of Birth</InputLabel>
                         <CustomDropdown
-                            value={selectedOption}
-                            onChange={handleDropdownChange}
-                            options={options}
+                            value={formData.birthDate}
+                            onChange={handleDateChange}
+                            name={'birthDate'}
                             icon={dateIcon}
                             date
                         />
+                        <InputLabel>{formData.birthDate && `Age: ${calculateAge().weeks} weeks Old`}</InputLabel>
                     </Box>
                     <Box className='input-item-wrap'>
                         <CustomInput
@@ -185,34 +258,39 @@ const DogProfile = () => {
                             className='form-inputs'
                             placeholder='Gender'
                             fullWidth
-                            value={formData.mobileNumber}
+                            value={formData.gender}
                             onChange={handleInputChange}
-                            error={!!errors.mobileNumber}
-                            helperText={errors.mobileNumber}
+                            error={!!errors.gender}
+                            helperText={errors.gender}
                         />
                     </Box>
                     <Box className='input-item-wrap'>
                         <CustomInput
                             type='text'
                             label={'Acquisition Sources'}
-                            name='address1'
+                            name='acquisitionSource'
                             className='form-inputs'
-                            placeholder='Address 1'
+                            placeholder='Acquisition Sources'
                             fullWidth
-                            value={formData.address1}
+                            value={formData.acquisitionSource}
                             onChange={handleInputChange}
-                            error={!!errors.address1}
-                            helperText={errors.address1}
+                            error={!!errors.acquisitionSource}
+                            helperText={errors.acquisitionSource}
                         />
                     </Box>
 
                     <Box className='input-item-wrap'>
-                        <InputLabel>Breed</InputLabel>
-                        <CustomDropdown
-                            value={selectedOption}
-                            onChange={handleDropdownChange}
-                            options={options}
-                            icon={downArrow}
+                        <CustomInput
+                            type='text'
+                            label={'Breed'}
+                            name='breed'
+                            className='form-inputs'
+                            placeholder='breed'
+                            fullWidth
+                            value={formData.breed}
+                            onChange={handleInputChange}
+                            error={!!errors.breed}
+                            helperText={errors.breed}
                         />
 
                     </Box>
@@ -220,14 +298,14 @@ const DogProfile = () => {
                         <CustomInput
                             type='text'
                             label={'Allergies'}
-                            name='address2'
+                            name='allergies'
                             className='form-inputs'
                             placeholder='Address 2'
                             fullWidth
-                            value={formData.address2}
+                            value={formData.allergies}
                             onChange={handleInputChange}
-                            error={!!errors.address2}
-                            helperText={errors.address2}
+                            error={!!errors.allergies}
+                            helperText={errors.allergies}
                         />
                     </Box>
 
@@ -239,26 +317,28 @@ const DogProfile = () => {
                                 attention? </Typography>
                             <ToggleButtonGroup
                                 color="primary"
-                                value={alignment}
+                                value={formData.barking}
                                 exclusive
-                                onChange={handleChange}
+                                name='barking'
+                                onChange={(e) => handleChange('barking', e.target.value)}
                                 aria-label="Platform"
                             >
-                                <ToggleButton className='toggle-btn' value="yes">Yes</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="no">No</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="Yes">Yes</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="No">No</ToggleButton>
 
                             </ToggleButtonGroup></Box>
                         <Box className='input-toggle-wrap'>
                             <Typography>Is your dog afraid of strangers or certain groups of people? </Typography>
                             <ToggleButtonGroup
                                 color="primary"
-                                value={alignment}
+                                value={formData.strangers}
                                 exclusive
-                                onChange={handleChange}
+
+                                onChange={(e) => handleChange('strangers', e.target.value)}
                                 aria-label="Platform"
                             >
-                                <ToggleButton className='toggle-btn' value="yes">Yes</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="no">No</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="Yes">Yes</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="No">No</ToggleButton>
 
                             </ToggleButtonGroup></Box>
                         <Box className='input-toggle-wrap'>
@@ -266,26 +346,28 @@ const DogProfile = () => {
                                 including nipping or play biting)? </Typography>
                             <ToggleButtonGroup
                                 color="primary"
-                                value={alignment}
+                                value={formData.biting}
                                 exclusive
-                                onChange={handleChange}
+
+                                onChange={(e) => handleChange('biting', e.target.value)}
                                 aria-label="Platform"
                             >
-                                <ToggleButton className='toggle-btn' value="yes">Yes</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="no">No</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="Yes">Yes</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="No">No</ToggleButton>
 
                             </ToggleButtonGroup></Box>
                         <Box className='input-toggle-wrap'>
                             <Typography>Is your dog very possessive about his/her food or toys? </Typography>
                             <ToggleButtonGroup
                                 color="primary"
-                                value={alignment}
+                                value={formData.possessive}
                                 exclusive
-                                onChange={handleChange}
+
+                                onChange={(e) => handleChange('possessive', e.target.value)}
                                 aria-label="Platform"
                             >
-                                <ToggleButton className='toggle-btn' value="yes">Yes</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="no">No</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="Yes">Yes</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="No">No</ToggleButton>
 
                             </ToggleButtonGroup></Box>
                         <Box className='input-toggle-wrap'>
@@ -293,36 +375,41 @@ const DogProfile = () => {
                                 classes or agility?</Typography>
                             <ToggleButtonGroup
                                 color="primary"
-                                value={alignment}
+                                value={formData.social}
                                 exclusive
-                                onChange={handleChange}
+
+                                onChange={(e) => handleChange('social', e.target.value)}
                                 aria-label="Platform"
                             >
-                                <ToggleButton className='toggle-btn' value="yes">Yes</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="no">No</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="Yes">Yes</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="No">No</ToggleButton>
 
                             </ToggleButtonGroup></Box>
                         <Box className='input-toggle-wrap'>
-                            <Typography>Do you believe your dog is able to skip basic obedience and take advanced
-                                classes or agility?</Typography>
-                            <ToggleButtonGroup
-                                color="primary"
-                                value={alignment}
-                                exclusive
-                                onChange={handleChange}
-                                aria-label="Platform"
-                            >
-                                <ToggleButton className='toggle-btn' value="Orientation">Orientation</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="Evaluation">Evaluation</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="Agility">Agility</ToggleButton>
-                                <ToggleButton className='toggle-btn' value="Agility">Agility</ToggleButton>
-
-                            </ToggleButtonGroup></Box>
-
-                        <Box className='input-toggle-wrap'>
-                            <Typography className='heading'>Description</Typography>
-                            <TextField value='Add notes (Optional)' className='text-field'/>
+                            <Typography className=''>Describe Your Dog</Typography>
+                            <TextField value={formData.notes}
+                                       onChange={handleInputChange}
+                                       name={'notes'}
+                                       placeholder={'Share your dog\'s unique story with the world!'}
+                                       className='text-field'/>
                         </Box>
+                        <Box className='input-toggle-wrap'>
+                            <Typography variant='h6' fontWeight={700}>Completed</Typography>
+                            <ToggleButtonGroup
+                                color="primary"
+                                value={formData.completed}
+                                exclusive
+                                aria-label="multiple options"
+                                onChange={(e) => handleChange('completed', e.target.value)}
+                                // aria-label="Platform"
+                            >
+                                <ToggleButton className='toggle-btn' value="orientation">Orientation</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="evaluation">Evaluation</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="agility">Agility</ToggleButton>
+                                <ToggleButton className='toggle-btn' value="tricks">tricks</ToggleButton>
+
+                            </ToggleButtonGroup></Box>
+
 
                     </Box>
 
@@ -331,8 +418,11 @@ const DogProfile = () => {
 
                     <Box className='input-item-wrap'>
                         <Box className='liability-btn-wrap upload'>
-                            <Button className="expiryBtn" onClick={handleLiabilityWaiverCheck}>
+                            <Button className="expiryBtn">
                                 Upload Documents
+                                <Box className='img-input'>
+                                    <input type={'file'} onChange={onSelectImageVacination}/>
+                                </Box>
                             </Button>
 
                         </Box>
@@ -344,10 +434,11 @@ const DogProfile = () => {
                         {/*Date of Birdth*/}
                         <InputLabel>Rabbis Exp Date</InputLabel>
                         <CustomDropdown
-                            value={selectedOption}
-                            onChange={handleDropdownChange}
-                            options={options}
+                            value={formData.rabiesExpiration}
+                            onChange={handleDateChange}
+
                             icon={dateIcon}
+                            name={'rabiesExpiration'}
                             date
                         />
                     </Box>
@@ -355,9 +446,10 @@ const DogProfile = () => {
                         {/*Date of Birdth*/}
                         <InputLabel>Bordetella Exp Date</InputLabel>
                         <CustomDropdown
-                            value={selectedOption}
-                            onChange={handleDropdownChange}
-                            options={options}
+                            value={formData.bordetellaExpiration}
+                            onChange={handleDateChange}
+                            name={'bordetellaExpiration'}
+
                             icon={dateIcon}
                             date
                         />
@@ -366,10 +458,10 @@ const DogProfile = () => {
                         {/*Date of Birdth*/}
                         <InputLabel>Combo Shot Exp Date</InputLabel>
                         <CustomDropdown
-                            value={selectedOption}
-                            onChange={handleDropdownChange}
-                            options={options}
+                            value={formData.dhppExpiration}
+                            onChange={handleDateChange}
                             icon={dateIcon}
+                            name={'dhppExpiration'}
                             date
                         />
                     </Box>
@@ -387,12 +479,11 @@ const DogProfile = () => {
                             iconJsx={<ChevronRightIcon/>}
                             fullWidth
                             type="submit"
-                            // onClick={handleNext}
-
                         />
                     </Box>
                 </Box>
             </form>
+            <ProfileModals open={confirmOpen} type={'dog'} handleActionBtn={handleActionBtn}/>
         </Box>
     )
 }

@@ -9,6 +9,7 @@ import DialogContent from "@mui/material/DialogContent";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {CustomButton, CustomDropdown} from "../Common";
 import SignaturePad from "react-signature-canvas";
+import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 
@@ -49,15 +50,15 @@ export const ProfileModals = ({
                 maxWidth={fullWidth ? "md" : ""}
                 open={open}
                 onClose={handleClose}
-                className={`global-modal-main ${type === 'team' ? 'teams-main-wrap' : type === 'confirm' ? 'confirm-main-wrap' : ""}`}
+                className={`global-modal-main ${type === 'team' || type === 'invite' ? 'teams-main-wrap' : type === 'confirm' || type === 'dog' ? 'confirm-main-wrap' : ""}`}
             >
-                {type === 'confirm' ?
+                {type === 'confirm' || type === 'dog' ?
                     <>
                         <Box className='confirm-main'>
                             <Typography className='modal-heading '>Profile Completed</Typography>
                             <Typography className='modal-description'>
-                                You have successfully completed your profile. Do you want to build your team now? Before
-                                adding someone to your team, they should already have an account created.
+                                {type === 'dog' ? "You have successfully completed your dog profile. Do you want to add another dog?" : "You have successfully completed your profile. Do you want to build your team now? Before adding someone to your team, they should already have an account created."}
+
                             </Typography>
 
                         </Box>
@@ -68,33 +69,49 @@ export const ProfileModals = ({
                             <Divider className='profile-btn-divider'/>
                             <Button className='blue-btn' onClick={() => handleActionBtn('yes')}>Yes</Button>
                         </DialogActions></>
-                    : type === 'team' ?
+                    : type === 'team' || type === 'invite' ?
                         <>
                             <Box className='modal-header'>
                                 <Button onClick={handleClose} className='close-button'><CloseIcon/></Button>
                             </Box>
-                            <Box className='team-main'>
-                                <Typography className='team-main-heading'>Build Your Team</Typography>
+                            <Box className={`team-main ${type === 'invite' && 'invite-main'}`}>
+                                {type === 'invite' && <GroupsOutlinedIcon/>}
+
+                                <Typography
+                                    className='team-main-heading'>{type === 'invite' ? "Invite Team Members" : "Build Your Team"}</Typography>
                                 <Box className='teams-content'>
-                                    <InputLabel>Select Client</InputLabel>
-                                    <CustomDropdown
-                                        value={'Select Clients'}
-                                        placeHolder={'Select Clients'}
-                                        // onChange={handleDropdownChange}
-                                        options={options}
-                                        icon={downArrow}
+                                    {type === 'invite' ?
+                                        <Typography className='invite-para'>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultricies
+                                            accumsan aliquet.
+                                        </Typography> : <>
+                                            <InputLabel>Select Client</InputLabel>
+                                            <CustomDropdown
+                                                value={'Select Clients'}
+                                                placeHolder={'Select Clients'}
+                                                // onChange={handleDropdownChange}
+                                                options={options}
+                                                icon={downArrow}
 
-                                    />
+                                            />
+                                        </>}
+
                                 </Box>
-                                <CustomButton
-                                    className='book-btn'
-                                    title={"Add To Your Team"}
-                                    color='#fff'
-                                    backgroundColor='#003087'
-                                    fullWidth
-                                    onClick={handleNext}
-
-                                />
+                                {type === 'invite' ? <CustomButton
+                                        className='book-btn'
+                                        title={"Invite Now"}
+                                        color='#fff'
+                                        backgroundColor='#32B2AC'
+                                        onClick={handleNext}
+                                    /> :
+                                    <CustomButton
+                                        className='book-btn'
+                                        title={"Add To Your Team"}
+                                        color='#fff'
+                                        backgroundColor='#003087'
+                                        fullWidth
+                                        onClick={handleNext}
+                                    />}
 
 
                             </Box>
