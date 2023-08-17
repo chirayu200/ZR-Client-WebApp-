@@ -5,5 +5,5 @@ export { Popup } from "./Popup";
 export { CustomCardBox } from "./CustomCardBox";
 export {CustomDropdown} from './CustomDropdown'
 export {NotificationSection} from './NotificationSection';
-export {LeadershipBoard} from './LeadershipBoard';
-export {Toggle} from './Toggle';
+export {LeadershipBoard} from './LeadershipBoard'
+export {LinearProgressBar} from './LinearProgressBar'

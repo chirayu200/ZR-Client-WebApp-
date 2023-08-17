@@ -146,3 +146,27 @@ export const CalenderDateFormat = (inputDate) => {
     month = month.toString().padStart(2, '0');
     return `${year}-${month}-${date}`;
 };
+export const setLocalData = (keyName, keyValue) => {
+    localStorage.setItem(keyName, keyValue);
+};
+
+// get data from the local storage
+export const getLocalData = (keyName) => {
+    return localStorage.getItem(keyName);
+};
+
+// clear local data from the local storage
+export const clearLocalData = () => {
+    localStorage.clear();
+};
+export const setFullLocationId = (locationId) => {
+    let result = '';
+    if (locationId) {
+        if (locationId.indexOf('LOC#') > -1) {
+            result = locationId;
+        } else {
+            result = `LOC#${locationId}`;
+        }
+    }
+    return result;
+};

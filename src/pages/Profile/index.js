@@ -6,6 +6,10 @@ import {default as backArrow} from "../../assets/images/orangeArrow.svg";
 import ParentProfile from "./ParentProfile";
 import DogProfile from "./DogProfile";
 import {CheckClientDetail, GetDogDetail} from "../../Services/APIs";
+import PublicProfile from "./PublicProfile";
+import Team from './Team'
+import AddPet from "./AddPet";
+import LearnDog from "./LearnDog"
 
 
 export default function ProfileMain({clientDetail}) {
@@ -19,14 +23,18 @@ export default function ProfileMain({clientDetail}) {
             const [data] = response.data.Items;
             setUserDetail(data);
         })
-        GetDogDetail(clientDetail.sortKey,"iiii")
+        GetDogDetail(clientDetail.sortKey,"#PET#2U3jAO3JcJLBwlJWyyjuoM6VnJl")
             .then((response) => {
                 const [data] = response.data.Items;
                 setDogDetail(data);
             })
     }, [clientDetail])
     const childComponent = [
-        {title: 'Edit Profile', component: <ParentProfile userDetail={userDetail} handleNext={()=>setActive(1)}/>},
+        {title: 'Public Profile', component: <PublicProfile userDetail={userDetail} handleNext={()=>setActive(1)}/>},
+        {title: 'Team', component: <Team userDetail={userDetail} handleNext={()=>setActive(2)}/>},
+        {title: 'Add Pet', component: <AddPet userDetail={userDetail} handleNext={()=>setActive(3)}/>},
+        {title: 'Learn Dog', component: <LearnDog userDetail={userDetail} handleNext={()=>setActive(4)}/>},
+        {title: 'Edit Profile', component: <ParentProfile userDetail={userDetail} handleNext={()=>setActive(5)}/>},
         {title: 'Edit Dog Profile', component: <DogProfile dogDetail={dogDetail}/>},
 
     ]

@@ -5,7 +5,7 @@ import {GetAllExploreSchedules} from "../../Services/APIs";
 import {convertDates, dateFormat, filtersQuery, timeDifferenceCalculate} from "../../Utils";
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
-const searchIcon=require('../../assets/images/searchIcon.svg').default;
+const searchIcon = require('../../assets/images/searchIcon.svg').default;
 const options = [
     {label: "All", value: ""},
     {label: "Enrollments", value: "enrollment"},
@@ -25,17 +25,16 @@ export default function ExploreService({handleNext}) {
     const [filteredList, setFilteredList] = useState([]);
     const [loader, setLoader] = useState(true);
     const [selectedButton, setSelectedButton] = useState(null);
-    const handleDropdownChange = (event) => {
+    const handleDropdownChange = (name,value) => {
 
         setLoader(true);
-        setFilters({...filters, scheduleType: event.target.value})
+        setFilters({...filters, [name]:value.value})
     };
     const handleButtonClick = (buttonIndex) => {
         setLoader(true);
         setSelectedButton(buttonIndex);
         handleFilterClick(buttonIndex)
     };
-
 
 
     useEffect(() => {
@@ -160,7 +159,7 @@ export default function ExploreService({handleNext}) {
                         className={`slots ${selectedButton === 1 ? 'active' : ''}`}
                         onClick={() => handleButtonClick(1)}
                     />
-                    {/* active */}
+
                     <CustomButton
                         color='#003087'
                         title={"This Week"}
@@ -195,13 +194,16 @@ export default function ExploreService({handleNext}) {
                     <CustomDropdown
                         value={filters.scheduleType}
                         onChange={handleDropdownChange}
+                        placeHolder={filters.scheduleType||'Select Type'}
                         options={options}
+                        name={'scheduleType'}
                         icon={downArrow}
                     />
                     <CustomDropdown
                         value={filters.scheduleType}
                         onChange={handleDropdownChange}
                         options={options}
+                        name={'scheduleType'}
                         icon={downArrow}
                     />
                     <CustomInput

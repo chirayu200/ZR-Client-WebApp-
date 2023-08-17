@@ -5,6 +5,7 @@ import {Box, CircularProgress} from "@mui/material";
 
 import {BrowserRouter as Router, Navigate, Route, Routes,} from "react-router-dom";
 import {GetClientDetailByEmailId} from "./Services/APIs";
+import {getLocalData, setLocalData} from "./Utils";
 
 const withSuspense = (Component) => (props) =>
     (
@@ -28,14 +29,13 @@ const Appointment = withSuspense(lazy(() => import("./pages/Appointments")));
 const Shop = withSuspense(lazy(() => import("./pages/Shop")));
 const Achievements = withSuspense(lazy(() => import("./pages/Achievements")));
 const Profile = withSuspense(lazy(() => import("./pages/Profile")))
-const Settings = withSuspense(lazy(() => import("./pages/Settings")));
 
-const Layout = ({loggedIn, Component, name, path,clientDetail}) => {
+const Layout = ({loggedIn, Component, name, path, clientDetail}) => {
     return (
         <>
             {loggedIn ? (
                 <>
-                <Sidebar name={name} Component={Component} path={path} clientDetail={clientDetail}/>
+                    <Sidebar name={name} Component={Component} path={path} clientDetail={clientDetail}/>
                 </>
             ) : (
                 Component
@@ -45,14 +45,13 @@ const Layout = ({loggedIn, Component, name, path,clientDetail}) => {
 };
 
 function App() {
-    let token = localStorage.getItem('token');
+    let token = getLocalData('token');
     const [loggedIn, setLoggedIn] = useState(!!token);
 
     const [clientDetail, setClientDetail] = useState('');
     const handleLogin = (username) => {
-
-        localStorage.setItem('token', username.accessToken);
-        localStorage.setItem('user_detail', JSON.stringify(username.userDetails));
+        setLocalData('token', username.accessToken)
+        setLocalData('user_detail', JSON.stringify(username.userDetails))
         callClientDetail(username.userDetails)
         setLoggedIn(true);
     };
@@ -61,6 +60,8 @@ function App() {
 
         GetClientDetailByEmailId(username.email).then((response) => {
             const [detail] = response.data.Items;
+            setLocalData('locationId', detail.locationId);
+            console.log(detail,"detail")
             setClientDetail(detail);
 
         })
@@ -68,9 +69,8 @@ function App() {
     useEffect(() => {
         if (token) {
             setLoggedIn(true);
-            let userDetail = JSON.parse(localStorage.getItem('user_detail'))
-            callClientDetail(userDetail)
-
+            // let userDetail = JSON.parse(getLocalData('user_detail'))
+            // callClientDetail(userDetail)
         } else {
             setLoggedIn(false);
         }
@@ -164,7 +164,7 @@ function App() {
                                 <Layout
                                     loggedIn={loggedIn}
                                     name='Achievements'
-                                     clientDetail={clientDetail}
+                                    clientDetail={clientDetail}
                                     Component={<Achievements clientDetail={clientDetail}/>}
                                 />
                             ) : (
@@ -172,20 +172,6 @@ function App() {
                             )
                         }
                     />
-                     <Route
-                        path='/settings'
-                        element={
-                            loggedIn ? (
-                                <Layout
-                                    loggedIn={loggedIn}
-                                    name='Settings'
-                                    Component={<Settings clientDetail={clientDetail} />}
-                                />
-                            ) : (
-                                <Navigate to='/account' />
-                            )
-                        }
-                    />      
                     {/* Default route */}
                     <Route
                         path='/'
