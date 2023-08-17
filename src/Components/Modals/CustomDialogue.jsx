@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {default as Earned} from "../../assets/images/earned.svg";
 import CircularProgress from "@mui/material/CircularProgress";
 import {default as adjDogOne} from "../../assets/images/adjDogOne.svg";
-import LinearProgressBar from "../Common/LinearProgress";
+import {LinearProgressBar} from "../Common";
 
 
 const back = require("../../assets/images/chevron-up.svg").default;
@@ -26,7 +26,28 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                 onClose={handleClose}
                 className={className}
             >
-                {type === "appointment" ?
+                  {type === "profile" ?
+                    <>
+                        
+
+                        <DialogContent>
+                                <Box className="checktext">
+                                    <Typography>Complete Your Dog Profile</Typography>
+                                    <Typography>In order to book a service, you will have to complete your profile. Do you want to complete it now?</Typography>
+                                </Box>
+                                <Box className="profileBtnWrap">
+                                <Button onClick={handleClose}
+                                        className='confirmCheckBtn'
+
+                                >Skip</Button>
+                                <Button onClick={handleNext}
+                                        className='confirmCheckBtn'
+
+                                >Yes, I want</Button>
+                                </Box>
+                            </DialogContent>
+                    </> :
+                type === "appointment" ?
                     <>
                         <DialogActions className='dialog-actions'>
                             <CustomButton
@@ -100,7 +121,7 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                                     <CircularProgress
                                         variant='determinate'
                                         color='warning'
-                                        value={20}
+                                        value={70}
                                         className='circlePBar'
                                     />
                                     <img
@@ -115,7 +136,7 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                                 </Box>
                                 <Box className="linearProgressWrap">
                                     <span>70%</span>
-                                <LinearProgressBar  classes='modalProgress' />
+                                <LinearProgressBar  classes='modalProgress' value={70}  />
                                 </Box>
                             </Box>
                             </DialogContent>

@@ -1,6 +1,7 @@
 import { Box,  Typography} from "@mui/material";
 import React, {useState} from "react";
 import { CustomDropdown, CustomInput} from "../../Components/Common";
+import {default as searchIcon} from "../../assets/images/searchIcon.svg";
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 
@@ -29,7 +30,8 @@ export default function VisitHistory({handleBack}) {
                         type='text'
                         name='search'
                         value='Search'
-                        className='card-input'
+                        icon={searchIcon}
+                        className='card-input search'
                         placeholder='Search'
                         fullWidth
                     />

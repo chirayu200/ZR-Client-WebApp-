@@ -8,6 +8,7 @@ import {
 import MobileStepper from '@mui/material/MobileStepper';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import {default as searchIcon} from "../../assets/images/searchIcon.svg";
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const badges = require("../../assets/images/badges.svg").default;
@@ -105,7 +106,8 @@ export default function Memberships({handleNext}) {
 						type='text'
 						name='search'
 						value='Search'
-						className='card-input'
+						icon={searchIcon}
+						className='card-input search'
 						placeholder='Search'
 						fullWidth
 					/>
@@ -119,6 +121,8 @@ export default function Memberships({handleNext}) {
 						autoplay={true}
 					>
 						{images.map((step, index) => (
+
+
 									<Box className='slider-section'>
 										<Box className='image-section'>
 											<img
