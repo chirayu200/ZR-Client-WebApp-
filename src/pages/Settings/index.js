@@ -10,6 +10,7 @@ import Notifications from "./Notifications";
 import Security from "./Security";
 import AboutApp from "./AboutApp";
 import HelpAndSupport from "./HelpAndSupport";
+import './settingStyle.css';
 
 const notification      = require("../../assets/images/notification.png");
 const security          = require("../../assets/images/security.png");
