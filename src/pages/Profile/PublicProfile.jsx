@@ -18,15 +18,15 @@ export default function PublicProfile({handleNext, setActive, initialState, setI
     const [open, setOpen] = useState(false)
 console.log(initialState,"initialState")
     useEffect(() => {
-        if (initialState.userType === 'dog'&&initialState.selected) {
-            GetDogDetail(initialState.client.sortKey, "#PET#2U3jAO3JcJLBwlJWyyjuoM6VnJl")
+        if (initialState.userType === 'dog' && initialState.selected) {
+            GetDogDetail(initialState.client.sortKey, initialState.selected.sortKey)
                 .then((response) => {
                     const [data] = response.data.Items;
-                    setInitialState({...initialState, dog: data});
+                    setInitialState({...initialState, dog: data, userType: 'dog'});
 
                 })
         }
-    }, [])
+    }, [initialState.selected])
     const handleCompleteProfile = () => {
         if (initialState.userType === 'dog') {
             setActive(4)
