@@ -1,30 +1,32 @@
-import React, {useEffect, useRef, useState} from 'react'
-import {Accordion, AccordionDetails, AccordionSummary, Box, Typography} from '@mui/material';
-import {CustomButton, CustomDropdown, CustomInput} from "../../Components/Common";
-import {CustomDialogue} from "../../Components/Modals";
+import React, { useEffect, useRef, useState } from 'react'
+import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
+import { CustomButton, CustomDropdown, CustomInput } from "../../Components/Common";
+import { CustomDialogue } from "../../Components/Modals";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import {dateFormat} from "../../Utils";
-import {CreateDogProfile} from '../../Services/APIs'
+import { dateFormat } from "../../Utils";
+import { CreateDogProfile } from '../../Services/APIs'
 
 const uploadProfile = require("../../assets/images/uploadProfile.svg").default;
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
+const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
+
 const genderOptions = [
-    {label: "Male", value: "Male"},
-    {label: "Female", value: "Female"},
+    { label: "Male", value: "Male" },
+    { label: "Female", value: "Female" },
 
 ];
 
 const options = [
-	{ label: "Option 1", value: "option1" },
-	{ label: "Option 2", value: "option2" },
-	{ label: "Option 3", value: "option3" },
+    { label: "Option 1", value: "option1" },
+    { label: "Option 2", value: "option2" },
+    { label: "Option 3", value: "option3" },
 ];
-export default function AddPet({ handleNext,initialState , userDetail}) {
+export default function AddPet({ handleNext, initialState, userDetail }) {
     const [selectedOption, setSelectedOption] = useState("");
     const [learnDog, setLearnDog] = useState(false);
     const [completeObj, setCompleteObj] = useState({
@@ -52,7 +54,7 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
             agility: 'No',
             tricks: 'No'
         },
-        acquisitionSource:'Breeder',
+        acquisitionSource: 'Breeder',
         notes: "notes",
         veterinarian: true,
         allergies: "Yes",
@@ -60,8 +62,8 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
         rabiesExpiration: "",
         bordetellaExpiration: "",
         dhppExpiration: "",
-        createdBy:"1000",
-        status:1,
+        createdBy: "1000",
+        status: 1,
     });
 
     const [errors, setErrors] = useState({});
@@ -74,7 +76,7 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
     useEffect(() => {
         if (userDetail) {
             console.log("userDetail", userDetail);
-            setFormData({...formData, ['clientId']: userDetail.sortKey || ''})
+            setFormData({ ...formData, ['clientId']: userDetail.sortKey || '' })
         }
 
     }, [userDetail])
@@ -82,11 +84,11 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
         setExpanded(isExpanded ? panel : false);
     };
     const handleToggleChange = (name, value) => {
-        setFormData({...formData, [name]: value})
+        setFormData({ ...formData, [name]: value })
     };
 
     const handleInputChange = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setFormData(prevData => ({
             ...prevData,
             [name]: value
@@ -101,7 +103,7 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
     };
 
     const handleDropdownChange = (name, value) => {
-        setFormData({...formData, [name]: value?.label || ''})
+        setFormData({ ...formData, [name]: value?.label || '' })
         if (errors[name]) {
             setErrors((prevFormErrors) => ({
                 ...prevFormErrors,
@@ -112,7 +114,7 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
     };
 
     const handleDateChange = (name, value) => {
-        setFormData({...formData, [name]: dateFormat(value) || ''})
+        setFormData({ ...formData, [name]: dateFormat(value) || '' })
         if (errors[name]) {
             setErrors((prevFormErrors) => ({
                 ...prevFormErrors,
@@ -147,7 +149,7 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
         const file = URL.createObjectURL(event.target.files[0]);
         setSelectedFile(file);
         console.log("file", file);
-        setFormData({...formData, ['profileImage']: file || ''})
+        setFormData({ ...formData, ['profileImage']: file || '' })
     };
     const handleBoxClick = () => {
         fileInputRef.current.click();
@@ -170,29 +172,30 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
             {!learnDog ?
                 (<Box className="addPetWrap">
                     <Box>
-                        {selectedFile ? (
-                                <img src={selectedFile} alt={'dog-img'} className='profileImg'/>
-                            ) :
-                            (<Box
-                                onClick={handleBoxClick}
-                                className='profileUpload'
-                                onDragEnter={handleDragEnter}
-                                onDragLeave={handleDragLeave}
-                                onDragOver={handleDragOver}
-                                onDrop={handleDrop}
-                            >
-                                <img src={uploadProfile} alt='drag'/>
 
+                        <Box
+                            onClick={handleBoxClick}
+                            className='profileUpload'
+                            onDragEnter={handleDragEnter}
+                            onDragLeave={handleDragLeave}
+                            onDragOver={handleDragOver}
+                            onDrop={handleDrop}
+                        >
+                            <img src={uploadProfile} alt='drag' />
+                            {selectedFile ?
+                                <img src={selectedFile} alt={'dog-img'} className='profileImg' />
+                                :
+                                <img src={petPlaceholder} alt='dog' />}
 
-                                <input
-                                    ref={fileInputRef}
-                                    type='file'
-                                    accept='image/*'
-                                    style={{display: "none"}}
-                                    onChange={handleFileChange}
-                                />
-                            </Box>)
-                        }
+                            <input
+                                ref={fileInputRef}
+                                type='file'
+                                accept='image/*'
+                                style={{ display: "none" }}
+                                onChange={handleFileChange}
+                            />
+                        </Box>
+
 
 
                     </Box>
@@ -269,7 +272,7 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
                             title={"Continue"}
                             color='#fff'
                             backgroundColor='#32B2AC'
-                            iconJsx={<ChevronRightIcon/>}
+                            iconJsx={<ChevronRightIcon />}
                             fullWidth
                             onClick={() => setLearnDog(true)}
                         />
@@ -282,11 +285,11 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
                         <Typography>Tell Us About Your Dog</Typography>
                         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                             <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon/>}
+                                expandIcon={<ArrowDropDownIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                < HelpOutlineIcon/>
+                                < HelpOutlineIcon />
                                 <Typography>
                                     Is your dog afraid of strangers or certain groups of people?
                                 </Typography>
@@ -309,11 +312,11 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
                         </Accordion>
                         <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                             <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon/>}
+                                expandIcon={<ArrowDropDownIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                < HelpOutlineIcon/>
+                                < HelpOutlineIcon />
                                 <Typography>
                                     Is your dog very possessive about his/her food or toys?
                                 </Typography>
@@ -336,11 +339,11 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
                         </Accordion>
                         <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                             <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon/>}
+                                expandIcon={<ArrowDropDownIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                < HelpOutlineIcon/>
+                                < HelpOutlineIcon />
                                 <Typography>
                                     Has your dog ever bitten a person or another dog, regardless or injury (not
                                     including nipping or play biting)?
@@ -364,11 +367,11 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
                         </Accordion>
                         <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                             <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon/>}
+                                expandIcon={<ArrowDropDownIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                < HelpOutlineIcon/>
+                                < HelpOutlineIcon />
                                 <Typography>
                                     Does your dog bark at other dogs when out on a walk or at you for attention?
                                 </Typography>
@@ -391,11 +394,11 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
                         </Accordion>
                         <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
                             <AccordionSummary
-                                expandIcon={<ArrowDropDownIcon/>}
+                                expandIcon={<ArrowDropDownIcon />}
                                 aria-controls="panel1bh-content"
                                 id="panel1bh-header"
                             >
-                                < HelpOutlineIcon/>
+                                < HelpOutlineIcon />
                                 <Typography>
                                     Do you believe your dog is able to skip basic obedience and take advanced classes or
                                     agility?
@@ -423,7 +426,7 @@ export default function AddPet({ handleNext,initialState , userDetail}) {
                             title={"Continue"}
                             color='#fff'
                             backgroundColor='#32B2AC'
-                            iconJsx={<ChevronRightIcon/>}
+                            iconJsx={<ChevronRightIcon />}
                             fullWidth
                             onClick={handleDogCreation}
                         />
