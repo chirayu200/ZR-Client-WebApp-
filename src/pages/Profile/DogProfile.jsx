@@ -11,7 +11,7 @@ import {ProfileModals} from "../../Components/Modals";
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
 
 
-const DogProfile = ({dogDetail}) => {
+const DogProfile = ({initialState}) => {
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [errors, setErrors] = useState({});
 
@@ -46,11 +46,11 @@ const DogProfile = ({dogDetail}) => {
         tricks: 'No'
     })
     useEffect(() => {
-        if (dogDetail) {
-            setFormData(dogDetail);
+        if (initialState&&initialState.selected) {
+            setFormData(initialState.selected);
         }
 
-    }, [dogDetail])
+    }, [])
     const handleChange = (name, value) => {
         console.log(name, "name<=>value", value)
         if (name === 'completed') {

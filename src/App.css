@@ -2,18 +2,22 @@
     font-family: 'Univers LT Std';
     src: url('assets/fonts/UniversLTStd.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Myriad Pro';
     src: url('assets/fonts/MYRIADPRO-REGULAR.woff') format('truetype');
 }
+
 @font-face {
     font-family: 'Bebas Neue';
     src: url('assets/fonts/BebasNeue-Regular.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Inter';
     src: url('assets/fonts/BebasNeue-Regular.ttf') format('truetype');
 }
+
 /* circular progress */
 .progress-wrap {
     display: flex;
@@ -33,8 +37,8 @@
 }
 
 .splash-container.MuiContainer-root {
-  padding: 0 !important;
-  box-sizing: unset !important;
+    padding: 0 !important;
+    box-sizing: unset !important;
 }
 
 .splash-container .typo-logo {
@@ -366,12 +370,13 @@
     width: 26px;
 }
 
-.header-text {
-    color: #003087;
+.header-text.MuiTypography-root.MuiTypography-body1 {
+
+    color: var(--primary-blue, #003087);
     font-family: Univers LT Std;
-    font-size: 17px;
+    font-size: 16px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     line-height: normal;
 }
 
@@ -451,9 +456,9 @@
 }
 
 .achievements-section .viewAllBtn, .trophyBoxHead .viewAllBtn {
-  width: 119px;
-  height: 37px;
-  padding: 6px 23px 7px 23px !important;
+    width: 119px;
+    height: 37px;
+    padding: 6px 23px 7px 23px !important;
 }
 
 .top-achieved-list {
@@ -673,7 +678,7 @@ main > div:nth-of-type(1) {
     padding-left: 8px;
 }
 
-.mainSidebar .MuiListItemIcon-root.css-1ddsiuw-MuiListItemIcon-root,.css-10z9ko2 {
+.mainSidebar .MuiListItemIcon-root.css-1ddsiuw-MuiListItemIcon-root, .css-10z9ko2 {
     padding-left: 34px !important;
 }
 
@@ -729,6 +734,7 @@ main > div:nth-of-type(1) {
     left: 50%;
     margin-bottom: 30px;
 }
+
 .sidebar-footer .profileBtnSecond.MuiButtonBase-root {
     width: max-content;
     padding: 0;
@@ -763,6 +769,7 @@ main > div:nth-of-type(1) {
 
 .cartWrap .template-list-main {
     width: 49%;
+    height: 264px;
 }
 
 .cartWrap .template-list-main .item {
@@ -1685,7 +1692,7 @@ p.earnTitle {
 
 .modalProgress.MuiLinearProgress-root .MuiLinearProgress-bar {
     background: #003087;
-    border-radius:30px;
+    border-radius: 30px;
 }
 
 .dogModal .linearProgressWrap {
@@ -1787,115 +1794,286 @@ p.earnTitle {
     text-align: right;
     left: 28.5%;
 }
+
 /* profile screen */
-.profilArea{display: flex; justify-content: center; align-items: center; margin-bottom: 30px;}
-.profilArea>div:nth-of-type(1){position: relative; width: 130px; height: 130px; margin-right: 35px;}
-.profilArea>div:nth-of-type(1) img:nth-of-type(1){width: 100%; height: 100%; border-radius: 50%;}
-.profilArea>div:nth-of-type(1) img:nth-of-type(2){position: absolute; bottom: -31px;
-  right: -20px;}
-  .profilArea>div:nth-of-type(2) p:nth-of-type(1){
+.profilArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profilArea > div:nth-of-type(1) {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin-right: 35px;
+}
+
+.profilArea > div:nth-of-type(1) img:nth-of-type(1) {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profilArea > div:nth-of-type(1) img:nth-of-type(2) {
+    position: absolute;
+    bottom: -31px;
+    right: -20px;
+}
+
+.profilArea > div:nth-of-type(2) p:nth-of-type(1) {
     font-family: Univers LT Std;
-font-size: 30px;
-font-weight: 700;
-line-height: 45px;
-letter-spacing: 0em;
-color: #000;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+    letter-spacing: 0em;
+    color: #000;
 
-  }
-  .profilArea>div:nth-of-type(2) p:nth-of-type(2), .profilArea div:nth-of-type(2) p:nth-of-type(4){
+}
+
+.profilArea > div:nth-of-type(2) p:nth-of-type(2), .profilArea div:nth-of-type(2) p:nth-of-type(4) {
     font-family: Univers LT Std;
-font-size: 15px;
-font-weight: 400;
-line-height: 18px;
-letter-spacing: 0em;
-color: #003087;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #003087;
 
 
+}
 
-
-
-  }
-  .profilArea>div:nth-of-type(2) p:nth-of-type(3){
+.profilArea > div:nth-of-type(2) p:nth-of-type(3) {
     font-family: Univers LT Std;
-font-size: 17px;
-font-weight: 700;
-line-height: 21px;
-letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0.02px;
+    color: #E35205;
+    margin-bottom: 10px;
 
-  }
-.profileProgressWrap{display: flex; justify-content: flex-start; align-items: center;}
-.profileProgressWrap .MuiLinearProgress-root{ width: 160px !important;}
-.profileProgressWrap .achieveProgress.MuiLinearProgress-root{background:#fff; height: 7px; border-radius: 10px;}
-.profileProgressWrap button{padding: 0; color: #E35205; font-family: Univers LT Std;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 18px;
-  letter-spacing: 0em;
- text-decoration: underline; text-transform: capitalize; margin-left: 5px;
-  }
-  .profileStack.topStack{justify-content: center; margin-bottom: 30px;}
-  .trophyBoxHead{ display: flex; justify-content: space-between; align-items: center; width: 100%;}
-  .cartWrap.profileCartWrap .template-list-main .item .itemImgWrap{display: flex; justify-content: flex-start; align-items: center;}
-  .cartWrap.profileCartWrap .template-list-main .item .itemImgWrap img{width: 35px; height: 35px; border-radius: 50%; margin-right: 10px;}
-  .cartWrap.profileCartWrap .template-list-main .item .MuiBox-root:nth-of-type(2)>p{font-family: Univers LT Std;
+}
+
+.profileProgressWrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profileProgressWrap .MuiLinearProgress-root {
+    width: 160px !important;
+}
+
+.profileProgressWrap .achieveProgress.MuiLinearProgress-root {
+    background: #fff;
+    height: 7px;
+    border-radius: 10px;
+}
+
+.profileProgressWrap button {
+    padding: 0;
+    color: #E35205;
+    font-family: Univers LT Std;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-decoration: underline;
+    text-transform: capitalize;
+    margin-left: 5px;
+}
+
+.profileStack.topStack {
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.trophyBoxHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.cartWrap.profileCartWrap .template-list-main .item .itemImgWrap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cartWrap.profileCartWrap .template-list-main .item .itemImgWrap img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.cartWrap.profileCartWrap .template-list-main .item .MuiBox-root:nth-of-type(2) > p {
+    font-family: Univers LT Std;
     font-size: 12px;
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 0em;
     color: #E35205;
-    }
-    .teamWrap{ text-align: center; margin-right: -40px;}
-    .teamWrap img{width: 89px; height: 89px; border-radius: 50%;margin-left: -40px; }
-    .yourTeamTop p{font-family: Univers LT Std;
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 36px;
-    color: #000; text-align: center; margin:10px 0 40px;
-      }
-      .profileUpload{width: 300px; height: 300px; background: #fff; border-radius: 50%; position: relative;}
-      .profileUpload>img{position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%); width: 100px;}
-      .profileUpload:hover{cursor: pointer;}
-      .addPetWrap{margin-top: 50px; display: flex; justify-content: space-between; align-items: center;}
-      .addPetWrap>div{width: 50%;}
-      .addPetWrap>div:nth-of-type(1){display: flex; flex-direction: column; justify-content: center; align-items: center; align-self: stretch;}
-      .addPetWrap>div:nth-of-type(2){display: flex; flex-direction: column; gap: 20px;}
-      .learnDogScreen>p:nth-of-type(1){font-family: Univers LT Std;
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 36px;
-        letter-spacing: -0.02em;
-         color: #003087; margin-bottom: 20px;
-        }
-        .learnDogScreen .MuiPaper-root.MuiAccordion-rounded{border-radius: 25px; border:none;box-shadow: none; margin-bottom: 20px;}
-        .learnDogScreen .MuiPaper-root.MuiAccordion-rounded:before{display: none;}
-        .learnDogScreen .MuiAccordionSummary-content{align-items: center;}
-        .learnDogScreen .MuiAccordionSummary-content .MuiSvgIcon-root{color: #003087; margin-right: 20px;}
-        .learnDogScreen .MuiAccordionSummary-content p{ font-family: Univers LT Std;
-          font-size: 14px;
-          font-weight: 700;
-          line-height: 14px;
-          letter-spacing: 0px;
-          color: #000;
-          }
-          .learnDogScreen .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root{font-size: 30px; color: #000;}
-          .learnDogScreen .MuiToggleButtonGroup-root button.MuiButtonBase-root{background: transparent; border:1px solid #003087; font-family: Myriad Pro;
-            font-size: 17px;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            color:#003087; margin: 0 10px; width: 92px; border-radius: 30px;padding: 10px 10px;
-            line-height: 1;
-            }
-            .learnDogScreen .MuiToggleButtonGroup-root button.Mui-selected{background: 
-              #003087; color: #fff;}
-              .learnDogScreen .MuiCollapse-wrapper .MuiAccordionDetails-root .MuiToggleButtonGroup-root{background: #f8fbff;
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-                padding: 40px 0;}
-                .learnDogScreen>button:nth-last-of-type(1){margin-top: 20px;}
-                .profileBtnWrap{display: flex; justify-content: space-between; align-items: center;}
-                .profileBtnWrap button.confirmCheckBtn{width: 50%;}
-                .profileBtnWrap button.confirmCheckBtn:nth-of-type(1){color: #D13A00;border-right: 1px solid #0000002e;}
+}
+
+.teamWrap {
+    text-align: center;
+    margin-right: -40px;
+}
+
+.teamWrap img {
+    width: 89px;
+    height: 89px;
+    border-radius: 50%;
+    margin-left: -40px;
+}
+
+.yourTeamTop p {
+    font-family: Univers LT Std;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    color: #000;
+    text-align: center;
+    margin: 10px 0 40px;
+}
+
+.profileUpload {
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+}
+
+.profileUpload > img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+}
+
+.profileUpload:hover {
+    cursor: pointer;
+}
+
+.addPetWrap {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addPetWrap > div {
+    width: 50%;
+}
+
+.addPetWrap > div:nth-of-type(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+.addPetWrap > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.learnDogScreen > p:nth-of-type(1) {
+    font-family: Univers LT Std;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+    color: #003087;
+    margin-bottom: 20px;
+}
+
+.learnDogScreen .MuiPaper-root.MuiAccordion-rounded {
+    border-radius: 25px;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 20px;
+}
+
+.learnDogScreen .MuiPaper-root.MuiAccordion-rounded:before {
+    display: none;
+}
+
+.learnDogScreen .MuiAccordionSummary-content {
+    align-items: center;
+}
+
+.learnDogScreen .MuiAccordionSummary-content .MuiSvgIcon-root {
+    color: #003087;
+    margin-right: 20px;
+}
+
+.learnDogScreen .MuiAccordionSummary-content p {
+    font-family: Univers LT Std;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 14px;
+    letter-spacing: 0px;
+    color: #000;
+}
+
+.learnDogScreen .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root {
+    font-size: 30px;
+    color: #000;
+}
+
+.learnDogScreen .MuiToggleButtonGroup-root button.MuiButtonBase-root {
+    background: transparent;
+    border: 1px solid #003087;
+    font-family: Myriad Pro;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #003087;
+    margin: 0 10px;
+    width: 92px;
+    border-radius: 30px;
+    padding: 10px 10px;
+    line-height: 1;
+}
+
+.learnDogScreen .MuiToggleButtonGroup-root button.Mui-selected {
+    background: #003087;
+    color: #fff;
+}
+
+.learnDogScreen .MuiCollapse-wrapper .MuiAccordionDetails-root .MuiToggleButtonGroup-root {
+    background: #f8fbff;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.learnDogScreen > button:nth-last-of-type(1) {
+    margin-top: 20px;
+}
+
+.profileBtnWrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profileBtnWrap button.confirmCheckBtn {
+    width: 50%;
+}
+
+.profileBtnWrap button.confirmCheckBtn:nth-of-type(1) {
+    color: #D13A00;
+    border-right: 1px solid #0000002e;
+}
 
 
 /* ---------------------M-styling-end---------------- */
@@ -2122,7 +2300,7 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
 }
 
 .MuiDateCalendar-root {
-    width: 749px !important;
+    width: 540px !important;
 }
 
 .MuiDayCalendar-header {
@@ -3232,7 +3410,7 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
 
 .top-header.shop-header {
     justify-content: space-between;
-    /*padding: 9.3px 13px;*/
+    padding: 10px 13px;
 }
 
 .shop-header .first-box {
@@ -3673,6 +3851,7 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
     bottom: 0;
     transform: translate(-50%, 0px);
 }
+
 .sidebar-footer-horizontal {
     display: flex;
     flex-direction: row;
@@ -3684,7 +3863,7 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
     width: max-content;
     bottom: 0;
     transform: translate(-50%, 0px);
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
 .global-modal-main .MuiPaper-root.MuiPaper-elevation {
@@ -3906,12 +4085,24 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
     justify-content: flex-start;
     align-items: flex-start;
 }
-.teams-main-wrap .modal-header .close-button{
+
+.modal-header.profile-content .close-button {
+    margin: 0;
+
+}
+
+.modal-header.profile-content .close-button > svg {
+    color: #003087;
+
+}
+
+.modal-header .close-button {
     background: rgb(231, 239, 249);
     border-radius: 50%;
     margin-bottom: 10px;
 }
-.team-main .team-main-heading{
+
+.team-main .team-main-heading {
     color: #000;
     font-family: Univers LT Std;
     font-size: 24px;
@@ -3920,7 +4111,8 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
     line-height: normal;
     text-transform: capitalize;
 }
-.team-main{
+
+.team-main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -3928,14 +4120,17 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
     gap: 40px;
     width: 100%;
 }
-.team-main .teams-content{
-    width:100%;
+
+.team-main .teams-content {
+    width: 100%;
 }
-.teams-content .custom-select .MuiOutlinedInput-notchedOutline{
-    border-radius:30px;
-    border:1px solid rgb(0 0 0 / 30%)
+
+.teams-content .custom-select .MuiOutlinedInput-notchedOutline {
+    border-radius: 30px;
+    border: 1px solid rgb(0 0 0 / 30%)
 }
-.team-main .book-btn.MuiButtonBase-root.MuiButton-root.MuiButton-text{
+
+.team-main .book-btn.MuiButtonBase-root.MuiButton-root.MuiButton-text {
     border-radius: 30px !important;
     padding: 8px 28px !important;
 }
@@ -3971,6 +4166,50 @@ letter-spacing: 0.02px; color: #E35205; margin-bottom: 10px;
 
 .team-main.invite-main {
     gap: 20px;
+}
+.profile-mid-section{
+    display: flex;flex-direction: row;justify-content: flex-start;align-items: flex-start;gap:10px;
+}
+
+.profile-mid-section p,.MuiTypography-root.MuiTypography-body1 .see-more {
+    color: rgba(0, 0, 0, 0.70);
+    font-family: Univers LT Std;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    text-decoration: none;
+}
+.profile-mid-section .see-more{
+    cursor: pointer;
+}
+.profile-no-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.profile-no-data button{
+
+    background: #e35205;
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 70px;
+}
+.profile-no-data button:hover{
+    background: #e35205;
+    color: #fff;
+
+}
+.profileProgressWrap .MuiTypography-root.MuiTypography-body1{
+    color: #003087 !important;
+    font-family: Univers LT Std !important;
+    font-size: 12px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: normal !important;
+    padding-left: 10px;;
 }
 
 /* ------------------ Settings Style start -------------------------*/
