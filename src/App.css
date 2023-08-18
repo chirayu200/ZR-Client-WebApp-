@@ -769,7 +769,7 @@ main > div:nth-of-type(1) {
 
 .cartWrap .template-list-main {
     width: 49%;
-    height: 264px;
+    /*height: 264px;*/
 }
 
 .cartWrap .template-list-main .item {
@@ -1915,165 +1915,61 @@ p.earnTitle {
     line-height: 14px;
     letter-spacing: 0em;
     color: #E35205;
-}
 
-.teamWrap {
-    text-align: center;
-    margin-right: -40px;
-}
-
-.teamWrap img {
-    width: 89px;
-    height: 89px;
-    border-radius: 50%;
-    margin-left: -40px;
-}
-
-.yourTeamTop p {
-    font-family: Univers LT Std;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    color: #000;
-    text-align: center;
-    margin: 10px 0 40px;
-}
-
-.profileUpload {
-    width: 300px;
-    height: 300px;
-    background: #fff;
-    border-radius: 50%;
-    position: relative;
-}
-
-.profileUpload > img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-}
-
-.profileUpload:hover {
-    cursor: pointer;
-}
-
-.addPetWrap {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.addPetWrap > div {
-    width: 50%;
-}
-
-.addPetWrap > div:nth-of-type(1) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: stretch;
-}
-
-.addPetWrap > div:nth-of-type(2) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.learnDogScreen > p:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: -0.02em;
-    color: #003087;
-    margin-bottom: 20px;
-}
-
-.learnDogScreen .MuiPaper-root.MuiAccordion-rounded {
-    border-radius: 25px;
-    border: none;
-    box-shadow: none;
-    margin-bottom: 20px;
-}
-
-.learnDogScreen .MuiPaper-root.MuiAccordion-rounded:before {
-    display: none;
-}
-
-.learnDogScreen .MuiAccordionSummary-content {
-    align-items: center;
-}
-
-.learnDogScreen .MuiAccordionSummary-content .MuiSvgIcon-root {
-    color: #003087;
-    margin-right: 20px;
-}
-
-.learnDogScreen .MuiAccordionSummary-content p {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 14px;
-    letter-spacing: 0px;
-    color: #000;
-}
-
-.learnDogScreen .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root {
-    font-size: 30px;
-    color: #000;
-}
-
-.learnDogScreen .MuiToggleButtonGroup-root button.MuiButtonBase-root {
-    background: transparent;
-    border: 1px solid #003087;
-    font-family: Myriad Pro;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: #003087;
-    margin: 0 10px;
-    width: 92px;
-    border-radius: 30px;
-    padding: 10px 10px;
-    line-height: 1;
-}
-
-.learnDogScreen .MuiToggleButtonGroup-root button.Mui-selected {
-    background: #003087;
-    color: #fff;
-}
-
-.learnDogScreen .MuiCollapse-wrapper .MuiAccordionDetails-root .MuiToggleButtonGroup-root {
-    background: #f8fbff;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 40px 0;
-}
-
-.learnDogScreen > button:nth-last-of-type(1) {
-    margin-top: 20px;
-}
-
-.profileBtnWrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.profileBtnWrap button.confirmCheckBtn {
-    width: 50%;
-}
-
-.profileBtnWrap button.confirmCheckBtn:nth-of-type(1) {
-    color: #D13A00;
-    border-right: 1px solid #0000002e;
-}
+    }
+    .teamWrap{ text-align: center; margin-right: -40px;}
+    .teamWrap img{width: 89px; height: 89px; border-radius: 50%;margin-left: -40px; }
+    .yourTeamTop p{font-family: Univers LT Std;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+    color: #000; text-align: center; margin:10px 0 40px;
+      }
+      .profileUpload{width: 300px; height: 300px; background: #fff; border-radius: 50%; position: relative;}
+      .profileUpload>img{position: absolute; left: 50%; top:50%; transform: translate(-50%, -50%); width: 100px;}
+      .profileUpload:hover{cursor: pointer;}
+      .addPetWrap{margin-top: 50px; display: flex; justify-content: space-between; align-items: center;}
+      .addPetWrap .profileImg{width: 300px; height: 300px; border-radius: 50%;}
+      .addPetWrap>div{width: 50%;}
+      .addPetWrap>div:nth-of-type(1){display: flex; flex-direction: column; justify-content: center; align-items: center; align-self: stretch;}
+      .addPetWrap>div:nth-of-type(2){display: flex; flex-direction: column; gap: 20px;}
+      .learnDogScreen>p:nth-of-type(1){font-family: Univers LT Std;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: -0.02em;
+         color: #003087; margin-bottom: 20px;
+        }
+        .learnDogScreen .MuiPaper-root.MuiAccordion-rounded{border-radius: 25px; border:none;box-shadow: none; margin-bottom: 20px;}
+        .learnDogScreen .MuiPaper-root.MuiAccordion-rounded:before{display: none;}
+        .learnDogScreen .MuiAccordionSummary-content{align-items: center;}
+        .learnDogScreen .MuiAccordionSummary-content .MuiSvgIcon-root{color: #003087; margin-right: 20px;}
+        .learnDogScreen .MuiAccordionSummary-content p{ font-family: Univers LT Std;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 14px;
+          letter-spacing: 0px;
+          color: #000;
+          }
+          .learnDogScreen .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root{font-size: 30px; color: #000;}
+          .learnDogScreen .MuiToggleButtonGroup-root button.MuiButtonBase-root{background: transparent; border:1px solid #003087; font-family: Myriad Pro;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color:#003087; margin: 0 10px; width: 92px; border-radius: 30px;padding: 10px 10px;
+            line-height: 1;
+            }
+            .learnDogScreen .MuiToggleButtonGroup-root button.Mui-selected{background: 
+              #003087; color: #fff;}
+              .learnDogScreen .MuiCollapse-wrapper .MuiAccordionDetails-root .MuiToggleButtonGroup-root{background: #f8fbff;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+                padding: 40px 0;}
+                .learnDogScreen>button:nth-last-of-type(1){margin-top: 20px;}
+                .profileBtnWrap{display: flex; justify-content: space-between; align-items: center;}
+                .profileBtnWrap button.confirmCheckBtn{width: 50%;}
+                .profileBtnWrap button.confirmCheckBtn:nth-of-type(1){color: #D13A00;border-right: 1px solid #0000002e;}
 
 
 /* ---------------------M-styling-end---------------- */
@@ -4212,106 +4108,3 @@ p.earnTitle {
     padding-left: 10px;;
 }
 
-/* ------------------ Settings Style start -------------------------*/
-.setting-text{
-    color:#000000 !important;
-    font-weight: 700 !important;
-    font-size: 16px !important;
-}
-
-.header-text-blue{
-    font-family: 'UniversLTStd' !important;
-    color:#003087 !important;
-    line-height: 21.6px !important;
-}
-.header-text-black{
-    font-family: 'UniversLTStd' !important;
-    color:#000000 !important;
-    
-}
-
-.header-text-orange{
-    font-family: 'UniversLTStd' !important;
-    color:#E35205 !important;
-    font-size: 16px !important;
-}
-.font-weight-400{
-    font-weight:400 !important;
-}
-.font-weight-700{
-    font-weight:700 !important;
-}
-
-.line-height-19{
-    line-height: 19.2px !important;
-}
-.back-ground{
-    background-color: white !important;
-}
-
-.icon-style{
-    color: #003087 !important;
-}
-
-.p-11{
-    padding: 11px !important;
-}
-
-.cursor-pointer{
-    cursor: pointer !important;
-}
-
-.display-flex{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-}
-
-.book-btn-payment{
-    font-family: 'UniversLTStd' !important;
-    font-weight:700 !important;
-    font-size: 18px !important;
-    padding: 12px 28px !important;
-    border: 0 !important;
-}
-
-.twiter-style{
-    color:#00ACEE !important;
-}
-
-.facebook-style{
-    color: #3B5998 !important;
-}
-
-.f-12{
-    font-size: 12px !important;
-}
-
-.f-14{
-    font-size: 14px !important;
-}
-
-.f-16{
-    font-size:  16px !important;
-}
-
-.f-18{
-    font-size: 18px !important;
-}
-
-.height-90{
-    height: 90px !important;
-}
-
-.d-flex{
-    display: flex !important;
-    gap:10px !important;
-    align-items: center !important;
-}
-.MuiButton-root.white-btn {
-  background: #fff;
-  border-radius: 35px;
-  padding: 10px;
-  font-weight: bold;
-}
-/* -------------------------Setting Style End ------------------------*/
