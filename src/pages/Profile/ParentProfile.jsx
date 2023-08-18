@@ -25,7 +25,7 @@ const locationOptions = Country.getAllCountries().map((item) => ({
     value: item
 }))
 
-const ParentProfile = ({userDetail, handleNext}) => {
+const ParentProfile = ({initialState, handleNext}) => {
 
     const [open, setOpen] = useState(false);
     const [confirmOpen, setConfirmOpen] = useState(false);
@@ -56,11 +56,10 @@ const ParentProfile = ({userDetail, handleNext}) => {
     });
 
     useEffect(() => {
-        if (userDetail) {
-            setFormData(userDetail)
+        if (initialState) {
+            setFormData(initialState?.client)
         }
-
-    }, [userDetail])
+    }, [])
 
     const [errors, setErrors] = useState({});
     const onSelectImage = (e) => {
@@ -445,8 +444,7 @@ const ParentProfile = ({userDetail, handleNext}) => {
             <ProfileModals fullWidth open={open} handleClose={() => setOpen(false)} setFormData={setFormData}
                            formData={formData}/>
             <ProfileModals open={confirmOpen} type={'confirm'} handleActionBtn={handleActionBtn}/>
-            {/*<ProfileModals open={true} handleClose={() => setTeamOpen(false)} type={'invite'}*/}
-            {/*               handleNext={handleNext}/>*/}
+
             <ProfileModals open={teamOpen} handleClose={() => setTeamOpen(false)} type={'team'}
                            handleNext={handleNext}/>
         </Box>
