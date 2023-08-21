@@ -1,0 +1,103 @@
+/* ------------------ Settings Style start -------------------------*/
+.setting-text{
+    color:#000000 !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+}
+
+.header-text-blue{
+    font-family: 'UniversLTStd' !important;
+    color:#003087 !important;
+    line-height: 21.6px !important;
+}
+.header-text-black{
+    font-family: 'UniversLTStd' !important;
+    color:#000000 !important;
+    
+}
+
+.header-text-orange{
+    font-family: 'UniversLTStd' !important;
+    color:#E35205 !important;
+    font-size: 16px !important;
+}
+.font-weight-400{
+    font-weight:400 !important;
+}
+.font-weight-700{
+    font-weight:700 !important;
+}
+
+.line-height-19{
+    line-height: 19.2px !important;
+}
+.back-ground{
+    background-color: white !important;
+}
+
+.icon-style{
+    color: #003087 !important;
+}
+
+.p-11{
+    padding: 11px !important;
+}
+
+.cursor-pointer{
+    cursor: pointer !important;
+}
+
+.display-flex{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.book-btn-payment{
+    font-family: 'UniversLTStd' !important;
+    font-weight:700 !important;
+    font-size: 18px !important;
+    padding: 12px 28px !important;
+    border: 0 !important;
+}
+
+.twiter-style{
+    color:#00ACEE !important;
+}
+
+.facebook-style{
+    color: #3B5998 !important;
+}
+
+.f-12{
+    font-size: 12px !important;
+}
+
+.f-14{
+    font-size: 14px !important;
+}
+
+.f-16{
+    font-size:  16px !important;
+}
+
+.f-18{
+    font-size: 18px !important;
+}
+
+.height-90{
+    height: 90px !important;
+}
+
+.d-flex{
+    display: flex !important;
+    gap:10px !important;
+    align-items: center !important;
+}
+.MuiButton-root.white-btn {
+  background: #fff;
+  border-radius: 35px;
+  padding: 10px;
+  font-weight: bold;
+}
+/* -------------------------Setting Style End ------------------------*/

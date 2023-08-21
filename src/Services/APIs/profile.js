@@ -2,7 +2,7 @@ import {ApiServices} from "../ApiServices";
 
 const Base_URL =
     process.env.CLIENT_BASE_URL ||
-    "https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/";
+    "https://937gsyyg89.execute-api.us-east-1.amazonaws.com/qa/";
 // "https://ifcxqbb98k.execute-api.us-east-1.amazonaws.com/dev/";
 const locationId = encodeURIComponent('LOC#e857e7a7-4fde-4d2a-baad-114d6a85ff63');
 export const CheckClientDetail = async (clientId) => {
@@ -76,7 +76,7 @@ export const GetAllBreedList = async () => {
 
     try {
         return await ApiServices.get(
-            `https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/breed-list`
+            `https://937gsyyg89.execute-api.us-east-1.amazonaws.com/qa/breed-list`
         );
 
     } catch (error) {

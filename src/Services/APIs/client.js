@@ -8,8 +8,7 @@ export const GetClientDetailByEmailId = async (email) => {
     const encodedEmail = encodeURIComponent(email);
     try {
         return await ApiServices.get(
-            `https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev
-/client/getClientDetailsByEmailId?email=${encodedEmail}`
+            `https://937gsyyg89.execute-api.us-east-1.amazonaws.com/qa/client/getClientDetailsByEmailId?email=${encodedEmail}`
         );
 
     } catch (error) {
@@ -22,8 +21,7 @@ export const GetAllPets = async (clientUd) => {
     const encodedClientUd = encodeURIComponent('#CLIENT#2TeCoe5LWg3ADcJc5uE5Y67Vbi1');
     try {
         return await ApiServices.get(
-            `https://ifcxqbb98k.execute-api.us-east-1.amazonaws.com/dev
-/schedule/getAllPets?clientId=${encodedClientUd}`
+            `https://q4m1fcya9h.execute-api.us-east-1.amazonaws.com/qa/schedule/getAllPets?clientId=${encodedClientUd}`
         );
 
     } catch (error) {
