@@ -1,8 +1,7 @@
 import {ApiServices} from "../ApiServices";
 
 const Base_URL =
-    process.env.CLIENT_BASE_URL ||
-    "https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/api/";
+    process.env.CLIENT_BASE_URL || "https://gxh3fnvl9i.execute-api.us-east-1.amazonaws.com/qa/api/";
 export const Call_Signup = async (payload) => {
     try {
         return await ApiServices.post(
