@@ -141,8 +141,8 @@ export default function SignupScreen({onLogin}) {
                                 className='signup-tabs'
                                 variant='fullWidth'
                             >
-                                <Tab label='Signup'/>
-                                <Tab label='Login'/>
+                                <Tab label='Sign Up'/>
+                                <Tab label='Log In'/>
                             </Tabs>
                         </Box>
                         {/* <Box> */}
