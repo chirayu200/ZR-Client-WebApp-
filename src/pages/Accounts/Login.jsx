@@ -119,7 +119,7 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
                 </Box>
                 <CustomButton
                     backgroundColor='#003087'
-                    title={"CREATE ACCOUNT"}
+                    title={"LOG IN"}
                     type='submit'
                     isLoading={loader}
                 />
