@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Box, Container, Typography} from "@mui/material";
 
 import {CustomButton, NotificationSection} from "../../Components/Common";
@@ -9,15 +9,32 @@ import ItemDetail from "./ItemDetail";
 import Cart from "./Cart";
 import PurchaseHistory from "./PurchaseHistory";
 import {useNavigate} from "react-router-dom";
+// import {CheckClientDetail} from "../../Services/APIs";
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const addCard = require("../../assets/images/cart-outlined.svg").default;
 
-export default function ShopMain() {
+export default function ShopMain({clientDetail}) {
     const [active, setActive] = useState(0);
     const [selectedType, setSelectedType] = useState('');
     const [selectedItem, setSelectedItem] = useState(null);
     const navigate = useNavigate();
+    // const [initialState, setInitialState] = useState({
+    //     userType: 'client',
+    //     client: "",
+    //     dog: "",
+    //     selected: "",
+    // })
+
+    // useEffect(() => {
+    //     CheckClientDetail(clientDetail.sortKey)
+    //         .then((response) => {
+    //             const [data] = response.data.Items;
+    //             setInitialState({...initialState, client: data})
+
+    //         })
+
+    // }, [clientDetail])
     const handleListScreen = (type) => {
         setActive(1)
         setSelectedType(type);
@@ -28,9 +45,9 @@ export default function ShopMain() {
         setSelectedItem(item);
     }
     const childComponents = [{
-        title: "Shop", component: <Memberships handleNext={handleListScreen}/>
+        title: "Shop", component: <Memberships  handleNext={handleListScreen}/>
     }, {
-        title: `${selectedType}`, component: <TemplateList handleNext={handleDetailScreen} selected={selectedType}/>
+        title: `${selectedType}`, component: <TemplateList clientDetail={clientDetail} handleNext={handleDetailScreen} selected={selectedType}/>
     }, {
         title: `${selectedItem?.title}`, component: <ItemDetail
             handleNext={() => setActive(3)}

@@ -3,11 +3,9 @@ import { IconButton, List, Box, Typography, Button } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import SettingsIcon from '@mui/icons-material/Settings';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-
+import notifyIcon from '../../assets/images/notifyIcon.svg'
+import calendarIcon from '../../assets/images/calendarIcon.svg'
 export default function NotificationSidebar({handleClose}) {
-
-
-
 
     return (
        
@@ -23,14 +21,14 @@ export default function NotificationSidebar({handleClose}) {
                     <Typography>Notifications</Typography>
                     <Button>Mark all Read</Button>
                     <IconButton >
-                        <SettingsIcon />
+                        <img src={notifyIcon} alt="notifyIcon" />
                     </IconButton>
                 </Box>
                 <Box className="notifyWrap">
                     <List className='item unread'>
-                        <Typography>6:45pm</Typography>
+                        <Typography>6:45 pm</Typography>
                         <Box className="iconWrap">
-                            <CalendarMonthIcon />
+                            <img src={calendarIcon} alt="calendar" />
                         </Box>
                         <Box>
                             <Typography>Puppy Class Scheduled</Typography>
@@ -38,9 +36,9 @@ export default function NotificationSidebar({handleClose}) {
                         </Box>
                     </List>
                     <List className='item'>
-                        <Typography>6:45pm</Typography>
+                        <Typography>6:45 pm</Typography>
                         <Box className="iconWrap">
-                            <CalendarMonthIcon />
+                             <img src={calendarIcon} alt="calendar" />
                         </Box>
                         <Box>
                             <Typography>Puppy Class Scheduled</Typography>
@@ -48,9 +46,9 @@ export default function NotificationSidebar({handleClose}) {
                         </Box>
                     </List>
                     <List className='item'>
-                        <Typography>6:45pm</Typography>
+                        <Typography>6:45 pm</Typography>
                         <Box className="iconWrap">
-                            <CalendarMonthIcon />
+                             <img src={calendarIcon} alt="calendar" />
                         </Box>
                         <Box>
                             <Typography>Puppy Class Scheduled</Typography>
@@ -58,9 +56,9 @@ export default function NotificationSidebar({handleClose}) {
                         </Box>
                     </List>
                     <List className='item'>
-                        <Typography>6:45pm</Typography>
+                        <Typography>6:45 pm</Typography>
                         <Box className="iconWrap">
-                            <CalendarMonthIcon />
+                             <img src={calendarIcon} alt="calendar" />
                         </Box>
                         <Box>
                             <Typography>Puppy Class Scheduled</Typography>
@@ -68,9 +66,9 @@ export default function NotificationSidebar({handleClose}) {
                         </Box>
                     </List>
                     <List className='item'>
-                        <Typography>6:45pm</Typography>
+                        <Typography>6:45 pm</Typography>
                         <Box className="iconWrap">
-                            <CalendarMonthIcon />
+                             <img src={calendarIcon} alt="calendar" />
                         </Box>
                         <Box>
                             <Typography>Puppy Class Scheduled</Typography>

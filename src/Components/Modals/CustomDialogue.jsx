@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useEffect, useState} from "react";
 import {Box, Button, Link, Typography} from "@mui/material";
 import {CustomButton} from "../Common";
 import Dialog from "@mui/material/Dialog";
@@ -9,14 +9,72 @@ import {default as Earned} from "../../assets/images/earned.svg";
 import CircularProgress from "@mui/material/CircularProgress";
 import {default as adjDogOne} from "../../assets/images/adjDogOne.svg";
 import {LinearProgressBar} from "../Common";
+import { CreateDogProfile } from '../../Services/APIs';
+import Snackbar from '@mui/material/Snackbar';
 
 
 const back = require("../../assets/images/chevron-up.svg").default;
 const greyClosing = require("../../assets/images/greyClosing.svg").default;
 
-export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, className}) => {
-    console.log(type, "type")
+export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, className, data}) => {
+   
     const navigate = useNavigate();
+    const [state, setState] = React.useState({
+        snackOpen: false,
+        message:'Something Went wrong',
+        vertical: 'top',
+        horizontal: 'right',
+      });
+      const { vertical, horizontal, snackOpen, message } = state;
+      const handleClick = (newState) => {
+        console.log("handleclick");
+        setState({ ...newState, snackOpen: true });
+      };
+    
+      const handleSnackClose = (newState) => {
+        setState({ ...state, snackOpen: false });
+      };
+   
+    const validateForm = () => {
+        const errors = {};
+        if (!data.firstName?.trim()) {
+            errors.firstName = "First Name is required";
+        }
+        if (!data.lastName?.trim()) {
+            errors.lastName = "Last Name is required";
+        }
+        if (!data.breed?.trim()) {
+            errors.breed = "Breed is required";
+        }
+        if (!data.birthDate?.trim()) {
+            errors.birthDate = "Birth date is required";
+        }
+        if (!data.gender?.trim()) {
+            errors.gender = "Gender is required";
+        } 
+       
+        return errors;
+    };
+    const handleDogCreation = () => {
+        const errors = validateForm();
+        console.log("errors", errors);
+        CreateDogProfile(data ).then(response => {
+            if (response) {
+               
+                if(response.statusCode===200){
+                   
+                    handleClick({ vertical: 'top', horizontal: 'right', message:'Dog Successfully added' })
+                }
+                else{
+                    handleClick({ vertical: 'top', horizontal: 'right',message:'Something went wrong, Try again' })
+                }
+                
+
+            }
+        });
+
+    };
+    
     return (
         <>
             <Dialog
@@ -40,7 +98,11 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                                         className='confirmCheckBtn'
 
                                 >Skip</Button>
-                                <Button onClick={handleNext}
+                                <Button onClick={ () => {
+          handleDogCreation();
+          handleClose();
+        }}
+                                  
                                         className='confirmCheckBtn'
 
                                 >Yes, I want</Button>
@@ -48,7 +110,7 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                             </DialogContent>
                     </> :
                 type === "appointment" ?
-                    <>
+                    <Box className="mindDialog">
                         <DialogActions className='dialog-actions'>
                             <CustomButton
                                 className='arrow-btn'
@@ -89,7 +151,7 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                                 </Typography>
                             </Box>
                         </DialogContent>
-                    </> :
+                    </Box> :
                     
                 
                     type === 'earned' ?
@@ -159,6 +221,14 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
 
                 }
             </Dialog>
+            <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        open={snackOpen}
+        autoHideDuration={3000}
+        onClose={handleSnackClose}
+        message={message}
+        key={vertical + horizontal}
+      />
         </>
     );
 };

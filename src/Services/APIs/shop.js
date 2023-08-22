@@ -1,9 +1,10 @@
-import {ApiServices} from "../ApiServices";
+import { API_URL_3 } from "../../Utils/constants";
+import { ApiServices } from "../ApiServices";
+import { getLocalData } from "../../Utils";
 
-const Base_URL =
-    process.env.CLIENT_BASE_URL ||
-    "https://q4m1fcya9h.execute-api.us-east-1.amazonaws.com/qa/";
-const locationId = encodeURIComponent('LOC#e857e7a7-4fde-4d2a-baad-114d6a85ff63');
+const Base_URL = API_URL_3;
+
+const locationId = encodeURIComponent(getLocalData('locationId'));
 export const GetAllBundles = async () => {
 
     try {
@@ -48,6 +49,21 @@ export const GetMembershipDetail = async (payload) => {
     try {
         return await ApiServices.get(
             `${Base_URL}memberships/membershipDetail?locationId=${locationId}&id=${membershipId}`
+        );
+
+    } catch (error) {
+        console.error(error.message);
+        return error;
+
+    }
+}
+export const GetOrderHistory = async (clientId) => {
+    console.log("clientId in service", clientId);
+    //    const client_id= encodeURIComponent(clientId)
+    const client_id = '%23CLIENT%232T3zDcVrta6fyfUuEYmnPnhPkwY'
+    try {
+        return await ApiServices.get(
+            `${Base_URL}checkout/getOrderHistory?locationId=${locationId}&clientId=${client_id}`
         );
 
     } catch (error) {
