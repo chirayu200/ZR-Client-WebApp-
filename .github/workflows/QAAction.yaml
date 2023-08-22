@@ -49,6 +49,12 @@ jobs:
       - name: Build Started
         run: echo Build started on `date`
 
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo REACT_APP_ENV="dev" >> .env
+          cat .env
+
       - name: Build Started
         run: |
          echo Build started on `date`
