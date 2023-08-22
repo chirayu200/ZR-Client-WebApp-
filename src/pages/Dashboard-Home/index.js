@@ -11,6 +11,7 @@ import Checkout from "../Appointments/Checkout";
 import YourSchedule from "../../Components/Common/YourSchedule";
 import BuyCredit from "../Appointments/BuyCredit";
 import BookingSuccess from "../Appointments/BookingSuccess";
+import {useNavigate} from "react-router-dom";
 
 const warning = require("../../assets/images/warning.svg").default;
 const next = require("../../assets/images/nextArrow.svg").default;
@@ -30,6 +31,7 @@ const adjDogFive = require("../../assets/images/adjDogFive.svg").default;
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
 export default function Home({clientDetail}) {
+    const navigate=useNavigate();
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState('');
     const [activeSteps, setActiveSteps] = useState(0);
@@ -41,7 +43,7 @@ export default function Home({clientDetail}) {
         {title: "", component: ''},
         {title: "Visit History", component: <VisitHistory handleBack={() => setActiveSteps(0)}/>},
         {
-            title: "Explore Services",
+            title: "Explore",
             component: <ExploreService handleBack={() => setActiveSteps(0)} handleNext={handleSelectedItems}/>
         },
         {
@@ -59,7 +61,7 @@ export default function Home({clientDetail}) {
             component: <BuyCredit handleBack={() => setActiveSteps(0)} selected={selected}
                                   handleNext={() => setActiveSteps(6)}/>
         },
-        {title: "", component: <BookingSuccess handleBack={() => setActiveSteps(0)}/>},
+        {title: "", component: <BookingSuccess handleBack={() => setActiveSteps(0)} />},
 
     ]
 
@@ -120,6 +122,7 @@ export default function Home({clientDetail}) {
                                             className='viewAllBtn'
                                             title={"View All"}
                                             color='#fff'
+                                            onClick={()=>navigate('/achievements')}
                                             backgroundColor='#32B2AC'
                                         />
                                     </Box>
@@ -241,9 +244,9 @@ export default function Home({clientDetail}) {
 
                                 </Box>
 
-                                <Box className='shop-cart'>
-                                    <Typography>Available Credits</Typography>
-                                </Box>
+                                {/*<Box className='shop-cart'>*/}
+                                {/*    <Typography>Available Credits</Typography>*/}
+                                {/*</Box>*/}
 
                             </Box>
                         }

@@ -5,7 +5,7 @@ import YourPack from "./YourPack";
 
 const profileImg = require("../../assets/images/profileImg.svg").default;
 const Dog = require("../../assets/images/dog-round.svg").default;
-
+const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 
 export default function TeamPackHeader({setActive, initialState,setInitialState}) {
 
@@ -14,8 +14,8 @@ export default function TeamPackHeader({setActive, initialState,setInitialState}
 
             <Box className="yourTeamTop">
                 <Box className="teamWrap">
-                    <img src={initialState.userType==='dog'?Dog:profileImg} alt="profile"/>
-                    <img src={initialState.userType==='dog'?Dog:profileImg} alt="profile"/>
+                    <img src={initialState.userType==='dog'?petPlaceholder:profileImg} alt="profile"/>
+                    <img src={initialState.userType==='dog'?petPlaceholder:profileImg} alt="profile"/>
                 </Box>
                 <Typography>Your {initialState.userType==='dog'?'Pack':"Team"}</Typography>
             </Box>
