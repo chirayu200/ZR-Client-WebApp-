@@ -9,7 +9,7 @@ import {CheckClientDetail} from "../../Services/APIs";
 import PublicProfile from "./PublicProfile";
 
 import AddPet from "./AddPet";
-import LearnDog from "./LearnDog"
+
 import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import TeamPackHeader from "./TeamPackHeader";
@@ -38,7 +38,7 @@ export default function ProfileMain({clientDetail}) {
 
     const childComponent = [
         {
-            title: 'Profile',
+            title: 'Public Profile',
             component: <PublicProfile
                 handleNext={() => setActive(1)}
                 setActive={setActive}
@@ -47,7 +47,7 @@ export default function ProfileMain({clientDetail}) {
             />
         },
         {
-            title: 'Your Team',
+            title: 'Team',
             component: <TeamPackHeader initialState={initialState}
                                        setInitialState={setInitialState}
                                        setActive={setActive}
@@ -61,10 +61,7 @@ export default function ProfileMain({clientDetail}) {
                         handleNext={() => setActive(3)}
                 />
         },
-        // {
-        //     title: 'Learn Dog', component: <LearnDog initialState={initialState}
-        //                                              setInitialState={setInitialState} handleNext={() => setActive(4)}/>
-        // },
+
         {
             title: 'Edit Profile', component:
                 <ParentProfile initialState={initialState}
@@ -116,7 +113,7 @@ export default function ProfileMain({clientDetail}) {
                                     }
                                 }
                             }}>
-                                {active === 0 ? <PersonAddOutlinedIcon/> : <EditOutlinedIcon/>}
+                                {active === 0||active===1 ? <PersonAddOutlinedIcon/> : <EditOutlinedIcon/>}
                             </Button>
                         </Box>
 

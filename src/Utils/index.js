@@ -159,14 +159,4 @@ export const getLocalData = (keyName) => {
 export const clearLocalData = () => {
     localStorage.clear();
 };
-export const setFullLocationId = (locationId) => {
-    let result = '';
-    if (locationId) {
-        if (locationId.indexOf('LOC#') > -1) {
-            result = locationId;
-        } else {
-            result = `LOC#${locationId}`;
-        }
-    }
-    return result;
-};
+ 

@@ -1,14 +1,15 @@
-import {ApiServices} from "../ApiServices";
+import { API_URL_2, API_URL_3 } from "../../Utils/constants";
+import { ApiServices } from "../ApiServices";
+import { getLocalData } from "../../Utils";
 
-// const Base_URL =
-//     process.env.CLIENT_BASE_URL ||
-//     "https://wdmo3ttdtb.execute-api.us-east-1.amazonaws.com/dev/";
-// const locationId = encodeURIComponent('LOC#e857e7a7-4fde-4d2a-baad-114d6a85ff63');
+const Base_URL = API_URL_2;
+const clientId = encodeURIComponent(getLocalData('clientId'));
+
 export const GetClientDetailByEmailId = async (email) => {
     const encodedEmail = encodeURIComponent(email);
     try {
         return await ApiServices.get(
-            `https://937gsyyg89.execute-api.us-east-1.amazonaws.com/qa/client/getClientDetailsByEmailId?email=${encodedEmail}`
+            `${Base_URL}client/getClientDetailsByEmailId?email=${encodedEmail}`
         );
 
     } catch (error) {
@@ -17,11 +18,11 @@ export const GetClientDetailByEmailId = async (email) => {
 
     }
 }
-export const GetAllPets = async (clientUd) => {
-    const encodedClientUd = encodeURIComponent('#CLIENT#2TeCoe5LWg3ADcJc5uE5Y67Vbi1');
+export const GetAllPets = async () => {
+
     try {
         return await ApiServices.get(
-            `https://q4m1fcya9h.execute-api.us-east-1.amazonaws.com/qa/schedule/getAllPets?clientId=${encodedClientUd}`
+            `${API_URL_3}schedule/getAllPets?clientId=${clientId}`
         );
 
     } catch (error) {

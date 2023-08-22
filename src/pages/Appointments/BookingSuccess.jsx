@@ -24,7 +24,10 @@ export default function BookingSuccess({ handleBack }) {
 					fullWidth
 					onClick={handleBack}
 				/>
-				<Link className='link-line' onClick={() => navigate("/")}>
+				<Link className='link-line' onClick={() => {
+					navigate("/")
+					handleBack();
+				}}>
 					Back to Home
 				</Link>
 			</Box>

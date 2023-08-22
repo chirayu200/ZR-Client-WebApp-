@@ -8,7 +8,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { dateFormat } from "../../Utils";
-import { CreateDogProfile } from '../../Services/APIs'
+
 
 const uploadProfile = require("../../assets/images/uploadProfile.svg").default;
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
@@ -26,7 +26,7 @@ const options = [
     { label: "Option 2", value: "option2" },
     { label: "Option 3", value: "option3" },
 ];
-export default function AddPet({ handleNext, initialState, userDetail }) {
+export default function AddPet({  initialState, }) {
     const [selectedOption, setSelectedOption] = useState("");
     const [learnDog, setLearnDog] = useState(false);
     const [completeObj, setCompleteObj] = useState({
@@ -68,18 +68,18 @@ export default function AddPet({ handleNext, initialState, userDetail }) {
 
     const [errors, setErrors] = useState({});
     const [expanded, setExpanded] = React.useState(false);
-    const [alignment, setAlignment] = React.useState('Yes');
     const [open, setOpen] = useState(false);
     const [isDragOver, setIsDragOver] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
     const fileInputRef = useRef(null);
     useEffect(() => {
-        if (userDetail) {
-            console.log("userDetail", userDetail);
-            setFormData({ ...formData, ['clientId']: userDetail.sortKey || '' })
+       
+        if (initialState) {
+           
+            setFormData({ ...formData, ['clientId']: initialState.client.sortKey || '' })
         }
 
-    }, [userDetail])
+    }, [initialState])
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
@@ -99,7 +99,7 @@ export default function AddPet({ handleNext, initialState, userDetail }) {
                 [name]: "",
             }));
         }
-        console.log("formData", formData);
+       
     };
 
     const handleDropdownChange = (name, value) => {
@@ -155,17 +155,7 @@ export default function AddPet({ handleNext, initialState, userDetail }) {
         fileInputRef.current.click();
     };
 
-    const handleDogCreation = () => {
-        console.log("formdataaa", formData)
-
-        CreateDogProfile(formData).then(response => {
-            if (response) {
-                console.log(response, "response");
-
-            }
-        });
-
-    };
+    
 
     return (
         <>
@@ -428,11 +418,21 @@ export default function AddPet({ handleNext, initialState, userDetail }) {
                             backgroundColor='#32B2AC'
                             iconJsx={<ChevronRightIcon />}
                             fullWidth
-                            onClick={handleDogCreation}
+                            onClick={() => {
+
+                                setOpen(true)
+                            }}
                         />
-                        <CustomDialogue
+                        
+                    </Box>
+                )
+
+            }
+            <CustomDialogue
                             type={'profile'}
                             open={open}
+                            data={formData}
+                            initialState={initialState}
                             className={'checkoutModal'}
                             handleClose={() => setOpen(false)}
                             fullWidth
@@ -442,10 +442,6 @@ export default function AddPet({ handleNext, initialState, userDetail }) {
                             }}
 
                         />
-                    </Box>
-                )
-
-            }
         </>
 
     )
