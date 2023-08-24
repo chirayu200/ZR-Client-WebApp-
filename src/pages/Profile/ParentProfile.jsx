@@ -1,38 +1,38 @@
-import React, {useEffect, useState} from 'react';
-import {Box, Button, InputLabel, Typography} from "@mui/material";
-import {CustomButton, CustomDropdown, CustomInput} from "../../Components/Common";
+import React, { useEffect, useState } from 'react';
+import { Box, Button, InputLabel, Typography } from "@mui/material";
+import { CustomButton, CustomDropdown, CustomInput } from "../../Components/Common";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import {ProfileModals} from "../../Components/Modals";
-import {Country, State} from 'country-state-city';
-import {UpdateClientDetail} from "../../Services/APIs";
-import {getLocalData, setFullLocationId} from "../../Utils";
+import { ProfileModals } from "../../Components/Modals";
+import { Country, State } from 'country-state-city';
+import { UpdateClientDetail } from "../../Services/APIs";
+import { getLocalData } from "../../Utils";
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const referralSourcesOptions = [
-    {label: "LinkedIn", value: "LinkedIn"},
-    {label: "Friends", value: "Friends"},
-    {label: "Whatsapp", value: "Whatsapp"},
-    {label: "Twitter", value: "Twitter"},
-    {label: "FaceBook", value: "FaceBook"},
-    {label: "Family", value: "Family"},
-    {label: "Instagram", value: "Instagram"},
-    {label: "Others", value: "Others"},
+    { label: "LinkedIn", value: "LinkedIn" },
+    { label: "Friends", value: "Friends" },
+    { label: "Whatsapp", value: "Whatsapp" },
+    { label: "Twitter", value: "Twitter" },
+    { label: "FaceBook", value: "FaceBook" },
+    { label: "Family", value: "Family" },
+    { label: "Instagram", value: "Instagram" },
+    { label: "Others", value: "Others" },
 ];
 const locationOptions = Country.getAllCountries().map((item) => ({
     label: item.name,
     value: item
 }))
 
-const ParentProfile = ({initialState, handleNext}) => {
+const ParentProfile = ({ initialState, handleNext }) => {
 
     const [open, setOpen] = useState(false);
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [teamOpen, setTeamOpen] = useState(false);
     const [stateOptions, setStateOptions] = useState([]);
     const [formData, setFormData] = useState({
-        locationId: setFullLocationId(getLocalData('locationId')),
+        locationId: getLocalData('locationId'),
         location: '',
         profileImage: "",
         firstName: '',
@@ -67,7 +67,7 @@ const ParentProfile = ({initialState, handleNext}) => {
             const imageFile = e.target.files[0];
             if (imageFile) {
 
-                setFormData({...formData, profileImage: URL.createObjectURL(imageFile)})
+                setFormData({ ...formData, profileImage: URL.createObjectURL(imageFile) })
             }
         }
     };
@@ -84,7 +84,7 @@ const ParentProfile = ({initialState, handleNext}) => {
 
             setStateOptions(options)
         }
-        setFormData({...formData, [name]: value?.label || ''})
+        setFormData({ ...formData, [name]: value?.label || '' })
         if (errors[name]) {
             setErrors((prevFormErrors) => ({
                 ...prevFormErrors,
@@ -95,7 +95,7 @@ const ParentProfile = ({initialState, handleNext}) => {
     };
 
     const handleInputChange = (event) => {
-        const {name, value} = event.target;
+        const { name, value } = event.target;
         setFormData(prevData => ({
             ...prevData,
             [name]: value
@@ -190,16 +190,17 @@ const ParentProfile = ({initialState, handleNext}) => {
         }
     }
 
+
     return (
         <Box className='profile-main'>
             <Box className='dp-section'>
                 <img
                     src={formData?.profileImage ? formData?.profileImage : 'https://s3-alpha-sig.figma.com/img/113f/a25a/235312cc53dcd4c8780648145d59e3c2?Expires=1692576000&Signature=DQzFy6mNoe093Tu552CMN4nwwW0nU42rEroD07e71QJWs48DDCsgnsgvfnaCOaMbOon3Mj7is0UY2pDJfIOUONFU8zwxhWWJZDNUrS2ABweppFf7actt4IHk79tiHW36IA4KiwUn3rBVI2SjdLHeU-2IW3PKJvVAUfWpI0ISeLtRdH1ctUL5PS-YTrdSJa5eMfalB80~U7TtuZo2NaagKTaTLV7~eSWZ9GxY0E76TRqcBk5RpUj9bCMHOdqBJI1-bkgHc0xHxfkYc0tOEANljLZjBAzChNMf0fzu8huGK~WKKAKUVPYaYXa3rGwIZxE9eSABevElK2r6lOj-K6bauA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
-                    alt={'profile'}/>
+                    alt={'profile'} />
                 <Box className='img-input'>
                     <img src={require('../../assets/images/camera-plus-outline.svg').default}
-                         alt={'dp'}/>
-                    <input type={'file'} onChange={onSelectImage}/>
+                        alt={'dp'} />
+                    <input type={'file'} onChange={onSelectImage} />
                 </Box>
             </Box>
             <form onSubmit={handleSubmit}>
@@ -421,7 +422,7 @@ const ParentProfile = ({initialState, handleNext}) => {
                             <Button className="expiryBtn" onClick={() => setOpen(true)}>
                                 Liability Waiver
                             </Button>
-                            {(formData.isLiabilityWaiverSigned) && <CheckCircleIcon/>}
+                            {(formData.isLiabilityWaiverSigned) && <CheckCircleIcon />}
                         </Box>
                     </Box>
                     <Box className='input-item-wrap'>
@@ -434,7 +435,7 @@ const ParentProfile = ({initialState, handleNext}) => {
                             color='#fff'
                             disabled={formData.signature === null}
                             backgroundColor='#32B2AC'
-                            iconJsx={<ChevronRightIcon/>}
+                            iconJsx={<ChevronRightIcon />}
                             fullWidth
                             type="submit"
                         />
@@ -442,11 +443,11 @@ const ParentProfile = ({initialState, handleNext}) => {
                 </Box>
             </form>
             <ProfileModals fullWidth open={open} handleClose={() => setOpen(false)} setFormData={setFormData}
-                           formData={formData}/>
-            <ProfileModals open={confirmOpen} type={'confirm'} handleActionBtn={handleActionBtn}/>
+                formData={formData} />
+            <ProfileModals open={confirmOpen} type={'confirm'} handleActionBtn={handleActionBtn} />
 
             <ProfileModals open={teamOpen} handleClose={() => setTeamOpen(false)} type={'team'}
-                           handleNext={handleNext}/>
+                handleNext={handleNext} />
         </Box>
     )
 }

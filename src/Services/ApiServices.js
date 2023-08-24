@@ -12,7 +12,7 @@ export const ApiServices = {
 		}
 	},
 
-	// Function to make a POST request 
+	// Function to make a POST request
 	post: async (url, data) => {
 		try {
 			const response = await axios.post(url, data);
