@@ -17,10 +17,11 @@ export default function LocationSidebar({handleClose, clientDetail}) {
             <IconButton className='closeNotify' onClick={handleClose}>
                 <ChevronLeftIcon/>
             </IconButton>
+            
             <Box className="locationHead">
                 <Box>
                     <LocationOnIcon/>
-                    <Typography>Zoom Room {clientDetail?.city||'Austin'}</Typography>
+                    <Typography className='zoomroom-location'>Zoom Room {clientDetail?.city||'Austin'}</Typography>
                 </Box>
                 <Typography>Open</Typography>
                 <Typography>Closes in 4 hours</Typography>
@@ -28,7 +29,7 @@ export default function LocationSidebar({handleClose, clientDetail}) {
             <Box className='main-schedule-box'>
                 <YourSchedule/>
             </Box>
-            <CustomButton
+            <CustomButton  
 
                 title={"Explore Schedule"}
                 color='#fff'
@@ -36,6 +37,7 @@ export default function LocationSidebar({handleClose, clientDetail}) {
                 iconJsx={<ChevronRightIcon/>}
                 fullWidth
                 className='book-btn'
+                fontSize="18px"
 
             />
 
@@ -59,6 +61,7 @@ export default function LocationSidebar({handleClose, clientDetail}) {
                 backgroundColor='#32B2AC'
                 iconJsx={<ChevronRightIcon/>}
                 fullWidth
+                fontSize="18px"
 
 
             />

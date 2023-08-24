@@ -13,9 +13,12 @@ import {CustomButton, CustomInput} from "../../Components/Common";
 const pinCode = require("../../assets/images/paste.svg").default;
 const passwordSucces = require("../../assets/images/passSuccess.svg").default;
 
+
 const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
 
     const [steps, setSteps] = useState(0);
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [counter, setCounter] = useState(0);
     const [error, setError] = useState(false);
     const [isCounting, setIsCounting] = useState(true);
@@ -27,6 +30,14 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
         confirmPassword: '',
 
     });
+
+    const handleToggleNewPassword = () => {
+        setShowNewPassword(!showNewPassword);
+    };
+    const handleToggleConfirmPassword = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+    };
+
     useEffect(() => {
         if (authState?.from !== '') {
 
@@ -138,13 +149,24 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                 })
             } else if (steps === 1) {
                 setSteps(steps + 1);
+
+
             } else {
-                if (formData.newPassword === formData.confirmPassword) {
+
+                if (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8}$/.test(formData.confirmPassword)) {
+                    setFormErrors({ confirmPassword: 'Password must be at least 8 characters long with no special characters' });
+              
+                  }
+
+                else if (formData.newPassword === formData.confirmPassword) {
                     delete formData['confirmPassword']
                     ResetPassword(formData).then((response) => {
                         setSteps(3);
                     })
-                } else {
+                } 
+                
+                
+                else {
                     setFormErrors((prevFormErrors) => ({
                         ...prevFormErrors,
                         confirmPassword: 'Password Not Matched',
@@ -243,9 +265,11 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         <CustomInput
                             label='New Password'
                             type='password'
+                            name='password'
                             fullWidth
                             placeholder='new password'
-                            name='password'
+                            showPassword={showNewPassword}
+                            onTogglePassword={handleToggleNewPassword}
                             value={formData.newPassword}
                             onChange={(e => setFormData({...formData, newPassword: e.target.value}))}
                             // error={!!formErrors.firstName}
@@ -255,9 +279,11 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         <CustomInput
                             label='Confirm Password'
                             type='password'
+                            name='confirmPassword'
                             fullWidth
                             placeholder='confirm Password'
-                            name='confirmPassword'
+                            showPassword={showConfirmPassword}
+                            onTogglePassword={handleToggleConfirmPassword}
                             value={formData.confirmPassword}
                             onChange={(e => setFormData({...formData, confirmPassword: e.target.value}))}
                             error={!!formErrors.confirmPassword}
