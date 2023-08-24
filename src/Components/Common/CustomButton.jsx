@@ -13,6 +13,9 @@ export const CustomButton = ({
                                  iconJsx,
                                  maxWidth,
                                  isLoading,
+                                 fontWeight,
+                                 fontSize,
+                                 disabled,
                                  ...restProps
                              }) => {
     const buttonStyle = {
@@ -24,6 +27,9 @@ export const CustomButton = ({
         borderRadius: backgroundColor === "#32B2AC" ? "37px" : "10px",
         padding: isLoading ? '10px' : "17px 89px",
         textTransform:'Capitalize',
+        fontWeight:"bold",
+        fontSize:fontSize,
+        disabled:{disabled}
     };
 
     return (

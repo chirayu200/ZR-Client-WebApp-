@@ -71,11 +71,13 @@ export default function AchievementMain({ setActive }) {
                </Box>
             </Box>
             <Box className="item achievements-section">
+
                <Box
                   sx={{
                      display: "flex",
                      flexDirection: "row",
                      justifyContent: "space-between",
+                     
                   }}
                >
                   <Typography className='header-text'>

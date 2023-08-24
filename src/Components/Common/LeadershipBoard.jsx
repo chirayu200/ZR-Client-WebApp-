@@ -16,11 +16,13 @@ export const LeadershipBoard=()=>{
                         Leaderboard: All Locations
                     </Typography>
                     <Box>
-                        <CustomButton
+                        <CustomButton 
+                         disabled="disabled"
                             className='arrow-btn'
                             color='#fff'
                             icon={back}
                             backgroundColor='#32B2AC'
+                            
                         />
                         <CustomButton
                             className='arrow-btn'
@@ -38,14 +40,14 @@ export const LeadershipBoard=()=>{
                         <Box className='item-content'>
                             <Box className='first-section'>
                                 <Box className='counter'>
-                                    <Typography className='text'>1st</Typography>
+                                    <Typography className='text'>1<sup style={{fontSize: '0.7em', textTransform: "lowercase", marginRight:"15px"}}>st</sup></Typography>
                                 </Box>
                                 <Box className='avatar'>
                                     <Box className='border-white '>
                                         <Avatar alt='Remy Sharp' src={dog1}/>
                                     </Box>
                                 </Box>
-                                <Typography>Cooper</Typography>
+                                <Typography className='dogname'>Cooper</Typography>
                             </Box>
                             <Typography>88 Session</Typography>
                         </Box>
@@ -55,14 +57,14 @@ export const LeadershipBoard=()=>{
                         <Box className='item-content'>
                             <Box className='first-section'>
                                 <Box className='counter'>
-                                    <Typography className='text'>2nd</Typography>
+                                    <Typography className='text'>2<sup style={{fontSize: '0.7em', textTransform: "lowercase", marginRight:"15px"}}>nd</sup></Typography>
                                 </Box>
                                 <Box className='avatar'>
                                     <Box className='border-white '>
                                         <Avatar alt='Remy Sharp' src={dog1}/>
                                     </Box>
                                 </Box>
-                                <Typography>Cooper</Typography>
+                                <Typography className='dogname'>Cooper</Typography>
                             </Box>
                             <Typography>70 Session</Typography>
                         </Box>
@@ -71,14 +73,14 @@ export const LeadershipBoard=()=>{
                         <Box className='item-content'>
                             <Box className='first-section'>
                                 <Box className='counter'>
-                                    <Typography className='text'>3rd</Typography>
+                                    <Typography className='text'>3<sup style={{fontSize: '0.7em', textTransform: "lowercase", marginRight:"15px"}}>rd</sup></Typography>
                                 </Box>
                                 <Box className='avatar'>
                                     <Box className='border-white '>
                                         <Avatar alt='Remy Sharp' src={dog1}/>
                                     </Box>
                                 </Box>
-                                <Typography>Cooper</Typography>
+                                <Typography className='dogname'>Cooper</Typography>
                             </Box>
                             <Typography>60 Session</Typography>
                         </Box>
@@ -87,14 +89,14 @@ export const LeadershipBoard=()=>{
                         <Box className='item-content'>
                             <Box className='first-section'>
                                 <Box className='counter'>
-                                    <Typography className='text'>1st</Typography>
+                                    <Typography className='text'>1<sup style={{fontSize: '0.7em', textTransform: "lowercase", marginRight:"15px"}}>st</sup></Typography>
                                 </Box>
                                 <Box className='avatar'>
                                     <Box className='border-white '>
                                         <Avatar alt='Remy Sharp' src={dog1}/>
                                     </Box>
                                 </Box>
-                                <Typography>Cooper</Typography>
+                                <Typography className='dogname'>Cooper</Typography>
                             </Box>
                             <Typography>88 Session</Typography>
                         </Box>
@@ -103,14 +105,14 @@ export const LeadershipBoard=()=>{
                         <Box className='item-content'>
                             <Box className='first-section'>
                                 <Box className='counter'>
-                                    <Typography className='text'>1st</Typography>
+                                    <Typography className='text'>1<sup style={{fontSize: '0.7em', textTransform: "lowercase", marginRight:"15px"}}>st</sup></Typography>
                                 </Box>
                                 <Box className='avatar'>
                                     <Box className='border-white '>
                                         <Avatar alt='Remy Sharp' src={dog1}/>
                                     </Box>
                                 </Box>
-                                <Typography>Cooper</Typography>
+                                <Typography className='dogname'>Cooper</Typography>
                             </Box>
                             <Typography>88 Session</Typography>
                         </Box>

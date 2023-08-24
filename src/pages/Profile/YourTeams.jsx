@@ -30,7 +30,7 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
                 </Box> :
                 <Box className="trophyBoxHead">
                     <Typography className='header-text'>
-                        Your Team
+                        {/* Your Team */}
                     </Typography>
 
                     <CustomButton onClick={handleNextPage}
