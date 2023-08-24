@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Switch, FormControlLabel, FormHelperText, Box } from '@mui/material';
+import { Switch, FormControlLabel, FormHelperText, Box, colors } from '@mui/material';
 
 const IOSSwitch = styled((props) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -15,9 +15,9 @@ const IOSSwitch = styled((props) => (
     transitionDuration: '300ms',
     '&.Mui-checked': {
       transform: 'translateX(16px)',
-      color: '#fff',
+      color: '#003087',
       '& + .MuiSwitch-track': {
-        backgroundColor: theme.palette.mode === 'dark' ? '#b8d2f4' : '#65C466',
+        backgroundColor: theme.palette.mode === 'dark' ? '#b8d2f4' : '#A2B6D7',
         opacity: 1,
         border: 0
       },
@@ -39,17 +39,30 @@ const IOSSwitch = styled((props) => (
       opacity: theme.palette.mode === 'light' ? 0.7 : 0.3
     }
   },
+  
+
+
+
+//  circle-style
   '& .MuiSwitch-thumb': {
     boxSizing: 'border-box',
-    width: 22,
-    height: 22
+    width: 20,
+    height: 20,
+    backgroundColor: '#003087',
+    marginLeft:2,
+    marginTop:1,
+    
+    
+    
+  
   },
   '& .MuiSwitch-track': {
     borderRadius: 26 / 2,
-    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    backgroundColor: theme.palette.mode === 'light' ? '#E7EFF9' : '#39393D',
     opacity: 1,
+    border: '2px solid #003087',
     transition: theme.transitions.create(['background-color'], {
-      duration: 500
+    duration: 500
     })
   }
 }));

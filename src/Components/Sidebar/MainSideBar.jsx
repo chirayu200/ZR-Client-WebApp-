@@ -122,12 +122,12 @@ export default function SideBar({name, Component, clientDetail}) {
                         }>
                             <img src={clientDetail ? clientDetail?.profileImage : profile} alt='profile'/>
                         </Button>
-                        <Button className='profileBtnSecond' onClick={() => {
+                        {/* <Button className='profileBtnSecond' onClick={() => {
                             clearLocalData();
                             window.location.reload();
                         }}>
                             <LogoutIcon sx={{color: 'white'}}/>
-                        </Button>
+                        </Button> */}
                     </Box>
 
                 </Drawer>

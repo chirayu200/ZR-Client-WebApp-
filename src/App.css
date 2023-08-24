@@ -659,8 +659,8 @@
   
   .chatBtn.MuiButtonBase-root {
     position: fixed;
-    bottom: 70px;
-    right: 35px;
+    bottom: 8px;
+    right: 10px;
   }
 
   .chatBtn.MuiButtonBase-root img {
@@ -2294,6 +2294,9 @@
   .MuiPickersArrowSwitcher-root button {
     color: #003087 !important;
     background-color: #e7eff9 !important;
+    margin-right: 0px;
+    width: 30px;
+    height: 30px;
   }
   
   .MuiDayCalendar-header span {
@@ -2749,12 +2752,14 @@
   
   .card-input .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
-    font-family: Inter;
+    /* font-family: Inter; */
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
     padding: 16.5px 23px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
   
   .card-input {
@@ -3417,7 +3422,7 @@
   
   .top-header.shop-header {
     justify-content: space-between;
-    padding: 10px 13px;
+    padding: 15px 18px;
   }
   
   .shop-header .first-box {
