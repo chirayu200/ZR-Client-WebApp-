@@ -15,9 +15,9 @@ import {useNavigate} from "react-router-dom";
 
 const warning = require("../../assets/images/warning.svg").default;
 const next = require("../../assets/images/nextArrow.svg").default;
-// const nextArrow = require("../../assets/images/chevron-up-orange.svg").default;
+const nextArrow = require("../../assets/images/chevron-up-orange.svg").default;
 const back = require("../../assets/images/backArrow.svg").default;
-// const dog = require("../../assets/images/dog.png");
+const dog = require("../../assets/images/dog.png");
 const dog1 = require("../../assets/images/dog-obedience-training.png");
 const adjStart = require("../../assets/images/adjStart.svg").default;
 const adjBon = require("../../assets/images/adjbon.svg").default;
@@ -26,8 +26,8 @@ const adjDogtwo = require("../../assets/images/adjDogtwo.svg").default;
 const adjDogThree = require("../../assets/images/adjDogThree.svg").default;
 const adjDogFour = require("../../assets/images/adjDogFour.svg").default;
 const adjDogFive = require("../../assets/images/adjDogFive.svg").default;
-// const simpleBar = require("../../assets/images/simpleBar.svg").default;
-// const dottedBar = require("../../assets/images/dottedBar.svg").default;
+const simpleBar = require("../../assets/images/simpleBar.svg").default;
+const dottedBar = require("../../assets/images/dottedBar.svg").default;
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
 export default function Home({clientDetail}) {
@@ -85,13 +85,13 @@ export default function Home({clientDetail}) {
                             {/*to uncoomet this section you need to comment the classname and then uncomment the only schedule section class and comment the below boxes then uncommnt this section*/}
                             <Box
                                 className='schedule-section second-section'
-                                // className='schedule-section'
+                                className='schedule-section'
                             >
-                                {/* <Box className='visit-schedule' onClick={() => setOpen(true)}>
+                                <Box className='visit-schedule' onClick={() => setOpen(true)}>
 							<Typography>SCHEDULE A VISIT</Typography>
 							<img src={dog} alt='dog' />
-						</Box> */}
-                                <Box className='main-schedule-box'>
+						</Box>
+                                {/* <Box className='main-schedule-box'>
                                     <YourSchedule/>
                                     <Box className='class-footer'>
                                         <Box className='visit-history'>
@@ -102,7 +102,7 @@ export default function Home({clientDetail}) {
                                         <Link onClick={() => setOpen(true)} className='link-line'>+Schedule A
                                             Visit</Link>
                                     </Box>
-                                </Box>
+                                </Box> */}
 
                             </Box>
                             <Box className='achievements-section'>
