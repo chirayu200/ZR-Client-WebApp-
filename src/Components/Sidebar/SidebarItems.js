@@ -3,6 +3,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StarBorderIcon from "@mui/icons-material/StarBorder";
 import SettingsIcon from "@mui/icons-material/Settings";
+import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
 
 export const SidebarItems = [
 	{
@@ -30,4 +31,9 @@ export const SidebarItems = [
 		name: "Settings",
 		path: "/settings",
 	},
+	// {
+	// 	icon: <PersonAddRoundedIcon />,
+	// 	name: "Profile",
+	// 	path: "/profile",
+	// }
 ];

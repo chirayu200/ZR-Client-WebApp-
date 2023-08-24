@@ -26,15 +26,15 @@ export default function ProfileMain({clientDetail}) {
         selected: "",
     })
 
-    useEffect(() => {
-        CheckClientDetail(clientDetail.sortKey)
-            .then((response) => {
-                const [data] = response.data.Items;
-                setInitialState({...initialState, client: data})
+    // useEffect(() => {
+    //     CheckClientDetail(clientDetail.sortKey)
+    //         .then((response) => {
+    //             const [data] = response.data.Items;
+    //             setInitialState({...initialState, client: data})
 
-            })
+    //         })
 
-    }, [clientDetail])
+    // }, [clientDetail])
 
     const childComponent = [
         {
@@ -125,5 +125,6 @@ export default function ProfileMain({clientDetail}) {
             </Box>
             {childComponent[active].component}
         </Container>
+        
     )
 }

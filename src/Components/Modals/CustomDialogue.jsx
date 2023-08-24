@@ -18,6 +18,10 @@ const greyClosing = require("../../assets/images/greyClosing.svg").default;
 
 export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, className, data}) => {
    
+    // const buttonStyle = {
+    //     width: '38px', // Adjust the width as needed
+    //   };
+
     const navigate = useNavigate();
     const [state, setState] = React.useState({
         snackOpen: false,
@@ -112,12 +116,13 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                 type === "appointment" ?
                     <Box className="mindDialog">
                         <DialogActions className='dialog-actions'>
-                            <CustomButton
+                            <CustomButton 
                                 className='arrow-btn'
                                 color='#003087'
-                                icon={back}
+                                icon ={back} 
                                 backgroundColor='#E7EFF9'
                                 onClick={handleClose}
+                                
                             />
                             <Typography>what do you have in mind?</Typography>
                         </DialogActions>

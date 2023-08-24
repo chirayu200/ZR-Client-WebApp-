@@ -55,14 +55,29 @@ export default function YourPack({setInitialState, initialState, setActive}) {
                 <Box className="itemImgWrap">
                     <img src={petPlaceholder} alt="dog"/>
                     <Box>
-                        <Typography>Ralph Edwards</Typography>
+                        <Typography>Cooper</Typography>
                         <Typography>
-                            Reward Points: 3214
+                            Marvin McKinney
                         </Typography>
                     </Box>
                 </Box>
                 <Box>
                     <Typography>Firedog</Typography>
+                    <Button><img src={rightCircle} alt='close'/> </Button>
+                </Box>
+            </Box>
+            <Box className="item">
+                <Box className="itemImgWrap">
+                    <img src={petPlaceholder} alt="dog"/>
+                    <Box>
+                        <Typography>Max</Typography>
+                        <Typography>
+                            Theresa Webb
+                        </Typography>
+                    </Box>
+                </Box>
+                <Box>
+                    <Typography>Underdog</Typography>
                     <Button><img src={rightCircle} alt='close'/> </Button>
                 </Box>
             </Box>

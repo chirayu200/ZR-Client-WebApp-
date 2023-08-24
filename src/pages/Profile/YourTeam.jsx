@@ -240,7 +240,9 @@ fontWeight: 'bold',
                 fontFamily: "Univers LT Std",
                 fontSize: "16px",
                 fontStyle: "normal",
-                }}>Your Pack</Typography>
+                }}>
+                  Your Pack
+                  </Typography>
                   
                   <div className="vbtn">
                   

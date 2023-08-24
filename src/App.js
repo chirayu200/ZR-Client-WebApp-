@@ -1,5 +1,6 @@
 import "./assets/fonts/fonts.css";
 import "./App.css";
+import "./style1.css"
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import { Box, CircularProgress } from "@mui/material";
 
