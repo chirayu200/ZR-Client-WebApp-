@@ -6,7 +6,6 @@ import {CustomButton, CustomDropdown} from "../../Components/Common";
 import {GetAllPets, GetAllServiceCategories, GetAllTrainersAvailability} from "../../Services/APIs";
 import {CalenderDateFormat} from "../../Utils";
 
-
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
 const dragDrop = require("../../assets/images/dragdrop.svg").default;
@@ -155,9 +154,9 @@ export default function BookAppointment({handleNext}) {
         <Box className='appointment-main'>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select Your Dog</InputLabel>
+                    <InputLabel>Select your dog</InputLabel>
                     <CustomDropdown
-                        placeHolder='Select Your dog'
+                        placeHolder='Select your dog'
                         value={selectedOption.dog}
                         onChange={handleDropdownChange}
                         name={'dog'}
@@ -179,7 +178,7 @@ export default function BookAppointment({handleNext}) {
             </Box>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select Appointment Type</InputLabel>
+                    <InputLabel>Select appointment Type</InputLabel>
                     <CustomDropdown
                         value={selectedOption.serviceName}
                         placeHolder='Select Type'
@@ -193,12 +192,10 @@ export default function BookAppointment({handleNext}) {
                     <InputLabel>Select Date</InputLabel>
                     <CustomDropdown
                         value={selectedOption.fromDate}
-                        placeHolder='Select Date'
                         onChange={handleDateChange}
                         name={'fromDate'}
                         icon={dateIcon}
                         date
-                 
                     />
                 </Box>
 

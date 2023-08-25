@@ -1,9 +1,10 @@
 import HomeIcon from "@mui/icons-material/Home";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StarBorderIcon from "@mui/icons-material/StarBorder";
-import SettingsIcon from "@mui/icons-material/Settings";
-import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+
+// import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
 
 export const SidebarItems = [
 	{
@@ -12,12 +13,12 @@ export const SidebarItems = [
 		path: "/",
 	},
 	{
-		icon: <CalendarMonthIcon />,
+		icon: <CalendarMonthOutlinedIcon />,
 		name: "Appointment",
 		path: "/appointment",
 	},
 	{
-		icon: <ShoppingCartIcon />,
+		icon: <ShoppingCartOutlinedIcon />,
 		name: "Shop",
 		path: "/shop",
 	},
@@ -27,7 +28,7 @@ export const SidebarItems = [
 		path: "/achievements",
 	},
 	{
-		icon: <SettingsIcon />,
+		icon: <SettingsOutlinedIcon />,
 		name: "Settings",
 		path: "/settings",
 	},

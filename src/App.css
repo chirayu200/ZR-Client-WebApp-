@@ -2401,7 +2401,7 @@ line-height: 14px;
   
   .book-btn svg {
     background: white;
-    color: #32b2ac;
+    color: #E35205;
     border-radius: 50%;
   }
   
@@ -4241,3 +4241,10 @@ line-height: 14px;
     line-height: normal !important;
     padding-left: 10px;
   }
+
+
+
+
+  .btn-style{
+    border-radius: 2em!important;
+}

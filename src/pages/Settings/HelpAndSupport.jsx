@@ -32,28 +32,36 @@ export default function HelpAndSupport({ setActive }) {
                                     </Box>
                   </Box>
                 <Typography className='header-text-blue font-weight-700 f-16'>How can we help you today?</Typography>
+                
+
+               
                 <CustomInput
                     type='text'
                     name='Name'
                     placeholder='Search queries'
                     fullWidth
                     className='card-input'
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 2, }}
                 />
+           
 
-                <Typography sx={{ mt: 2 }} className='header-text-blue font-weight-700 f-16'>Top Categories</Typography>
-                <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                <Typography sx={{ mt: 2 }} className='header-text-blue font-weight-700 f-16 '>Top Categories</Typography>
+
+
+                
+                <CustomButton 
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
                     title={"Trouble on devices"}
                     backgroundColor='white'
                     color='black'
                     iconJsx={<ChevronRightIcon />}
                     fullWidth
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 2, }}
+                    
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
                     title={"Help with your account"}
                     backgroundColor='white'
                     color='black'
@@ -63,7 +71,7 @@ export default function HelpAndSupport({ setActive }) {
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
                     title={"Bundles"}
                     backgroundColor='white'
                     color='black'
@@ -73,7 +81,7 @@ export default function HelpAndSupport({ setActive }) {
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
                     title={" Special Pricing"}
                     backgroundColor='white'
                     color='black'
@@ -82,6 +90,7 @@ export default function HelpAndSupport({ setActive }) {
                     sx={{ mt: 2 }}
                 // onClick={handleNext}
                 />
+     
                 <Typography sx={{ mt: 2 }} className='header-text-blue font-weight-700 f-16'>Feedback</Typography>
                 <Typography sx={{ mt: 2 }} className='header-text-black font-weight-400 f-14'>Leave Your Feedback</Typography>
                 <Box className='field-section' sx={{mt:2}}>
