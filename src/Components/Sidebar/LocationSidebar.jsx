@@ -5,8 +5,15 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import YourSchedule from '../Common/YourSchedule';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {CustomButton} from '../Common';
+import { useNavigate } from "react-router-dom";
 
 export default function LocationSidebar({handleClose, clientDetail}) {
+
+    const navigate = useNavigate();
+
+    const handleExplore = ()=>{
+        navigate('exploreschedule')
+      }
 
     return (
         <Box className="locationSidebar"
@@ -29,7 +36,7 @@ export default function LocationSidebar({handleClose, clientDetail}) {
             <Box className='main-schedule-box'>
                 <YourSchedule/>
             </Box>
-            <CustomButton  
+            <CustomButton onClick={handleExplore}
 
                 title={"Explore Schedule"}
                 color='#fff'
