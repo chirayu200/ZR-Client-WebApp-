@@ -6,6 +6,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const biometric = require("../../assets/images/Biometric.png");
+const notifications = require("../../assets/images/notification0.png");
+
 
 export default function Security({ setActive }) {
 
@@ -27,6 +29,9 @@ export default function Security({ setActive }) {
                         </Box>
 
                     </Box>
+                    <Box sx={{ paddingLeft: '15px' }}>
+                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
+                                    </Box>
                 </Box>
                 <Typography className="header-text-blue">Change your password</Typography>
                 <Box className='appointment-main'>

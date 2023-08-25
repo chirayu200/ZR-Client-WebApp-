@@ -5,7 +5,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const visaCard = require("../../assets/images/visaCard.svg").default;
-const paymentMethod = require("../../assets/images/PaymentMethodIcon.png") 
+const paymentMethod = require("../../assets/images/PaymentMethodIcon.png")
+const notifications = require("../../assets/images/notification0.png");
+
+
+
 
 export default function Payments({setActive,active}) {
     return (
@@ -25,6 +29,9 @@ export default function Payments({setActive,active}) {
                         </Box>
 
                     </Box>
+                      <Box sx={{ paddingLeft: '15px' }}>
+                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
+                                    </Box>
                 </Box>
                 <Box className='card-detail-wrap' sx={{mt:5}}>
                     <Box className='card-detail'>

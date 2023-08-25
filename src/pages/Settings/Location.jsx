@@ -1,9 +1,12 @@
 import React from "react";
-import { CustomButton,  CustomInput } from "../../Components/Common";
+import { CustomButton, CustomInput } from "../../Components/Common";
 import { Box, Container, Typography } from "@mui/material";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import searchbarsvg from '../../assets/images/searchbarsvg.svg'
+import RightArror from '../../assets/images/rightarrowsvg.svg'
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
+const notifications = require("../../assets/images/notification0.png");
 
 export default function Location({ setActive, active }) {
     return (
@@ -19,27 +22,35 @@ export default function Location({ setActive, active }) {
                                 backgroundColor='#E7EFF9'
                                 onClick={() => setActive(0)}
                             />
-                            <Typography className='header-text-blue font-weight-700 f-18'>Location</Typography>
+                            <Typography className='header-text-blue font-weight-700 f-18' >Location</Typography>
                         </Box>
 
                     </Box>
+                    <Box sx={{ paddingLeft: '15px' }}>
+                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
+                    </Box>
                 </Box>
                 <CustomInput
-                    type='text'
-                    name='Name'
-                    placeholder='Change location'
+                    type="text"
+                    name="Name"
+                    placeholder="Change location"
                     fullWidth
-                    className='card-input'
+                    className="card-input"
+                    icon={searchbarsvg}
+                    
+                    
+                    
+
                 />
                 <CustomButton
                     className='book-btn-payment'
-                    title={"Set as default"}
+                    title={"Set as Default"}
                     color='#fff'
                     // disabled={selectedValue !== "payBy"}
                     backgroundColor='#32B2AC'
-                    iconJsx={<ChevronRightIcon />}
+                    iconJsx={<img src={RightArror} alt="" srcset="" />}
                     fullWidth
-                    sx={{mt:70}}
+                    sx={{ mt: 77,}}
                 // onClick={handleNext}
                 />
             </Container>
