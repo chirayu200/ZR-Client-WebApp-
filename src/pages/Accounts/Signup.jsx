@@ -20,6 +20,7 @@ export default function SignupScreen({onLogin}) {
         success: false,
     });
     const [formErrors, setFormErrors] = useState({});
+   
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -47,6 +48,11 @@ export default function SignupScreen({onLogin}) {
         }
     };
     const validateForm = () => {
+        setErrorData((prevErrorData) => ({
+            ...prevErrorData,
+            type: '',
+            msg: ''
+        }));
         const errors = {};
         if (!formData.firstName?.trim()) {
             errors.firstName = "First Name is required";
@@ -64,10 +70,18 @@ export default function SignupScreen({onLogin}) {
         if (!formData.password?.trim()) {
             errors.password = "Password is required";
         }
+        if (formData.password?.trim().length ===  1) {
+            errors.password = "Password length is too short";
+        }
+        if (formData.confirmPassword?.trim().length ===  1) {
+            errors.confirmPassword = "Confirm Password length is too short";
+        }
+       
         if (!formData?.confirmPassword?.trim()) {
             errors.confirmPassword = "Confirm Password is required";
+            formData.confirmPassword = '';
         } else if (formData.confirmPassword !== formData.password) {
-            errors.confirmPassword = "Passwords do not match";
+            errors.confirmPassword = "Passwords does not match";
         }
         return errors;
     };
@@ -79,16 +93,23 @@ export default function SignupScreen({onLogin}) {
             delete formData["confirmPassword"];
             Signup(formData).then(response => {
                 if (response) {
-                    console.log(response, "response");
-                    if (response.success) {
-                        setLoader(false)
+                    console.log(response, "response");                  
+                    if (response.success) 
+                    {
+                        setLoader(false)                       
                         setAuthStatus({
                             from: formData.email,
                             success: response.success
-                        })
+                        });
+                        setErrorData((prevErrorData) => ({
+                            ...prevErrorData,
+                            type: '',
+                            msg: ''
+                        }));
                         setActiveScreen(2)
                     } else {
                         setLoader(false)
+                        console.log(response.data.error)
                         if (response.data.error) {
                             setErrorData((prevErrorData) => ({
                                 ...prevErrorData,
@@ -188,6 +209,7 @@ export default function SignupScreen({onLogin}) {
                                         error={!!formErrors.email}
                                         helperText={formErrors.email}
                                     />
+                                     
                                     <CustomInput
                                         label='Password'
                                         type='password'
@@ -214,6 +236,11 @@ export default function SignupScreen({onLogin}) {
                                         error={!!formErrors.confirmPassword}
                                         helperText={formErrors.confirmPassword}
                                     />
+
+                                    {errorData.msg ? (
+                                        <Typography color="error" variant="body2"> {errorData.msg} </Typography>
+                                      ):''}
+
                                     <CustomButton
                                         backgroundColor='#003087'
                                         isLoading={loader}

@@ -14,17 +14,20 @@ const SplashScreen = ({ handleNext }) => {
 				<Typography>We Don't Train Dogs.</Typography>
 				<Typography>We Train the People who love them.</Typography>
 			</Box>
-			<Box className='splash-btn'>
+			<Box className='splash-btn' >
 				<CustomButton
 					title='GET STARTED'
 					onClick={handleNext}
 					backgroundColor='#003087'
 				/>
-				<CustomButton
+
+				{/* Roadblock - Based on discussion hiding button */}
+				{/* <CustomButton
 					title='EXPLORE AS GUEST'
 					onClick={handleNext}
 					color='#003087'
-				/>
+					disabled
+				/> */}
 			</Box>
 		</Container>
 	);
