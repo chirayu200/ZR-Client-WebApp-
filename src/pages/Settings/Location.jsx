@@ -22,7 +22,7 @@ export default function Location({ setActive, active }) {
                                 backgroundColor='#E7EFF9'
                                 onClick={() => setActive(0)}
                             />
-                            <Typography className='header-text-blue font-weight-700 f-18' >Location</Typography>
+                            <Typography className='header-text-blue font-weight-700 f-18 location-style' >Location</Typography>
                         </Box>
 
                     </Box>
@@ -42,17 +42,19 @@ export default function Location({ setActive, active }) {
                     
 
                 />
+            
                 <CustomButton
-                    className='book-btn-payment'
+                    className='book-btn-payment '
                     title={"Set as Default"}
                     color='#fff'
                     // disabled={selectedValue !== "payBy"}
                     backgroundColor='#32B2AC'
                     iconJsx={<img src={RightArror} alt="" srcset="" />}
                     fullWidth
-                    sx={{ mt: 77,}}
+                    sx={{ mt: 73,}}
                 // onClick={handleNext}
                 />
+             
             </Container>
         </>
     )

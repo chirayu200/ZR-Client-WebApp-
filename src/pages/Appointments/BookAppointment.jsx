@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Box, InputLabel, Link, TextField, Typography} from "@mui/material";
-
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {CustomButton, CustomDropdown} from "../../Components/Common";
 import {GetAllPets, GetAllServiceCategories, GetAllTrainersAvailability} from "../../Services/APIs";
 import {CalenderDateFormat} from "../../Utils";
+
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
@@ -154,9 +154,9 @@ export default function BookAppointment({handleNext}) {
         <Box className='appointment-main'>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select your dog</InputLabel>
+                    <InputLabel>Select Your Dog</InputLabel>
                     <CustomDropdown
-                        placeHolder='Select your dog'
+                        placeHolder='Select Your Dog'
                         value={selectedOption.dog}
                         onChange={handleDropdownChange}
                         name={'dog'}
@@ -178,14 +178,15 @@ export default function BookAppointment({handleNext}) {
             </Box>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select appointment Type</InputLabel>
+                    <InputLabel>Select Appointment Type</InputLabel>
                     <CustomDropdown
                         value={selectedOption.serviceName}
-                        placeHolder='Select Type'
+                        placeHolder='Select Appointment Type'
                         onChange={handleDropdownChange}
                         options={serviceOptions}
                         icon={downArrow}
                         name={'serviceName'}
+                    
                     />
                 </Box>
                 <Box className='appointment-dropdown'>
@@ -196,6 +197,10 @@ export default function BookAppointment({handleNext}) {
                         name={'fromDate'}
                         icon={dateIcon}
                         date
+                        dayOfWeekFormatter={(day) => {
+                               console.log(day);
+                               return day.slice(0, 3).toUpperCase()
+                           }}
                     />
                 </Box>
 

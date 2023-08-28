@@ -2,6 +2,7 @@ import React  from "react";
 import { CustomButton,  CustomInput } from "../../Components/Common";
 import { Box,Container, Typography,TextField } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import RightArror from '../../assets/images/rightarrowsvg.svg'
 
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
@@ -106,7 +107,7 @@ export default function HelpAndSupport({ setActive }) {
                             color='#fff'
                             // disabled={selectedValue !== "payBy"}
                             backgroundColor='#32B2AC'
-                            iconJsx={<ChevronRightIcon />}
+                            iconJsx={<img src={RightArror} alt="" srcset="" />}
                             fullWidth
                         // onClick={handleNext}
                         />
