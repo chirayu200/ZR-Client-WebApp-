@@ -141,51 +141,23 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                   
                 })
             }
-            if (steps === 1 && authState?.success) {
-                
-                if (formData.confirmationCode) {
-                    ConfirmAccountByOtp({
-                        email: formData.email,
-                        confirmationCode: formData.confirmationCode,
-                    }).then((response) => {
-                        if (response?.success) {
-                            setSteps(steps + 1);
-                            handlePrevious(0);
-                            setFormErrors((prevFormErrors) => ({
-                                ...prevFormErrors,
-                                code: '', 
-                            }));
-                        } else {
-                            setError(true);
-                            setTimeout(() => {
-                                setError(false);
-                            }, 10000)
-                            // setFormErrors((prevFormErrors) => ({
-                            //     ...prevFormErrors,
-                            //     code: 'Invalid confirmation code.', 
-                            // }));
-                        }
-                    });
-                } else {
-                    setFormErrors((prevFormErrors) => ({
-                        ...prevFormErrors,
-                        code: 'Code is required.',
-                    }));
-                }
-    
-                } else if (steps === 1) {
+            if (steps === 1 ) {
+                formData.newPassword='';
+                formData.confirmPassword=''
+                setError(false)
+                setErrorData((prevErrorData) => ({
+                    ...prevErrorData,
+                    type: '',
+                    msg: ''
+                }));
                    //code is required
                    if(formData.confirmationCode){
+                    setError(false)
                     setSteps(steps + 1);
                    }else{
-                    setFormErrors((prevFormErrors) => ({
-                      ...prevFormErrors,
-                      code: 'Code is required.',
-    
-                    }));         
-    
+                    setError(true)        
                 }
-
+           
             }  if (steps === 2) {
                 setErrorData((prevErrorData) => ({
                     ...prevErrorData,

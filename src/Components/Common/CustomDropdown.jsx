@@ -44,6 +44,10 @@ export const CustomDropdown = ({
                             format={'MM-DD-YYYY'}
                             className="custom-date-select"
                             onChange={handleDateChange}
+                            // dayOfWeekFormatter={(day) => {
+                            //     console.log(day);
+                            //     return day.slice(0, 3).toUpperCase()
+                            // }}
                         />
                     </LocalizationProvider>
                 ) : (
