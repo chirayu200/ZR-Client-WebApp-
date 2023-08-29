@@ -6,6 +6,7 @@ import RightArror from '../../assets/images/rightarrowsvg.svg';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import Radio from '@mui/material/Radio';
+import '../../style2.css'
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const visaCard = require("../../assets/images/visaCard.svg").default;
@@ -22,6 +23,7 @@ export default function Payments({setActive,active}) {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setSelectedValue(event.target.value);
     };
+ 
     return (
         <>
             <Container className='appointment-container'>
@@ -123,7 +125,7 @@ export default function Payments({setActive,active}) {
                                     indeterminate
                                     indeterminateIcon={<CheckCircleIcon />}
                                     icon={<RadioButtonUncheckedIcon />}
-                                    
+                                    className={`radio-style ${selectedValue === 'a' ? 'red-selected' : ''}`}
                                 />
                             </Box>
                         </Box>
@@ -148,6 +150,9 @@ export default function Payments({setActive,active}) {
                                             <Link className='red-btn'>Remove</Link>
                                         </Box>
                                     </Box>
+
+
+                                    
                                     <Radio
                                         checked={selectedValue === 'b'}
                                         onChange={handleChange}
@@ -155,6 +160,7 @@ export default function Payments({setActive,active}) {
                                         indeterminate 
                                         indeterminateIcon={<CheckCircleIcon />}
                                         icon={<RadioButtonUncheckedIcon />}
+                                        className={`radio-style ${selectedValue === 'b' ? 'blue-selected' : ''}`}
                                   
                                     />
                                 </Box>

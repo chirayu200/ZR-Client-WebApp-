@@ -1,7 +1,8 @@
 import React from "react";
 import { CustomButton,Toggle } from "../../Components/Common";
 import { Box, Container,Grid, Typography } from "@mui/material";
-// import "./style2.css";
+import "../../style2.css"
+
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const notifications = require("../../assets/images/notification0.png");

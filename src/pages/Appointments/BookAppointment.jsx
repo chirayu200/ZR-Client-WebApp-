@@ -4,6 +4,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {CustomButton, CustomDropdown} from "../../Components/Common";
 import {GetAllPets, GetAllServiceCategories, GetAllTrainersAvailability} from "../../Services/APIs";
 import {CalenderDateFormat} from "../../Utils";
+import "../../style2.css"
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
@@ -165,10 +166,10 @@ export default function BookAppointment({handleNext}) {
                     />
                 </Box>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select Category</InputLabel>
+                    <InputLabel>Select Appointment Type</InputLabel>
                     <CustomDropdown
                         value={selectedOption.categoryName}
-                        placeHolder='Select Category'
+                        placeHolder='Select Appointment Type'
                         onChange={handleDropdownChange}
                         options={categoryOptions}
                         icon={downArrow}
@@ -178,23 +179,13 @@ export default function BookAppointment({handleNext}) {
             </Box>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select Appointment Type</InputLabel>
-                    <CustomDropdown
-                        value={selectedOption.serviceName}
-                        placeHolder='Select Appointment Type'
-                        onChange={handleDropdownChange}
-                        options={serviceOptions}
-                        icon={downArrow}
-                        name={'serviceName'}
-                    
-                    />
-                </Box>
-                <Box className='appointment-dropdown'>
+                
                     <InputLabel>Select Date</InputLabel>
                     <CustomDropdown
-                        value={selectedOption.fromDate}
-                        onChange={handleDateChange}
-                        name={'fromDate'}
+                       value={selectedOption.fromDate}
+                       onChange={handleDateChange}
+                       name={'fromDate'}
+                        options={serviceOptions}
                         icon={dateIcon}
                         date
                         dayOfWeekFormatter={(day) => {
@@ -203,7 +194,8 @@ export default function BookAppointment({handleNext}) {
                            }}
                     />
                 </Box>
-
+            
+                <Box className='appointment-dropdown'></Box>
             </Box>
             {trainerAvailability.length > 0 && <Typography className='available-slots'>Availability</Typography>}
             {trainerAvailability.length > 0 && <Box className='field-section'>

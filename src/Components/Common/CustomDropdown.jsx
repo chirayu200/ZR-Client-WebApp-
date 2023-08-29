@@ -48,7 +48,7 @@ export const CustomDropdown = ({
                             className="custom-date-select"
                             onChange={handleDateChange}
                             dayOfWeekFormatter={(day) => {
-                               console.log(day);
+                               console.log(day, 'dfdshjfhsdfsdhkjf');
                                return day.slice(0, 3).toUpperCase()
                            }}
                             
