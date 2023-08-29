@@ -16,7 +16,8 @@ export default function PublicProfile({handleNext, setActive, initialState, setI
     const [selected, setSelected] = useState(0)
 
     const [open, setOpen] = useState(false)
-console.log(initialState,"initialState")
+    // const [isConnect, setIsConnect] = useState(true);
+    console.log(initialState, "eeeeeeeeeeeeeeeeeeeeeeee")
     useEffect(() => {
         if (initialState.userType === 'dog' && initialState.selected) {
             GetDogDetail(initialState.client.sortKey, initialState.selected.sortKey)
@@ -34,6 +35,35 @@ console.log(initialState,"initialState")
             setActive(3)
         }
     }
+    // Assuming birthDate is a string in the format 'DD-MM-YYYY'
+// Assuming birthDate is a string in the format 'DD-MM-YYYY'
+let birthDate = initialState.dog.birthDate;
+let yearsDiff = 0;
+let monthsDiff = 0;
+
+// Check if birthDate is defined and not empty
+if (birthDate && birthDate.length > 0) {
+  const [month, day, year] = birthDate.split('-'); // Adjusted the order of day and month
+  const birthDateObj = new Date(`${year}-${month}-${day}`);
+  const currentDate = new Date();
+
+  yearsDiff = currentDate.getFullYear() - birthDateObj.getFullYear();
+  monthsDiff = currentDate.getMonth() - birthDateObj.getMonth();
+
+  if (currentDate.getDate() < birthDateObj.getDate()) {
+    monthsDiff--;
+  }
+
+  if (monthsDiff < 0) {
+    yearsDiff--;
+    monthsDiff = 12 + monthsDiff;
+  }
+}
+
+
+
+
+    console.log(initialState.dog.birthDate, 'bbbbbdddddddyyyyy');
     return (
         <Box className="profileScreen">
             <Box className="profilArea">
@@ -43,10 +73,10 @@ console.log(initialState,"initialState")
                 </Box>
                 <Box>
                     <Typography>{`${initialState[initialState.userType]?.firstName || 'John'} ${initialState[initialState.userType]?.lastName || 'Smith'}`} </Typography>
-                    <Typography>{initialState.userType === 'dog' ? "Gold Retriever" : 'Reward Points : 3102'} </Typography>
+                    <Typography>{initialState.userType === 'dog' ? `${initialState[initialState.userType]?.breed}`  : 'Reward Points : 3102'} </Typography>
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
                     {initialState.userType === 'client' ? <Typography>Body - Universe</Typography> :
-                        <Typography>1 Year Old</Typography>}
+                        <Typography>{`${yearsDiff} years and ${monthsDiff} months`} </Typography>}
 
                     <Box className="profileProgressWrap">
                         <LinearProgressBar classes='achieveProgress' value={60}/>
@@ -63,7 +93,9 @@ console.log(initialState,"initialState")
                 <Button className={selected === 0 && 'active'} onClick={() => setSelected(0)}>Profiles</Button>
                 <Button className={selected === 1 && 'active'} onClick={() => setSelected(1)}>Trophies</Button>
             </Box>
+            {/* {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 && !isConnect ? */}
             {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 ?
+
                 <Box className="cartWrap profileCartWrap">
                     {initialState.userType === 'dog' && initialState.selected !== '' ?
                         <>
@@ -83,12 +115,15 @@ console.log(initialState,"initialState")
                 </Box> : <Box className='profile-no-data'>
 
                     <Typography>There’s nothing to see here.</Typography>
-                    <Button onClick={() => setOpen(true)}>Connect</Button>
+                    <Button onClick={() => {
+                        setOpen(true);
+                    }}>Connect</Button>
                 </Box>}
             <ProfileModals open={open} handleClose={() => setOpen(false)} type={'invite'}
                            handleNext={() => {
                                setOpen(false);
                                setSelected(0);
+                            //    setIsConnect(false)
                            }}/>
         </Box>
 

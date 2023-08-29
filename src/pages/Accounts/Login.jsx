@@ -4,8 +4,12 @@ import {LoginCall} from '../../Services/APIs';
 import {CustomButton, CustomInput} from "../../Components/Common";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
+import { Typography } from "@mui/material";
 
 export default function Login({setActiveScreen, setAuthState, authState,onLogin}) {
+
+    const [errors, setErrors] = useState(false);
+
     const [showPassword, setShowPassword] = useState(false);
     const [loader, setLoader] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
@@ -54,14 +58,17 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
         // Handle form submission here
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
 
             console.log(formData);
             setLoader(true)
+
             LoginCall(formData).then((response) => {
                 setLoader(false)
+
                 if (response.success) {
                     onLogin(response)
                     setAuthState({
@@ -75,10 +82,13 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
                     setUserExist(true)
                     setInvalidErrors('Invalid username or password.');
                 }
+               
+              
             });
         } else {
 
             setFormErrors(errors);
+
         }
     };
 
@@ -110,6 +120,8 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
                     onChange={handleInputChange}
                     error={!!formErrors.password}
                     helperText={formErrors.password}
+
+                    
                 />
               {CheckUser && (<Typography color="error" variant="body2">{InvalidUserErr}</Typography>)}             
  
@@ -134,9 +146,10 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
                 </Box>
                 <CustomButton
                     backgroundColor='#003087'
-                    title={"CREATE ACCOUNT"}
+                    title={"LOG IN"}
                     type='submit'
                     isLoading={loader}
+                    
                 />
             </Box>
         </form>

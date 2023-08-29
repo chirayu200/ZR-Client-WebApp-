@@ -12,7 +12,7 @@ const SplashScreen = ({ handleNext }) => {
 				<img src={logo} alt='ZR Logo' className='splash-logo' />
 
 				<Typography>We Don't Train Dogs.</Typography>
-				<Typography>We Train the People who love them.</Typography>
+				<Typography>We Train The People Who Love Them.</Typography>
 			</Box>
 			<Box className='splash-btn' >
 				<CustomButton

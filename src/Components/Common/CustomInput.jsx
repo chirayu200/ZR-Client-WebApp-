@@ -34,6 +34,7 @@ export const CustomInput = ({
 				placeholder={placeholder}
 				type={type === "password" && showPassword ? "text" : type}
 				InputProps={
+
 					type === "password"
 						? {
 								endAdornment: (

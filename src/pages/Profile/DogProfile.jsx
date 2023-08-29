@@ -9,7 +9,7 @@ import {ProfileModals} from "../../Components/Modals";
 
 
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
-
+const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 
 const DogProfile = ({initialState}) => {
     const [confirmOpen, setConfirmOpen] = useState(false);
@@ -200,7 +200,7 @@ const DogProfile = ({initialState}) => {
         <Box className='profile-main'>
             <Box className='dp-section'>
                 <img
-                    src={formData?.profileImage ? formData?.profileImage : 'https://s3-alpha-sig.figma.com/img/7b3c/835d/f1dff291fc821211e847e359bb77f85b?Expires=1692576000&Signature=TTNOG7uioQbh4y5bX4nJat1kESmaPnN7yaKihz6M86R6-z0w~6GMvWmckS77zkOf9WILqDNQ22M23AZpLb1jL5n1rMc0fhpUqxE1WTcn~abXNWPoqbqp2x9iuDQGOpe7nkEUUcaYgeQqq3GazHgVHxW21uD4NGVsfbjfRX7h6E1EjyNwGHTf4LHa50Uy6zGIbkEootbjUoXFqYWpRNTesVHs7fe0Df2bhxMvJFzRpiE19w8GI6BLS7lqyGgy9j5tMO9ilYfGzMe8YWIW7jxAC1fqHT4HCbsWMhVboV7tNerSET-6v0JpbQFcDVeXqICsYd9JPbfDl6v78nT2-fe8Qw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
+                    src={formData?.profileImage ? formData?.profileImage : petPlaceholder}
                     alt={'profile'}/>
                 <Box className='img-input'>
                     <img src={require('../../assets/images/camera-plus-outline.svg').default}

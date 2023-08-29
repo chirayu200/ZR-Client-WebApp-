@@ -14,7 +14,9 @@ export const CustomDropdown = ({
                                    date = false,
                                    name,
                                    error,
-                                   helperText
+                                   helperText,
+                                   disablePortal,
+                                   freeSolo
                                }) => {
     const [open, setOpen] = useState(false);
 
@@ -54,6 +56,8 @@ export const CustomDropdown = ({
                     <Autocomplete
                         className='dropdown-select'
                         value={value || ''}
+                        disablePortal={false}
+                        freeSolo={false}
                         onChange={handleChange}
                         open={open}
                         name={name}

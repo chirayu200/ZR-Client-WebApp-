@@ -1,7 +1,7 @@
 import {Box, CircularProgress, Typography} from "@mui/material";
 import React, {useEffect, useState} from "react";
 import {CustomButton, CustomDropdown, CustomInput,} from "../../Components/Common";
-import {GetAllExploreSchedules} from "../../Services/APIs";
+import {GetAllExploreSchedules, SearchExploreSchedules} from "../../Services/APIs";
 import {convertDates, dateFormat, filtersQuery, timeDifferenceCalculate} from "../../Utils";
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
@@ -25,10 +25,10 @@ export default function ExploreService({handleNext}) {
     const [filteredList, setFilteredList] = useState([]);
     const [loader, setLoader] = useState(true);
     const [selectedButton, setSelectedButton] = useState(null);
-    const handleDropdownChange = (name,value) => {
+    const handleDropdownChange = (name, value) => {
 
         setLoader(true);
-        setFilters({...filters, [name]:value.value})
+        setFilters({...filters, [name]: value.value})
     };
     const handleButtonClick = (buttonIndex) => {
         setLoader(true);
@@ -136,23 +136,25 @@ export default function ExploreService({handleNext}) {
 
     const handleSearch = (query) => {
         setSearchQuery(query);
-
-        const filteredResults = allExploreList.filter(item =>
-            item.categoryName.toLowerCase().includes(query.toLowerCase())
-        );
-
-        if (query.length > 0) {
-            setAllExploreList(filteredResults)
-        } else {
-            setAllExploreList(filteredList)
-        }
-
+        setLoader(true)
+        SearchExploreSchedules(query).then((response) => {
+            if (query.length > 0) {
+                setAllExploreList(response.data)
+            } else {
+                setAllExploreList(filteredList)
+            }
+            setLoader(false)
+        })
+        // const filteredResults = allExploreList.filter(item =>
+        //     item.categoryName.toLowerCase().includes(query.toLowerCase())
+        // );
     };
 
     return (
         <Box className='explore-main'>
             <Box className='filter-section'>
                 <Box className='days-section'>
+                    
                     <CustomButton
                         color='#003087'
                         title={"This Month"}
@@ -166,6 +168,7 @@ export default function ExploreService({handleNext}) {
                         className={`slots ${selectedButton === 2 ? 'active' : ''}`}
                         onClick={() => handleButtonClick(2)}
                     />
+                   
                     <Box className='week-days-box'>
                         <CustomButton color='#003087' title={"M"}
                                       className={`slots ${selectedButton === 4 ? 'active' : ''}`}
@@ -194,7 +197,7 @@ export default function ExploreService({handleNext}) {
                     <CustomDropdown
                         value={filters.scheduleType}
                         onChange={handleDropdownChange}
-                        placeHolder={filters.scheduleType||'Select Type'}
+                        placeHolder={filters.scheduleType || 'Filters'}
                         options={options}
                         name={'scheduleType'}
                         icon={downArrow}
@@ -203,6 +206,7 @@ export default function ExploreService({handleNext}) {
                         value={filters.scheduleType}
                         onChange={handleDropdownChange}
                         options={options}
+                        placeHolder={filters.scheduleType || 'Location'}
                         name={'scheduleType'}
                         icon={downArrow}
                     />
