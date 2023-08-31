@@ -10,6 +10,7 @@ import { getLocalData } from "../../Utils";
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
+
 const referralSourcesOptions = [
     { label: "LinkedIn", value: "LinkedIn" },
     { label: "Friends", value: "Friends" },
@@ -25,14 +26,17 @@ const locationOptions = Country.getAllCountries().map((item) => ({
     value: item
 }))
 
-const ParentProfile = ({ initialState, handleNext }) => {
-
+const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
+    // const getLocations = [];
+    const clientId=getLocalData('clientId');
     const [open, setOpen] = useState(false);
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [teamOpen, setTeamOpen] = useState(false);
     const [stateOptions, setStateOptions] = useState([]);
+    const [getLocations,setGetLocations] = useState('');
+    const [getStates,setGetStates]= useState('')
     const [formData, setFormData] = useState({
-        locationId: getLocalData('locationId'),
+        clientId: getLocalData('clientId'),
         location: '',
         profileImage: "",
         firstName: '',
@@ -56,10 +60,31 @@ const ParentProfile = ({ initialState, handleNext }) => {
     });
 
     useEffect(() => {
+        getLocationsData();
+        console.log("DATA IS AS FOLLOWS--->",clientDetail);
         if (initialState) {
-            setFormData(initialState?.client)
+            setFormData(clientDetail)
         }
     }, [])
+
+
+    const getLocationsData = async () =>{
+      let response= await fetch('https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/locations');
+      const jsonData = await response.json();
+      console.log(jsonData.data.Items);
+      console.log(jsonData.data.Items.length)
+      const locationOptions = jsonData.data.Items.map((item) => ({
+        label: item.locationName,
+        value: item.locationName
+    }))
+    setGetLocations(locationOptions)
+    const stateOptions=jsonData.data.Items.map((item) => ({
+        label: item.state,
+        value: item.state
+
+    }))
+    setGetStates(stateOptions)
+    }
 
     const [errors, setErrors] = useState({});
     const onSelectImage = (e) => {
@@ -110,7 +135,7 @@ const ParentProfile = ({ initialState, handleNext }) => {
 
 
     const handleSubmit = (event) => {
-        event.preventDefault();
+      event.preventDefault();
 
         // Basic validation: Check if required fields are filled
         const requiredFields = [
@@ -148,7 +173,7 @@ const ParentProfile = ({ initialState, handleNext }) => {
             return;
         }
         const form = new FormData();
-        form.append('locationId', formData.locationId);
+        form.append('locationId', formData.clientId);
         form.append('firstName', formData.firstName);
         form.append('email', formData.email);
         // form.append('location', formData?.location || '');
@@ -183,6 +208,7 @@ const ParentProfile = ({ initialState, handleNext }) => {
     const handleActionBtn = (type) => {
         if (type === 'notNow') {
             setConfirmOpen(false);
+           
         } else if (type === 'yes') {
             setConfirmOpen(false);
             setTeamOpen(true);
@@ -211,7 +237,8 @@ const ParentProfile = ({ initialState, handleNext }) => {
                             value={formData.location}
                             placeHolder={formData.location || 'Select Location'}
                             onChange={handleDropdownChange}
-                            options={locationOptions}
+                            // options={locationOptions}
+                            options={getLocations}
                             icon={downArrow}
                             name='location'
                             error={!!errors.location}
@@ -325,7 +352,8 @@ const ParentProfile = ({ initialState, handleNext }) => {
                             placeHolder={formData.state || 'Select State'}
                             name='state'
                             onChange={handleDropdownChange}
-                            options={stateOptions}
+                            // options={stateOptions}
+                            options ={getStates}
                             icon={downArrow}
                             error={!!errors.state}
                             helperText={errors.state}

@@ -59,8 +59,7 @@ function App() {
     };
 
     const callClientDetail = (username) => {
-
-        GetClientDetailByEmailId(username.email).then((response) => {
+           GetClientDetailByEmailId(username.email).then((response) => {
             const [detail] = response.data.Items;
             setLocalData('locationId', detail.locationId);
             setLocalData('clientId', detail.sortKey);
