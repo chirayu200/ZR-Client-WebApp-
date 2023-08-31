@@ -95,8 +95,8 @@ export default function AboutApp({ setActive }) {
                         <Typography className="font-weight-400 header-text-orange">KEEP ZOOMING!</Typography>
                         <Box className='mid-section'>
                             <Box className='mid-item'>
-                                <Typography className="header-text-black font-weight-400"> <span style={{fontWeight: 'bold',}}>Follow us on (:)</span>
-                                    <Stack flexDirection="row"><FacebookIcon className="facebook-style" /><img src={InstagramIcon} alt="" srcset="" /> <TwitterIcon className="twiter-style" /></Stack>
+                                <Typography className="header-text-black font-weight-400">Follow us on
+                                <Stack flexDirection="row"><FacebookIcon className="facebook-style"/> <InstagramIcon/> <TwitterIcon className="twiter-style"/></Stack>
                                 </Typography>
                                 <a href="/" className='header-text-blue'>Rate your app</a>
 

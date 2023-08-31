@@ -47,7 +47,7 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
                     <img src={initialState.userType === 'dog' ? petPlaceholder : profileImg} alt="dog"/>
                     <Box>
                         <Typography>Ralph Edwards</Typography>
-                        <Typography>
+                        <Typography sx={{fontWeight:"bold"}}>
                             Reward Points: 3214
                         </Typography>
                     </Box>
@@ -64,7 +64,7 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
                     <img src={initialState.userType === 'dog' ? petPlaceholder : profileImg} alt="dog"/>
                     <Box>
                         <Typography>Ralph Edwards</Typography>
-                        <Typography>
+                        <Typography sx={{fontWeight:"bold"}}>
                             Reward Points: 3214
                         </Typography>
                     </Box>
