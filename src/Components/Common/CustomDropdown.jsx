@@ -17,6 +17,7 @@ export const CustomDropdown = ({
                                    helperText,
                                    disablePortal,
                                    freeSolo
+                                   
                                }) => {
     const [open, setOpen] = useState(false);
 
@@ -46,6 +47,11 @@ export const CustomDropdown = ({
                             format={'MM-DD-YYYY'}
                             className="custom-date-select"
                             onChange={handleDateChange}
+                            dayOfWeekFormatter={(day) => {
+                               console.log(day, 'dfdshjfhsdfsdhkjf');
+                               return day.slice(0, 3).toUpperCase()
+                           }}
+                            
                         />
                     </LocalizationProvider>
                 ) : (

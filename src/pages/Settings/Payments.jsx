@@ -1,7 +1,12 @@
 import React from "react";
 import { CustomButton, CustomInput } from "../../Components/Common";
 import { Box, Container, Typography, Checkbox, Link } from "@mui/material";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import RightArror from '../../assets/images/rightarrowsvg.svg';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import Radio from '@mui/material/Radio';
+import '../../style2.css'
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const visaCard = require("../../assets/images/visaCard.svg").default;
@@ -11,7 +16,14 @@ const notifications = require("../../assets/images/notification0.png");
 
 
 
+
 export default function Payments({setActive,active}) {
+    const [selectedValue, setSelectedValue] = React.useState('a');
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setSelectedValue(event.target.value);
+    };
+ 
     return (
         <>
             <Container className='appointment-container'>
@@ -25,7 +37,7 @@ export default function Payments({setActive,active}) {
                                 backgroundColor='#E7EFF9'
                                 onClick={() =>setActive(0)}
                             />
-                            <Typography className='header-text-blue font-weight-700 f-18'>Payments</Typography>
+                            <Typography className='header-text-blue font-weight-700 f-18 '>Payments</Typography>
                         </Box>
 
                     </Box>
@@ -70,7 +82,7 @@ export default function Payments({setActive,active}) {
                             />
                         </Box>
                         <Box className='save-card'>
-                            <Checkbox checked />
+                        <Checkbox disabled={false} sx={{ color: '#003087' }} />
                             <Typography className="header-text-black font-weight-400 f-14">Save card for future use</Typography>
                         </Box>
                         <CustomButton
@@ -79,7 +91,7 @@ export default function Payments({setActive,active}) {
                             color='#fff'
                             // disabled={selectedValue !== "payBy"}
                             backgroundColor='#32B2AC'
-                            iconJsx={<ChevronRightIcon />}
+                            iconJsx={<img src={RightArror} alt="" srcset="" />}
                             fullWidth
                             // onClick={handleNext}
                         />
@@ -106,12 +118,15 @@ export default function Payments({setActive,active}) {
                                         <Link className='red-btn'>Remove</Link>
                                     </Box>
                                 </Box>
-                                {/* <Checkbox
-                                    checked
+                                <Radio
+                                    checked={selectedValue === 'a'}
+                                    onChange={handleChange}
+                                    value="a"
                                     indeterminate
                                     indeterminateIcon={<CheckCircleIcon />}
                                     icon={<RadioButtonUncheckedIcon />}
-                                /> */}
+                                    className={`radio-style ${selectedValue === 'a' ? 'red-selected' : ''}`}
+                                />
                             </Box>
                         </Box>
                         <Box className='appointment-dropdown' sx={{mt:3}}>
@@ -135,12 +150,19 @@ export default function Payments({setActive,active}) {
                                             <Link className='red-btn'>Remove</Link>
                                         </Box>
                                     </Box>
-                                    {/* <Checkbox
-                                        checked
-                                        indeterminate
+
+
+                                    
+                                    <Radio
+                                        checked={selectedValue === 'b'}
+                                        onChange={handleChange}
+                                        value="b"
+                                        indeterminate 
                                         indeterminateIcon={<CheckCircleIcon />}
                                         icon={<RadioButtonUncheckedIcon />}
-                                    /> */}
+                                        className={`radio-style ${selectedValue === 'b' ? 'blue-selected' : ''}`}
+                                  
+                                    />
                                 </Box>
                             </Box>
                         </Box>
