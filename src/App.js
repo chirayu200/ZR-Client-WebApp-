@@ -7,6 +7,7 @@ import { Box, CircularProgress } from "@mui/material";
 import { BrowserRouter as Router, Navigate, Route, Routes, } from "react-router-dom";
 import { GetClientDetailByEmailId } from "./Services/APIs";
 import { getLocalData, setLocalData } from "./Utils";
+import ExploreServices from "./pages/Dashboard-Home/ExploreServices";
 
 const withSuspense = (Component) => (props) =>
 (
@@ -114,6 +115,41 @@ function App() {
                         }
                     />
                     {/* Appointment route */}
+                    <Route
+                        path='/appointment'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    clientDetail={clientDetail}
+                                    name='Appointment'
+                                    Component={<Appointment clientDetail={clientDetail} />}
+                                />
+                            ) : (
+                                <Navigate to='/account' />
+                            )
+                        }
+                    />
+
+{/* /Explore Schedule/ */}
+
+<Route
+                        path='/exploreschedule'
+                        element={
+                            loggedIn ? (
+                                <Layout
+                                    loggedIn={loggedIn}
+                                    clientDetail={clientDetail}
+                                    name='exploreschedule'
+                                    Component={<ExploreServices/>}
+                                />
+                            ) : (
+                                <Navigate to='/account' />
+                            )
+                        }
+                    />
+         {/* /Explore Schedule/ */}    
+
                     <Route
                         path='/appointment'
                         element={

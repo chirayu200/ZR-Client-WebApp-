@@ -114,7 +114,7 @@ export default function Memberships({ handleNext, clientDetail }) {
 							<Typography>5</Typography>
 						</MenuItem>
 						<MenuItem className="dropItem">
-							<Typography>Woerkshops</Typography>
+							<Typography>Workshops</Typography>
 							<Typography>5</Typography>
 						</MenuItem>
 						<MenuItem className="dropItem">

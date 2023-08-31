@@ -12,10 +12,10 @@ import AboutApp from "./AboutApp";
 import HelpAndSupport from "./HelpAndSupport";
 import './settingStyle.css';
 
-const notification      = require("../../assets/images/notification.png");
-const security          = require("../../assets/images/security.png");
-const aboutApp          = require("../../assets/images/aboutapp.png");
-const helpAndSupport    = require("../../assets/images/help&support.png");
+const notifications = require("../../assets/images/notification0.png");
+const security = require("../../assets/images/security.png");
+const aboutApp = require("../../assets/images/aboutapp.png");
+const helpAndSupport = require("../../assets/images/help&support.png");
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
@@ -84,7 +84,9 @@ export default function Settings() {
                                             />
                                             <Typography className='header-text-blue font-weight-700 f-18'>Settings</Typography>
                                         </Box>
-
+                                    </Box>
+                                    <Box sx={{ paddingLeft: '15px' }}>
+                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
                                     </Box>
 
                                 </Box>
@@ -118,7 +120,7 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={notification} onClick={() => setActive(3)} />
+                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={notifications} onClick={() => setActive(3)} />
                                                     {/* <NotificationsIcon /> */}
                                                     {/* </Avatar> */}
                                                 </Box>
@@ -166,17 +168,25 @@ export default function Settings() {
                                 </List>
                                 <Grid container spacing={2} sx={{ mt: 4 }}>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-16" fullWidth> Privacy policy </Button>
+                                        <Button className="white-btn f-14 " fullWidth style={{
+                                            color: '#003087', fontFamily: 'Univers LT Std', fontWeight: 700,
+                                            fontSize: '12px',
+                                            lineHeight: '25px',
+                                        }}> Privacy policy </Button>
                                     </Grid>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-16" fullWidth> Terms and condition </Button>
+                                        <Button className="white-btn f-14" fullWidth style={{
+                                            color: '#003087', fontFamily: 'Univers LT Std', fontWeight: 700,
+                                            fontSize: '12px',
+                                            lineHeight: '25px',
+                                        }}> Terms and condition </Button>
                                     </Grid>
                                 </Grid>
                             </>
                         )
                 }
             })()}
-        </> 
+        </>
     )
 }
 
