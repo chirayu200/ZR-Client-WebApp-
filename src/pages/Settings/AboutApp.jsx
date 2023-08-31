@@ -3,11 +3,14 @@ import { CustomButton } from "../../Components/Common";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
+// import InstagramIcon from '@mui/icons-material/Instagram';
+import InstagramIcon from '../../assets/images/instagramsvg.svg';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
+const notifications = require("../../assets/images/notification0.png");
+
 
 export default function AboutApp({ setActive }) {
     return (
@@ -25,18 +28,37 @@ export default function AboutApp({ setActive }) {
                             />
                             <Typography className='header-text-blue font-weight-700 f-18'>About App</Typography>
                         </Box>
-                       
+
                     </Box>
+                    <Box sx={{ paddingLeft: '15px' }}>
+                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
+                                    </Box>
                 </Box>
                 <Box className='item-detail-wrap'>
                     <Box className='top-section'>
-                        <Typography className='header-text-blue'>What’s New</Typography>
+                        <Typography className='header-text-blue' style={{
+                            fontFamily: 'Univers LT Std',
+                            fontSize: '16px',
+                            fontWeight: 700,
+                            lineHeight: '19px',
+                            letterSpacing: '0em',
+                            textAlign: 'left',
+                            color: '#003087'
+                        }}>What’s New</Typography>
                         <Typography className="header-text-black font-weight-700">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ipsum ac felis tristique consectetur. Etiam a sapien dignissim, vehicula ipsum quis, consequat elitLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ipsum ac felis tristique consectetur. Etiam a sapien dignissim, vehicula ipsum quis, consequat elit
                         </Typography>
                     </Box>
                     <Box className='top-section'>
-                        <Typography className='header-text-blue'>About this app</Typography>
+                        <Typography className='header-text-blue' style={{
+                            fontFamily: 'Univers LT Std',
+                            fontSize: '16px',
+                            fontWeight: 700,
+                            lineHeight: '19px',
+                            letterSpacing: '0em',
+                            textAlign: 'left',
+                            color: '#003087'
+        }}>About this app</Typography>
                         <Box className='mid-section'>
                             <Box className='mid-item'>
                                 <Typography className="header-text-black font-weight-700">Version</Typography>
@@ -51,14 +73,15 @@ export default function AboutApp({ setActive }) {
                                 <Typography className="header-text-black font-weight-700">iOS 16.5 and up</Typography>
                             </Box>
                             <Box className='mid-item'>
-                                <Typography className="header-text-black font-weight-700">Required OS</Typography>
+                                <Typography className="header-text-black font-weight-700">Radtings</Typography>
                                 <Box>
-                                <StarIcon className="icon-style"/>
-                                <StarIcon className="icon-style"/>
-                                <StarIcon className="icon-style"/>
-                                <StarIcon className="icon-style"/>
+                                    <StarIcon className="icon-style" />
+                                    <StarIcon className="icon-style" />
+                                    <StarIcon className="icon-style" />
+                                    <StarIcon className="icon-style" />
+                                    <StarIcon className="icon-style" />
                                 </Box>
-                                
+
                             </Box>
                         </Box>
                         <Typography className="header-text-black font-weight-700">
@@ -72,11 +95,11 @@ export default function AboutApp({ setActive }) {
                         <Typography className="font-weight-400 header-text-orange">KEEP ZOOMING!</Typography>
                         <Box className='mid-section'>
                             <Box className='mid-item'>
-                                <Typography className="header-text-black font-weight-400">Follow us on
-                                <Stack flexDirection="row"><FacebookIcon className="facebook-style"/> <InstagramIcon/> <TwitterIcon className="twiter-style"/></Stack>
+                                <Typography className="header-text-black font-weight-400"> <span style={{fontWeight: 'bold',}}>Follow us on (:)</span>
+                                    <Stack flexDirection="row"><FacebookIcon className="facebook-style" /><img src={InstagramIcon} alt="" srcset="" /> <TwitterIcon className="twiter-style" /></Stack>
                                 </Typography>
                                 <a href="/" className='header-text-blue'>Rate your app</a>
-                                
+
                             </Box>
                         </Box>
                     </Box>

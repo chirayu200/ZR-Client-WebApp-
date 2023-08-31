@@ -5,6 +5,8 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
+const notifications = require("../../assets/images/notification0.png");
+
 
 export default function HelpAndSupport({ setActive }) {
 
@@ -25,6 +27,9 @@ export default function HelpAndSupport({ setActive }) {
                             <Typography className='header-text-blue font-weight-700 f-18'>Help & Support</Typography>
                         </Box>
                     </Box>
+                    <Box sx={{ paddingLeft: '15px' }}>
+                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
+                                    </Box>
                   </Box>
                 <Typography className='header-text-blue font-weight-700 f-16'>How can we help you today?</Typography>
                 <CustomInput
