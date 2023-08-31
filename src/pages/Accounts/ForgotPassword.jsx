@@ -25,8 +25,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     const [formErrors, setFormErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
     const [PasswordError, setPasswordError] = useState(false);
-    const [PasswordLength, setPasswordLength] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [PasswordLength, setPasswordLength] = useState(false);    
     const [formData, setFormData] = useState({
         email: "",
         confirmationCode: '',
@@ -341,8 +340,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             fullWidth
                             placeholder='new password'
                             showPassword={showPassword}
-                            onTogglePassword={handleTogglePassword}
-                            name='password'
+                            onTogglePassword={handleTogglePassword}                            
                             value={formData.newPassword}
                             onChange={(e => setFormData({...formData, newPassword: e.target.value}))}
                             // error={!!formErrors.firstName}
