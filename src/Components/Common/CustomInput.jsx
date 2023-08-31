@@ -34,6 +34,7 @@ export const CustomInput = ({
 				placeholder={placeholder}
 				type={type === "password" && showPassword ? "text" : type}
 				InputProps={
+
 					type === "password"
 						? {
 								endAdornment: (
@@ -43,7 +44,7 @@ export const CustomInput = ({
 											aria-label='toggle password visibility'
 											onClick={onTogglePassword}
 										>
-											{showPassword ? <VisibilityOff /> : <Visibility />}
+											{showPassword ? <Visibility /> : <VisibilityOff />}
 										</IconButton>
 									</InputAdornment>
 								),

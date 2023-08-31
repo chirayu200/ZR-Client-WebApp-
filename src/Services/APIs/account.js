@@ -1,7 +1,12 @@
-import {ApiServices} from "../ApiServices";
+import { API_URL_1 } from "../../Utils/constants";
+import { ApiServices } from "../ApiServices";
 
-const Base_URL =
-    process.env.CLIENT_BASE_URL || "https://gxh3fnvl9i.execute-api.us-east-1.amazonaws.com/qa/api/";
+const Base_URL = API_URL_1;
+
+ console.log('BASEURL-1->',API_URL_1,process.env.REACT_APP_ENV);
+// console.log('BASEURL-2->',API_URL_2);
+// console.log('BASEURL-3->',API_URL_3);
+
 export const Call_Signup = async (payload) => {
     try {
         return await ApiServices.post(
@@ -15,6 +20,7 @@ export const Call_Signup = async (payload) => {
 
     }
 }
+
 export const Call_Login = async (payload) => {
     try {
         return await ApiServices.post(
@@ -28,6 +34,7 @@ export const Call_Login = async (payload) => {
 
     }
 }
+
 export const ConfirmAccountByOtp = async (payload) => {
     try {
         return await ApiServices.post(
@@ -41,6 +48,7 @@ export const ConfirmAccountByOtp = async (payload) => {
 
     }
 }
+
 export const ResendConfirmationCode = async (payload) => {
     try {
         return await ApiServices.post(
@@ -54,6 +62,7 @@ export const ResendConfirmationCode = async (payload) => {
 
     }
 }
+
 export const ResendForgotPasswordCode = async (payload) => {
     try {
         return await ApiServices.post(
@@ -67,6 +76,7 @@ export const ResendForgotPasswordCode = async (payload) => {
 
     }
 }
+
 export const ResetPassword = async (payload) => {
     try {
         return await ApiServices.post(
@@ -80,6 +90,7 @@ export const ResetPassword = async (payload) => {
 
     }
 }
+
 export const RefreshToken = async (payload) => {
     try {
         return await ApiServices.post(

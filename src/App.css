@@ -66,7 +66,10 @@
     justify-content: space-around;
     gap: 2;
   }
-  
+  .splash-btn button {
+    font-size: 18px;
+    font-weight: 600;
+  }
   /* splash End */
   /* sign up */
   .signup-container.MuiContainer-root {
@@ -370,21 +373,27 @@
     height: 27px;
     width: 26px;
   }
+
+  .MuiBadge-badge.MuiBadge-dot {
+      background-color: #F14F1B;
+      top:5px;
+  }
   
-  .header-text.MuiTypography-root.MuiTypography-body1 {
+  
+  /* .header-text.MuiTypography-root.MuiTypography-body1 {
     color: var(--primary-blue, #003087);
     font-family: Univers LT Std;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-  }
+  } */
   
   .header-text span {
     color: #f14f1b;
     font-weight: 700;
   }
-  
+
   .warning-section {
     width: 100%;
     margin-top: 10px;
@@ -498,7 +507,9 @@
     text-transform: capitalize;
     margin-bottom: 20px;
   }
-  
+
+
+
   .arrow-btn {
     border-radius: 50% !important;
     padding: 0 !important;
@@ -534,15 +545,18 @@
   
   .holders-item.selected p {
     color: #fff;
+   
   }
   
   .holders-item.selected .text {
     color: #003087;
   }
   
-  .holders-item .text {
+  /* .holders-item .text {
     color: #fff;
-  }
+   margin-right: -15px;
+  } */
+  
   
   .holders-item .item-content {
     display: flex;
@@ -587,6 +601,7 @@
   
   .items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 1) .counter {
     background-color: #e35205;
+   
   }
   
   .first-section .counter {
@@ -650,10 +665,19 @@
   
   .chatBtn.MuiButtonBase-root {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 8px;
+    right: 10px;
   }
-  
+
+  .chatBtn.MuiButtonBase-root img {
+    width: 70px; 
+    margin-bottom: 25px;
+    height: 68px;
+    margin-right: 30px ;
+    position: relative;
+   
+  }
+
   .mainSidebar .MuiListItem-root .MuiListItemButton-root {
     width: 43px;
     height: 43px;
@@ -1002,13 +1026,13 @@
     text-transform: uppercase;
   }
   
-  .notifyHead button:nth-of-type(2) {
+  /* .notifyHead button:nth-of-type(2) {
     color: #000;
     font-weight: 400;
     text-transform: none;
     font-size: 16px;
   }
-  
+   */
   .notifyHead button:nth-of-type(3) {
     color: #003087;
   }
@@ -1017,13 +1041,13 @@
     position: relative;
   }
   
-  .notifyWrap .item {
+  /* .notifyWrap .item {
     padding: 30px 30px 30px 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid #00000029;
-  }
+  } */
   
   .notifyWrap .iconWrap {
     z-index: 2;
@@ -1068,10 +1092,11 @@
     border-bottom: none;
   }
   
-  .notifyWrap .item.unread > p,
+  /* .notifyWrap .item.unread > p,
   .notifyWrap .item.unread > .MuiBox-root p:nth-of-type(2) {
     color: #000;
-  }
+    font-weight: bold;
+  } */
   
   /*---------- location sidebar -------------*/
   .locationSidebar {
@@ -1089,14 +1114,14 @@
     align-items: center;
   }
   
-  .locationHead > div:nth-of-type(1) {
+  /* .locationHead > div:nth-of-type(1) {
     padding: 7px 10px;
     border-radius: 20px;
     box-shadow: 0px 0px 8px 0px #0000001a;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
   
   .locationHead > div:nth-of-type(1) .MuiSvgIcon-root {
     width: 15px;
@@ -1113,23 +1138,33 @@
     letter-spacing: 0.1px;
   }
   
-  .locationHead > p:nth-of-type(1) {
+  /* .locationHead > p:nth-of-type(1) {
     background: #32b2ac;
     color: #fff;
     padding: 10px 20px;
     border-radius: 37px;
-  
     font-size: 12px;
     font-weight: 700;
     margin: 0 10px;
-  }
+    
+text-align: center;
+font-family: Univers LT Std;
+font-style: normal;
+line-height: normal;
+
+  } */
   
-  .locationHead > p:nth-of-type(2) {
+  /* .locationHead > p:nth-of-type(2) {
     font-size: 15px;
     font-weight: 400;
     line-height: 14px;
     color: #d13a00;
-  }
+
+    font-family: Univers LT Std;
+
+font-style: normal;
+line-height: 14px;
+  } */
   
   .locationSidebar > button {
     margin-bottom: 20px;
@@ -1161,31 +1196,32 @@
     margin-bottom: 20px;
   }
   
-  .dirBox p:nth-of-type(1) {
+  /* .dirBox p:nth-of-type(1) {
     font-family: Univers LT Std;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 18px;
     letter-spacing: 0em;
     color: #003087;
-  }
+  } */
   
-  .dirBox p:nth-of-type(2) {
+  /* .dirBox p:nth-of-type(2) {
     font-family: Univers LT Std;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
     letter-spacing: 0em;
     color: #000;
-  }
+  } */
   
-  .dirBox button {
+  /* .dirBox button {
     color: #003087;
     font-size: 14px;
     font-weight: 700;
     line-height: 21px;
     letter-spacing: 0em;
-  }
+    
+  } */
   
   /*-------- index phase section -------*/
   .phaseFlex {
@@ -1406,13 +1442,15 @@
     display: block;
   }
   
-  .topStack.trophyTopStack button {
-    min-width: 280px;
+  /* .topStack.trophyTopStack button {
+    min-width: 273px;
     padding: 10px 26px;
-    font-size: 22px;
+    font-size: 21px;
     letter-spacing: 0.1px;
     margin-bottom: 30px;
-  }
+    
+
+  } */
   
   .earnedFlex {
     margin: 20px 0 50px;
@@ -2165,7 +2203,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 2%;
+    gap: 20px;
     margin-bottom: 20px;
   }
   
@@ -2281,6 +2319,9 @@
   .MuiPickersArrowSwitcher-root button {
     color: #003087 !important;
     background-color: #e7eff9 !important;
+    margin-right: 0px;
+    width: 30px;
+    height: 30px;
   }
   
   .MuiDayCalendar-header span {
@@ -2359,11 +2400,13 @@
   .book-btn {
     padding: 17px 28px !important;
     border: 0 !important;
+    font-size: 18px;
+    font-weight: 700;
   }
   
   .book-btn svg {
     background: white;
-    color: #32b2ac;
+    color: #32B2AC;
     border-radius: 50%;
   }
   
@@ -2734,13 +2777,23 @@
   
   .card-input .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
-    font-family: Inter;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
     line-height: 24px;
     padding: 16.5px 23px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
+  
+  .card-input .MuiInputBase-input.MuiOutlinedInput-input::placeholder {
+    color: #003087; /* Placeholder color */
+    opacity: 1; /* Make the placeholder fully opaque */
+  }
+  
+  .card-input .MuiInputBase-input.MuiOutlinedInput-input .MuiPickersDay-daySelected {
+    font-weight: bold; /* Make the selected date text bold */
+  }
+  
   
   .card-input {
     background-color: #fff;
@@ -3266,14 +3319,14 @@
     line-height: normal;
   }
   
-  .class-section-box .class-section p:first-child {
+  /* .class-section-box .class-section p:first-child {
     color: var(--rgb-000, #000);
     font-family: Univers LT Std;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
     line-height: 150%;
-  }
+  } */
   
   .class-section-box .class-section p:nth-child(2) {
     color: #003087;
@@ -3402,7 +3455,7 @@
   
   .top-header.shop-header {
     justify-content: space-between;
-    padding: 10px 13px;
+    padding: 15px 18px;
   }
   
   .shop-header .first-box {
@@ -4201,3 +4254,13 @@
     line-height: normal !important;
     padding-left: 10px;
   }
+
+
+
+
+  .btn-style{
+    border-radius: 2em!important;
+}
+
+
+

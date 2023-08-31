@@ -6,7 +6,7 @@ import React from "react";
 
 
 const profileImg = require("../../assets/images/profileImg.svg").default;
-
+const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 export default function YourTeams({setActive, initialState, setInitialState}) {
     const handleNextPage = () => {
         setActive(1);
@@ -30,7 +30,7 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
                 </Box> :
                 <Box className="trophyBoxHead">
                     <Typography className='header-text'>
-                        Your Team
+                        {/* Your Team */}
                     </Typography>
 
                     <CustomButton onClick={handleNextPage}
@@ -44,10 +44,10 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
 
             <Box className="item">
                 <Box className="itemImgWrap">
-                    <img src={initialState.userType === 'dog' ? Dog : profileImg} alt="dog"/>
+                    <img src={initialState.userType === 'dog' ? petPlaceholder : profileImg} alt="dog"/>
                     <Box>
                         <Typography>Ralph Edwards</Typography>
-                        <Typography>
+                        <Typography sx={{fontWeight:"bold"}}>
                             Reward Points: 3214
                         </Typography>
                     </Box>
@@ -61,10 +61,10 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
 
             <Box className="item">
                 <Box className="itemImgWrap">
-                    <img src={initialState.userType === 'dog' ? Dog : profileImg} alt="dog"/>
+                    <img src={initialState.userType === 'dog' ? petPlaceholder : profileImg} alt="dog"/>
                     <Box>
                         <Typography>Ralph Edwards</Typography>
-                        <Typography>
+                        <Typography sx={{fontWeight:"bold"}}>
                             Reward Points: 3214
                         </Typography>
                     </Box>

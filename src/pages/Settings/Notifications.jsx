@@ -1,8 +1,12 @@
 import React from "react";
 import { CustomButton,Toggle } from "../../Components/Common";
 import { Box, Container,Grid, Typography } from "@mui/material";
+import "../../style2.css"
+
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
+const notifications = require("../../assets/images/notification0.png");
+
 
 export default function Notifications({setActive}) {
 
@@ -26,6 +30,9 @@ export default function Notifications({setActive}) {
                         </Box>
 
                     </Box>
+                    <Box sx={{ paddingLeft: '15px' }}>
+                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
+                                    </Box>
                 </Box>
                 <Grid container>
                     <Grid item xs={5.5} md={5.5} sm={5.5} className="display-flex">
@@ -37,15 +44,19 @@ export default function Notifications({setActive}) {
                         <Typography className="header-text-black font-weight-700">Special Offers</Typography>
                         <Toggle onChange={handleCheck}/>
                     </Grid>
-                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex">
+
+                  
+                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{marginTop:5}}>
                         <Typography className="header-text-black font-weight-700">Featured Item</Typography>
                         <Toggle onChange={handleCheck}/>
                     </Grid>
                     <Grid item xs={1} md={1} sm={1}/>
-                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex">
+                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{marginTop:5}}>
                         <Typography className="header-text-black font-weight-700">New Bundle</Typography>
                         <Toggle onChange={handleCheck}/>
                     </Grid>
+    
+
                 </Grid>
             </Container>
         </>

@@ -1,12 +1,13 @@
-import {ApiServices} from "../ApiServices";
+import { API_URL_2 } from "../../Utils/constants";
+import { ApiServices } from "../ApiServices";
+import { getLocalData } from "../../Utils";
 
-const Base_URL =
-    process.env.CLIENT_BASE_URL ||
-    "https://937gsyyg89.execute-api.us-east-1.amazonaws.com/qa/";
-// "https://ifcxqbb98k.execute-api.us-east-1.amazonaws.com/dev/";
-const locationId = encodeURIComponent('LOC#e857e7a7-4fde-4d2a-baad-114d6a85ff63');
+const Base_URL = API_URL_2;
+const locationId = encodeURIComponent(getLocalData('locationId'));
+
 export const CheckClientDetail = async (clientId) => {
     const encodedClientId = encodeURIComponent(clientId);
+    console.log(locationId, "locationId")
     try {
         return await ApiServices.get(
             `${Base_URL}client/getClientDetails?locationId=${locationId}&clientId=${encodedClientId}`
@@ -18,7 +19,7 @@ export const CheckClientDetail = async (clientId) => {
 
     }
 }
-export const UpdateClientDetail = async (payload,clientId) => {
+export const UpdateClientDetail = async (payload, clientId) => {
     const encodedClientId = encodeURIComponent(clientId);
     try {
         return await ApiServices.put(
@@ -46,7 +47,7 @@ export const GetDogDetail = async (clientId, childId) => {
 
     }
 }
-export const CreateDogProfile = async (payload) => {
+export const CreateDogProfile = async (payload, clientId) => {
 
     try {
         return await ApiServices.post(
@@ -59,11 +60,11 @@ export const CreateDogProfile = async (payload) => {
 
     }
 }
-export const UpdateDogProfile = async (payload) => {
-
+export const UpdateDogProfile = async (payload, petId) => {
+    const encodedPetId = encodeURIComponent(petId);
     try {
         return await ApiServices.put(
-            `${Base_URL}client/updateChild?id=${payload.id}`, payload
+            `${Base_URL}client/updateChild?id=${encodedPetId}`, payload
         );
 
     } catch (error) {
@@ -76,7 +77,7 @@ export const GetAllBreedList = async () => {
 
     try {
         return await ApiServices.get(
-            `https://937gsyyg89.execute-api.us-east-1.amazonaws.com/qa/breed-list`
+            `${Base_URL}breed-list`
         );
 
     } catch (error) {

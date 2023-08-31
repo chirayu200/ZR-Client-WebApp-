@@ -13,9 +13,12 @@ import {CustomButton, CustomInput} from "../../Components/Common";
 const pinCode = require("../../assets/images/paste.svg").default;
 const passwordSucces = require("../../assets/images/passSuccess.svg").default;
 
+
 const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
 
     const [steps, setSteps] = useState(0);
+    const [showNewPassword, setShowNewPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [counter, setCounter] = useState(0);
     const [error, setError] = useState(false);
     const [isCounting, setIsCounting] = useState(true);
@@ -334,6 +337,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         <CustomInput
                             label='New Password'
                             type='password'
+                            name='password'
                             fullWidth
                             placeholder='new password'
                             showPassword={showPassword}
@@ -349,11 +353,13 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         <CustomInput
                             label='Confirm Password'
                             type='password'
+                            name='confirmPassword'
                             fullWidth
                             showPassword={showConfirmPassword}
                             onTogglePassword={handleToggleConfirmPassword}
                             placeholder='confirm Password'
-                            name='confirmPassword'
+                            showPassword={showConfirmPassword}
+                            onTogglePassword={handleToggleConfirmPassword}
                             value={formData.confirmPassword}
                             onChange={(e => setFormData({...formData, confirmPassword: e.target.value}))}
                             error={!!formErrors.confirmPassword}

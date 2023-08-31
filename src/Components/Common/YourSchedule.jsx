@@ -9,7 +9,7 @@ const nextArrow = require("../../assets/images/chevron-up-orange.svg").default;
 export default function YourSchedule() {
     return (
         <>
-            <Typography>Your Schedule</Typography>
+            <Typography>Today's Schedule</Typography>
             <Box className='class-section-box'>
                 <Box className='class-section'>
                     <Typography>Puppy Class</Typography>

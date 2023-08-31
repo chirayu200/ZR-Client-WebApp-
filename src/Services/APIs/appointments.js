@@ -1,13 +1,19 @@
-import {ApiServices} from "../ApiServices";
+import { API_URL_3 } from "../../Utils/constants";
+import { ApiServices } from "../ApiServices";
+import { getLocalData } from "../../Utils";
 
-const Base_URL =
-    process.env.CLIENT_BASE_URL ||
-    "https://gxh3fnvl9i.execute-api.us-east-1.amazonaws.com/qa/api/";
-export const Call_Signup = async (payload) => {
+const Base_URL = API_URL_3;
+const locationId = encodeURIComponent(getLocalData('locationId'));
+
+export const GetAllTrainersAvailability = async (payload) => {
+    let obj = {
+        locationId,
+        ...payload
+    }
     try {
         return await ApiServices.post(
-            `${Base_URL}auth/signUpParent`,
-            payload
+            `${Base_URL}schedule/getTrainerAvailability`,
+            obj
         );
 
     } catch (error) {
