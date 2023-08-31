@@ -168,14 +168,14 @@ export default function Settings() {
                                 </List>
                                 <Grid container spacing={2} sx={{ mt: 4 }}>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-14 " fullWidth style={{
+                                        <Button className="white-btn" fullWidth style={{
                                             color: '#003087', fontFamily: 'Univers LT Std', fontWeight: 700,
                                             fontSize: '12px',
                                             lineHeight: '25px',
                                         }}> Privacy policy </Button>
                                     </Grid>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-14" fullWidth style={{
+                                        <Button className="white-btn" fullWidth style={{
                                             color: '#003087', fontFamily: 'Univers LT Std', fontWeight: 700,
                                             fontSize: '12px',
                                             lineHeight: '25px',

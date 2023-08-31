@@ -36,7 +36,7 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
     const [getLocations,setGetLocations] = useState('');
     const [getStates,setGetStates]= useState('')
     const [formData, setFormData] = useState({
-        clientId: getLocalData('clientId'),
+        locationId: getLocalData('locationId'),
         location: '',
         profileImage: "",
         firstName: '',
@@ -173,7 +173,7 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
             return;
         }
         const form = new FormData();
-        form.append('locationId', formData.clientId);
+        form.append('locationId', formData.locationId);
         form.append('firstName', formData.firstName);
         form.append('email', formData.email);
         // form.append('location', formData?.location || '');
@@ -198,7 +198,7 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
         form.append('updatedBy', '10000');
         form.append('status', 1);
 
-        UpdateClientDetail(form, formData.sortKey).then((response) => {
+        UpdateClientDetail(form, formData.email).then((response) => {
             if (response) {
                 setConfirmOpen(true);
             }
