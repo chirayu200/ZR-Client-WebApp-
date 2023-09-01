@@ -1,15 +1,41 @@
-import React  from "react";
+import React, {useState} from "react";
 import { CustomButton, CustomInput} from "../../Components/Common";
 import { Box, Checkbox, Container,  Link, InputLabel, Typography } from "@mui/material";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import RightArror from '../../assets/images/rightarrowsvg.svg'
+// import { useState } from "react";
+
 
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const biometric = require("../../assets/images/Biometric.png");
+const notifications = require("../../assets/images/notification0.png");
+
 
 export default function Security({ setActive }) {
-
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [showNewPassword, setShowNewPassword] = useState(false);
     // const [showPassword, setShowPassword] = useState(false);
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+    
+    const handleToggleConfirmPassword = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+    };
+
+
+
+    const handleToggleNewPassword = () => {
+        setShowNewPassword(!showNewPassword);
+    };
+
+
+
+
+
+    
     return (
         <>
             <Container className='appointment-container'>
@@ -27,6 +53,9 @@ export default function Security({ setActive }) {
                         </Box>
 
                     </Box>
+                    <Box sx={{ paddingLeft: '15px' }}>
+                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
+                                    </Box>
                 </Box>
                 <Typography className="header-text-blue">Change your password</Typography>
                 <Box className='appointment-main'>
@@ -39,6 +68,8 @@ export default function Security({ setActive }) {
                                 placeholder='Current Password'
                                 fullWidth
                                 className='card-input'
+                                showPassword={showPassword}
+                                onTogglePassword={handleTogglePassword}
 
                             />
                         </Box>
@@ -50,6 +81,9 @@ export default function Security({ setActive }) {
                                 placeholder='New Password'
                                 fullWidth
                                 className='card-input'
+                                showPassword={showNewPassword}
+                                onTogglePassword={handleToggleNewPassword}
+                          
 
                             />
                         </Box>
@@ -64,6 +98,11 @@ export default function Security({ setActive }) {
                                 placeholder='Confirm Password'
                                 fullWidth
                                 className='card-input'
+                                showPassword={showConfirmPassword}
+                                onTogglePassword={handleToggleConfirmPassword}
+
+                                
+
 
                             />
                         </Box>
@@ -73,7 +112,7 @@ export default function Security({ setActive }) {
                     <Box className='field-section'>
                         <Box className='appointment-dropdown'>
                             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                <Checkbox checked sx={{ color: '#003087' }} />
+                                <Checkbox disabled={false} sx={{ color: '#003087' }} />
                                 <Typography className="header-text-black font-weight-400 f-14">Remember password</Typography>
                             </Box>
 
@@ -88,7 +127,7 @@ export default function Security({ setActive }) {
                                 color='#fff'
                                 // disabled={selectedValue !== "payBy"}
                                 backgroundColor='#32B2AC'
-                                iconJsx={<ChevronRightIcon />}
+                                iconJsx={<img src={RightArror} alt="" srcset="" />}
                                 fullWidth
                             // onClick={handleNext}
                             />
@@ -97,7 +136,7 @@ export default function Security({ setActive }) {
                     </Box>
                 </Box>
                 <Box className='field-section' sx={{mt:3}}>
-                    <Typography className="header-text-blue font-weight-700 f-18">Update biometric</Typography>
+                    <Typography className="header-text-blue font-weight-700 f-18">Update Biometric</Typography>
                     <Box className='appointment-dropdown' sx={{mt:3}}>
 
                         <Box className='slots-wrap card-list-detail-wrap'>

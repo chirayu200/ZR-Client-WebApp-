@@ -25,7 +25,7 @@ export default function ConfirmBooking({handleNext}) {
 					</Box>
 					<Box className='attendee-header'>
 						<Typography>
-							05:30 PM to 6:00 PM (<span>30 Minutes</span>)
+							05:30 PM to 6:00 PM (  <span className="custom-span">30 minute</span>)
 						</Typography>
 					</Box>
 				</Box>

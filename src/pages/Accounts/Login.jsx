@@ -76,13 +76,11 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
                     })
                     setActiveScreen(2)
                     console.log(response);
-                }else{
+                } else {
                     //invalid user
                     setUserExist(true)
                     setInvalidErrors('Invalid username or password.');
                 }
-               
-              
             });
         } else {
 

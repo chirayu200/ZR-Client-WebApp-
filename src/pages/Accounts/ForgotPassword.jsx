@@ -311,7 +311,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             fullWidth
                             placeholder='new password'
                             showPassword={showPassword}
-                            onTogglePassword={handleTogglePassword}
+                            onTogglePassword={handleTogglePassword}                            
                             value={formData.newPassword}
                             onChange={(e => setFormData({...formData, newPassword: e.target.value}))}
                             // error={!!formErrors.firstName}
