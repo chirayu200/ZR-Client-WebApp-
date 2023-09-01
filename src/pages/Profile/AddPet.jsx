@@ -8,7 +8,7 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { dateFormat } from "../../Utils";
-
+import { getLocalData } from "../../Utils";
 
 const uploadProfile = require("../../assets/images/uploadProfile.svg").default;
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
@@ -27,6 +27,7 @@ const options = [
     { label: "Option 3", value: "option3" },
 ];
 export default function AddPet({  initialState, }) {
+    const clientId=getLocalData('clientId');
     const [selectedOption, setSelectedOption] = useState("");
     const [learnDog, setLearnDog] = useState(false);
     const [completeObj, setCompleteObj] = useState({
@@ -36,7 +37,7 @@ export default function AddPet({  initialState, }) {
         tricks: 'No'
     })
     const [formData, setFormData] = useState({
-        clientId: '',
+        clientId:clientId,
         profileImage: '',
         firstName: '',
         lastName: '',
@@ -66,7 +67,9 @@ export default function AddPet({  initialState, }) {
         status: 1,
     });
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState({
+        firstName:''
+    });
     const [expanded, setExpanded] = React.useState(false);
     const [open, setOpen] = useState(false);
     const [isDragOver, setIsDragOver] = useState(false);
@@ -155,6 +158,39 @@ export default function AddPet({  initialState, }) {
         fileInputRef.current.click();
     };
 
+    const validateForm = () => {
+        const errors = {};
+        if (!formData.firstName?.trim()) {
+            errors.firstName = "First Name is required"
+        }
+        if (!formData.lastName?.trim()) {
+            errors.lastName = "Last Name is required";
+        }
+        if (!formData.breed?.trim()) {
+            errors.breed = "Breed is required";
+        }
+        if (!formData.birthDate?.trim()) {
+            errors.birthDate = "Birth date is required";
+        }
+        if (!formData.gender?.trim()) {
+            errors.gender = "Gender is required";
+        } 
+       
+        return errors;
+    };
+
+    const validateStepOne = () =>{
+        let errors=validateForm();
+        if(Object.keys(errors).length === 0){
+            setLearnDog(true);
+            
+        }
+        else{
+            setLearnDog(false);
+            setErrors(errors)
+        }
+    }
+
     
 
     return (
@@ -193,7 +229,6 @@ export default function AddPet({  initialState, }) {
                         <Box className='input-item-wrap'>
                             <CustomInput
                                 type='text'
-
                                 name='firstName'
                                 className='form-inputs'
                                 placeholder='First Name'
@@ -207,7 +242,6 @@ export default function AddPet({  initialState, }) {
                         <Box className='input-item-wrap'>
                             <CustomInput
                                 type='text'
-
                                 name='lastName'
                                 className='form-inputs'
                                 placeholder='Last Name'
@@ -264,7 +298,7 @@ export default function AddPet({  initialState, }) {
                             backgroundColor='#32B2AC'
                             iconJsx={<ChevronRightIcon />}
                             fullWidth
-                            onClick={() => setLearnDog(true)}
+                            onClick={() => validateStepOne()}
                         />
 
                     </Box>
@@ -432,6 +466,7 @@ export default function AddPet({  initialState, }) {
                             type={'profile'}
                             open={open}
                             data={formData}
+                            setErrors={setErrors}
                             initialState={initialState}
                             className={'checkoutModal'}
                             handleClose={() => setOpen(false)}

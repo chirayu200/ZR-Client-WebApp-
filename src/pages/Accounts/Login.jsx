@@ -1,12 +1,12 @@
-import React, {useState} from "react";
-import {Box, Checkbox, Link} from "@mui/material";
-import {LoginCall} from '../../Services/APIs';
-import {CustomButton, CustomInput} from "../../Components/Common";
+import React, { useState } from "react";
+import { Box, Checkbox, Link } from "@mui/material";
+import { LoginCall } from '../../Services/APIs';
+import { CustomButton, CustomInput } from "../../Components/Common";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import { Typography } from "@mui/material";
 
-export default function Login({setActiveScreen, setAuthState, authState,onLogin}) {
+export default function Login({ setActiveScreen, setAuthState, authState, onLogin }) {
 
     const [errors, setErrors] = useState(false);
 
@@ -16,7 +16,7 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
     const [formErrors, setFormErrors] = useState({});
     //
     const [incorrectLogin, setIncorrectLogin] = useState(false);
-const [errorMessage, setErrorMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const [formData, setFormData] = useState({
         email: "",
@@ -27,7 +27,32 @@ const [errorMessage, setErrorMessage] = useState('');
     };
 
     const handleInputChange = (event) => {
-        const {name, value} = event.target;
+        const errors = {};
+        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+        const { name, value } = event.target;
+        if (name === 'password') {
+            if (!passwordPattern.test(value)) {
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [name]: value,
+                }));
+                errors.password = "Password must be at least 8 characters long and include at least one letter, one digit, and one special character";
+                setFormErrors(errors);
+                return;
+            }
+            else {
+                errors.password = '';
+                setFormErrors(errors);
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [name]: value,
+                }));
+
+            }
+            return;
+        }
+
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
@@ -53,7 +78,7 @@ const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+
         // Handle form submission here
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
@@ -79,7 +104,7 @@ const [errorMessage, setErrorMessage] = useState('');
                     setIncorrectLogin(true);
                     setErrorMessage('Incorrect username or password.');
                 }
-              
+
             });
         } else {
 
@@ -117,15 +142,15 @@ const [errorMessage, setErrorMessage] = useState('');
                     error={!!formErrors.password}
                     helperText={formErrors.password}
 
-                    
-                />
-{/* // */}
 
-        {incorrectLogin && (
-    <Typography color="error" variant="body2">
-        {errorMessage}
-    </Typography>
-)}
+                />
+                {/* // */}
+
+                {incorrectLogin && (
+                    <Typography color="error" variant="body2">
+                        {errorMessage}
+                    </Typography>
+                )}
 
                 <Box className='remember-section'>
                     <Box>
@@ -134,13 +159,13 @@ const [errorMessage, setErrorMessage] = useState('');
                             checked={rememberMe}
                             onChange={() => setRememberMe(!rememberMe)}
                             indeterminate={rememberMe}
-                            indeterminateIcon={<CheckCircleIcon/>}
-                            icon={<RadioButtonUncheckedIcon/>}
+                            indeterminateIcon={<CheckCircleIcon />}
+                            icon={<RadioButtonUncheckedIcon />}
                         />
                         Remember me
                     </Box>
                     <Link className='forgot-link' onClick={() => {
-                        setAuthState({from: '', success: false});
+                        setAuthState({ from: '', success: false });
                         setActiveScreen(2)
                     }}>
                         Forgot Password?
@@ -151,7 +176,7 @@ const [errorMessage, setErrorMessage] = useState('');
                     title={"LOG IN"}
                     type='submit'
                     isLoading={loader}
-                    
+
                 />
             </Box>
         </form>

@@ -7,6 +7,7 @@ import {CalenderDateFormat} from "../../Utils";
 import "../../style2.css"
 
 
+
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
 const dragDrop = require("../../assets/images/dragdrop.svg").default;
@@ -163,6 +164,7 @@ export default function BookAppointment({handleNext}) {
                         name={'dog'}
                         options={petsOption}
                         icon={downArrow}
+                        
                     />
                 </Box>
                 <Box className='appointment-dropdown'>
@@ -182,10 +184,12 @@ export default function BookAppointment({handleNext}) {
                 
                     <InputLabel>Select Date</InputLabel>
                     <CustomDropdown
+                       placeHolder='Select Your Dog'
                        value={selectedOption.fromDate}
                        onChange={handleDateChange}
+                       className="date-style"
                        name={'fromDate'}
-                        options={serviceOptions}
+                       options={serviceOptions}
                         icon={dateIcon}
                         date
                         dayOfWeekFormatter={(day) => {

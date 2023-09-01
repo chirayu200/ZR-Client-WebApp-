@@ -207,7 +207,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         {steps === 0
                             ? "Don’t worry! It happens. Please enter the email associated with your account."
                             : steps === 1
-                                ? `We’ve sent an email with an activation code at ${authState?.from || 'helloworld@gmail.com'}`
+                                ? `We’ve sent an email with an activation code at ${authState?.from || formData.email}`
                                 : "Please type something you’ll remember"}
                     </Typography>
                 </Box>

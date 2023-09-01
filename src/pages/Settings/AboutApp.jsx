@@ -93,12 +93,12 @@ export default function AboutApp({ setActive }) {
                             Phasellus eu fermentum augue. Nullam lobortis nibh quis elit feugiat tincidunt. Nunc neque erat, porttitor in blandit sit amet, pulvinar vitae lectus. Pellentesque et orci tellus. Proin pretium in magna eu euismod.
                         </Typography>
                         <Typography className="font-weight-400 header-text-orange">KEEP ZOOMING!</Typography>
-                        <Box className='mid-section'>
+                        <Box className='mid-section mt-23'>
                             <Box className='mid-item'>
                                 <Typography className="header-text-black font-weight-400">Follow us on:
-                                <Stack flexDirection="row"><FacebookIcon className="facebook-style"/> <InstagramSvg /> <TwitterIcon className="twiter-style"/></Stack>
+                                <Stack flexDirection="row" gap={'10px'} alignItems="center"><FacebookIcon className="facebook-style"/> <InstagramSvg /> <TwitterIcon className="twiter-style"/></Stack>
                                 </Typography>
-                                <a href="/" className='header-text-blue'>Rate your app</a>
+                                <a href="/" className='header-text-blue'>Rate our app</a>
 
                             </Box>
                         </Box>

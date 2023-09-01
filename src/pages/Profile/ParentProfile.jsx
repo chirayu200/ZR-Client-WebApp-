@@ -135,7 +135,8 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
 
 
     const handleSubmit = (event) => {
-      event.preventDefault();
+        debugger
+        event.preventDefault();
 
         // Basic validation: Check if required fields are filled
         const requiredFields = [
@@ -194,11 +195,11 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
         form.append('emergencyContactEmail', formData.emergencyContactEmail);
         form.append('emergencyContactRelationShip', formData.emergencyContactRelationShip);
         form.append('signatureImage', formData.signature);
-        form.append('isLiabilityWaiverSigned', true);
+        form.append('isLiabilityWaiverSigned', formData.isLiabilityWaiverSigned);
         form.append('updatedBy', '10000');
         form.append('status', 1);
 
-        UpdateClientDetail(form, formData.email).then((response) => {
+        UpdateClientDetail(form, clientId).then((response) => {
             if (response) {
                 setConfirmOpen(true);
             }
