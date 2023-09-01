@@ -12,7 +12,7 @@ const profileBadge = require("../../assets/images/profileBadge.svg").default;
 const Dog = require("../../assets/images/dog-round.svg").default;
 
 
-export default function PublicProfile({handleNext, setActive, initialState, setInitialState}) {
+export default function PublicProfile({handleNext, setActive, initialState, setInitialState,details}) {
     const [selected, setSelected] = useState(0)
 
     const [open, setOpen] = useState(false)
@@ -37,13 +37,13 @@ export default function PublicProfile({handleNext, setActive, initialState, setI
     // }
     // Assuming birthDate is a string in the format 'DD-MM-YYYY'
 // Assuming birthDate is a string in the format 'DD-MM-YYYY'
-let birthDate = initialState.dog.birthDate;
+let birthDate = initialState?.dog?.birthDate;
 let yearsDiff = 0;
 let monthsDiff = 0;
 
 // Check if birthDate is defined and not empty
-if (birthDate && birthDate.length > 0) {
-  const [month, day, year] = birthDate.split('-'); // Adjusted the order of day and month
+if (birthDate && birthDate?.length > 0) {
+  const [month, day, year] = birthDate?.split('-'); // Adjusted the order of day and month
   const birthDateObj = new Date(`${year}-${month}-${day}`);
   const currentDate = new Date();
 
@@ -63,20 +63,20 @@ if (birthDate && birthDate.length > 0) {
 
 
 
-    console.log(initialState.dog.birthDate, 'bbbbbdddddddyyyyy');
     return (
         <Box className="profileScreen">
             <Box className="profilArea">
                 <Box>
-                    <img src={initialState.userType === 'dog' ? Dog : profileImg} alt="profile"/>
+                    <img src={initialState.userType === 'dog' ? initialState.selected?.profileImage : details.profileImage} alt="profile"/>
                     <img src={profileBadge} alt="profile"/>
                 </Box>
                 <Box>
-                    <Typography>{`${initialState[initialState.userType]?.firstName || 'John'} ${initialState[initialState.userType]?.lastName || 'Smith'}`} </Typography>
-                    <Typography>{initialState.userType === 'dog' ? `${initialState[initialState.userType]?.breed}`  : 'Reward Points : 3102'} </Typography>
-                    <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
-                    {initialState.userType === 'client' ? <Typography>Body - Universe</Typography> :
+                <Typography>{initialState.userType === 'client' ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}` : initialState.selected.firstName} </Typography>
+                <Typography>{initialState.userType === 'dog' ? `${initialState.selected?.breed}`  : 'Reward Points : 3102'} </Typography>
+                {initialState.userType === 'client' ? <Typography>Body - Universe</Typography> :
                         <Typography>{`${yearsDiff} years and ${monthsDiff} months`} </Typography>}
+                    <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
+                   
 
                     <Box className="profileProgressWrap">
                         <LinearProgressBar classes='achieveProgress' value={60}/>
@@ -101,15 +101,15 @@ if (birthDate && birthDate.length > 0) {
                     {initialState.userType === 'dog' && initialState.selected !== '' ?
                         <>
                             <YourPack setActive={setActive} initialState={initialState}
-                                      setInitialState={setInitialState}/>
+                                      setInitialState={setInitialState} details={details}/>
                             <YourTeams setActive={setActive} initialState={initialState}
-                                       setInitialState={setInitialState}/>
+                                       setInitialState={setInitialState} details={details}/>
                         </>
                         : <>
                             <YourTeams setActive={setActive} initialState={initialState}
-                                       setInitialState={setInitialState}/>
+                                       setInitialState={setInitialState} details={details}/>
                             <YourPack setActive={setActive} initialState={initialState}
-                                      setInitialState={setInitialState}/>
+                                      setInitialState={setInitialState} details={details}/>
                         </>}
 
 
