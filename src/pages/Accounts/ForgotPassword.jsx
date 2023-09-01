@@ -23,6 +23,9 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     const [error, setError] = useState(false);
     const [isCounting, setIsCounting] = useState(true);
     const [formErrors, setFormErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
+    const [PasswordError, setPasswordError] = useState(false);
+    const [PasswordLength, setPasswordLength] = useState(false);    
     const [formData, setFormData] = useState({
         email: "",
         confirmationCode: '',
@@ -30,21 +33,17 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
         confirmPassword: '',
 
     });
-
-    const handleToggleNewPassword = () => {
-        setShowNewPassword(!showNewPassword);
-    };
-    const handleToggleConfirmPassword = () => {
-        setShowConfirmPassword(!showConfirmPassword);
-    };
-
-    useEffect(() => {
+    const [errorData, setErrorData] = useState({
+        type: "",
+        msg: "",
+    })
+    useEffect(() => {        
         if (authState?.from !== '') {
-
-            setFormData({email: authState.from})
-            setSteps(1)
+           setFormData({email: authState.from})
+           setSteps(1)
         }
     }, [authState])
+
     useEffect(() => {
         if (isCounting) {
             const interval = setInterval(() => {
@@ -101,7 +100,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
-        }));
+        }));      
         if (formErrors[name]) {
             setFormErrors((prevFormErrors) => ({
                 ...prevFormErrors,
@@ -117,8 +116,17 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
         if (!formData.email.trim()) {
             errors.email = "Please enter an email to proceed";
         }
+        
         return errors;
     };
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+    const handleToggleConfirmPassword = () => {
+        setShowConfirmPassword(!showConfirmPassword);
+    };
+
+
     const handleNext = () => {
         const errors = validateForm();
         // if (Object.keys(errors).length === 0) {
@@ -126,55 +134,117 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
         if (steps !== 3) {
             if (steps === 0) {
                 ResendForgotPasswordCode(formData).then((response) => {
-                    console.log('ResendForgotPasswordCode', response);
-                    setSteps(steps + 1)
+                    if (response?.success) {
+                        setSteps(steps + 1)
+                    }else{
+                        setFormErrors({ email: response.data.error });
+                       // errors.email =  ;
+                    }
+                  
                 })
             }
-            if (steps === 1 && authState.success) {
-                ConfirmAccountByOtp({
-                    email: formData.email,
-                    confirmationCode: formData.confirmationCode
-                }).then((response) => {
-                    if (response?.success) {
-                        handlePrevious(0);
-                    } else {
-                        setError(true);
-                        setTimeout(() => {
-                            setError(false);
-                        }, 10000)
-                    }
-                    console.log(
-                        response, 'ConfirmAccountByOtp'
-                    )
-                })
-            } else if (steps === 1) {
-                setSteps(steps + 1);
-
-
-            } else {
-
-                if (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8}$/.test(formData.confirmPassword)) {
-                    setFormErrors({ confirmPassword: 'Password must be at least 8 characters long with no special characters' });
-              
-                  }
-
-                else if (formData.newPassword === formData.confirmPassword) {
-                    delete formData['confirmPassword']
-                    ResetPassword(formData).then((response) => {
-                        setSteps(3);
-                    })
-                } 
+            if (steps === 1 && authState?.success) {
                 
-                
-                else {
+                if (formData.confirmationCode) {
+                    ConfirmAccountByOtp({
+                        email: formData.email,
+                        confirmationCode: formData.confirmationCode,
+                    }).then((response) => {
+                        if (response?.success) {
+                            setSteps(steps + 1);
+                            handlePrevious(0);
+                            setFormErrors((prevFormErrors) => ({
+                                ...prevFormErrors,
+                                code: '', 
+                            }));
+                        } else {
+                            setError(true);
+                            setTimeout(() => {
+                                setError(false);
+                            }, 10000)
+                            // setFormErrors((prevFormErrors) => ({
+                            //     ...prevFormErrors,
+                            //     code: 'Invalid confirmation code.', 
+                            // }));
+                        }
+                    });
+                } else {
                     setFormErrors((prevFormErrors) => ({
                         ...prevFormErrors,
-                        confirmPassword: 'Password Not Matched',
+                        code: 'Code is required.',
                     }));
                 }
+    
+                } else if (steps === 1) {
+                   //code is required
+                   if(formData.confirmationCode){
+                    setSteps(steps + 1);
+                   }else{
+                    setFormErrors((prevFormErrors) => ({
+                      ...prevFormErrors,
+                      code: 'Code is required.',
+    
+                    }));         
+    
+                }
+
+            }  if (steps === 2) {
+                setErrorData((prevErrorData) => ({
+                    ...prevErrorData,
+                    type: '',
+                    msg: ''
+                }));
+            
+                setPasswordError(false);
+            
+                if (formData.newPassword && formData.confirmPassword) {
+                    setPasswordError(false);
+                  
+                    if (formData.newPassword.trim().length < 2 && formData.confirmPassword.trim().length < 2) {
+                        setPasswordLength(true);
+                    }  
+                        
+                      else if (formData.newPassword === formData.confirmPassword) {
+                        ResetPassword(formData).then((response) => {
+                            setFormErrors((prevFormErrors) => ({
+                                ...prevFormErrors,
+                                confirmPassword: '',
+                            }));
+                            if (response?.success) {
+                                setSteps(3);
+                            } else {
+                                setPasswordError(false);
+                                if (response.data.error) {
+                                    setErrorData((prevErrorData) => ({
+                                        ...prevErrorData,
+                                        type: 'error',
+                                         msg: response.data.error
+                                    }));
+                                }
+                            }
+                        });
+                    } else {
+                        setPasswordLength(false);
+                        setPasswordError(false);
+                        setErrorData((prevErrorData) => ({
+                            ...prevErrorData,
+                            type: '',
+                            msg: ''
+                        }));
+                        setFormErrors((prevFormErrors) => ({
+                            ...prevFormErrors,
+                            confirmPassword: 'Passwords do not match',
+                        }));
+                    }
+                } else {
+                    setPasswordError(true);
+                }
             }
+            
+            
 
         } else {
+            setPasswordError(false)  
             handlePrevious(steps);
         }
 
@@ -203,7 +273,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                                 ? "Enter Code"
                                 : "RESET PASSWORD"}
                     </Typography>
-                    <Typography variant='body1' className='forgot-description'>
+                    <Typography variant='body1' className='forgot-description' sx={{mt:1}}>
                         {steps === 0
                             ? "Don’t worry! It happens. Please enter the email associated with your account."
                             : steps === 1
@@ -231,13 +301,13 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         <CustomInput
                             type='number'
                             fullWidth
-                            placeholder='code'
-                            name='code'
+                            placeholder='confirmationCode'
+                            name='confirmationCode'
                             icon={pinCode}
                             value={formData.confirmationCode}
-                            onChange={(e) => setFormData({...formData, confirmationCode: e.target.value})}
-                            // error={!!formErrors.firstName}
-                            // helperText={formErrors.firstName}
+                            onChange={handleInputChange}
+                            error={!!formErrors.confirmationCode}
+                             helperText={formErrors.confirmationCode}
                         />
                         <Box className='send-code'>
                             {error ? (
@@ -262,25 +332,29 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                     </>
                 ) : steps === 2 ? (
                     <>
+                       
                         <CustomInput
                             label='New Password'
                             type='password'
                             name='password'
                             fullWidth
                             placeholder='new password'
-                            showPassword={showNewPassword}
-                            onTogglePassword={handleToggleNewPassword}
+                            showPassword={showPassword}
+                            onTogglePassword={handleTogglePassword}                            
                             value={formData.newPassword}
                             onChange={(e => setFormData({...formData, newPassword: e.target.value}))}
                             // error={!!formErrors.firstName}
                             // helperText={formErrors.firstName}
                         />
-
+                       
+                        <Box sx={{mt:2}}>
                         <CustomInput
                             label='Confirm Password'
                             type='password'
                             name='confirmPassword'
                             fullWidth
+                            showPassword={showConfirmPassword}
+                            onTogglePassword={handleToggleConfirmPassword}
                             placeholder='confirm Password'
                             showPassword={showConfirmPassword}
                             onTogglePassword={handleToggleConfirmPassword}
@@ -289,7 +363,19 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             error={!!formErrors.confirmPassword}
                             helperText={formErrors.confirmPassword}
                         />
-                    </>
+                        </Box>                   
+                        {PasswordError && (
+                            <Typography color="error" variant="body2" sx={{mt:2}}>
+                                New Password and Confirm Password are required
+                            </Typography>
+                        )}
+                        {!PasswordLength && errorData.msg ? (
+                                        <Typography color="error" variant="body2" sx={{mt:2}}> {errorData.msg} </Typography>
+                                      ):''}
+                        {PasswordLength? (
+                                        <Typography color="error" variant="body2" sx={{mt:2}}> Password lenght is too short </Typography>
+                                      ):''}
+                         </>
                 ) : (
                     <Box className='password-success'>
                         <img src={passwordSucces} alt='success'/>

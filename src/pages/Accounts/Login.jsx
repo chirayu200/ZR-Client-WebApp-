@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { Box, Checkbox, Link } from "@mui/material";
-import { LoginCall } from '../../Services/APIs';
-import { CustomButton, CustomInput } from "../../Components/Common";
+import React, {useState} from "react";
+import {Box, Checkbox, Link,Typography} from "@mui/material";
+import {LoginCall} from '../../Services/APIs';
+import {CustomButton, CustomInput} from "../../Components/Common";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import { Typography } from "@mui/material";
 
 export default function Login({ setActiveScreen, setAuthState, authState, onLogin }) {
 
@@ -14,10 +13,8 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
     const [loader, setLoader] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
     const [formErrors, setFormErrors] = useState({});
-    //
-    const [incorrectLogin, setIncorrectLogin] = useState(false);
-    const [errorMessage, setErrorMessage] = useState('');
-
+    const [CheckUser, setUserExist] = useState(false);
+    const [InvalidUserErr, setInvalidErrors] = useState('');
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -66,13 +63,20 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
     };
     const validateForm = () => {
         const errors = {};
+        if (!formData.email.trim()) {
+            errors.email = "Email is required";
+        }else{
         if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)) {
             errors.email = "Invalid email address";
         }
+        }
+        
         if (!formData.password.trim()) {
             errors.password = "Password is required";
         }
-
+        // if (formData.password.length < 8) {
+        //     errors.password ="Password must be at least 8 characters";
+        //   }
         return errors;
     };
 
@@ -97,14 +101,11 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
                     })
                     setActiveScreen(2)
                     console.log(response);
+                } else {
+                    //invalid user
+                    setUserExist(true)
+                    setInvalidErrors('Invalid username or password.');
                 }
-                //
-                else {
-                    // Incorrect login attempt
-                    setIncorrectLogin(true);
-                    setErrorMessage('Incorrect username or password.');
-                }
-
             });
         } else {
 
@@ -142,16 +143,10 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
                     error={!!formErrors.password}
                     helperText={formErrors.password}
 
-
+                    
                 />
-                {/* // */}
-
-                {incorrectLogin && (
-                    <Typography color="error" variant="body2">
-                        {errorMessage}
-                    </Typography>
-                )}
-
+              {CheckUser && (<Typography color="error" variant="body2">{InvalidUserErr}</Typography>)}             
+ 
                 <Box className='remember-section'>
                     <Box>
                         {" "}
