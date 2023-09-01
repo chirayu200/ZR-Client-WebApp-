@@ -43,8 +43,8 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
     const handleDogCreation = () => {
         // const errors = validateForm();
         // console.log("errors", errors);
-        
-        CreateDogProfile(data ).then(response => {
+        console.log(data);
+        CreateDogProfile(data).then(response => {
             if (response) {
                
                 if(response.statusCode===200){

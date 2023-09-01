@@ -51,7 +51,6 @@ export const CustomDropdown = ({
                                console.log(day, 'dfdshjfhsdfsdhkjf');
                                return day.slice(0, 3).toUpperCase()
                            }}
-                           
                          />
                     </LocalizationProvider>
                 ) : (

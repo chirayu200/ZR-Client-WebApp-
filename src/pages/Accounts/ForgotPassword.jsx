@@ -356,8 +356,6 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             showPassword={showConfirmPassword}
                             onTogglePassword={handleToggleConfirmPassword}
                             placeholder='confirm Password'
-                            showPassword={showConfirmPassword}
-                            onTogglePassword={handleToggleConfirmPassword}
                             value={formData.confirmPassword}
                             onChange={(e => setFormData({...formData, confirmPassword: e.target.value}))}
                             error={!!formErrors.confirmPassword}

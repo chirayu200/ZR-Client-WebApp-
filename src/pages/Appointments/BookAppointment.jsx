@@ -156,7 +156,7 @@ export default function BookAppointment({handleNext}) {
         <Box className='appointment-main'>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select Your Dog</InputLabel>
+                    <InputLabel >Select Your Dog</InputLabel>
                     <CustomDropdown
                         placeHolder='Select Your Dog'
                         value={selectedOption.dog}

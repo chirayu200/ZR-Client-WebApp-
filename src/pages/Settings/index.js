@@ -14,7 +14,7 @@ import './settingStyle.css';
 
 const notifications = require("../../assets/images/notification0.png");
 const security = require("../../assets/images/security.png");
-const aboutApp = require("../../assets/images/aboutapp.png");
+const aboutApp = require("../../assets/images/dogLogo.png");
 const helpAndSupport = require("../../assets/images/help&support.png");
 const location = require("../../assets/images/location_icon.svg").default;
 
@@ -145,7 +145,7 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={aboutApp} onClick={() => setActive(5)} />
+                                                    <Avatar alt='D' className="back-ground cursor-pointer about-app-icon" src={aboutApp} onClick={() => setActive(5)} />
                                                     {/* <ShieldIcon />
                                                     </Avatar> */}
                                                 </Box>

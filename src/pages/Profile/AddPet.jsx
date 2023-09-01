@@ -28,6 +28,7 @@ const options = [
 ];
 export default function AddPet({  initialState, }) {
     const clientId=getLocalData('clientId');
+    const encodedClientId = encodeURIComponent(clientId);
     const [selectedOption, setSelectedOption] = useState("");
     const [learnDog, setLearnDog] = useState(false);
     const [completeObj, setCompleteObj] = useState({
@@ -37,7 +38,7 @@ export default function AddPet({  initialState, }) {
         tricks: 'No'
     })
     const [formData, setFormData] = useState({
-        clientId:clientId,
+        clientId:encodedClientId,
         profileImage: '',
         firstName: '',
         lastName: '',

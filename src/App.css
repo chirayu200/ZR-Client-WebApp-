@@ -508,8 +508,6 @@
     margin-bottom: 20px;
   }
 
-
-
   .arrow-btn {
     border-radius: 50% !important;
     padding: 0 !important;
@@ -4317,12 +4315,4 @@ line-height: 14px;
   font-size: 18px !important;
 }
 
-.security-icon .MuiAvatar-img{
-  width: 40% !important;
-  height: 50% !important;
-}
 
-.location-icon .MuiAvatar-img{
-  width: 50% !important;
-  height: 52% !important;
-}
