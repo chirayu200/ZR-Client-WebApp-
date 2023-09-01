@@ -14,8 +14,9 @@ import './settingStyle.css';
 
 const notifications = require("../../assets/images/notification0.png");
 const security = require("../../assets/images/security.png");
-const aboutApp = require("../../assets/images/aboutapp.png");
+const aboutApp = require("../../assets/images/dogLogo.png");
 const helpAndSupport = require("../../assets/images/help&support.png");
+const location = require("../../assets/images/location_icon.svg").default;
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
@@ -108,13 +109,12 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground">
-                                                        <LocationOnIcon className="icon-style cursor-pointer" onClick={() => setActive(2)} />
-                                                    </Avatar>
+                                                    <Avatar alt='D' className="back-ground location-icon" src={location}/>
+                                                      
                                                 </Box>
                                             </Box>
                                         </ListItemIcon>
-                                        <Typography className="header-text-black font-weight-700 f-16 line-height-19 cursor-pointer" onClick={() => setActive(2)}>Location</Typography>
+                                        <Typography className="header-text-black font-weight-700 f-16 line-height-19 cursor-pointer " onClick={() => setActive(2)}>Location</Typography>
                                     </ListItem>
                                     <ListItem>
                                         <ListItemIcon>
@@ -132,7 +132,7 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={security} onClick={() => setActive(4)} />
+                                                    <Avatar alt='D' className="back-ground security-icon cursor-pointer" src={security} onClick={() => setActive(4)} />
                                                     {/* <ShieldIcon /> */}
                                                     {/* </Avatar> */}
                                                 </Box>
@@ -145,7 +145,7 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={aboutApp} onClick={() => setActive(5)} />
+                                                    <Avatar alt='D' className="back-ground cursor-pointer about-app-icon" src={aboutApp} onClick={() => setActive(5)} />
                                                     {/* <ShieldIcon />
                                                     </Avatar> */}
                                                 </Box>
@@ -168,14 +168,14 @@ export default function Settings() {
                                 </List>
                                 <Grid container spacing={2} sx={{ mt: 4 }}>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-14 " fullWidth style={{
+                                        <Button className="white-btn" fullWidth style={{
                                             color: '#003087', fontFamily: 'Univers LT Std', fontWeight: 700,
                                             fontSize: '12px',
                                             lineHeight: '25px',
                                         }}> Privacy policy </Button>
                                     </Grid>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-14" fullWidth style={{
+                                        <Button className="white-btn" fullWidth style={{
                                             color: '#003087', fontFamily: 'Univers LT Std', fontWeight: 700,
                                             fontSize: '12px',
                                             lineHeight: '25px',

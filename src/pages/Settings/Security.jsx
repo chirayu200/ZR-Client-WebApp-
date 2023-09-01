@@ -57,7 +57,7 @@ export default function Security({ setActive }) {
                                         <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
                                     </Box>
                 </Box>
-                <Typography className="header-text-blue">Change your password</Typography>
+                <Typography className="header-text-blue font-weight-700">Change your password</Typography>
                 <Box className='appointment-main'>
                     <Box className='field-section'>
                         <Box className='appointment-dropdown'>
@@ -67,7 +67,7 @@ export default function Security({ setActive }) {
                                 name='password'
                                 placeholder='Current Password'
                                 fullWidth
-                                className='card-input'
+                                className='card-input password'
                                 showPassword={showPassword}
                                 onTogglePassword={handleTogglePassword}
 
@@ -80,7 +80,7 @@ export default function Security({ setActive }) {
                                 name='password'
                                 placeholder='New Password'
                                 fullWidth
-                                className='card-input'
+                                className='card-input password'
                                 showPassword={showNewPassword}
                                 onTogglePassword={handleToggleNewPassword}
                           
@@ -97,7 +97,7 @@ export default function Security({ setActive }) {
                                 name='password'
                                 placeholder='Confirm Password'
                                 fullWidth
-                                className='card-input'
+                                className='card-input password'
                                 showPassword={showConfirmPassword}
                                 onTogglePassword={handleToggleConfirmPassword}
 
