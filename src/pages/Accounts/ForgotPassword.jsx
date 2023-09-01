@@ -17,7 +17,6 @@ const passwordSucces = require("../../assets/images/passSuccess.svg").default;
 const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
 
     const [steps, setSteps] = useState(0);
-    const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [counter, setCounter] = useState(0);
     const [error, setError] = useState(false);
@@ -26,7 +25,6 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     const [showPassword, setShowPassword] = useState(false);
     const [PasswordError, setPasswordError] = useState(false);
     const [PasswordLength, setPasswordLength] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [formData, setFormData] = useState({
         email: "",
         confirmationCode: '',
@@ -314,7 +312,6 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             placeholder='new password'
                             showPassword={showPassword}
                             onTogglePassword={handleTogglePassword}
-                            name='password'
                             value={formData.newPassword}
                             onChange={(e => setFormData({...formData, newPassword: e.target.value}))}
                             // error={!!formErrors.firstName}
@@ -330,8 +327,6 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             showPassword={showConfirmPassword}
                             onTogglePassword={handleToggleConfirmPassword}
                             placeholder='confirm Password'
-                            showPassword={showConfirmPassword}
-                            onTogglePassword={handleToggleConfirmPassword}
                             value={formData.confirmPassword}
                             onChange={(e => setFormData({...formData, confirmPassword: e.target.value}))}
                             error={!!formErrors.confirmPassword}

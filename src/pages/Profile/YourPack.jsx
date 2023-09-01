@@ -6,13 +6,14 @@ import rightCircle from '../../assets/images/rightCircle.svg';
 const Dog = require("../../assets/images/dog-round.svg").default;
 const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 
-export default function YourPack({setInitialState, initialState, setActive}) {
+export default function YourPack({setInitialState, initialState, setActive,details}) {
     const handleNextPage = () => {
         setActive(1);
         setInitialState({...initialState, userType: 'dog'});
     }
-    const firstTwoPets = initialState?.client?.pets?.slice(0, 1);
+    const firstTwoPets = details?.pets?.slice(0, 2);
     console.log(initialState?.client?.pets, 'initialStateinitialState');
+    
     return (
         <Box className="template-list-main ">
             <Box className="trophyBoxHead"
@@ -33,10 +34,10 @@ export default function YourPack({setInitialState, initialState, setActive}) {
             {firstTwoPets?.map((item, index) => (
                 <Box className="item" key={index}>
                     <Box className="itemImgWrap">
-                        <img src={item?.profileImage?item.profileImage:petPlaceholder} alt="dog"/>
+                    <img src={item?.profileImage ? item?.profileImage : petPlaceholder} alt="dog" />
                         <Box>
                             <Typography>{`${item?.firstName || ''} ${item?.lastName || ''}`}</Typography>
-                            <Typography>
+                            <Typography >
                                 Reward Points: 3214
                             </Typography>
                         </Box>
@@ -51,37 +52,7 @@ export default function YourPack({setInitialState, initialState, setActive}) {
                     </Box>
                 </Box>
             ))}
-            <Box className="item">
-                <Box className="itemImgWrap">
-                    <img src={petPlaceholder} alt="dog"/>
-                    <Box>
-                        <Typography>Cooper</Typography>
-                        <Typography>
-                            Marvin McKinney
-                        </Typography>
-                    </Box>
-                </Box>
-                <Box>
-                    <Typography>Firedog</Typography>
-                    <Button><img src={rightCircle} alt='close'/> </Button>
-                </Box>
-            </Box>
-            <Box className="item">
-                <Box className="itemImgWrap">
-                    <img src={petPlaceholder} alt="dog"/>
-                    <Box>
-                        <Typography>Max</Typography>
-                        <Typography>
-                            Theresa Webb
-                        </Typography>
-                    </Box>
-                </Box>
-                <Box>
-                    <Typography>Underdog</Typography>
-                    <Button><img src={rightCircle} alt='close'/> </Button>
-                </Box>
-            </Box>
-
+           
 
         </Box>
     )

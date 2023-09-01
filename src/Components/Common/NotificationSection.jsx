@@ -10,7 +10,7 @@ export const NotificationSection = ({handleOpen}) => {
     const [notifyOpen, setNotifyOpen] = useState(false);
     return (<>
         <Button className='notification-section' onClick={() => setNotifyOpen(true)}>
-            <Badge variant='dot'>
+            <Badge variant='dot' >
                 <NotificationsNoneOutlinedIcon/>
             </Badge>
         </Button>

@@ -4,7 +4,6 @@ import {LoginCall} from '../../Services/APIs';
 import {CustomButton, CustomInput} from "../../Components/Common";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import { Typography } from "@mui/material";
 
 export default function Login({setActiveScreen, setAuthState, authState,onLogin}) {
 
