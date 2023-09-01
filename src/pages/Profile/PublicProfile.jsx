@@ -28,13 +28,13 @@ export default function PublicProfile({handleNext, setActive, initialState, setI
                 })
         }
     }, [initialState.selected])
-    const handleCompleteProfile = () => {
-        if (initialState.userType === 'dog') {
-            setActive(4)
-        } else {
-            setActive(3)
-        }
-    }
+    // const handleCompleteProfile = () => {
+    //     if (initialState.userType === 'dog') {
+    //         setActive(4)
+    //     } else {
+    //         setActive(3)
+    //     }
+    // }
     // Assuming birthDate is a string in the format 'DD-MM-YYYY'
 // Assuming birthDate is a string in the format 'DD-MM-YYYY'
 let birthDate = initialState.dog.birthDate;
@@ -81,7 +81,8 @@ if (birthDate && birthDate.length > 0) {
                     <Box className="profileProgressWrap">
                         <LinearProgressBar classes='achieveProgress' value={60}/>
                         {initialState.userType === 'client' ?
-                            <Button onClick={handleCompleteProfile}>Complete Profile</Button> :
+                            // <Button onClick={handleCompleteProfile}>Complete Profile</Button> 
+                            <Button>Complete Profile</Button>:
                             <Typography>60%</Typography>}
 
                     </Box>

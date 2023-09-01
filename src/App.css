@@ -490,7 +490,7 @@
   
   .achieved-header .heading {
     color: var(--c-1, #003087);
-    font-family: Univers LT Std;
+    font-family: 'Univers LT Std' !important;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -507,8 +507,6 @@
     text-transform: capitalize;
     margin-bottom: 20px;
   }
-
-
 
   .arrow-btn {
     border-radius: 50% !important;
@@ -2331,6 +2329,7 @@ line-height: 14px;
   
   .MuiDayCalendar-monthContainer button {
     font-weight: 600;
+    font-size: 0.95rem !important;
   }
   
   .MuiDateCalendar-root {
@@ -2354,8 +2353,16 @@ line-height: 14px;
     background: var(--secondary-white, #fff);
     height: 179px;
     width: 100%;
-    padding: 22px 18px 12px 26px;
+    padding:0% !important;
   }
+
+  /* .appointment-dropdown-text-area .text-field{
+    border-radius: 25px;
+    background: var(--secondary-white, #fff);
+    height: 179px;
+    width: 50%;
+    padding:0% !important;
+  } */
   
   .text-field .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
@@ -2397,7 +2404,7 @@ line-height: 14px;
     /* text-decoration: overline; */
   }
   
-  .book-btn {
+  .book-btn,.book-btn-help-support {
     padding: 17px 28px !important;
     border: 0 !important;
     font-size: 18px;
@@ -2407,6 +2414,11 @@ line-height: 14px;
   .book-btn svg {
     background: white;
     color: #32B2AC;
+    border-radius: 50%;
+  }
+  .book-btn-help-support svg{
+    background: white;
+    color: #E35205;
     border-radius: 50%;
   }
   
@@ -2783,6 +2795,7 @@ line-height: 14px;
     padding: 16.5px 23px;
     padding-top: 12px;
     padding-bottom: 12px;
+    font-family: 'Univers LT Std' !important;
   }
   
   .card-input .MuiInputBase-input.MuiOutlinedInput-input::placeholder {
@@ -3781,7 +3794,7 @@ line-height: 14px;
   .form-inputs .MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
     background: #fff;
   }
-  
+ 
   /*dog profile*/
   .input-toggle-wrap {
   }
@@ -3826,7 +3839,7 @@ line-height: 14px;
   
   .input-toggle-wrap > p {
     color: var(--rgb-000, #000);
-    font-family: Univers LT Std;
+    font-family: 'Univers LT Std' !important;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -3861,6 +3874,10 @@ line-height: 14px;
   
   .input-item-wrap > label {
     margin-bottom: 15px;
+    font-family: 'Univers LT Std' !important;
+    color: #333333 !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
   }
   
   .input-item-wrap .custom-select .MuiInputBase-input.MuiOutlinedInput-input {
@@ -3883,7 +3900,14 @@ line-height: 14px;
   
   .custom-select .dropdown-select .MuiAutocomplete-input {
     color: #003087;
+    /* opacity: 50%; */
   }
+
+  .dropdown-select::placeholder{
+    color: #003087;
+    opacity: 50% !important;
+  }
+  
   
   .sidebar-footer {
     display: flex;
@@ -4262,5 +4286,33 @@ line-height: 14px;
     border-radius: 2em!important;
 }
 
+/*=========MARGIN CLASS ==========*/
+
+.mt-23{
+  margin-top: -23px !important;
+}
+
+.search-bar .css-i4bv87-MuiSvgIcon-root{
+  color: #003087 !important;
+}
+
+.password .css-i4bv87-MuiSvgIcon-root{
+  color: #003087 !important;
+}
+
+.password .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
+  background-color: aliceblue !important;
+}  
+.book-btn .MuiButtonBase-root-MuiButton-root{
+  font-family:'Univers LT Std' !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
+
+.confirm-booking{
+  font-family:'Univers LT Std' !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
 
 

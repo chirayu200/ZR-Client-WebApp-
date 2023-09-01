@@ -4,7 +4,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import FacebookIcon from '@mui/icons-material/Facebook';
 // import InstagramIcon from '@mui/icons-material/Instagram';
-import InstagramIcon from '../../assets/images/instagramsvg.svg';
+import { ReactComponent as InstagramSvg } from '../../assets/images/instagramsvg.svg';
 import TwitterIcon from '@mui/icons-material/Twitter';
 
 
@@ -73,7 +73,7 @@ export default function AboutApp({ setActive }) {
                                 <Typography className="header-text-black font-weight-700">iOS 16.5 and up</Typography>
                             </Box>
                             <Box className='mid-item'>
-                                <Typography className="header-text-black font-weight-700">Radtings</Typography>
+                                <Typography className="header-text-black font-weight-700">Ratings</Typography>
                                 <Box>
                                     <StarIcon className="icon-style" />
                                     <StarIcon className="icon-style" />
@@ -93,12 +93,12 @@ export default function AboutApp({ setActive }) {
                             Phasellus eu fermentum augue. Nullam lobortis nibh quis elit feugiat tincidunt. Nunc neque erat, porttitor in blandit sit amet, pulvinar vitae lectus. Pellentesque et orci tellus. Proin pretium in magna eu euismod.
                         </Typography>
                         <Typography className="font-weight-400 header-text-orange">KEEP ZOOMING!</Typography>
-                        <Box className='mid-section'>
+                        <Box className='mid-section mt-23'>
                             <Box className='mid-item'>
-                                <Typography className="header-text-black font-weight-400">Follow us on
-                                <Stack flexDirection="row"><FacebookIcon className="facebook-style"/> <InstagramIcon/> <TwitterIcon className="twiter-style"/></Stack>
+                                <Typography className="header-text-black font-weight-400">Follow us on:
+                                <Stack flexDirection="row" gap={'10px'} alignItems="center"><FacebookIcon className="facebook-style"/> <InstagramSvg /> <TwitterIcon className="twiter-style"/></Stack>
                                 </Typography>
-                                <a href="/" className='header-text-blue'>Rate your app</a>
+                                <a href="/" className='header-text-blue'>Rate our app</a>
 
                             </Box>
                         </Box>

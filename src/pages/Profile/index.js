@@ -35,6 +35,9 @@ export default function ProfileMain({clientDetail}) {
     //         })
 
     // }, [clientDetail])
+    useEffect(() =>{
+        console.log(clientDetail);
+    })
 
     const childComponent = [
         {
@@ -65,6 +68,7 @@ export default function ProfileMain({clientDetail}) {
         {
             title: 'Edit Profile', component:
                 <ParentProfile initialState={initialState}
+                               clientDetail={clientDetail}
                                handleNext={() => setActive(4)}
                 />
         },
@@ -75,6 +79,8 @@ export default function ProfileMain({clientDetail}) {
         },
 
     ]
+
+   
     return (
         <Container className='appointment-container'>
             <Box className='appointment-header'>
@@ -90,7 +96,8 @@ export default function ProfileMain({clientDetail}) {
                                 if (active === 0) {
                                     navigate('/')
                                 } else {
-                                    setActive(active - 1)
+                                    // setActive(active - 1)
+                                    setActive(0)
                                 }
                             }}
                         />
@@ -103,8 +110,12 @@ export default function ProfileMain({clientDetail}) {
 
                                 if(active===0)
                                 {
+                                    setActive(3)
+                                }
+                                else if(active === 1){
                                     setActive(2)
-                                }else{
+                                }
+                                else{
                                     if(initialState.userType==='dog')
                                     {
                                         setActive(4)
@@ -113,7 +124,7 @@ export default function ProfileMain({clientDetail}) {
                                     }
                                 }
                             }}>
-                                {active === 0||active===1 ? <PersonAddOutlinedIcon/> : <EditOutlinedIcon/>}
+                                {active === 0 ? <EditOutlinedIcon/>  : <PersonAddOutlinedIcon/> }
                             </Button>
                         </Box>
 

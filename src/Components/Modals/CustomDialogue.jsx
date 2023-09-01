@@ -39,30 +39,12 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
         setState({ ...state, snackOpen: false });
       };
    
-    const validateForm = () => {
-        const errors = {};
-        if (!data.firstName?.trim()) {
-            errors.firstName = "First Name is required";
-        }
-        if (!data.lastName?.trim()) {
-            errors.lastName = "Last Name is required";
-        }
-        if (!data.breed?.trim()) {
-            errors.breed = "Breed is required";
-        }
-        if (!data.birthDate?.trim()) {
-            errors.birthDate = "Birth date is required";
-        }
-        if (!data.gender?.trim()) {
-            errors.gender = "Gender is required";
-        } 
-       
-        return errors;
-    };
+   
     const handleDogCreation = () => {
-        const errors = validateForm();
-        console.log("errors", errors);
-        CreateDogProfile(data ).then(response => {
+        // const errors = validateForm();
+        // console.log("errors", errors);
+        console.log(data);
+        CreateDogProfile(data).then(response => {
             if (response) {
                
                 if(response.statusCode===200){

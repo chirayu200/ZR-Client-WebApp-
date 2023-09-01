@@ -277,7 +277,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         {steps === 0
                             ? "Don’t worry! It happens. Please enter the email associated with your account."
                             : steps === 1
-                                ? `We’ve sent an email with an activation code at ${authState?.from || 'helloworld@gmail.com'}`
+                                ? `We’ve sent an email with an activation code at ${authState?.from || formData.email}`
                                 : "Please type something you’ll remember"}
                     </Typography>
                 </Box>
@@ -356,8 +356,6 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             showPassword={showConfirmPassword}
                             onTogglePassword={handleToggleConfirmPassword}
                             placeholder='confirm Password'
-                            showPassword={showConfirmPassword}
-                            onTogglePassword={handleToggleConfirmPassword}
                             value={formData.confirmPassword}
                             onChange={(e => setFormData({...formData, confirmPassword: e.target.value}))}
                             error={!!formErrors.confirmPassword}

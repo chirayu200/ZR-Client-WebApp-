@@ -4,6 +4,7 @@ import { Box, Container, Typography } from "@mui/material";
 // import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import searchbarsvg from '../../assets/images/searchbarsvg.svg'
 import RightArror from '../../assets/images/rightarrowsvg.svg'
+import SearchIcon from '@mui/icons-material/Search';
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 const notifications = require("../../assets/images/notification0.png");
@@ -35,8 +36,8 @@ export default function Location({ setActive, active }) {
                     name="Name"
                     placeholder="Change location"
                     fullWidth
-                    className="card-input"
-                    icon={searchbarsvg}
+                    className="card-input search-bar"
+                    icon={<SearchIcon/>}
                     
                     
                     
