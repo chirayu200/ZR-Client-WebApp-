@@ -42,7 +42,7 @@ export default function YourTeams({setActive, initialState, setInitialState,deta
                 </Box>}
 
 
-            <Box className="item">
+                <Box className="item">
                 <Box className="itemImgWrap">
                 <img src={initialState?.userType === 'dog' ? details?.profileImage : profileImg} alt="profile"/>
 

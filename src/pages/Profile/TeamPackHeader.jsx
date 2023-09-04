@@ -17,8 +17,8 @@ console.log('dog view all......',initialState.userType)
             <Box className="yourTeamTop">
 
                 <Box className="teamWrap">
-                    <img src={initialState.userType==='dog' ? firstTwoPets[0].profileImage : petPlaceholder} alt="profile"/>
-                    <img src={initialState.userType==='dog' ? firstTwoPets[1].profileImage : petPlaceholder} alt="profile"/>
+                    <img src={initialState?.userType==='dog' ? firstTwoPets[0]?.profileImage : petPlaceholder} alt="profile"/>
+                    <img src={initialState?.userType==='dog' ? firstTwoPets[1]?.profileImage : petPlaceholder} alt="profile"/>
                 </Box>
                 <Typography>Your {initialState.userType==='dog'?'Pack':"Team"}</Typography>
             </Box>

@@ -56,8 +56,8 @@ let yearsDiff = 0;
 let monthsDiff = 0;
 
 // Check if birthDate is defined and not empty
-if (birthDate && birthDate.length > 0) {
-  const [month, day, year] = birthDate.split('-'); // Adjusted the order of day and month
+if (birthDate && birthDate?.length > 0) {
+  const [month, day, year] = birthDate?.split('-'); // Adjusted the order of day and month
   const birthDateObj = new Date(`${year}-${month}-${day}`);
   const currentDate = new Date();
 
@@ -82,7 +82,7 @@ if (birthDate && birthDate.length > 0) {
         <Box className="profileScreen">
             <Box className="profilArea">
                 <Box>
-                    <img src={initialState.userType === 'dog' ? Dog : profileImg} alt="profile"/>
+                    <img src={initialState.userType === 'dog' ? initialState.selected?.profileImage : details.profileImage} alt="profile"/>
                     <img src={profileBadge} alt="profile"/>
                 </Box>
                 <Box>
@@ -90,6 +90,8 @@ if (birthDate && birthDate.length > 0) {
                 <Typography>{initialState.userType === 'dog' ? `${initialState.selected?.breed}`  : 'Reward Points : 3102'} </Typography>
                 {initialState.userType === 'client' ? <Typography>Body - Universe</Typography> :
                         <Typography>{`${yearsDiff} years and ${monthsDiff} months`} </Typography>}
+                    <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
+                   
 
                   
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>

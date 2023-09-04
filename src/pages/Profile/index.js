@@ -126,6 +126,9 @@ export default function ProfileMain({ clientDetail }) {
 
                                 if (initialState.userType === 'client') {
                                     setActive(3)
+                                }else{
+                                    setActive(4)
+
                                 }
                                 if (initialState.userType === 'dog') {
                                     if (active !== 0) {
