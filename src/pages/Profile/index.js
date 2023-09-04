@@ -112,9 +112,12 @@ export default function ProfileMain({ clientDetail }) {
                                 //     setActive(1)
                                 // }
                                 // setActive(active-1)
-                            //    if(active !== 0){
-
-                            //    }
+                               if(active === 0 && initialState?.userType==='dog'){
+                                setInitialState({...initialState, userType:'client'})
+                               }
+                               else{
+                                setActive(active-1);
+                               }
                             }}
                         />
                         <Typography className='header-text'>{childComponent[active].title}</Typography>
