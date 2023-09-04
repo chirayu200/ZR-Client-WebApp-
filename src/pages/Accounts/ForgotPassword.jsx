@@ -17,7 +17,6 @@ const passwordSucces = require("../../assets/images/passSuccess.svg").default;
 const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
 
     const [steps, setSteps] = useState(0);
-    const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [counter, setCounter] = useState(0);
     const [error, setError] = useState(false);
@@ -25,7 +24,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     const [formErrors, setFormErrors] = useState({});
     const [showPassword, setShowPassword] = useState(false);
     const [PasswordError, setPasswordError] = useState(false);
-    const [PasswordLength, setPasswordLength] = useState(false);    
+    const [PasswordLength, setPasswordLength] = useState(false);
     const [formData, setFormData] = useState({
         email: "",
         confirmationCode: '',
@@ -143,51 +142,23 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                   
                 })
             }
-            if (steps === 1 && authState?.success) {
-                
-                if (formData.confirmationCode) {
-                    ConfirmAccountByOtp({
-                        email: formData.email,
-                        confirmationCode: formData.confirmationCode,
-                    }).then((response) => {
-                        if (response?.success) {
-                            setSteps(steps + 1);
-                            handlePrevious(0);
-                            setFormErrors((prevFormErrors) => ({
-                                ...prevFormErrors,
-                                code: '', 
-                            }));
-                        } else {
-                            setError(true);
-                            setTimeout(() => {
-                                setError(false);
-                            }, 10000)
-                            // setFormErrors((prevFormErrors) => ({
-                            //     ...prevFormErrors,
-                            //     code: 'Invalid confirmation code.', 
-                            // }));
-                        }
-                    });
-                } else {
-                    setFormErrors((prevFormErrors) => ({
-                        ...prevFormErrors,
-                        code: 'Code is required.',
-                    }));
-                }
-    
-                } else if (steps === 1) {
+            if (steps === 1 ) {
+                formData.newPassword='';
+                formData.confirmPassword=''
+                setError(false)
+                setErrorData((prevErrorData) => ({
+                    ...prevErrorData,
+                    type: '',
+                    msg: ''
+                }));
                    //code is required
                    if(formData.confirmationCode){
+                    setError(false)
                     setSteps(steps + 1);
                    }else{
-                    setFormErrors((prevFormErrors) => ({
-                      ...prevFormErrors,
-                      code: 'Code is required.',
-    
-                    }));         
-    
+                    setError(true)        
                 }
-
+           
             }  if (steps === 2) {
                 setErrorData((prevErrorData) => ({
                     ...prevErrorData,
@@ -277,7 +248,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         {steps === 0
                             ? "Don’t worry! It happens. Please enter the email associated with your account."
                             : steps === 1
-                                ? `We’ve sent an email with an activation code at ${authState?.from || formData.email}`
+                                ? `We’ve sent an email with an activation code at ${authState?.from || 'helloworld@gmail.com'}`
                                 : "Please type something you’ll remember"}
                     </Typography>
                 </Box>
@@ -340,7 +311,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             fullWidth
                             placeholder='new password'
                             showPassword={showPassword}
-                            onTogglePassword={handleTogglePassword}                            
+                            onTogglePassword={handleTogglePassword}
                             value={formData.newPassword}
                             onChange={(e => setFormData({...formData, newPassword: e.target.value}))}
                             // error={!!formErrors.firstName}

@@ -2,12 +2,9 @@ import React  from "react";
 import { CustomButton,  CustomInput } from "../../Components/Common";
 import { Box,Container, Typography,TextField } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import RightArror from '../../assets/images/rightarrowsvg.svg'
-import SearchIcon from '@mui/icons-material/Search';
+
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
-const notifications = require("../../assets/images/notification0.png");
-
 
 export default function HelpAndSupport({ setActive }) {
 
@@ -28,42 +25,30 @@ export default function HelpAndSupport({ setActive }) {
                             <Typography className='header-text-blue font-weight-700 f-18'>Help & Support</Typography>
                         </Box>
                     </Box>
-                    <Box sx={{ paddingLeft: '15px' }}>
-                                        <img src={notifications} alt="Notification" className="setting-image" onClick={() => setActive(3)} />
-                                    </Box>
                   </Box>
                 <Typography className='header-text-blue font-weight-700 f-16'>How can we help you today?</Typography>
-                
-
-               
                 <CustomInput
                     type='text'
                     name='Name'
                     placeholder='Search queries'
                     fullWidth
-                    className='card-input search-bar'
-                    sx={{ mt: 2, }}
-                    icon={<SearchIcon/>}
+                    className='card-input'
+                    sx={{ mt: 2 }}
                 />
-           
 
-                <Typography sx={{ mt: 2 }} className='header-text-blue font-weight-700 f-16 '>Top Categories</Typography>
-
-
-                
-                <CustomButton 
-                    className='book-btn-help-support item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
+                <Typography sx={{ mt: 2 }} className='header-text-blue font-weight-700 f-16'>Top Categories</Typography>
+                <CustomButton
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={"Trouble on devices"}
                     backgroundColor='white'
                     color='black'
                     iconJsx={<ChevronRightIcon />}
                     fullWidth
-                    sx={{ mt: 2, }}
-                    
+                    sx={{ mt: 2 }}
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn-help-support item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={"Help with your account"}
                     backgroundColor='white'
                     color='black'
@@ -73,7 +58,7 @@ export default function HelpAndSupport({ setActive }) {
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn-help-support item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={"Bundles"}
                     backgroundColor='white'
                     color='black'
@@ -83,7 +68,7 @@ export default function HelpAndSupport({ setActive }) {
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn-help-support item-detail-btn-sub header-text-black font-weight-700 f-14 btn-style'
+                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={" Special Pricing"}
                     backgroundColor='white'
                     color='black'
@@ -92,7 +77,6 @@ export default function HelpAndSupport({ setActive }) {
                     sx={{ mt: 2 }}
                 // onClick={handleNext}
                 />
-     
                 <Typography sx={{ mt: 2 }} className='header-text-blue font-weight-700 f-16'>Feedback</Typography>
                 <Typography sx={{ mt: 2 }} className='header-text-black font-weight-400 f-14'>Leave Your Feedback</Typography>
                 <Box className='field-section' sx={{mt:2}}>
@@ -100,7 +84,7 @@ export default function HelpAndSupport({ setActive }) {
                     <TextField value='Leave your feedback here...' className='text-field height-90 header-text-blue font-weight-400 f-14' />
                 </Box>
                 </Box>
-                <Box className='field-section' sx={{ mt: 2 }}>
+                <Box className='field-section' sx={{ mt: 8 }}>
                     <Box className='appointment-dropdown'>
                         <CustomButton
                             className='book-btn-payment'
@@ -108,7 +92,7 @@ export default function HelpAndSupport({ setActive }) {
                             color='#fff'
                             // disabled={selectedValue !== "payBy"}
                             backgroundColor='#32B2AC'
-                            iconJsx={<img src={RightArror} alt="" srcset="" />}
+                            iconJsx={<ChevronRightIcon />}
                             fullWidth
                         // onClick={handleNext}
                         />

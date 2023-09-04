@@ -5,20 +5,24 @@ import ProfileAbout from "./ProfileAbout";
 import {ProfileModals} from "../../Components/Modals";
 import YourPack from "./YourPack";
 import YourTeams from "./YourTeams";
-import {GetDogDetail} from "../../Services/APIs";
+import {GetDogDetail,getClientProfileProgress} from "../../Services/APIs";
+import { Email } from '@mui/icons-material';
 
 const profileImg = require("../../assets/images/profileImg.svg").default;
 const profileBadge = require("../../assets/images/profileBadge.svg").default;
 const Dog = require("../../assets/images/dog-round.svg").default;
 
 
-export default function PublicProfile({handleNext, setActive, initialState, setInitialState}) {
+export default function PublicProfile({details,handleNext, setActive, initialState, setInitialState}) {
+    console.log('active----',initialState.selected)
     const [selected, setSelected] = useState(0)
+    const [clientDetails, setclientDetails] = useState('')
 
     const [open, setOpen] = useState(false)
     // const [isConnect, setIsConnect] = useState(true);
-    console.log(initialState, "eeeeeeeeeeeeeeeeeeeeeeee")
+    console.log(details.firstName, "detailssssss-----")
     useEffect(() => {
+        getClientProfileProgressDetails();
         if (initialState.userType === 'dog' && initialState.selected) {
             GetDogDetail(initialState.client.sortKey, initialState.selected.sortKey)
                 .then((response) => {
@@ -26,18 +30,28 @@ export default function PublicProfile({handleNext, setActive, initialState, setI
                     setInitialState({...initialState, dog: data, userType: 'dog'});
 
                 })
+
         }
     }, [initialState.selected])
-    // const handleCompleteProfile = () => {
-    //     if (initialState.userType === 'dog') {
-    //         setActive(4)
-    //     } else {
-    //         setActive(3)
-    //     }
-    // }
-    // Assuming birthDate is a string in the format 'DD-MM-YYYY'
+    const handleCompleteProfile = () => {
+        if (initialState.userType === 'dog') {
+            setActive(4)
+        } else {
+            setActive(3)
+        }
+    }
+    const getClientProfileProgressDetails = () => {
+        getClientProfileProgress()
+        .then((response) => {
+            //const [data] = response.data;
+           // setInitialState({...initialState, dog: data, userType: 'Client'});
+
+
+        })    }
+ // Assuming birthDate is a string in the format 'DD-MM-YYYY'
 // Assuming birthDate is a string in the format 'DD-MM-YYYY'
-let birthDate = initialState.dog.birthDate;
+//let birthDate = initialState.dog.birthDate;
+let birthDate = initialState?.dog?.birthDate;
 let yearsDiff = 0;
 let monthsDiff = 0;
 
@@ -63,7 +77,7 @@ if (birthDate && birthDate.length > 0) {
 
 
 
-    console.log(initialState.dog.birthDate, 'bbbbbdddddddyyyyy');
+    console.log(initialState?.dog?.birthDate, 'bbbbbdddddddyyyyy');
     return (
         <Box className="profileScreen">
             <Box className="profilArea">
@@ -72,17 +86,18 @@ if (birthDate && birthDate.length > 0) {
                     <img src={profileBadge} alt="profile"/>
                 </Box>
                 <Box>
-                    <Typography>{`${initialState[initialState.userType]?.firstName || 'John'} ${initialState[initialState.userType]?.lastName || 'Smith'}`} </Typography>
-                    <Typography>{initialState.userType === 'dog' ? `${initialState[initialState.userType]?.breed}`  : 'Reward Points : 3102'} </Typography>
-                    <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
-                    {initialState.userType === 'client' ? <Typography>Body - Universe</Typography> :
+                <Typography>{initialState.userType === 'client' ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}` : initialState.selected.firstName} </Typography>
+                <Typography>{initialState.userType === 'dog' ? `${initialState.selected?.breed}`  : 'Reward Points : 3102'} </Typography>
+                {initialState.userType === 'client' ? <Typography>Body - Universe</Typography> :
                         <Typography>{`${yearsDiff} years and ${monthsDiff} months`} </Typography>}
 
+                  
+                    <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
+                   
                     <Box className="profileProgressWrap">
                         <LinearProgressBar classes='achieveProgress' value={60}/>
                         {initialState.userType === 'client' ?
-                            // <Button onClick={handleCompleteProfile}>Complete Profile</Button> 
-                            <Button>Complete Profile</Button>:
+                            <Button onClick={handleCompleteProfile}>Complete Profile</Button> :
                             <Typography>60%</Typography>}
 
                     </Box>
@@ -101,19 +116,18 @@ if (birthDate && birthDate.length > 0) {
                     {initialState.userType === 'dog' && initialState.selected !== '' ?
                         <>
                             <YourPack setActive={setActive} initialState={initialState}
-                                      setInitialState={setInitialState}/>
+                                      setInitialState={setInitialState} details={details}/>
                             <YourTeams setActive={setActive} initialState={initialState}
-                                       setInitialState={setInitialState}/>
+                                       setInitialState={setInitialState} details={details}/>
                         </>
                         : <>
                             <YourTeams setActive={setActive} initialState={initialState}
-                                       setInitialState={setInitialState}/>
+                                       setInitialState={setInitialState} />
                             <YourPack setActive={setActive} initialState={initialState}
-                                      setInitialState={setInitialState}/>
+                                      setInitialState={setInitialState} details={details}/>
                         </>}
 
-
-                </Box> : <Box className='profile-no-data'>
+               </Box> : <Box className='profile-no-data'>
 
                     <Typography>There’s nothing to see here.</Typography>
                     <Button onClick={() => {

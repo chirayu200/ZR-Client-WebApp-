@@ -16,8 +16,6 @@ import ListItemText from "@mui/material/ListItemText";
 import LogoutIcon from '@mui/icons-material/Logout';
 import {SidebarItems} from './SidebarItems';
 import {clearLocalData} from "../../Utils";
-import { hover } from "@testing-library/user-event/dist/hover";
-import '../../style2.css';
 
 const logo = require("../../assets/images/sidebarLogo.svg").default;
 const profile = require("../../assets/images/profile.svg").default;
@@ -80,7 +78,7 @@ export default function SideBar({name, Component, clientDetail}) {
     };
     return (
         <>
-            <Box sx={{display: "flex",}} className='global'>
+            <Box sx={{display: "flex"}} className='global'>
                 <CssBaseline/>
                 <Drawer variant='permanent' open={open} className='mainSidebar'>
                     <DrawerHeader>
@@ -90,25 +88,15 @@ export default function SideBar({name, Component, clientDetail}) {
                         </IconButton>
                     </DrawerHeader>
                     <List>
-                        
                         {SidebarItems?.map(
                             (item, index) => (
-                                <Box className='sidebar-style'>
                                 <ListItem key={index} disablePadding sx={{display: "block"}}>
-                                <Box className='sidebar-style'>
                                     <ListItemButton
                                         sx={{
                                             minHeight: 48,
                                             justifyContent: open ? "initial" : "center",
                                             px: 2.5,
                                             background: item.name === name && "#E35205",
-                                    
-                                            border: `2px solid`,color:'#FFFF',
-                                       
-                                            
-                                            
-
-                                            
                                         }}
                                         onClick={() => onItemClick(item.path)}
                                     >
@@ -124,9 +112,7 @@ export default function SideBar({name, Component, clientDetail}) {
                                         <ListItemText primary={item.name}
                                                       sx={{display: open ? 'block' : 'none'}}/>
                                     </ListItemButton>
-                                    </Box>
                                 </ListItem>
-                                </Box>
                             )
                         )}
                     </List>

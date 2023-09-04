@@ -10,7 +10,6 @@ import { getLocalData } from "../../Utils";
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
-
 const referralSourcesOptions = [
     { label: "LinkedIn", value: "LinkedIn" },
     { label: "Friends", value: "Friends" },
@@ -26,15 +25,12 @@ const locationOptions = Country.getAllCountries().map((item) => ({
     value: item
 }))
 
-const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
-    // const getLocations = [];
+const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) => {
     const clientId=getLocalData('clientId');
     const [open, setOpen] = useState(false);
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [teamOpen, setTeamOpen] = useState(false);
     const [stateOptions, setStateOptions] = useState([]);
-    const [getLocations,setGetLocations] = useState('');
-    const [getStates,setGetStates]= useState('')
     const [formData, setFormData] = useState({
         locationId: getLocalData('locationId'),
         location: '',
@@ -60,31 +56,10 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
     });
 
     useEffect(() => {
-        getLocationsData();
-        console.log("DATA IS AS FOLLOWS--->",clientDetail);
         if (initialState) {
             setFormData(clientDetail)
         }
     }, [])
-
-
-    const getLocationsData = async () =>{
-      let response= await fetch('https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/locations');
-      const jsonData = await response.json();
-      console.log(jsonData.data.Items);
-      console.log(jsonData.data.Items.length)
-      const locationOptions = jsonData.data.Items.map((item) => ({
-        label: item.locationName,
-        value: item.locationName
-    }))
-    setGetLocations(locationOptions)
-    const stateOptions=jsonData.data.Items.map((item) => ({
-        label: item.state,
-        value: item.state
-
-    }))
-    setGetStates(stateOptions)
-    }
 
     const [errors, setErrors] = useState({});
     const onSelectImage = (e) => {
@@ -135,7 +110,6 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
 
 
     const handleSubmit = (event) => {
-        debugger
         event.preventDefault();
 
         // Basic validation: Check if required fields are filled
@@ -195,11 +169,12 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
         form.append('emergencyContactEmail', formData.emergencyContactEmail);
         form.append('emergencyContactRelationShip', formData.emergencyContactRelationShip);
         form.append('signatureImage', formData.signature);
-        form.append('isLiabilityWaiverSigned', formData.isLiabilityWaiverSigned);
+        form.append('isLiabilityWaiverSigned', true);
         form.append('updatedBy', '10000');
         form.append('status', 1);
 
         UpdateClientDetail(form, clientId).then((response) => {
+           
             if (response) {
                 setConfirmOpen(true);
             }
@@ -209,10 +184,11 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
     const handleActionBtn = (type) => {
         if (type === 'notNow') {
             setConfirmOpen(false);
-           
+            setActive(0)
         } else if (type === 'yes') {
             setConfirmOpen(false);
             setTeamOpen(true);
+            setActive(0);
 
         }
     }
@@ -238,8 +214,7 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
                             value={formData.location}
                             placeHolder={formData.location || 'Select Location'}
                             onChange={handleDropdownChange}
-                            // options={locationOptions}
-                            options={getLocations}
+                            options={locationOptions}
                             icon={downArrow}
                             name='location'
                             error={!!errors.location}
@@ -353,8 +328,7 @@ const ParentProfile = ({ initialState,clientDetail, handleNext }) => {
                             placeHolder={formData.state || 'Select State'}
                             name='state'
                             onChange={handleDropdownChange}
-                            // options={stateOptions}
-                            options ={getStates}
+                            options={stateOptions}
                             icon={downArrow}
                             error={!!errors.state}
                             helperText={errors.state}
