@@ -44,7 +44,7 @@ export const CustomInput = ({
 											aria-label='toggle password visibility'
 											onClick={onTogglePassword}
 										>
-											{showPassword ? <Visibility /> : <VisibilityOff />}
+											{showPassword ? <VisibilityOff /> : <Visibility />}
 										</IconButton>
 									</InputAdornment>
 								),
@@ -64,7 +64,7 @@ export const CustomInput = ({
 						  }
 						: icon
 						? {
-								endAdornment:icon,
+								endAdornment: <img src={icon} alt='icon' />,
 						  }
 						: {}
 				}

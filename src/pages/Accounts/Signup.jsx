@@ -1,16 +1,16 @@
-import { Box, Container, Divider, Tab, Tabs, Typography } from "@mui/material";
-import React, { useState } from "react";
+import {Box, Container, Divider, Tab, Tabs, Typography} from "@mui/material";
+import React, {useState} from "react";
 import ForgotPassword from "./ForgotPassword";
-import { CustomButton, CustomInput, Popup } from "../../Components/Common";
+import {CustomButton, CustomInput, Popup} from "../../Components/Common";
 import Login from "./Login";
-import { Signup } from "../../Services/APIs";
+import {Signup} from "../../Services/APIs";
 
 const logo = require("../../assets/images/logoWhiteBlue.svg").default;
 const facebook = require("../../assets/images/facebook.svg").default;
 const google = require("../../assets/images/google.svg").default;
 const apple = require("../../assets/images/apple.svg").default;
 
-export default function SignupScreen({ onLogin }) {
+export default function SignupScreen({onLogin}) {
     const [value, setValue] = useState(1);
     const [loader, setLoader] = useState(false);
     const [activeScreen, setActiveScreen] = useState(0);
@@ -35,35 +35,7 @@ export default function SignupScreen({ onLogin }) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const handleInputChange = (event) => {
-        const errors = {};
-        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-        const { name, value } = event.target;
-        if (name === 'password' || name === "confirmPassword") {
-            if (!passwordPattern.test(value)) {
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    [name]: value,
-                }));
-                if (name === 'password') {
-                    errors.password = "Password must be at least 8 characters long and include at least one letter, one digit, and one special character";
-                    setFormErrors(errors);
-                    return;
-                }
-                else{
-                    errors.confirmPassword="Password and confirm password must match";
-                    setFormErrors(errors);
-                }
-                    return;
-            }
-            else {
-                errors.password = '';
-                setFormErrors(errors);
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    [name]: value,
-                }));
-            }
-        }
+        const {name, value} = event.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
@@ -75,21 +47,6 @@ export default function SignupScreen({ onLogin }) {
             }));
         }
     };
-
-    const checkEmailExist = async (event) => {
-        const errors = {};
-        const { value } = event.target;
-        const response = await fetch(`https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/client/checkEmailExists?email=${value}`);
-        const result = await response.json();
-        if (result.isExists) {
-            errors.email = "Email Already Exist";
-            setFormErrors(errors)
-        }
-        else {
-            errors.email = '';
-            setFormErrors(errors)
-        }
-    }
     const validateForm = () => {
         setErrorData((prevErrorData) => ({
             ...prevErrorData,
@@ -187,15 +144,15 @@ export default function SignupScreen({ onLogin }) {
         <Container className='signup-container'>
 
             {errorData.msg ?
-                <Popup type={errorData.type || 'error'} errorText={errorData.msg || 'Something Went Wrong'} /> : null}
+                <Popup type={errorData.type || 'error'} errorText={errorData.msg || 'Something Went Wrong'}/> : null}
             <Box className='signup-header'>
-                <img src={logo} alt='ZR Logo' className='' />
+                <img src={logo} alt='ZR Logo' className=''/>
             </Box>
             <Box className='signup-main'>
-                <Divider className='divider' />
+                <Divider className='divider'/>
                 {activeScreen === 2 ? (
                     <ForgotPassword handlePrevious={handlePrevious} authState={authStatus}
-                        setAuthState={setAuthStatus} onLogin={onLogin} />
+                                    setAuthState={setAuthStatus} onLogin={onLogin}/>
                 ) : (
                     <>
                         <Box className='signup-tabs-main'>
@@ -205,8 +162,8 @@ export default function SignupScreen({ onLogin }) {
                                 className='signup-tabs'
                                 variant='fullWidth'
                             >
-                                <Tab label='Sign Up' />
-                                <Tab label='Log In' />
+                                <Tab label='Sign Up'/>
+                                <Tab label='Log In'/>
                             </Tabs>
                         </Box>
                         {/* <Box> */}
@@ -249,7 +206,6 @@ export default function SignupScreen({ onLogin }) {
                                         name='email'
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        onBlur={checkEmailExist}
                                         error={!!formErrors.email}
                                         helperText={formErrors.email}
                                     />
@@ -295,7 +251,7 @@ export default function SignupScreen({ onLogin }) {
                             </form>
                         ) : (
                             <Login setActiveScreen={setActiveScreen} onLogin={onLogin} authState={authStatus}
-                                setAuthState={setAuthStatus} />
+                                   setAuthState={setAuthStatus}/>
                         )}
                         {/* </Box> */}
                         <Box className='signup-footer'>
@@ -304,9 +260,9 @@ export default function SignupScreen({ onLogin }) {
                             <Box className='line'></Box>
                         </Box>
                         <Box className='social-signup'>
-                            <CustomButton color='#003087' icon={facebook} />
-                            <CustomButton color='#003087' icon={google} />
-                            <CustomButton color='#003087' icon={apple} />
+                            <CustomButton color='#003087' icon={facebook}/>
+                            <CustomButton color='#003087' icon={google}/>
+                            <CustomButton color='#003087' icon={apple}/>
                         </Box>
                     </>
                 )}

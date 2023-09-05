@@ -56,7 +56,7 @@ export default function YourTeams({setActive, initialState, setInitialState,deta
                 </Box>
                 <Box>
                             <Button onClick={() => {
-                                setInitialState({ ...initialState});
+                                setInitialState({ ...initialState, selected: details, userType: 'dog' });
                                 setActive(0);
 
                             }}><img src={rightCircle} alt='close' /> </Button>
@@ -64,9 +64,7 @@ export default function YourTeams({setActive, initialState, setInitialState,deta
             </Box>
 
 
-
-          
-
+           
 
         </Box>
     )

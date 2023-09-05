@@ -1,10 +1,5 @@
 import React from 'react';
 import { Box, Typography, InputLabel, TextField, Link, Button } from "@mui/material";
-
-import alpha from "../../assets/images/alpha.svg";
-import puppy from "../../assets/images/puppy.svg"
-import dogscholar from "../../assets/images/dogscholar.svg";
-
 const DogBadge = require("../../assets/images/dogBadge.svg").default;
 const journey1 = require("../../assets/images/journey1.svg").default;
 const journey2 = require("../../assets/images/jouney2.svg").default;
@@ -39,7 +34,7 @@ export default function AllJourney({handleNext}) {
         </Box>
         <Box className="jouneyItem">
           <Box>
-            <img src={alpha} alt="dog" />
+            <img src={DogBadge} alt="dog" />
             <Typography>Alpha Dog</Typography>
           </Box>
           <Box className="jonFlex">
@@ -67,8 +62,8 @@ export default function AllJourney({handleNext}) {
         </Box>
         <Box className="jouneyItem">
           <Box>
-            <img src={puppy} alt="dog" />
-            <Typography>Puppy Master</Typography>
+            <img src={DogBadge} alt="dog" />
+            <Typography>Alpha Dog</Typography>
           </Box>
           <Box className="jonFlex">
             <Box>
@@ -98,44 +93,6 @@ export default function AllJourney({handleNext}) {
             </Box>
           </Box>
         </Box>
-
-        {/* // */}
-
-        <Box className="jouneyItem">
-          <Box>
-            <img src={dogscholar} alt="dog" />
-            <Typography>Dog Scholar</Typography>
-          </Box>
-          <Box className="jonFlex">
-            <Box>
-              <img src={journey1} alt="dog" />
-              <img src={blueCheck} alt="dog" />
-              <Typography>Phase 2</Typography>
-            </Box>
-            <Box>
-              <img src={journey2} alt="dog" />
-              <img src={blueCheck} alt="dog" />
-              <Typography>Phase 3</Typography>
-            </Box>
-            <Box>
-              <img src={journey2} alt="dog" />
-              <img src={blueCheck} alt="dog" />
-              <Typography>Phase 4</Typography>
-            </Box>
-            <Box>
-              <img src={journey2} alt="dog" />
-              <img src={blueCheck} alt="dog" />
-              <Typography>Phase 5</Typography>
-            </Box>
-            <Box>
-              <img src={journey2} alt="dog" />
-              <img src={blueCheck} alt="dog" />
-             
-            </Box>
-          </Box>
-        </Box>
-
-        {/* // */}
       </Box>
       <Box className="foxWrap">
       <img src={fox} alt="fox" />

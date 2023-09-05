@@ -26,9 +26,9 @@ const options = [
     { label: "Option 2", value: "option2" },
     { label: "Option 3", value: "option3" },
 ];
-export default function AddPet({  initialState, }) {
+export default function AddPet({  initialState, handleNext }) {
     const clientId=getLocalData('clientId');
-    const encodedClientId = encodeURIComponent(clientId);
+    // const encodedClientId = encodeURIComponent(clientId);
     const [selectedOption, setSelectedOption] = useState("");
     const [learnDog, setLearnDog] = useState(false);
     const [completeObj, setCompleteObj] = useState({
@@ -38,7 +38,7 @@ export default function AddPet({  initialState, }) {
         tricks: 'No'
     })
     const [formData, setFormData] = useState({
-        clientId:encodedClientId,
+        clientId:'',
         profileImage: '',
         firstName: '',
         lastName: '',
@@ -77,10 +77,9 @@ export default function AddPet({  initialState, }) {
     const [selectedFile, setSelectedFile] = useState(null);
     const fileInputRef = useRef(null);
     useEffect(() => {
-       
-        if (initialState) {
-           
-            setFormData({ ...formData, ['clientId']: initialState.client.sortKey || '' })
+       if (initialState) {
+          console.log("Client ID is-->",clientId)
+           setFormData({ ...formData,  clientId: clientId || '' })
         }
 
     }, [initialState])
@@ -153,7 +152,7 @@ export default function AddPet({  initialState, }) {
         const file = URL.createObjectURL(event.target.files[0]);
         setSelectedFile(file);
         console.log("file", file);
-        setFormData({ ...formData, ['profileImage']: file || '' })
+        setFormData({ ...formData, profileImage: file || '' })
     };
     const handleBoxClick = () => {
         fileInputRef.current.click();
@@ -191,8 +190,6 @@ export default function AddPet({  initialState, }) {
             setErrors(errors)
         }
     }
-
-    
 
     return (
         <>
@@ -470,6 +467,7 @@ export default function AddPet({  initialState, }) {
                             setErrors={setErrors}
                             initialState={initialState}
                             className={'checkoutModal'}
+                            reloadPage={handleNext}
                             handleClose={() => setOpen(false)}
                             fullWidth
                             handleNext={() => {

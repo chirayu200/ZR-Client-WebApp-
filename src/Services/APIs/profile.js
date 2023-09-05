@@ -1,9 +1,10 @@
-import { API_URL_2 } from "../../Utils/constants";
+import { API_URL_2,API_URL_3 } from "../../Utils/constants";
 import { ApiServices } from "../ApiServices";
 import { getLocalData } from "../../Utils";
 
 const Base_URL = API_URL_2;
 const locationId = encodeURIComponent(getLocalData('locationId'));
+const clientId = encodeURIComponent(getLocalData('clientId'));
 
 export const CheckClientDetail = async (clientId) => {
     const encodedClientId = encodeURIComponent(clientId);
@@ -47,11 +48,11 @@ export const GetDogDetail = async (clientId, childId) => {
 
     }
 }
-export const CreateDogProfile = async (payload, clientId) => {
+export const CreateDogProfile = async (data) => {
 
     try {
         return await ApiServices.post(
-            `${Base_URL}client/addChild`, payload
+            `${Base_URL}client/addChild`,data
         );
 
     } catch (error) {
@@ -61,6 +62,7 @@ export const CreateDogProfile = async (payload, clientId) => {
     }
 }
 export const UpdateDogProfile = async (payload, petId) => {
+    console.log("Pet id is as follows",petId)
     const encodedPetId = encodeURIComponent(petId);
     try {
         return await ApiServices.put(
@@ -78,6 +80,21 @@ export const GetAllBreedList = async () => {
     try {
         return await ApiServices.get(
             `${Base_URL}breed-list`
+        );
+
+    } catch (error) {
+        console.error(error.message);
+        return error;
+
+    }
+}
+export const getClientProfileProgress = async () => {
+
+   // const encodedClientId = encodeURIComponent(clientId);
+    try {
+        return await ApiServices.get(
+            `${API_URL_3}client/getClientProfileProgress?locationId=${locationId}&clientId=${clientId}`
+           // `https://ifcxqbb98k.execute-api.us-east-1.amazonaws.com/dev/client/getClientProfileProgress?locationId=${locationId}&clientId=${clientId}`
         );
 
     } catch (error) {

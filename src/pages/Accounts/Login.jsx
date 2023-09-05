@@ -5,7 +5,7 @@ import {CustomButton, CustomInput} from "../../Components/Common";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 
-export default function Login({ setActiveScreen, setAuthState, authState, onLogin }) {
+export default function Login({setActiveScreen, setAuthState, authState,onLogin}) {
 
     const [errors, setErrors] = useState(false);
 
@@ -24,32 +24,7 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
     };
 
     const handleInputChange = (event) => {
-        const errors = {};
-        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-
-        const { name, value } = event.target;
-        if (name === 'password') {
-            if (!passwordPattern.test(value)) {
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    [name]: value,
-                }));
-                errors.password = "Password must be at least 8 characters long and include at least one letter, one digit, and one special character";
-                setFormErrors(errors);
-                return;
-            }
-            else {
-                errors.password = '';
-                setFormErrors(errors);
-                setFormData((prevFormData) => ({
-                    ...prevFormData,
-                    [name]: value,
-                }));
-
-            }
-            return;
-        }
-
+        const {name, value} = event.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
@@ -82,7 +57,7 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+        
         // Handle form submission here
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
@@ -101,11 +76,13 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
                     })
                     setActiveScreen(2)
                     console.log(response);
-                } else {
+                }else{
                     //invalid user
                     setUserExist(true)
                     setInvalidErrors('Invalid username or password.');
                 }
+               
+              
             });
         } else {
 
@@ -154,13 +131,13 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
                             checked={rememberMe}
                             onChange={() => setRememberMe(!rememberMe)}
                             indeterminate={rememberMe}
-                            indeterminateIcon={<CheckCircleIcon />}
-                            icon={<RadioButtonUncheckedIcon />}
+                            indeterminateIcon={<CheckCircleIcon/>}
+                            icon={<RadioButtonUncheckedIcon/>}
                         />
                         Remember me
                     </Box>
                     <Link className='forgot-link' onClick={() => {
-                        setAuthState({ from: '', success: false });
+                        setAuthState({from: '', success: false});
                         setActiveScreen(2)
                     }}>
                         Forgot Password?
@@ -171,7 +148,7 @@ export default function Login({ setActiveScreen, setAuthState, authState, onLogi
                     title={"LOG IN"}
                     type='submit'
                     isLoading={loader}
-
+                    
                 />
             </Box>
         </form>
