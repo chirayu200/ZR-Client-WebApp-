@@ -86,7 +86,7 @@ export default function Cart({handleNext}) {
 
                     <CustomButton
                         className='book-btn'
-                        title={"Check out"}
+                        title={"CHECK OUT"}
                         color='#fff'
                         backgroundColor='#32B2AC'
                         iconJsx={<ChevronRightIcon/>}
@@ -96,7 +96,7 @@ export default function Cart({handleNext}) {
                     />
                     <CustomButton
                         className='book-btn item-detail-btn'
-                        title={"Back to shopping"}
+                        title={"BACK TO SHOPPING"}
                         backgroundColor='transparent'
                         color='#32B2AC'
                         iconJsx={<ChevronRightIcon/>}

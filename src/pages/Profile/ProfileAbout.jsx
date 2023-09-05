@@ -31,23 +31,16 @@ console.log(initialState, 'initialStfdateinitialState');
                 </Typography>
             </Box>
             <Box className='profile-mid-section'>
-                    {initialState && initialState.client?.pets?.map((item) => {
-                        const allKeys = Object.keys(item.completed).filter(key => item.completed[key] === 'Yes');
-                        return (
-                            <>
-                                {allKeys.map((subItem, subIndex) => (
-                                    <Box className="item" key={subIndex}>
-                                        <Typography>
-                                            {subItem.charAt(0).toUpperCase() + subItem.slice(1)}
-                                        </Typography>
-                                    </Box>
-                                ))}
-                            </>
-                        )
-                    })}
-
-
-                </Box>
+  {initialState && initialState.dog && Object.keys(initialState.dog.completed).map((key) => {
+    return (
+      <Box className="item" key={key}>
+        <Typography>
+          {key.charAt(0).toUpperCase() + key.slice(1)}
+        </Typography>
+      </Box>
+    );
+  })}
+</Box>
             <Box className='profile-mid-section'>
                 {/* Render completed services for the dog */}
                 {/* Your logic here */}

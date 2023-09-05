@@ -458,7 +458,7 @@
   
   .dashboard-container .achievements-section {
     width: 58%;
-    padding: 30px;
+    padding: 35px;
     border-radius: 20px;
     height: 297px;
     background: #fff;
@@ -680,7 +680,7 @@
     width: 43px;
     height: 43px;
     padding: 0px;
-    margin: 0 30px;
+    margin: 0 20px;
     min-height: 43px;
     border-radius: 50%;
   }
@@ -689,14 +689,40 @@
     overflow: visible;
   }
   
-  .mainSidebar .MuiListItem-root .MuiListItemButton-root:hover {
+  .mainSidebar .MuiListItem-root:hover .global .mainSidebar .MuiListItem-root .MuiListItemButton-root , .global .mainSidebar .MuiListItem-root .MuiListItemButton-root:hover {
     background: #e35205;
   }
-  
+  .mainSidebar .MuiListItem-root:hover {
+    background-color: #f6e6dd !important; 
+    border-radius: 5%;
+}
+
+.mainSidebar .MuiListItem-root:hover .menuitem {
+    color: blue !important;
+}
+
+/* .mainSidebar .MuiListItem-root:hover .MuiListItemIcon-root {
+    background: #e35205 !important; */
+    /* overflow: visible; */
+    /* border-radius: 50%;
+    width: 40px;
+    height: 40px; */
+/* } */
+
   .mainSidebar .MuiListItem-root {
     margin-bottom: 20px;
+    padding: 7px;
+
+  /* display: block;
+  padding: 2px 0px 0px 10px !important;
+  list-style-type: none;
+  cursor: pointer; */
   }
-  
+  /* .mainSidebar .MuiListItem-root:hover{
+    background-color: #f6e6dd !important; 
+    border-radius: 5%;
+  } */
+
   .mainSidebar .MuiListItem-root .MuiListItemIcon-root {
     margin-right: 38px;
     padding-left: 8px;
@@ -756,7 +782,7 @@
     bottom: 25px;
     transform: translate(-50%, 0px);
     left: 50%;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
   }
   
   .sidebar-footer .profileBtnSecond.MuiButtonBase-root {
@@ -1099,6 +1125,7 @@
   /*---------- location sidebar -------------*/
   .locationSidebar {
     padding: 30px;
+    width: 440px !important;
   }
   
   .locationSidebar .MuiPaper-root {
@@ -1136,10 +1163,10 @@
     letter-spacing: 0.1px;
   }
   
-  /* .locationHead > p:nth-of-type(1) {
+  .locationHead > p:nth-of-type(1) {
     background: #32b2ac;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 20px !important;
     border-radius: 37px;
     font-size: 12px;
     font-weight: 700;
@@ -1150,7 +1177,7 @@ font-family: Univers LT Std;
 font-style: normal;
 line-height: normal;
 
-  } */
+  } 
   
   /* .locationHead > p:nth-of-type(2) {
     font-size: 15px;
@@ -1269,10 +1296,10 @@ line-height: 14px;
   .phaseFlex .item:after {
     content: "";
     position: absolute;
-    width: 100%;
+    width: 240%;
     height: 3px;
-    border-bottom: 3px dotted #d5dcea;
-    right: -100%;
+    border-bottom: 5px dotted #d5dcea;
+    right: -220%;
     top: 30px;
   }
   
@@ -2487,17 +2514,18 @@ line-height: 14px;
     border-radius: 20px;
     width: 100%;
     background-color: #fff;
-    height: 283px;
-  }
+    /*height: 283px;*/
+}
+
   
   .booking-wrap {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
-    padding: 44px;
+    padding: 40px 50px 50px 30px;
     width: 100%;
-    gap: 46px;
+    gap: 37px;
   }
   
   .booking-notes-wrap {
@@ -2553,11 +2581,10 @@ line-height: 14px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* align-items: center; */
     width: 100%;
-    gap: 10px;
-  }
-  
+    gap: 3px;
+}
+
   .display-attendee .attendee-header,
   .attendee-value {
     display: flex;
@@ -2593,10 +2620,68 @@ line-height: 14px;
     color: #000;
   }
   
-  .attendee-value .value-weight {
+  /* .visitHeader-footer .value-weight {
+    font-size: 24px !important;
+    font-weight: bold;
+  } */
+  .visitHeader-footer div p:nth-of-type(1) {
     font-size: 24px;
-  }
-  
+    color: var(--rgb-000, #000);
+    font-family: Univers LT Std;
+
+    font-style: normal;
+    font-weight: 700;
+    line-height: 150%;
+    text-transform: capitalize
+}
+.attendee-value p, .visitHeader div p:nth-of-type(2) {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+
+  text-transform: capitalize;
+}
+.visitHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.visitHeader-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.attendee-header p, .visitHeader div p:nth-of-type(1), .visitHeader-footer div p:nth-of-type(2) {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+
+}
+
+.attendee-value p, .visitHeader div p:nth-of-type(2) {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+
+  text-transform: capitalize;
+}
+
+.booking-attendee p {
+  color: #000;
+}
   .attendee-header span {
     font-weight: 700;
   }
@@ -3388,17 +3473,16 @@ line-height: 14px;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
-  }
-  
-  .history-box .display-booking-wrap {
+    gap: 18px;
+}
+
+.history-box .display-booking-wrap {
     width: 32.2%;
-  }
-  
-  .history-box .attendee-header {
+}
+
+.history-box .attendee-header {
     width: 100%;
-  }
-  
+}
   .attendee-header .with-footer {
     display: flex;
     flex-direction: row;
@@ -3408,7 +3492,7 @@ line-height: 14px;
     gap: 25%;
   }
   
-  .with-footer .checked-in {
+  .checked-in.MuiTypography-root.MuiTypography-body1 {
     color: #003087;
     text-align: center;
     font-family: Univers LT Std;
@@ -3418,29 +3502,30 @@ line-height: 14px;
     line-height: normal;
     text-transform: capitalize;
     flex-shrink: 0;
-  }
+}
+
   
-  .with-footer .cancel {
-    color: #e35205;
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: capitalize;
-  }
+.cancel.MuiTypography-root.MuiTypography-body1 {
+  color: #e35205;
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
   
-  .with-footer .absent {
-    color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: capitalize;
-  }
+.absent.MuiTypography-root.MuiTypography-body1 {
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
   
   /* Shop cart */
   .shop-cart {
@@ -3643,7 +3728,6 @@ line-height: 14px;
   .top-section .mid-section {
     display: flex;
     flex-direction: column;
-  
     width: 100%;
     align-items: center;
     gap: 20px;
@@ -3656,7 +3740,16 @@ line-height: 14px;
     width: 100%;
     align-items: center;
   }
-  
+  .mid-section .item-detail-price{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .mid-section .item-detail-value{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
   .footer-section {
     display: flex;
     flex-direction: row;
@@ -4280,41 +4373,49 @@ line-height: 14px;
     line-height: normal !important;
     padding-left: 10px;
   }
+  .logoWithName {
+    width: 230px; /* Adjust the width to your preference */
+    height: 50px;  /* Adjust the font size */
+}
+  
+/* Add your existing styles above */
 
-
-
-
-  .btn-style{
-    border-radius: 2em!important;
+/* Hover styling for list items */
+.menu-list .list-item-link .list-on-hover {
+  border-bottom-left-radius: 5% !important;
+  border-bottom-right-radius: 5% !important;
 }
 
-/*=========MARGIN CLASS ==========*/
-
-.mt-23{
-  margin-top: -23px !important;
+.list-item-link .list-on-hover {
+  background-color: #f6e6dd !important;
+  display: block;
+  padding: 2px 0px 0px 10px !important;
+  list-style-type: none;
+  cursor: pointer;
+  color: #003087;
 }
 
-.search-bar .css-i4bv87-MuiSvgIcon-root{
+.list-item-link .list-on-hover li {
+  display: block;
+}
+
+/* .menu-list .list-item-link .list-on-hover .list-text-style:hover{
+  font-size: 15px;
   color: #003087 !important;
-}
+} */
 
-.password .css-i4bv87-MuiSvgIcon-root{
+/* .menu-list .list-item-link .list-on-hover .list-text-style:hover,
+.menu-list .list-item-link .list-on-hover .list-text-style.active {
+  color: #e35205 !important;
+} */
+
+/* .list-on-hover {
+  z-index: 0;
+  margin-top: -10px !important;
+} */
+/* Change text color to blue on hover */
+.mainSidebar .MuiListItem-root:hover .list-item-text, .list-item-text:hover {
   color: #003087 !important;
-}
-
-.password .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
-  background-color: aliceblue !important;
-}  
-.book-btn .MuiButtonBase-root-MuiButton-root{
-  font-family:'Univers LT Std' !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-}
-
-.confirm-booking{
-  font-family:'Univers LT Std' !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
 }
 
 

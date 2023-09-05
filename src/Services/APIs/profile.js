@@ -34,6 +34,9 @@ export const UpdateClientDetail = async (payload, clientId) => {
     }
 }
 export const GetDogDetail = async (clientId, childId) => {
+    console.log(clientId, 'clientIdclientIdclientId');
+    console.log(childId, 'clientIdclientIdclientId');
+
     const encodedClientId = encodeURIComponent(clientId);
     const encodedChildId = encodeURIComponent(childId);
     try {

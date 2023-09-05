@@ -20,7 +20,7 @@ export default function PublicProfile({handleNext, setActive, initialState, setI
     console.log(initialState, "eeeeeeeeeeeeeeeeeeeeeeee")
     useEffect(() => {
         if (initialState.userType === 'dog' && initialState.selected) {
-            GetDogDetail(initialState.client.sortKey, initialState.selected.sortKey)
+            GetDogDetail(initialState.selected.clientId, initialState.selected.sortKey)
                 .then((response) => {
                     const [data] = response.data.Items;
                     setInitialState({...initialState, dog: data, userType: 'dog'});
