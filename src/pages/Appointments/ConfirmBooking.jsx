@@ -25,7 +25,7 @@ export default function ConfirmBooking({handleNext}) {
 					</Box>
 					<Box className='attendee-header'>
 						<Typography>
-							05:30 PM to 6:00 PM (  <span className="custom-span">30 minute</span>)
+							05:30 PM to 6:00 PM (  <span className="custom-span">30 minutes</span>)
 						</Typography>
 					</Box>
 				</Box>
@@ -41,7 +41,7 @@ export default function ConfirmBooking({handleNext}) {
 					</Typography>
 				</Box>
 				<CustomButton
-					className='book-btn'
+					className='book-btn confirm-booking'
 					title={"Confirm"}
 					color='#fff'
 					backgroundColor='#32B2AC'

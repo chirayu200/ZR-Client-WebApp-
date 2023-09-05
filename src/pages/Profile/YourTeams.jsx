@@ -7,7 +7,7 @@ import React from "react";
 
 const profileImg = require("../../assets/images/profileImg.svg").default;
 const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
-export default function YourTeams({setActive, initialState, setInitialState}) {
+export default function YourTeams({setActive, initialState, setInitialState,details}) {
     const handleNextPage = () => {
         setActive(1);
         setInitialState({...initialState, userType: 'client'})
@@ -21,12 +21,12 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
                         Client
                     </Typography>
 
-                    <CustomButton onClick={handleNextPage}
+                    {/* <CustomButton onClick={handleNextPage}
                                   className='viewAllBtn'
                                   title={"View All"}
                                   color='#fff'
                                   backgroundColor='#32B2AC'
-                    />
+                    /> */}
                 </Box> :
                 <Box className="trophyBoxHead">
                     <Typography className='header-text'>
@@ -42,38 +42,30 @@ export default function YourTeams({setActive, initialState, setInitialState}) {
                 </Box>}
 
 
-            <Box className="item">
+                <Box className="item">
                 <Box className="itemImgWrap">
-                    <img src={initialState.userType === 'dog' ? petPlaceholder : profileImg} alt="dog"/>
+                <img src={initialState?.userType === 'dog' ? details?.profileImage : profileImg} alt="profile"/>
+
                     <Box>
-                        <Typography>Ralph Edwards</Typography>
-                        <Typography sx={{fontWeight:"bold"}}>
+                    <Typography>{initialState.userType === 'dog' ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}`:'Jon Smith' } </Typography>
+
+                        <Typography>
                             Reward Points: 3214
                         </Typography>
                     </Box>
                 </Box>
                 <Box>
+                            <Button onClick={() => {
+                                setInitialState({ ...initialState});
+                                setActive(0);
 
-                    <Button><img src={rightCircle} alt='close'/> </Button>
-                </Box>
+                            }}><img src={rightCircle} alt='close' /> </Button>
+                        </Box>
             </Box>
 
 
-            <Box className="item">
-                <Box className="itemImgWrap">
-                    <img src={initialState.userType === 'dog' ? petPlaceholder : profileImg} alt="dog"/>
-                    <Box>
-                        <Typography>Ralph Edwards</Typography>
-                        <Typography sx={{fontWeight:"bold"}}>
-                            Reward Points: 3214
-                        </Typography>
-                    </Box>
-                </Box>
-                <Box>
 
-                    <Button><img src={rightCircle} alt='close'/> </Button>
-                </Box>
-            </Box>
+          
 
 
         </Box>

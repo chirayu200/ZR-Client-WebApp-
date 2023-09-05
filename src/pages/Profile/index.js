@@ -25,7 +25,7 @@ export default function ProfileMain({clientDetail}) {
         dog: "",
         selected: "",
     })
-
+    console.log('sctive statuss....',active)
     // useEffect(() => {
     //     CheckClientDetail(clientDetail.sortKey)
     //         .then((response) => {
@@ -38,12 +38,13 @@ export default function ProfileMain({clientDetail}) {
 
     const childComponent = [
         {
-            title: 'Public Profile',
+            title: 'Profile',
             component: <PublicProfile
                 handleNext={() => setActive(1)}
                 setActive={setActive}
                 initialState={initialState}
                 setInitialState={setInitialState}
+                details={clientDetail}
             />
         },
         {
@@ -51,6 +52,8 @@ export default function ProfileMain({clientDetail}) {
             component: <TeamPackHeader initialState={initialState}
                                        setInitialState={setInitialState}
                                        setActive={setActive}
+                                       details={clientDetail}
+
             />
         },
         {
@@ -66,11 +69,14 @@ export default function ProfileMain({clientDetail}) {
             title: 'Edit Profile', component:
                 <ParentProfile initialState={initialState}
                                handleNext={() => setActive(4)}
+                               setInitialState={setInitialState}
+
                 />
         },
         {
             title: 'Edit Dog Profile', component:
                 <DogProfile initialState={initialState}
+                setInitialState={setInitialState}
                 />
         },
 
@@ -90,7 +96,8 @@ export default function ProfileMain({clientDetail}) {
                                 if (active === 0) {
                                     navigate('/')
                                 } else {
-                                    setActive(active - 1)
+                                    //setActive(active - 1)
+                                    setActive(0)
                                 }
                             }}
                         />
@@ -103,17 +110,21 @@ export default function ProfileMain({clientDetail}) {
 
                                 if(active===0)
                                 {
-                                    setActive(2)
+                                    setActive(3)
                                 }else{
+                                    setActive(4)
+
+                                }
                                     if(initialState.userType==='dog')
                                     {
                                         setActive(4)
                                     }else{
                                         setActive(3)
                                     }
-                                }
+                                
                             }}>
-                                {active === 0||active===1 ? <PersonAddOutlinedIcon/> : <EditOutlinedIcon/>}
+                                {/* {active === 0||active===1 ? <PersonAddOutlinedIcon/> : <EditOutlinedIcon/>} */}
+                                {active === 0 ? <EditOutlinedIcon/>  : <PersonAddOutlinedIcon/> }
                             </Button>
                         </Box>
 

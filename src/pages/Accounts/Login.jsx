@@ -1,12 +1,11 @@
 import React, {useState} from "react";
-import {Box, Checkbox, Link} from "@mui/material";
+import {Box, Checkbox, Link,Typography} from "@mui/material";
 import {LoginCall} from '../../Services/APIs';
 import {CustomButton, CustomInput} from "../../Components/Common";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
-import { Typography } from "@mui/material";
 
-export default function Login({setActiveScreen, setAuthState, authState,onLogin}) {
+export default function Login({ setActiveScreen, setAuthState, authState, onLogin }) {
 
     const [errors, setErrors] = useState(false);
 
@@ -14,10 +13,8 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
     const [loader, setLoader] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
     const [formErrors, setFormErrors] = useState({});
-    //
-    const [incorrectLogin, setIncorrectLogin] = useState(false);
-const [errorMessage, setErrorMessage] = useState('');
-
+    const [CheckUser, setUserExist] = useState(false);
+    const [InvalidUserErr, setInvalidErrors] = useState('');
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -27,7 +24,32 @@ const [errorMessage, setErrorMessage] = useState('');
     };
 
     const handleInputChange = (event) => {
-        const {name, value} = event.target;
+        const errors = {};
+        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+        const { name, value } = event.target;
+        if (name === 'password') {
+            if (!passwordPattern.test(value)) {
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [name]: value,
+                }));
+                errors.password = "Password must be at least 8 characters long and include at least one letter, one digit, and one special character";
+                setFormErrors(errors);
+                return;
+            }
+            else {
+                errors.password = '';
+                setFormErrors(errors);
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [name]: value,
+                }));
+
+            }
+            return;
+        }
+
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
@@ -41,19 +63,26 @@ const [errorMessage, setErrorMessage] = useState('');
     };
     const validateForm = () => {
         const errors = {};
+        if (!formData.email.trim()) {
+            errors.email = "Email is required";
+        }else{
         if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)) {
             errors.email = "Invalid email address";
         }
+        }
+        
         if (!formData.password.trim()) {
             errors.password = "Password is required";
         }
-
+        // if (formData.password.length < 8) {
+        //     errors.password ="Password must be at least 8 characters";
+        //   }
         return errors;
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
+
         // Handle form submission here
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
@@ -72,14 +101,11 @@ const [errorMessage, setErrorMessage] = useState('');
                     })
                     setActiveScreen(2)
                     console.log(response);
+                } else {
+                    //invalid user
+                    setUserExist(true)
+                    setInvalidErrors('Invalid username or password.');
                 }
-                //
-                else {
-                    // Incorrect login attempt
-                    setIncorrectLogin(true);
-                    setErrorMessage('Incorrect username or password.');
-                }
-              
             });
         } else {
 
@@ -119,14 +145,8 @@ const [errorMessage, setErrorMessage] = useState('');
 
                     
                 />
-{/* // */}
-
-        {incorrectLogin && (
-    <Typography color="error" variant="body2">
-        {errorMessage}
-    </Typography>
-)}
-
+              {CheckUser && (<Typography color="error" variant="body2">{InvalidUserErr}</Typography>)}             
+ 
                 <Box className='remember-section'>
                     <Box>
                         {" "}
@@ -134,13 +154,13 @@ const [errorMessage, setErrorMessage] = useState('');
                             checked={rememberMe}
                             onChange={() => setRememberMe(!rememberMe)}
                             indeterminate={rememberMe}
-                            indeterminateIcon={<CheckCircleIcon/>}
-                            icon={<RadioButtonUncheckedIcon/>}
+                            indeterminateIcon={<CheckCircleIcon />}
+                            icon={<RadioButtonUncheckedIcon />}
                         />
                         Remember me
                     </Box>
                     <Link className='forgot-link' onClick={() => {
-                        setAuthState({from: '', success: false});
+                        setAuthState({ from: '', success: false });
                         setActiveScreen(2)
                     }}>
                         Forgot Password?
@@ -151,7 +171,7 @@ const [errorMessage, setErrorMessage] = useState('');
                     title={"LOG IN"}
                     type='submit'
                     isLoading={loader}
-                    
+
                 />
             </Box>
         </form>

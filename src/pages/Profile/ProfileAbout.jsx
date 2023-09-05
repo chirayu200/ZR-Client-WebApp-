@@ -9,17 +9,17 @@ console.log(initialState, 'initialStfdateinitialState');
         <Box className="template-list-main">
             <Box className="trophyBoxHead">
                 <Typography className='heading'>
-                    Meet {initialState.dog.firstName} - The Marvelous {initialState.dog.breed}
+                    Meet {initialState?.dog?.firstName} - The Marvelous {initialState?.dog?.breed}
                 </Typography>
             </Box>
             <Box className="profile-mid-section">
                 <Typography>
-                    Get ready to be amazed by {initialState.dog.firstName}, the {initialState.dog.gender} {initialState.dog.breed} with a charming personality. Born on {initialState.dog.birthDate}, {initialState.dog.firstName} is your loyal companion in every adventure.
-                    With a {initialState.dog.coatColor} coat that's soft to the touch, {initialState.dog.firstName} captures hearts wherever they go. This {initialState.dog.gender} has a penchant for {initialState.dog.tricks} tricks and is always ready for a game of {initialState.dog.agility} agility.
-                    {initialState.dog.barking === 'Yes' ? ' When excited, you can hear their cheerful barks echoing through the air.' : ''}
-                    {initialState.dog.social === 'Yes' ? ' Social and friendly, they make friends easily and brighten up any room.' : ''}
-                    {initialState.dog.strangers === 'No' ? ' While they might be a bit reserved around strangers, their warmth shines through once they get to know you.' : ''}
-                    Curious by nature, {initialState.dog.firstName} loves exploring new scents and places, making each walk an adventure to remember.
+                    Get ready to be amazed by {initialState.dog?.firstName}, the {initialState.dog?.gender} {initialState.dog?.breed} with a charming personality. Born on {initialState?.dog?.birthDate}, {initialState.dog?.firstName} is your loyal companion in every adventure.
+                    With a {initialState?.dog?.coatColor} coat that's soft to the touch, {initialState?.firstName} captures hearts wherever they go. This {initialState.dog?.gender} has a penchant for {initialState.dog?.tricks} tricks and is always ready for a game of {initialState.dog?.agility} agility.
+                    {initialState.dog?.barking === 'Yes' ? ' When excited, you can hear their cheerful barks echoing through the air.' : ''}
+                    {initialState.dog?.social === 'Yes' ? ' Social and friendly, they make friends easily and brighten up any room.' : ''}
+                    {initialState.dog?.strangers === 'No' ? ' While they might be a bit reserved around strangers, their warmth shines through once they get to know you.' : ''}
+                    Curious by nature, {initialState.dog?.firstName} loves exploring new scents and places, making each walk an adventure to remember.
                     {/* <Link className='see-more'>See More</Link> */}
                 </Typography>
             </Box>
