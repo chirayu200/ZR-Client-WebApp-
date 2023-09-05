@@ -28,7 +28,7 @@ export default function Team({ handleNext }) {
                             <img src={Dog} alt="dog" />
                             <Box>
                             <Typography>Ralph Edwards</Typography>
-                            <Typography sx={{fontWeight:"bold"}}>
+                            <Typography>
                             Reward Points: 3214
                             </Typography>
                             </Box>
@@ -43,7 +43,7 @@ export default function Team({ handleNext }) {
                             <img src={Dog} alt="dog" />
                             <Box>
                             <Typography>Ralph Edwards</Typography>
-                            <Typography sx={{fontWeight:"bold"}}>
+                            <Typography>
                             Reward Points: 3214
                             </Typography>
                             </Box>
@@ -76,7 +76,7 @@ export default function Team({ handleNext }) {
                             <img src={Dog} alt="dog" />
                             <Box>
                             <Typography>Ralph Edwards</Typography>
-                            <Typography sx={{fontWeight:"bold"}}>
+                            <Typography>
                             Reward Points: 3214
                             </Typography>
                             </Box>
@@ -91,7 +91,7 @@ export default function Team({ handleNext }) {
                             <img src={Dog} alt="dog" />
                             <Box>
                             <Typography>Ralph Edwards</Typography>
-                            <Typography sx={{fontWeight:"bold"}}>
+                            <Typography>
                             Reward Points: 3214
                             </Typography>
                             </Box>

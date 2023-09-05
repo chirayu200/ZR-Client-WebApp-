@@ -1,12 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
 import {Box, InputLabel, Link, TextField, Typography} from "@mui/material";
+
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {CustomButton, CustomDropdown} from "../../Components/Common";
 import {GetAllPets, GetAllServiceCategories, GetAllTrainersAvailability} from "../../Services/APIs";
 import {CalenderDateFormat} from "../../Utils";
-import "../../style2.css"
-
-
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
@@ -156,22 +154,21 @@ export default function BookAppointment({handleNext}) {
         <Box className='appointment-main'>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel >Select Your Dog</InputLabel>
+                    <InputLabel>Select your dog</InputLabel>
                     <CustomDropdown
-                        placeHolder='Select Your Dog'
+                        placeHolder='Select your dog'
                         value={selectedOption.dog}
                         onChange={handleDropdownChange}
                         name={'dog'}
                         options={petsOption}
                         icon={downArrow}
-                        
                     />
                 </Box>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select Appointment Type</InputLabel>
+                    <InputLabel>Select Category</InputLabel>
                     <CustomDropdown
                         value={selectedOption.categoryName}
-                        placeHolder='Select Appointment Type'
+                        placeHolder='Select Category'
                         onChange={handleDropdownChange}
                         options={categoryOptions}
                         icon={downArrow}
@@ -181,25 +178,27 @@ export default function BookAppointment({handleNext}) {
             </Box>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                
-                    <InputLabel>Select Date</InputLabel>
+                    <InputLabel>Select appointment Type</InputLabel>
                     <CustomDropdown
-                       placeHolder='Select Your Dog'
-                       value={selectedOption.fromDate}
-                       onChange={handleDateChange}
-                       className="date-style"
-                       name={'fromDate'}
-                       options={serviceOptions}
-                        icon={dateIcon}
-                        date
-                        dayOfWeekFormatter={(day) => {
-                               console.log(day);
-                               return day.slice(0, 3).toUpperCase()
-                           }}
+                        value={selectedOption.serviceName}
+                        placeHolder='Select Type'
+                        onChange={handleDropdownChange}
+                        options={serviceOptions}
+                        icon={downArrow}
+                        name={'serviceName'}
                     />
                 </Box>
-            
-                <Box className='appointment-dropdown'></Box>
+                <Box className='appointment-dropdown'>
+                    <InputLabel>Select Date</InputLabel>
+                    <CustomDropdown
+                        value={selectedOption.fromDate}
+                        onChange={handleDateChange}
+                        name={'fromDate'}
+                        icon={dateIcon}
+                        date
+                    />
+                </Box>
+
             </Box>
             {trainerAvailability.length > 0 && <Typography className='available-slots'>Availability</Typography>}
             {trainerAvailability.length > 0 && <Box className='field-section'>

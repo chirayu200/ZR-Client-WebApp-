@@ -393,7 +393,7 @@
     color: #f14f1b;
     font-weight: 700;
   }
-
+  
   .warning-section {
     width: 100%;
     margin-top: 10px;
@@ -490,7 +490,7 @@
   
   .achieved-header .heading {
     color: var(--c-1, #003087);
-    font-family: 'Univers LT Std' !important;
+    font-family: Univers LT Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -507,6 +507,8 @@
     text-transform: capitalize;
     margin-bottom: 20px;
   }
+
+
 
   .arrow-btn {
     border-radius: 50% !important;
@@ -663,17 +665,12 @@
   
   .chatBtn.MuiButtonBase-root {
     position: fixed;
-    bottom: 8px;
-    right: 10px;
+    bottom: 70px;
+    right: 35px;
   }
 
   .chatBtn.MuiButtonBase-root img {
-    width: 70px; 
-    margin-bottom: 25px;
-    height: 68px;
-    margin-right: 30px ;
-    position: relative;
-   
+    width: 70px;    
   }
 
   .mainSidebar .MuiListItem-root .MuiListItemButton-root {
@@ -1890,7 +1887,15 @@ line-height: 14px;
     color: #e35205;
     margin-bottom: 10px;
   }
-  
+  .profilArea > div:nth-of-type(2) p:nth-of-type(2),
+  .profilArea div:nth-of-type(2) p:nth-of-type(3) {
+    font-family: Univers LT Std;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #003087;
+  }
   .profileProgressWrap {
     display: flex;
     justify-content: flex-start;
@@ -2203,7 +2208,7 @@ line-height: 14px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 2%;
     margin-bottom: 20px;
   }
   
@@ -2319,9 +2324,6 @@ line-height: 14px;
   .MuiPickersArrowSwitcher-root button {
     color: #003087 !important;
     background-color: #e7eff9 !important;
-    margin-right: 0px;
-    width: 30px;
-    height: 30px;
   }
   
   .MuiDayCalendar-header span {
@@ -2331,7 +2333,6 @@ line-height: 14px;
   
   .MuiDayCalendar-monthContainer button {
     font-weight: 600;
-    font-size: 0.95rem !important;
   }
   
   .MuiDateCalendar-root {
@@ -2355,16 +2356,8 @@ line-height: 14px;
     background: var(--secondary-white, #fff);
     height: 179px;
     width: 100%;
-    padding:0% !important;
+    padding: 22px 18px 12px 26px;
   }
-
-  /* .appointment-dropdown-text-area .text-field{
-    border-radius: 25px;
-    background: var(--secondary-white, #fff);
-    height: 179px;
-    width: 50%;
-    padding:0% !important;
-  } */
   
   .text-field .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
@@ -2406,7 +2399,7 @@ line-height: 14px;
     /* text-decoration: overline; */
   }
   
-  .book-btn,.book-btn-help-support {
+  .book-btn {
     padding: 17px 28px !important;
     border: 0 !important;
     font-size: 18px;
@@ -2415,12 +2408,7 @@ line-height: 14px;
   
   .book-btn svg {
     background: white;
-    color: #32B2AC;
-    border-radius: 50%;
-  }
-  .book-btn-help-support svg{
-    background: white;
-    color: #E35205;
+    color: #32b2ac;
     border-radius: 50%;
   }
   
@@ -2791,24 +2779,13 @@ line-height: 14px;
   
   .card-input .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
+    font-family: Inter;
     font-size: 16px;
+    font-style: normal;
     font-weight: 400;
     line-height: 24px;
     padding: 16.5px 23px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    font-family: 'Univers LT Std' !important;
   }
-  
-  .card-input .MuiInputBase-input.MuiOutlinedInput-input::placeholder {
-    color: #003087; /* Placeholder color */
-    opacity: 1; /* Make the placeholder fully opaque */
-  }
-  
-  .card-input .MuiInputBase-input.MuiOutlinedInput-input .MuiPickersDay-daySelected {
-    font-weight: bold; /* Make the selected date text bold */
-  }
-  
   
   .card-input {
     background-color: #fff;
@@ -3470,7 +3447,7 @@ line-height: 14px;
   
   .top-header.shop-header {
     justify-content: space-between;
-    padding: 15px 18px;
+    padding: 10px 13px;
   }
   
   .shop-header .first-box {
@@ -3796,7 +3773,7 @@ line-height: 14px;
   .form-inputs .MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
     background: #fff;
   }
- 
+  
   /*dog profile*/
   .input-toggle-wrap {
   }
@@ -3841,7 +3818,7 @@ line-height: 14px;
   
   .input-toggle-wrap > p {
     color: var(--rgb-000, #000);
-    font-family: 'Univers LT Std' !important;
+    font-family: Univers LT Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -3876,10 +3853,6 @@ line-height: 14px;
   
   .input-item-wrap > label {
     margin-bottom: 15px;
-    font-family: 'Univers LT Std' !important;
-    color: #333333 !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
   }
   
   .input-item-wrap .custom-select .MuiInputBase-input.MuiOutlinedInput-input {
@@ -3902,14 +3875,7 @@ line-height: 14px;
   
   .custom-select .dropdown-select .MuiAutocomplete-input {
     color: #003087;
-    /* opacity: 50%; */
   }
-
-  .dropdown-select::placeholder{
-    color: #003087;
-    opacity: 50% !important;
-  }
-  
   
   .sidebar-footer {
     display: flex;
@@ -4280,41 +4246,3 @@ line-height: 14px;
     line-height: normal !important;
     padding-left: 10px;
   }
-
-
-
-
-  .btn-style{
-    border-radius: 2em!important;
-}
-
-/*=========MARGIN CLASS ==========*/
-
-.mt-23{
-  margin-top: -23px !important;
-}
-
-.search-bar .css-i4bv87-MuiSvgIcon-root{
-  color: #003087 !important;
-}
-
-.password .css-i4bv87-MuiSvgIcon-root{
-  color: #003087 !important;
-}
-
-.password .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root{
-  background-color: aliceblue !important;
-}  
-.book-btn .MuiButtonBase-root-MuiButton-root{
-  font-family:'Univers LT Std' !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-}
-
-.confirm-booking{
-  font-family:'Univers LT Std' !important;
-  font-weight: 700 !important;
-  font-size: 18px !important;
-}
-
-

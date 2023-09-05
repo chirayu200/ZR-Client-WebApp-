@@ -10,7 +10,7 @@ const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 export default function TeamPackHeader({setActive, initialState,setInitialState,details}) {
     const firstTwoPets = details?.pets?.slice(0, 2);
 
-console.log('dog view all......',initialState?.userType)
+console.log('dog view all......',initialState.userType)
     return (
         <Box className="profileScreen">
 
