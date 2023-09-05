@@ -13,6 +13,7 @@ export default function YourPack({setInitialState, initialState, setActive}) {
     }
     const firstTwoPets = initialState?.client?.pets?.slice(0, 1);
     console.log(initialState?.client?.pets, 'initialStateinitialState');
+    
     return (
         <Box className="template-list-main ">
             <Box className="trophyBoxHead"
@@ -36,7 +37,7 @@ export default function YourPack({setInitialState, initialState, setActive}) {
                         <img src={item?.profileImage?item.profileImage:petPlaceholder} alt="dog"/>
                         <Box>
                             <Typography>{`${item?.firstName || ''} ${item?.lastName || ''}`}</Typography>
-                            <Typography>
+                            <Typography >
                                 Reward Points: 3214
                             </Typography>
                         </Box>
@@ -56,7 +57,7 @@ export default function YourPack({setInitialState, initialState, setActive}) {
                     <img src={petPlaceholder} alt="dog"/>
                     <Box>
                         <Typography>Cooper</Typography>
-                        <Typography>
+                        <Typography sx={{fontWeight:"bold"}}>
                             Marvin McKinney
                         </Typography>
                     </Box>
@@ -71,7 +72,7 @@ export default function YourPack({setInitialState, initialState, setActive}) {
                     <img src={petPlaceholder} alt="dog"/>
                     <Box>
                         <Typography>Max</Typography>
-                        <Typography>
+                        <Typography sx={{fontWeight:"bold"}}>
                             Theresa Webb
                         </Typography>
                     </Box>
