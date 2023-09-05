@@ -46,6 +46,9 @@ export default function Memberships({ handleNext, clientDetail }) {
 
 	];
 	const maxSteps = images.length;
+	for (let step = 0; step < maxSteps; step++) {
+    // Your loop logic here
+}
 
 	useEffect(() => {
 
@@ -114,7 +117,7 @@ export default function Memberships({ handleNext, clientDetail }) {
 							<Typography>5</Typography>
 						</MenuItem>
 						<MenuItem className="dropItem">
-							<Typography>Workshops</Typography>
+							<Typography>Woerkshops</Typography>
 							<Typography>5</Typography>
 						</MenuItem>
 						<MenuItem className="dropItem">

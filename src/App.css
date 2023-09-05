@@ -393,7 +393,7 @@
     color: #f14f1b;
     font-weight: 700;
   }
-
+  
   .warning-section {
     width: 100%;
     margin-top: 10px;
@@ -490,7 +490,7 @@
   
   .achieved-header .heading {
     color: var(--c-1, #003087);
-    font-family: 'Univers LT Std' !important;
+    font-family: Univers LT Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 700;
@@ -507,6 +507,8 @@
     text-transform: capitalize;
     margin-bottom: 20px;
   }
+
+
 
   .arrow-btn {
     border-radius: 50% !important;
@@ -663,17 +665,12 @@
   
   .chatBtn.MuiButtonBase-root {
     position: fixed;
-    bottom: 8px;
-    right: 10px;
+    bottom: 70px;
+    right: 35px;
   }
 
   .chatBtn.MuiButtonBase-root img {
-    width: 70px; 
-    margin-bottom: 25px;
-    height: 68px;
-    margin-right: 30px ;
-    position: relative;
-   
+    width: 70px;    
   }
 
   .mainSidebar .MuiListItem-root .MuiListItemButton-root {
@@ -1917,7 +1914,15 @@ line-height: 14px;
     color: #e35205;
     margin-bottom: 10px;
   }
-  
+  .profilArea > div:nth-of-type(2) p:nth-of-type(2),
+  .profilArea div:nth-of-type(2) p:nth-of-type(3) {
+    font-family: Univers LT Std;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #003087;
+  }
   .profileProgressWrap {
     display: flex;
     justify-content: flex-start;
@@ -2230,7 +2235,7 @@ line-height: 14px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 2%;
     margin-bottom: 20px;
   }
   
@@ -2346,9 +2351,6 @@ line-height: 14px;
   .MuiPickersArrowSwitcher-root button {
     color: #003087 !important;
     background-color: #e7eff9 !important;
-    margin-right: 0px;
-    width: 30px;
-    height: 30px;
   }
   
   .MuiDayCalendar-header span {
@@ -2358,7 +2360,6 @@ line-height: 14px;
   
   .MuiDayCalendar-monthContainer button {
     font-weight: 600;
-    font-size: 0.95rem !important;
   }
   
   .MuiDateCalendar-root {
@@ -2382,16 +2383,8 @@ line-height: 14px;
     background: var(--secondary-white, #fff);
     height: 179px;
     width: 100%;
-    padding:0% !important;
+    padding: 22px 18px 12px 26px;
   }
-
-  /* .appointment-dropdown-text-area .text-field{
-    border-radius: 25px;
-    background: var(--secondary-white, #fff);
-    height: 179px;
-    width: 50%;
-    padding:0% !important;
-  } */
   
   .text-field .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
@@ -2433,7 +2426,7 @@ line-height: 14px;
     /* text-decoration: overline; */
   }
   
-  .book-btn,.book-btn-help-support {
+  .book-btn {
     padding: 17px 28px !important;
     border: 0 !important;
     font-size: 18px;
@@ -2442,12 +2435,7 @@ line-height: 14px;
   
   .book-btn svg {
     background: white;
-    color: #32B2AC;
-    border-radius: 50%;
-  }
-  .book-btn-help-support svg{
-    background: white;
-    color: #E35205;
+    color: #32b2ac;
     border-radius: 50%;
   }
   
@@ -2876,24 +2864,13 @@ line-height: 14px;
   
   .card-input .MuiInputBase-input.MuiOutlinedInput-input {
     color: #003087;
+    font-family: Inter;
     font-size: 16px;
+    font-style: normal;
     font-weight: 400;
     line-height: 24px;
     padding: 16.5px 23px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    font-family: 'Univers LT Std' !important;
   }
-  
-  .card-input .MuiInputBase-input.MuiOutlinedInput-input::placeholder {
-    color: #003087; /* Placeholder color */
-    opacity: 1; /* Make the placeholder fully opaque */
-  }
-  
-  .card-input .MuiInputBase-input.MuiOutlinedInput-input .MuiPickersDay-daySelected {
-    font-weight: bold; /* Make the selected date text bold */
-  }
-  
   
   .card-input {
     background-color: #fff;
@@ -3555,7 +3532,7 @@ line-height: 14px;
   
   .top-header.shop-header {
     justify-content: space-between;
-    padding: 15px 18px;
+    padding: 10px 13px;
   }
   
   .shop-header .first-box {
@@ -3889,7 +3866,7 @@ line-height: 14px;
   .form-inputs .MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
     background: #fff;
   }
- 
+  
   /*dog profile*/
   .input-toggle-wrap {
   }
@@ -3934,7 +3911,7 @@ line-height: 14px;
   
   .input-toggle-wrap > p {
     color: var(--rgb-000, #000);
-    font-family: 'Univers LT Std' !important;
+    font-family: Univers LT Std;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -3969,10 +3946,6 @@ line-height: 14px;
   
   .input-item-wrap > label {
     margin-bottom: 15px;
-    font-family: 'Univers LT Std' !important;
-    color: #333333 !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
   }
   
   .input-item-wrap .custom-select .MuiInputBase-input.MuiOutlinedInput-input {
@@ -3995,14 +3968,7 @@ line-height: 14px;
   
   .custom-select .dropdown-select .MuiAutocomplete-input {
     color: #003087;
-    /* opacity: 50%; */
   }
-
-  .dropdown-select::placeholder{
-    color: #003087;
-    opacity: 50% !important;
-  }
-  
   
   .sidebar-footer {
     display: flex;
@@ -4419,3 +4385,181 @@ line-height: 14px;
 }
 
 
+.service-btn{
+  width: 186.22px;
+  height: 41.25px;
+  position: absolute;
+  top: 479.892578125px;
+  left: 838.9296875px;
+  padding: 6px 15px;
+  border-radius: 45px;
+  gap: 10px;
+  background-color: #E7EFF9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.service-btn2{
+  width: 187.44px;
+  height: 41.25px;
+  top: 479.892578125px;
+  left: 1045.8359375px;
+  padding: 6px 15px 6px 15px;
+  border-radius: 45px;
+  gap: 10px;
+  position: absolute;
+  background-color: #E7EFF9;
+  display: flex;
+}
+
+/*------------------------ Style 2 css for fixes start ------------------------*/
+
+/*------------------------ Style 1 css for fixes start ------------------------*/
+
+.locationHead > div:nth-of-type(1) {
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px 0px #0000001a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 157px;
+  height: 44px;
+}
+
+
+.locationHead > p:nth-of-type(1) {
+  background: #32b2ac;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 37px;
+  font-size: 12px;
+  font-weight: 700;
+  
+text-align: center;
+font-family: Univers LT Std;
+font-style: normal;
+line-height: normal;
+
+}
+
+ .locationHead > p:nth-of-type(2) {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #d13a00;
+
+  font-family: Univers LT Std;
+
+font-style: normal;
+line-height: 14px;
+}
+
+.class-section-box .class-section p:first-child {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 150%;
+}
+
+.dirBox p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: #003087;
+}
+
+ .dirBox p:nth-of-type(2) {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: #000;
+}
+.dirBox button {
+  color: #003087;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  margin-top: -10px;
+  
+}
+
+.notifyHead button:nth-of-type(2) {
+  color: #000;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+
+  font-family: Univers LT Std;
+  font-style: normal;
+  line-height: 16px;
+}
+.notifyWrap .item.unread > p,
+.notifyWrap .item.unread > .MuiBox-root p:nth-of-type(2) {
+  color: #000;
+  font-weight: bold;
+}
+.notifyWrap .item {
+  padding: 30px 30px 30px 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid #00000029;
+}
+
+.header-text.MuiTypography-root.MuiTypography-body1 {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+
+
+.holders-item .dogname {
+  color: #003087;
+  font-weight: bold ;
+}
+.holders-item .text {
+  color: #fff;
+ margin-right: -15px;
+}
+.topStack.trophyTopStack button {
+  min-width: 273px;
+  padding: 10px 26px;
+  letter-spacing: 0.1px;
+  margin-bottom: 30px;
+  
+font-family: Univers LT Std;
+font-size: 21px;
+font-style: normal; 
+font-weight: 700;
+/* line-height: normal; */
+}
+
+
+.followus{
+  color: #000;
+  font-weight: 700;
+  width: 106.958px;
+font-family: Univers LT Std;
+font-size: 14px;
+
+    }
+
+.social{
+
+margin-top: 5px;
+    }
+    
+/*------------------------ Style 1 css for fixes end ------------------------*/

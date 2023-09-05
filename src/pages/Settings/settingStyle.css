@@ -37,7 +37,6 @@
 
 .icon-style{
     color: #003087 !important;
-    width: 50% !important;
 }
 
 .p-11{
@@ -101,18 +100,4 @@
   padding: 10px;
   font-weight: bold;
 }
-.security-icon .MuiAvatar-img{
-    width: 40% !important;
-    height: 50% !important;
-  }
-  
-  .location-icon .MuiAvatar-img{
-    width: 50% !important;
-    height: 52% !important;
-  }
-
-  .about-app-icon .MuiAvatar-img{
-    width: 75% !important;
-    height: 64% !important;
-  }
 /* -------------------------Setting Style End ------------------------*/

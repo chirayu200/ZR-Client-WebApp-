@@ -11,6 +11,6 @@ export {
 } from './shop';
 export {GetClientDetailByEmailId, GetAllPets} from './client'
 export {
-    CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail
+    CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail,getClientProfileProgress
 } from './profile';
 export {GetAllTrainersAvailability} from './appointments';

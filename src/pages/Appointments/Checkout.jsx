@@ -14,6 +14,12 @@ const visaCard = require("../../assets/images/visaCard.svg").default;
 export default function Checkout({handleNext, buyNow}) {  // buyNow was available in function call like this - {handleNext, buyNow}
     const [value, setValue] = useState("");
     const [selectedValue, setSelectedValue] = useState("payBy"); // Default selected value
+    const [isChecked, setIsChecked] = useState(true);
+
+    const handleCheckboxChange = () => {
+      setIsChecked(prevChecked => !prevChecked);
+    };
+    
 
     const handleRadioChange = (event) => {
         setSelectedValue(event.target.value);
@@ -97,19 +103,19 @@ export default function Checkout({handleNext, buyNow}) {  // buyNow was availabl
                                 />
                             </Box>
                             <Box className='save-card'>
-                                <Checkbox checked/>
+                            <Checkbox disabled={false} sx={{ color: '#003087' }} />
                                 <Typography>Save card for future use</Typography>
                             </Box>
                         </>
                     ) : (
-                        <Box className='credit-remain'>
-                          <Typography>Credit Used: 1</Typography>
-							<Typography>Remaining: 3</Typography>
-                            <Link className="red-link-line">Credit Not Available,<Link className="link-line"
-                                                                                       onClick={buyNow}>Buy
-                                Now</Link></Link>
+                            <Box className='credit-remain'>
+                                <Typography>Credit Used: 1</Typography>
+                                <Typography>Remaining: 3</Typography>
+                                <Link className="red-link-line">Credit Not Available,<Link className="link-line"
+                                    onClick={buyNow}>Buy
+                                    Now</Link></Link>
 
-                        </Box>
+                            </Box>
                     )}
 
                     <CustomButton
@@ -147,10 +153,12 @@ export default function Checkout({handleNext, buyNow}) {  // buyNow was availabl
                                     </Box>
                                 </Box>
                                 <Checkbox
-                                    checked
-                                    indeterminate
+                                   checked={isChecked}
+                                    indeterminate={isChecked}
                                     indeterminateIcon={<CheckCircleIcon/>}
                                     icon={<RadioButtonUncheckedIcon/>}
+                                    onChange={handleCheckboxChange}
+                                    
                                 />
                             </Box>
                         </Box>
