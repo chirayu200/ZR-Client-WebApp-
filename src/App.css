@@ -4246,3 +4246,216 @@ line-height: 14px;
     line-height: normal !important;
     padding-left: 10px;
   }
+
+
+
+
+  /*------------------------ Style 2 css for fixes start ------------------------*/  
+.notification-section.MuiButtonBase-root{
+  width: 0;
+}
+
+/* Add the styles to change the color when the radio button is selected */
+.red-selected {
+  color: #003087 !important;
+}
+
+/* Add the styles for the second radio button when selected */
+.blue-selected {
+  color: #003087 !important;
+}
+
+
+/* Add the styles to capitalize the first letter of each word */
+.custom-span {
+  text-transform: capitalize !important;
+}
+
+/* Add styles for the first letter within the span */
+.custom-span::first-letter {
+  font-size: 1.2em !important; /* Optionally adjust font size for the first letter */
+}
+
+.display-flex{
+  margin-top:15px ;
+}
+
+
+.service-btn{
+  width: 186.22px;
+  height: 41.25px;
+  position: absolute;
+  top: 479.892578125px;
+  left: 838.9296875px;
+  padding: 6px 15px;
+  border-radius: 45px;
+  gap: 10px;
+  background-color: #E7EFF9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+
+.service-btn2{
+  width: 187.44px;
+  height: 41.25px;
+  top: 479.892578125px;
+  left: 1045.8359375px;
+  padding: 6px 15px 6px 15px;
+  border-radius: 45px;
+  gap: 10px;
+  position: absolute;
+  background-color: #E7EFF9;
+  display: flex;
+}
+
+/*------------------------ Style 2 css for fixes start ------------------------*/
+
+/*------------------------ Style 1 css for fixes start ------------------------*/
+
+.locationHead > div:nth-of-type(1) {
+  border-radius: 20px;
+  box-shadow: 0px 0px 8px 0px #0000001a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 157px;
+  height: 44px;
+}
+
+
+.locationHead > p:nth-of-type(1) {
+  background: #32b2ac;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 37px;
+  font-size: 12px;
+  font-weight: 700;
+  
+text-align: center;
+font-family: Univers LT Std;
+font-style: normal;
+line-height: normal;
+
+}
+
+ .locationHead > p:nth-of-type(2) {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 14px;
+  color: #d13a00;
+
+  font-family: Univers LT Std;
+
+font-style: normal;
+line-height: 14px;
+}
+
+.class-section-box .class-section p:first-child {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 150%;
+}
+
+.dirBox p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: #003087;
+}
+
+ .dirBox p:nth-of-type(2) {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: #000;
+}
+.dirBox button {
+  color: #003087;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0em;
+  margin-top: -10px;
+  
+}
+
+.notifyHead button:nth-of-type(2) {
+  color: #000;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+
+  font-family: Univers LT Std;
+  font-style: normal;
+  line-height: 16px;
+}
+.notifyWrap .item.unread > p,
+.notifyWrap .item.unread > .MuiBox-root p:nth-of-type(2) {
+  color: #000;
+  font-weight: bold;
+}
+.notifyWrap .item {
+  padding: 30px 30px 30px 15px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 1px solid #00000029;
+}
+
+.header-text.MuiTypography-root.MuiTypography-body1 {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+
+
+.holders-item .dogname {
+  color: #003087;
+  font-weight: bold ;
+}
+.holders-item .text {
+  color: #fff;
+ margin-right: -15px;
+}
+.topStack.trophyTopStack button {
+  min-width: 273px;
+  padding: 10px 26px;
+  letter-spacing: 0.1px;
+  margin-bottom: 30px;
+  
+font-family: Univers LT Std;
+font-size: 21px;
+font-style: normal; 
+font-weight: 700;
+/* line-height: normal; */
+}
+
+
+.followus{
+  color: #000;
+  font-weight: 700;
+  width: 106.958px;
+font-family: Univers LT Std;
+font-size: 14px;
+
+    }
+
+.social{
+
+margin-top: 5px;
+    }
+    
+/*------------------------ Style 1 css for fixes end ------------------------*/
