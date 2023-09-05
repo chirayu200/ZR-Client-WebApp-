@@ -11,7 +11,7 @@ import {ProfileModals} from "../../Components/Modals";
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
 const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 
-const DogProfile = ({initialState}) => {
+const DogProfile = ({initialState,setActive}) => {
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [errors, setErrors] = useState({});
 
@@ -47,8 +47,11 @@ const DogProfile = ({initialState}) => {
     })
     useEffect(() => {
         if (initialState&&initialState.selected) {
+            console.log("Initial state ",initialState.selected.sortKey);
             setFormData(initialState.selected);
+            console.log(initialState.selected);
         }
+       
 
     }, [])
     const handleChange = (name, value) => {
@@ -160,7 +163,7 @@ const DogProfile = ({initialState}) => {
         form.append('updatedBy', '1000');
         form.append('status', 1);
         console.log(form, 'alldata', formData);
-        UpdateDogProfile(form, '#PET#2U3jAO3JcJLBwlJWyyjuoM6VnJl').then((response) => {
+        UpdateDogProfile(form,initialState.selected.sortKey).then((response) => {
             if (response) {
                 setConfirmOpen(true);
             }
@@ -193,6 +196,12 @@ const DogProfile = ({initialState}) => {
     }
 
     const handleActionBtn = (type) => {
+        if(type === 'yes'){
+            setActive(2)
+        }
+        else if(type === 'notNow'){
+            setActive(0)
+        }
         setConfirmOpen(false);
 
     }
@@ -248,7 +257,7 @@ const DogProfile = ({initialState}) => {
                             icon={dateIcon}
                             date
                         />
-                        <InputLabel>{formData.birthDate && `Age: ${calculateAge().weeks} weeks Old`}</InputLabel>
+                        <InputLabel>{formData?.birthDate && `Age: ${calculateAge().weeks} weeks Old`}</InputLabel>
                     </Box>
                     <Box className='input-item-wrap'>
                         <CustomInput

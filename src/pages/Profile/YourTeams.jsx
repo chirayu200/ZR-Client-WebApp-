@@ -30,7 +30,7 @@ export default function YourTeams({setActive, initialState, setInitialState,deta
                 </Box> :
                 <Box className="trophyBoxHead">
                     <Typography className='header-text'>
-                        Your Team
+                        {/* Your Team */}
                     </Typography>
 
                     <CustomButton onClick={handleNextPage}
@@ -47,7 +47,7 @@ export default function YourTeams({setActive, initialState, setInitialState,deta
                 <img src={initialState?.userType === 'dog' ? details?.profileImage : profileImg} alt="profile"/>
 
                     <Box>
-                    <Typography>{initialState.userType === 'dog' ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}`:'John Smith' } </Typography>
+                    <Typography>{initialState.userType === 'dog' ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}`:'Jon Smith' } </Typography>
 
                         <Typography>
                             Reward Points: 3214
@@ -56,7 +56,7 @@ export default function YourTeams({setActive, initialState, setInitialState,deta
                 </Box>
                 <Box>
                             <Button onClick={() => {
-                                setInitialState({ ...initialState});
+                                setInitialState({ ...initialState, selected: details, userType: 'dog' });
                                 setActive(0);
 
                             }}><img src={rightCircle} alt='close' /> </Button>
@@ -64,9 +64,7 @@ export default function YourTeams({setActive, initialState, setInitialState,deta
             </Box>
 
 
-
-          
-
+           
 
         </Box>
     )
