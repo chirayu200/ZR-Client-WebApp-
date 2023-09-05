@@ -671,9 +671,9 @@
 
   .chatBtn.MuiButtonBase-root img {
     width: 70px; 
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     height: 68px;
-    margin-right: 30px ;
+    margin-right: 5px ;
     position: relative;
    
   }
@@ -2406,7 +2406,7 @@ line-height: 14px;
   
   .book-btn svg {
     background: white;
-    color: #32B2AC;
+    color: #E35205;
     border-radius: 50%;
   }
   
