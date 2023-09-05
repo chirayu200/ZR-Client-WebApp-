@@ -1,5 +1,6 @@
 import React from 'react';
-import {Box, Link, Typography} from "@mui/material";
+import {Box, Link, Typography,Button} from "@mui/material";
+import "../../style2.css"
 
 export default function ProfileAbout({initialState}) {
 console.log(initialState, 'initialStfdateinitialState');
@@ -85,6 +86,14 @@ console.log(initialState, 'initialStfdateinitialState');
                     <Typography className='heading'>
                         Completed Service
                     </Typography>
+                    <Box className="service-btn">
+                    <Button variant="text" sx={{color:'black', display:'flex'}}>Orientation</Button>
+                    </Box>
+                    <Box className="service-btn2">
+                    <Button variant="text" sx={{color:'black', display:'flex'}}>Orientation</Button>
+                    </Box>
+
+                    
 
                 </Box>
                 <Box className='profile-mid-section'>

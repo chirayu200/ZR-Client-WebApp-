@@ -73,7 +73,7 @@ if (birthDate && birthDate?.length > 0) {
                 <Box>
                 <Typography>{initialState.userType === 'client' ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}` : initialState.selected.firstName} </Typography>
                 <Typography>{initialState.userType === 'dog' ? `${initialState.selected?.breed}`  : 'Reward Points : 3102'} </Typography>
-                {initialState.userType === 'client' ? <Typography>Body - Universe</Typography> :
+                {initialState.userType === 'client' ? <Typography>1 Year Old</Typography> :
                         <Typography>{`${yearsDiff} years and ${monthsDiff} months`} </Typography>}
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
                    

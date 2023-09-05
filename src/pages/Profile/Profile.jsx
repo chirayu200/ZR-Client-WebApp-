@@ -102,7 +102,7 @@ fontStyle: "normal",
 fontWeight: "700",
 lineHeight: "normal",
 marginBottom:"20px",
-marginTop:"px",
+marginTop:"0px",
 fontWeight: 'bold'
 }}
 >Gold Membership</span>

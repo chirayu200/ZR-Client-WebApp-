@@ -46,6 +46,9 @@ export default function Memberships({ handleNext, clientDetail }) {
 
 	];
 	const maxSteps = images.length;
+	for (let step = 0; step < maxSteps; step++) {
+    // Your loop logic here
+}
 
 	useEffect(() => {
 

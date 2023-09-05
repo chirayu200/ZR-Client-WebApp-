@@ -57,4 +57,42 @@
 
 } */
 
+/* 
+
+
+
+
+
+Profile- About CSS */
+
+.service-btn{
+    width: 186.22px;
+    height: 41.25px;
+    position: absolute;
+    top: 479.892578125px;
+    left: 838.9296875px;
+    padding: 6px 15px;
+    border-radius: 45px;
+    gap: 10px;
+    background-color: #E7EFF9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+
+.service-btn2{
+    width: 187.44px;
+    height: 41.25px;
+    top: 479.892578125px;
+    left: 1045.8359375px;
+    padding: 6px 15px 6px 15px;
+    border-radius: 45px;
+    gap: 10px;
+
+
+}
 
