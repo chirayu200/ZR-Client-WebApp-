@@ -4,7 +4,7 @@ import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider";
 import {DesktopDatePicker} from '@mui/x-date-pickers/DesktopDatePicker';
 import {CustomButton} from "./CustomButton";
-// import dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
 export const CustomDropdown = ({
                                    value,
@@ -48,6 +48,7 @@ export const CustomDropdown = ({
                             format={'MM-DD-YYYY'}
                             className="custom-date-select"
                             onChange={handleDateChange}
+                            value={dayjs(value)}
                             // value={formattedValue}
                             // dayOfWeekFormatter={(day) => {
                             //     console.log(day);
