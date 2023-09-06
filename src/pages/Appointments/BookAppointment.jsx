@@ -5,17 +5,20 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import {CustomButton, CustomDropdown} from "../../Components/Common";
 import {GetAllPets, GetAllServiceCategories, GetAllTrainersAvailability} from "../../Services/APIs";
 import {CalenderDateFormat} from "../../Utils";
+import {GetCategory,getAllService} from "../../Services/APIs/checkout";
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
 const dragDrop = require("../../assets/images/dragdrop.svg").default;
-const categoryOptions = [
-    {label: "Enrollments", value: "enrollment"},
-    {label: "Appointments", value: "appointment"},
+// const categoryOptions = [
+//     {label: "Enrollments", value: "enrollment"},
+//     {label: "Appointments", value: "appointment"},
 
-];
+// ];
 
-export default function BookAppointment({handleNext}) {
+
+
+export default function BookAppointment({handleNext,setCategoryId,setServiceId}) {
     const [selectedOption, setSelectedOption] = useState({
         pets: {},
         serviceName: {},
@@ -28,6 +31,7 @@ export default function BookAppointment({handleNext}) {
     const [isDragOver, setIsDragOver] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
     const fileInputRef = useRef(null);
+    const [categoryOptions,setCategoryOptions] = useState([]);
     useEffect(() => {
         GetAllPets().then((response) => {
 
@@ -40,20 +44,24 @@ export default function BookAppointment({handleNext}) {
             }
 
         })
-        GetAllServiceCategories('appointment').then((response) => {
+        getAllService().then((response) => {
             if (response) {
                 const optionList = response.data.Items.map((item) => ({
-                    label: item.name,
+                    label: item.categoryName,
                     value: item,
                 }))
                 setServiceOptions(optionList);
             }
 
         })
+        getCategory();
 
     }, [])
     const handleDropdownChange = (name, value) => {
         setSelectedOption({...selectedOption, [name]: value});
+        console.log(value);
+        setCategoryId(value.value.serviceTypeId);
+        setServiceId(value.value.serviceId)
     };
 
 
@@ -150,6 +158,18 @@ export default function BookAppointment({handleNext}) {
         convertedArray[selectedIndex].availability[index].active = true;
         setTrainerAvailability(convertedArray)
     }
+
+    const getCategory = () =>{
+        GetCategory().then((response) =>{
+            if (response) {
+                const optionList = response.data.Items.map((item) => ({
+                    label: `${item.name}`,
+                    value: item,
+                }))
+                setCategoryOptions(optionList);
+            }
+        })
+    }
     return (
         <Box className='appointment-main'>
             <Box className='field-section'>
@@ -178,7 +198,7 @@ export default function BookAppointment({handleNext}) {
             </Box>
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
-                    <InputLabel>Select appointment Type</InputLabel>
+                    <InputLabel>Select Service</InputLabel>
                     <CustomDropdown
                         value={selectedOption.serviceName}
                         placeHolder='Select Type'
