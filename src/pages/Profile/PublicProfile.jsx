@@ -14,17 +14,17 @@ const Dog = require("../../assets/images/dog-round.svg").default;
 
 
 export default function PublicProfile({details,handleNext, setActive, initialState, setInitialState}) {
-    console.log('active----',initialState.selected)
+    console.log('active----',initialState)
     const [selected, setSelected] = useState(0)
     const [clientDetails, setclientDetails] = useState('')
 
     const [open, setOpen] = useState(false)
     // const [isConnect, setIsConnect] = useState(true);
-    console.log(details.firstName, "detailssssss-----")
+    console.log(details, "detailssssss-----")
     useEffect(() => {
         getClientProfileProgressDetails();
         if (initialState.userType === 'dog' && initialState.selected) {
-            GetDogDetail(initialState.client.sortKey, initialState.selected.sortKey)
+            GetDogDetail(initialState.selected.clientId, initialState.selected.sortKey)
                 .then((response) => {
                     const [data] = response.data.Items;
                     setInitialState({...initialState, dog: data, userType: 'dog'});
@@ -82,7 +82,7 @@ if (birthDate && birthDate?.length > 0) {
         <Box className="profileScreen">
             <Box className="profilArea">
                 <Box>
-                    <img src={initialState.userType === 'dog' ? initialState.selected?.profileImage : details.profileImage} alt="profile"/>
+                    <img src={initialState.userType === 'dog' ? initialState.selected?.profileImage : details.profileImage} alt="profiles"/>
                     <img src={profileBadge} alt="profile"/>
                 </Box>
                 <Box>
@@ -93,8 +93,8 @@ if (birthDate && birthDate?.length > 0) {
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
                    
 
-                  
-                    <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
+{/*                   
+                    <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography> */}
                    
                     <Box className="profileProgressWrap">
                         <LinearProgressBar classes='achieveProgress' value={60}/>

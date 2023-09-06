@@ -26,7 +26,10 @@ export default function Appointment() {
         {title: "Buy Credit", component: <BuyCredit handleBack={() => setActive(0)}/>},
 
     ]
-
+  const manageClick = () => {
+    // handleClickOpen();
+    setActive(1);
+  };
     return (
         <Container className='appointment-container'>
             <Box className='appointment-header'>
@@ -48,11 +51,11 @@ export default function Appointment() {
                             />
                             <Typography className='header-text'>{childComponent[active].title}</Typography>
                         </Box>
-                        {active === 5 && (
-                            <Box className='shop-cart'>
+                        {/* {active === 5 && ( */}
+                            <Box className='shop-cart' onClick={manageClick}>
                                 <Typography>Available Credits</Typography>
                             </Box>
-                        )}
+                        {/* )} */}
                     </Box>
                 </>}
 

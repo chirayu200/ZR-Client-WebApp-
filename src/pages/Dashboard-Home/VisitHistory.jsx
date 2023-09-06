@@ -26,7 +26,7 @@ export default function VisitHistory({handleBack}) {
                     name={'filters'}
                     icon={downArrow}
                 />
-                <CustomInput
+                 <CustomInput
                     type='text'
                     name='search'
                     value='Search'

@@ -68,6 +68,7 @@ const DogProfile = ({initialState,setActive}) => {
         setFormData({...formData, [name]: value})
     };
     const onSelectImage = (e) => {
+        console.log('selectedd');
         if (e.target.files && e.target.files.length > 0) {
             const imageFile = e.target.files[0];
             if (imageFile) {

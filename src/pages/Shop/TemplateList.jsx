@@ -25,7 +25,7 @@ export default function TemplateList({ clientDetail, selected, handleNext }) {
                 setLoader(false)
             })
         }
-        else if (selected === 'History') {
+        else if (selected === 'Purchase History') {
             console.log("clientDetail", clientDetail);
             if (clientDetail?.sortKey) {
                 let clientId = clientDetail.sortKey

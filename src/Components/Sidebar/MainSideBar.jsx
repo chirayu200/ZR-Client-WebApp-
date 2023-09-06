@@ -18,6 +18,7 @@ import {SidebarItems} from './SidebarItems';
 import {clearLocalData} from "../../Utils";
 
 const logo = require("../../assets/images/sidebarLogo.svg").default;
+const logoWithName = require("../../assets/images/logoWithName.svg").default;
 const profile = require("../../assets/images/profile.svg").default;
 const chat = require("../../assets/images/chat.svg").default;
 const drawerWidth = 240;
@@ -65,6 +66,7 @@ const Drawer = styled(MuiDrawer, {
     }),
 }));
 export default function SideBar({name, Component, clientDetail}) {
+    const [hoveredButton, setHoveredButton] = React.useState(null);
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
     const handleDrawerClose = () => {
@@ -82,7 +84,8 @@ export default function SideBar({name, Component, clientDetail}) {
                 <CssBaseline/>
                 <Drawer variant='permanent' open={open} className='mainSidebar'>
                     <DrawerHeader>
-                        <img src={logo} className='sideLogo' alt='logo'/>
+                        <img src={open?logoWithName:logo}  className={`sideLogo ${open ? 'logoWithName' : ''}`} alt='logo'/>
+                       
                         <IconButton onClick={handleDrawerClose} className='drawerCloseBtn'>
                             {!open ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
                         </IconButton>
@@ -90,13 +93,16 @@ export default function SideBar({name, Component, clientDetail}) {
                     <List>
                         {SidebarItems?.map(
                             (item, index) => (
-                                <ListItem key={index} disablePadding sx={{display: "block"}}>
+                                <ListItem key={index} disablePadding sx={{
+                                    display:'block'
+                                  }}>
                                     <ListItemButton
-                                        sx={{
+                                     sx={{
                                             minHeight: 48,
                                             justifyContent: open ? "initial" : "center",
                                             px: 2.5,
                                             background: item.name === name && "#E35205",
+                                            border: `2px solid`,color:'#FFFF',
                                         }}
                                         onClick={() => onItemClick(item.path)}
                                     >
@@ -110,7 +116,11 @@ export default function SideBar({name, Component, clientDetail}) {
                                             {item.icon}
                                         </ListItemIcon>
                                         <ListItemText primary={item.name}
-                                                      sx={{display: open ? 'block' : 'none'}}/>
+                                        className="list-item-text"
+                                        sx={{
+                                            display: open ? 'block' : 'none',
+                                          // Add the font weight property here
+                                          }}/>
                                     </ListItemButton>
                                 </ListItem>
                             )
@@ -126,7 +136,7 @@ export default function SideBar({name, Component, clientDetail}) {
                             clearLocalData();
                             window.location.reload();
                         }}>
-                            <LogoutIcon sx={{color: 'white'}}/>
+                        {open&&<LogoutIcon sx={{color: 'white'}}/>}    
                         </Button>
                     </Box>
 

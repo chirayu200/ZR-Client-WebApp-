@@ -29,7 +29,7 @@ export const CustomButton = ({
         textTransform:'Capitalize',
         fontWeight:"bold",
         fontSize:fontSize,
-        disabled:{disabled}
+        opacity: disabled ? 0.5 : 1,
     };
 
     return (
@@ -37,6 +37,7 @@ export const CustomButton = ({
             style={buttonStyle}
             onClick={onClick}
             className={className}
+            disabled={disabled}
             {...restProps}
         >
             {icon && title ? (

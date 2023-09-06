@@ -252,7 +252,7 @@ export default function ExploreService({handleNext}) {
                             </Box>
                             <Box className='attendee-header'>
                                 <Typography>
-                                    {item.startTime} to {item.endTime} (<span>{timeDifferenceCalculate(item.startTime, item.endTime)} < /span>)
+                                    {item.startTime} to {item.endTime} (<span>{timeDifferenceCalculate(item.startTime, item.endTime)} </span>)
                                 </Typography>
                             </Box>
                         </Box>
