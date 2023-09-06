@@ -66,8 +66,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
         if (e.target.files && e.target.files.length > 0) {
             const imageFile = e.target.files[0];
             if (imageFile) {
-
-                setFormData({ ...formData, profileImage: URL.createObjectURL(imageFile) })
+                setFormData({ ...formData, profileImage: URL.createObjectURL(imageFile)})
             }
         }
     };

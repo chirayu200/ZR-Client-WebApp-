@@ -1,6 +1,6 @@
 import React from 'react';
 import {Box, Link, Typography,Button} from "@mui/material";
-import "../../style2.css"
+// import "../../style2.css"
 
 export default function ProfileAbout({initialState}) {
 console.log(initialState, 'initialStfdateinitialState');
