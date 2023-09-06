@@ -49,6 +49,7 @@ export default function ExploreService({handleNext}) {
         })
     }, [filters])
     const handleSelected = (item) => {
+        console.log(item);
         handleNext(item);
     }
 

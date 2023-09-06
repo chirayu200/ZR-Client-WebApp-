@@ -60,9 +60,9 @@ export default function Appointment() {
                             <Typography className='header-text'>{childComponent[active].title}</Typography>
                         </Box>
                         {/* {active === 5 && ( */}
-                            <Box className='shop-cart' onClick={manageClick}>
+                            {/* <Box className='shop-cart' onClick={manageClick}>
                                 <Typography>Available Credits</Typography>
-                            </Box>
+                            </Box> */}
                         {/* )} */}
                     </Box>
                 </>}
