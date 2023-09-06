@@ -96,8 +96,8 @@ export default function ProfileMain({ clientDetail }) {
                             backgroundColor='#E7EFF9'
                             onClick={() => {
                                 // if (initialState.userType==='dog') {
-                                    // window.location.reload();
-                                    // navigate('/')
+                                // window.location.reload();
+                                // navigate('/')
                                 //     setActive(0)
                                 // } else if(childComponent[active].title === 'Team') {
                                 //     setActive(0)
@@ -112,12 +112,12 @@ export default function ProfileMain({ clientDetail }) {
                                 //     setActive(1)
                                 // }
                                 // setActive(active-1)
-                               if(active === 0 && initialState?.userType==='dog'){
-                                setInitialState({...initialState, userType:'client'})
-                               }
-                               else{
-                                setActive(active-1);
-                               }
+                                if (active === 0 && initialState?.userType === 'dog') {
+                                    setInitialState({ ...initialState, userType: 'client' })
+                                }
+                                else {
+                                    setActive(active - 1);
+                                }
                             }}
                         />
                         <Typography className='header-text'>{childComponent[active].title}</Typography>
@@ -129,7 +129,7 @@ export default function ProfileMain({ clientDetail }) {
 
                                 if (initialState.userType === 'client') {
                                     setActive(3)
-                                }else{
+                                } else {
                                     setActive(4)
 
                                 }
