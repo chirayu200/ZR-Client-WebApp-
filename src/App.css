@@ -816,9 +816,12 @@
   
   .cartWrap .template-list-main {
     width: 49%;
-    /*height: 264px;*/
+    /* height: 264px; */
   }
-  
+  .cartWrap .template-list-about {
+    width: 49%;
+    height: 264px !important;
+  }
   .cartWrap .template-list-main .item {
     border-radius: 35px;
     background-color: #e7eff9;
@@ -4389,8 +4392,8 @@ line-height: 14px;
   width: 186.22px;
   height: 41.25px;
   position: absolute;
-  top: 479.892578125px;
-  left: 838.9296875px;
+  top: 495.892578125px;
+  left: 1060.9296875px;
   padding: 6px 15px;
   border-radius: 45px;
   gap: 10px;
@@ -4405,8 +4408,8 @@ line-height: 14px;
 .service-btn2{
   width: 187.44px;
   height: 41.25px;
-  top: 479.892578125px;
-  left: 1045.8359375px;
+  top: 495.892578125px;
+  left: 1270.8359375px;
   padding: 6px 15px 6px 15px;
   border-radius: 45px;
   gap: 10px;
