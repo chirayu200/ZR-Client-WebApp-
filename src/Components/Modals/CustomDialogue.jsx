@@ -131,7 +131,7 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                         <DialogContent>
                             <Box className='schedule-section-wrap'>
                                 <Box className='schedule-section-box'>
-                                    <Box className='schedule-section-action'>
+                                    <Box className='schedule-section-action f-21'>
                                         <CustomButton onClick={handleNext}
                                                       className='action-btn'
                                                       color='#E35205'
@@ -142,7 +142,7 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
                                     </Box>
                                 </Box>
                                 <Box className='schedule-section-box'>
-                                    <Box className='schedule-section-action'>
+                                    <Box className='schedule-section-action f-14'>
                                         <CustomButton onClick={() => navigate('/appointment')}
                                                       className='action-btn'
                                                       color='#003087'

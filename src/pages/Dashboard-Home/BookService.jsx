@@ -135,9 +135,9 @@ export default function BookService({handleNext, selected}) {
                     </Box>
                 </Box>
                 <Box className='appointment-dropdown book-service'>
-                    <InputLabel>Select your dog</InputLabel>
+                    <InputLabel>Select Your Dog</InputLabel>
                     <CustomDropdown
-                        placeHolder='Select your dog'
+                        placeHolder='Select Your Dog'
                         value={selectedOption}
                         onChange={handleDropdownChange}
                         options={dogList}

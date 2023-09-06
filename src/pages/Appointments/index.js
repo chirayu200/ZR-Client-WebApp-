@@ -10,20 +10,28 @@ import BookingTerms from "./BookingTerms";
 import BookingSuccess from "./BookingSuccess";
 import BuyCredit from "./BuyCredit";
 import {useNavigate} from "react-router-dom";
-
+import { getLocalData } from "../../Utils";
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
 export default function Appointment() {
     const [active, setActive] = useState(0);
     const navigate = useNavigate();
+    const [categoryId,setCategoryId] = useState('');
+    const [serviceId,setServiceId] = useState('');
+      
+    // const ClientId = encodeURIComponent(getLocalData('clientId'));
+    const selected={
+        categoryId:categoryId,
+        serviceId:serviceId
+    }
     const childComponent = [
-        {title: "Book An Appointment", component: <BookAppointment handleNext={() => setActive(1)}/>},
+        {title: "Book An Appointment", component: <BookAppointment handleNext={() => setActive(1)} setCategoryId={setCategoryId} setServiceId={setServiceId}/>},
         {title: "Confirm Booking", component: <ConfirmBooking handleNext={() => setActive(2)}/>},
-        {title: "Checkout", component: <Checkout handleNext={() => setActive(3)}/>},
+        {title: "Checkout", component: <Checkout handleNext={() => setActive(3)} setPage={setActive}/>},
         {title: "Book An Appointment", component: <BookingTerms handleNext={() => setActive(4)}/>},
         {title: "", component: <BookingSuccess handleBack={() => setActive(0)}/>},
-        {title: "Buy Credit", component: <BuyCredit handleBack={() => setActive(0)}/>},
+        {title: "Buy Credit", component: <BuyCredit handleBack={() => setActive(0)} selected={selected} />},
 
     ]
   const manageClick = () => {

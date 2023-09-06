@@ -153,7 +153,7 @@ export default function ExploreService({handleNext}) {
     return (
         <Box className='explore-main'>
             <Box className='filter-section'>
-                <Box className='days-section'>
+                <Box className='days-section no-space'>
                     
                     <CustomButton
                         color='#003087'
@@ -197,7 +197,7 @@ export default function ExploreService({handleNext}) {
                     <CustomDropdown
                         value={filters.scheduleType}
                         onChange={handleDropdownChange}
-                        placeHolder={filters.scheduleType || 'Filters'}
+                        placeHolder={filters.scheduleType || 'Filter'}
                         options={options}
                         name={'scheduleType'}
                         icon={downArrow}

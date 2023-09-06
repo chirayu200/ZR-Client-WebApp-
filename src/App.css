@@ -2157,9 +2157,9 @@ line-height: 14px;
   .dialog-actions p {
     color: #003087;
     text-align: center;
-    font-family: Bebas Neue;
-    font-size: 30px;
-    font-weight: 600;
+    font-family: 'Bebas Neue' !important;
+    font-size: 38px;
+    font-weight: 400;
     text-transform: uppercase;
   }
   
@@ -2179,7 +2179,7 @@ line-height: 14px;
   
   .schedule-section-wrap .schedule-section-box:nth-of-type(1) {
     background: url("./assets/images/banner1.jpg") center no-repeat;
-    background-size: cover;
+    background-size:cover;
   }
   
   .schedule-section-wrap .schedule-section-box:nth-of-type(2) {
@@ -2200,7 +2200,7 @@ line-height: 14px;
     width: 254px !important;
     padding: 10px !important;
     border: 0 !important;
-    font-family: Univers LT Std;
+    font-family: 'Univers LT Std' !important;
     font-size: 16px;
     text-transform: inherit;
     font-weight: 700;
@@ -2209,11 +2209,19 @@ line-height: 14px;
   .schedule-section-action p {
     color: #fff;
     text-align: center;
-    font-family: Univers LT Std;
-    font-size: 14px;
+    font-family: 'Univers LT Std' !important;
+    /* font-size: 21px; */
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 21px */
+  }
+
+  .f-21{
+    font-size: 21px !important;
+  }
+
+  .f-14{
+    font-size: 14px !important;
   }
   
   .header-text .dialog-link.MuiLink-root {
@@ -3012,6 +3020,11 @@ line-height: 14px;
     gap: 50px;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .no-space{
+    display: flex;
+    justify-content: flex-start !important;
   }
   
   .filter-section .days-section,

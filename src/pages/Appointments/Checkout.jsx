@@ -11,7 +11,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 
 const visaCard = require("../../assets/images/visaCard.svg").default;
-export default function Checkout({handleNext, buyNow}) {  // buyNow was available in function call like this - {handleNext, buyNow}
+export default function Checkout({handleNext, buyNow,setPage}) {  // buyNow was available in function call like this - {handleNext, buyNow}
     const [value, setValue] = useState("");
     const [selectedValue, setSelectedValue] = useState("payBy"); // Default selected value
     const [isChecked, setIsChecked] = useState(true);
@@ -55,6 +55,7 @@ export default function Checkout({handleNext, buyNow}) {  // buyNow was availabl
                             value='credits'
                             control={<Radio/>}
                             label='Use Credits'
+                            // onClick={() =>setPage(5)}
                         />
                         <FormControlLabel
                             value='payBy'
@@ -112,7 +113,7 @@ export default function Checkout({handleNext, buyNow}) {  // buyNow was availabl
                                 <Typography>Credit Used: 1</Typography>
                                 <Typography>Remaining: 3</Typography>
                                 <Link className="red-link-line">Credit Not Available,<Link className="link-line"
-                                    onClick={buyNow}>Buy
+                                    onClick={setPage(5)}>Buy
                                     Now</Link></Link>
 
                             </Box>
