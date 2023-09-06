@@ -7,7 +7,7 @@ console.log(initialState, 'initialStfdateinitialState');
     return (<>
 {initialState.userType === 'dog' && (
     <Box className="cartWrap profileCartWrap">
-        <Box className="template-list-main">
+        <Box className="template-list-main ">
             <Box className="trophyBoxHead">
                 <Typography className='heading'>
                     Meet {initialState?.dog?.firstName} - The Marvelous {initialState?.dog?.breed}
@@ -25,7 +25,7 @@ console.log(initialState, 'initialStfdateinitialState');
                 </Typography>
             </Box>
         </Box>
-        <Box className="template-list-main">
+        <Box className="template-list-main ">
             <Box className="trophyBoxHead">
                 <Typography className='heading'>
                     Completed Service
@@ -59,7 +59,7 @@ console.log(initialState, 'initialStfdateinitialState');
 
              {initialState.userType === 'client' && (
         <Box className="cartWrap profileCartWrap">
-            <Box className="template-list-main ">
+            <Box className="template-list-main template-list-about">
                 <Box className="trophyBoxHead"
 
                 >
@@ -80,7 +80,7 @@ console.log(initialState, 'initialStfdateinitialState');
 
 
             </Box>
-            <Box className="template-list-main ">
+            <Box className="template-list-main template-list-about">
                 <Box className="trophyBoxHead"
                 >
                     <Typography className='heading'>
