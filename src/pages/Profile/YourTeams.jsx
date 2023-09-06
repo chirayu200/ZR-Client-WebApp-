@@ -12,7 +12,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
     setInitialState({ ...initialState, userType: 'client' });
   };
 
-  console.log(initialState, 'detailsdetaifls');
+  console.log(details, 'detailsdetaifls');
 
   return (
     <Box className="template-list-main">
@@ -43,7 +43,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
           />
         </Box>
       )}
- {initialState.userType === 'dog' && initialState.selected !== '' && (
+ {initialState.userType === 'dog' && initialState.selected !== '' ? (
     <Box className="item">
                       <Box className="itemImgWrap">
                           <img src={initialState?.userType === 'dog' ? details?.profileImage : profileImg} alt="profile" />
@@ -68,10 +68,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
                       </Box>
 
                   </Box>
- )
-                            }
-
-      {initialState.userType === 'dog' && details?.pets?.length > 0 ? (
+ ) :(initialState.userType === 'dog'&&initialState.selected === '' && details?.pets?.length > 0 ? (
         details?.pets.map((pet, index) => (
           <Box key={index} className="item">
             <Box className="itemImgWrap">
@@ -96,7 +93,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
       ) : (
         <><Box className="item">
                       <Box className="itemImgWrap">
-                          <img src={initialState?.userType === 'dog' ? details?.profileImage : profileImg} alt="profile" />
+                          <img src={profileImg} alt="profile" />
                           <Box>
                               <Typography>
                                   {initialState.userType === 'dog'
@@ -142,6 +139,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
 
                       </Box></>
       )
+ )
     }
     </Box> // Add the missing closing </Box> tag hereelse condition then ho
     
