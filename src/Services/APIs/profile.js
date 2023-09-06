@@ -51,19 +51,42 @@ export const GetDogDetail = async (clientId, childId) => {
 
     }
 }
+
+
 export const CreateDogProfile = async (data) => {
+  try {
+    let formData = new FormData();
+    formData.append('clientId', data.clientId);
+    formData.append('profileImage', data.profileImage);
+    formData.append('firstName', data.firstName);
+    formData.append('lastName', data.lastName);
+    formData.append('gender', data.gender);
+    formData.append('breed', data.breed);
+    formData.append('birthDate', data.birthDate);
+    formData.append('strangers', data.strangers);
+    formData.append('possessive', data.possessive);
+    formData.append('biting', data.biting);
+    formData.append('barking', data.barking);
+    formData.append('advanced', data.advanced);
+    formData.append('acquisitionSource', data.acquisitionSource);
+    formData.append('notes', data.notes);
+    formData.append('veterinarian', data.veterinarian);
+    formData.append('allergies', data.allergies);
+    formData.append('social', data.social);
+    formData.append('rabiesExpiration', data.rabiesExpiration);
+    formData.append('bordetellaExpiration', data.bordetellaExpiration);
+    formData.append('dhppExpiration', data.dhppExpiration);
+    formData.append('createdBy', data.createdBy);
+    formData.append('status', data.status);
 
-    try {
-        return await ApiServices.post(
-            `${Base_URL}client/addChild`,data
-        );
+    const response = await ApiServices.post(`${Base_URL}client/addChild`, formData);
 
-    } catch (error) {
-        console.error(error.message);
-        return error;
-
-    }
-}
+    return response;
+  } catch (error) {
+    console.error(error.message);
+    return error;
+  }
+};
 export const UpdateDogProfile = async (payload, petId) => {
     console.log("Pet id is as follows",petId)
     const encodedPetId = encodeURIComponent(petId);

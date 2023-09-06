@@ -149,8 +149,10 @@ export default function AddPet({  initialState, handleNext }) {
         setSelectedFile(file);
     };
     const handleFileChange = (event) => {
-        const file = URL.createObjectURL(event.target.files[0]);
-        setSelectedFile(file);
+        console.log('clickedd');
+        const file = event.target.files[0];
+        const showImg = URL.createObjectURL(event.target.files[0])
+        setSelectedFile(showImg);
         console.log("file", file);
         setFormData({ ...formData, profileImage: file || '' })
     };
@@ -197,7 +199,7 @@ export default function AddPet({  initialState, handleNext }) {
                 (<Box className="addPetWrap">
                     <Box>
 
-                        <Box
+                    <Box
                             onClick={handleBoxClick}
                             className='profileUpload'
                             onDragEnter={handleDragEnter}
