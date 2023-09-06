@@ -13,6 +13,7 @@ const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 
 const DogProfile = ({initialState,setActive}) => {
     const [confirmOpen, setConfirmOpen] = useState(false);
+    const [selectedFile, setSelectedFile] = useState(null);
     const [errors, setErrors] = useState({});
 
     const [formData, setFormData] = useState({
@@ -54,6 +55,12 @@ const DogProfile = ({initialState,setActive}) => {
        
 
     }, [])
+    useEffect(() => {
+        if(initialState&&initialState?.selected&&initialState?.selected.profileImage){
+            setSelectedFile(initialState?.selected.profileImage)
+        }
+    }, [])
+    // setSelectedFile(formData.profileImage)
     const handleChange = (name, value) => {
         console.log(name, "name<=>value", value)
         if (name === 'completed') {
@@ -71,8 +78,10 @@ const DogProfile = ({initialState,setActive}) => {
         console.log('selectedd');
         if (e.target.files && e.target.files.length > 0) {
             const imageFile = e.target.files[0];
+            const imgObj = URL.createObjectURL(imageFile)
+            setSelectedFile(imgObj)
             if (imageFile) {
-                setFormData({...formData, profileImage: URL.createObjectURL(imageFile)})
+                setFormData({...formData, profileImage: imageFile})
             }
         }
     };
@@ -206,11 +215,13 @@ const DogProfile = ({initialState,setActive}) => {
         setConfirmOpen(false);
 
     }
+
+    console.log(formData, 'hhhhhhhhhh');
     return (
         <Box className='profile-main'>
             <Box className='dp-section'>
                 <img
-                    src={formData?.profileImage ? formData?.profileImage : petPlaceholder}
+                    src={formData?.profileImage ? selectedFile : petPlaceholder}
                     alt={'profile'}/>
                 <Box className='img-input'>
                     <img src={require('../../assets/images/camera-plus-outline.svg').default}

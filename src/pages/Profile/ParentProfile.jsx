@@ -31,6 +31,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [teamOpen, setTeamOpen] = useState(false);
     const [stateOptions, setStateOptions] = useState([]);
+    const [selectedFile, setSelectedFile] = useState(null);
     const [formData, setFormData] = useState({
         locationId: getLocalData('locationId'),
         location: '',
@@ -54,19 +55,27 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
         signature: null,
         policyCheck: false,
     });
-
+console.log(clientDetail, 'jfgjdfgjk');
     useEffect(() => {
         if (initialState) {
             setFormData(clientDetail)
         }
     }, [])
-
+    useEffect(() => {
+        if(clientDetail&&clientDetail?.profileImage){
+            setSelectedFile(clientDetail?.profileImage)
+        }
+    }, [])
     const [errors, setErrors] = useState({});
     const onSelectImage = (e) => {
+        const imageFile = e.target.files[0];
+        const imgObj = URL.createObjectURL(imageFile)
+        setSelectedFile(imgObj)
         if (e.target.files && e.target.files.length > 0) {
             const imageFile = e.target.files[0];
             if (imageFile) {
-                setFormData({ ...formData, profileImage: URL.createObjectURL(imageFile)})
+
+                setFormData({ ...formData, profileImage:imageFile })
             }
         }
     };
@@ -197,7 +206,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
         <Box className='profile-main'>
             <Box className='dp-section'>
                 <img
-                    src={formData?.profileImage ? formData?.profileImage : 'https://s3-alpha-sig.figma.com/img/113f/a25a/235312cc53dcd4c8780648145d59e3c2?Expires=1692576000&Signature=DQzFy6mNoe093Tu552CMN4nwwW0nU42rEroD07e71QJWs48DDCsgnsgvfnaCOaMbOon3Mj7is0UY2pDJfIOUONFU8zwxhWWJZDNUrS2ABweppFf7actt4IHk79tiHW36IA4KiwUn3rBVI2SjdLHeU-2IW3PKJvVAUfWpI0ISeLtRdH1ctUL5PS-YTrdSJa5eMfalB80~U7TtuZo2NaagKTaTLV7~eSWZ9GxY0E76TRqcBk5RpUj9bCMHOdqBJI1-bkgHc0xHxfkYc0tOEANljLZjBAzChNMf0fzu8huGK~WKKAKUVPYaYXa3rGwIZxE9eSABevElK2r6lOj-K6bauA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
+                    src={formData?.profileImage ? selectedFile : 'https://s3-alpha-sig.figma.com/img/113f/a25a/235312cc53dcd4c8780648145d59e3c2?Expires=1692576000&Signature=DQzFy6mNoe093Tu552CMN4nwwW0nU42rEroD07e71QJWs48DDCsgnsgvfnaCOaMbOon3Mj7is0UY2pDJfIOUONFU8zwxhWWJZDNUrS2ABweppFf7actt4IHk79tiHW36IA4KiwUn3rBVI2SjdLHeU-2IW3PKJvVAUfWpI0ISeLtRdH1ctUL5PS-YTrdSJa5eMfalB80~U7TtuZo2NaagKTaTLV7~eSWZ9GxY0E76TRqcBk5RpUj9bCMHOdqBJI1-bkgHc0xHxfkYc0tOEANljLZjBAzChNMf0fzu8huGK~WKKAKUVPYaYXa3rGwIZxE9eSABevElK2r6lOj-K6bauA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4'}
                     alt={'profile'} />
                 <Box className='img-input'>
                     <img src={require('../../assets/images/camera-plus-outline.svg').default}

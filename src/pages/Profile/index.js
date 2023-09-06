@@ -48,7 +48,7 @@ export default function ProfileMain({ clientDetail }) {
             />
         },
         {
-            title: 'Team',
+            title: 'Profile',
             component: <TeamPackHeader initialState={initialState}
                 setInitialState={setInitialState}
                 setActive={setActive}

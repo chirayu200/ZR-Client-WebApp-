@@ -19,7 +19,7 @@ export default function PublicProfile({details,handleNext, setActive, initialSta
     const [clientDetails, setclientDetails] = useState('')
 
     const [open, setOpen] = useState(false)
-    // const [isConnect, setIsConnect] = useState(true);
+    const [isConnect, setIsConnect] = useState(true);
     console.log(details, "detailssssss-----")
     useEffect(() => {
         getClientProfileProgressDetails();
@@ -88,10 +88,10 @@ if (birthDate && birthDate?.length > 0) {
                 <Box>
                 <Typography>{initialState.userType === 'client' ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}` : initialState.selected.firstName} </Typography>
                 <Typography>{initialState.userType === 'dog' ? `${initialState.selected?.breed}`  : 'Reward Points : 3102'} </Typography>
-                {initialState.userType === 'client' ? <Typography>1 Year Old</Typography> :
+                {initialState.userType === 'client' ? <Typography></Typography> :
                         <Typography>{`${yearsDiff} years and ${monthsDiff} months`} </Typography>}
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
-                   
+                    <Typography>{initialState.userType === 'client' && "Body - Universe"}</Typography>
 
 {/*                   
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography> */}
@@ -111,8 +111,8 @@ if (birthDate && birthDate?.length > 0) {
                 <Button className={selected === 0 && 'active'} onClick={() => setSelected(0)}>Profiles</Button>
                 <Button className={selected === 1 && 'active'} onClick={() => setSelected(1)}>Trophies</Button>
             </Box>
-            {/* {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 && !isConnect ? */}
-            {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 ?
+            {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 && !isConnect ?
+            // {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 ?
 
                 <Box className="cartWrap profileCartWrap">
                     {initialState.userType === 'dog' && initialState.selected !== '' ?
@@ -140,7 +140,7 @@ if (birthDate && birthDate?.length > 0) {
                            handleNext={() => {
                                setOpen(false);
                                setSelected(0);
-                            //    setIsConnect(false)
+                               setIsConnect(false)
                            }}/>
         </Box>
 
