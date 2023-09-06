@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
 import { Box } from "@mui/material";
-import {CustomButton} from "../../Components/CustomButton";
+import { CustomButton } from "../../Components/CustomButton";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import { Badge } from "@mui/material";
 import PersonAddOutlinedIcon from '@mui/icons-material/PersonAddOutlined';
@@ -22,38 +22,38 @@ const nextArrow = require("../../assets/images/chevron-up-orange.svg").default;
 
 const ProfilePartners = () => {
 
-    // progress bar logic
-// ..
-   
-// ..
-const [progress, setProgress] = React.useState(0);
+  // progress bar logic
+  // ..
 
-    React.useEffect(() => {
-      const timer = setInterval(() => {
-        setProgress((oldProgress) => {
-          if (oldProgress === 100) {
-            return 0;
-          }
-          const diff = Math.random() * 10;
-          return Math.min(oldProgress + diff, 100);
-        });
-      }, 500);
-  
-      return () => {
-        clearInterval(timer);
-      };
-    }, []);
+  // ..
+  const [progress, setProgress] = React.useState(0);
 
-    // progress bar logic end
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          return 0;
+        }
+        const diff = Math.random() * 10;
+        return Math.min(oldProgress + diff, 100);
+      });
+    }, 500);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  // progress bar logic end
 
   const [active, setActive] = useState(0);
   const navigate = useNavigate();
 
-  const handleTeam = ()=>{
+  const handleTeam = () => {
     navigate('your-team')
   }
 
-  const handleNewUser = ()=>{
+  const handleNewUser = () => {
     navigate('add-user')
   }
 
@@ -84,11 +84,11 @@ const [progress, setProgress] = React.useState(0);
                 }
               }}
             />
-          
 
-          <Typography sx={{color:"#003087",fontSize:"18px", margin:"10px", fontWeight:"700"}}> Profile</Typography>
+
+            <Typography sx={{ color: "#003087", fontSize: "18px", margin: "10px", fontWeight: "700" }}> Profile</Typography>
           </Box>
-          <Box  sx={{ width:"37px",height:"37px", borderRadius:"37px", marginRight:"10px"}}className="profile-cart">
+          <Box sx={{ width: "37px", height: "37px", borderRadius: "37px", marginRight: "10px" }} className="profile-cart">
             <PersonAddOutlinedIcon onClick={handleNewUser} />
           </Box>
         </Box>
@@ -107,42 +107,45 @@ const [progress, setProgress] = React.useState(0);
         alignItems="center"
         spacing={4}
       >
-        <Box sx={{ display:"flex", flexDirection:"row"}}>
-        <Box sx={{ margin:"20px",display:"flex", alignItems:"center"}}> <Avatar alt="John Smith" src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" sx={{ width: "130px", height: "130px" }}/></Box>
+        <Box sx={{ display: "flex", flexDirection: "row" }}>
+          <Box sx={{ margin: "20px", display: "flex", alignItems: "center" }}> <Avatar alt="John Smith" src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" sx={{ width: "130px", height: "130px" }} /></Box>
 
-<Box sx={{display: "flex", flexDirection:"column", justifyContent:"center"}}>
+          <Box sx={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
 
-<span style={{color:"#000",
-fontFamily: "Univers LT Std",
-fontSize: "30px",
-fontStyle: "normal",
-// fontweight: "700",
-fontWeight: 'bold'
-}}
-> John Smith </span>
+            <span style={{
+              color: "#000",
+              fontFamily: "Univers LT Std",
+              fontSize: "30px",
+              fontStyle: "normal",
+              // fontweight: "700",
+              fontWeight: 'bold'
+            }}
+            > John Smith </span>
 
-<span style={{color: "#003087",
-fontFamily: "Univers LT Std",
-fontSize: "14.857px",
-fontStyle: "normal",
-lineHeight: "normal"
-}}
->Reward Points: 3102</span>
+            <span style={{
+              color: "#003087",
+              fontFamily: "Univers LT Std",
+              fontSize: "14.857px",
+              fontStyle: "normal",
+              lineHeight: "normal"
+            }}
+            >Reward Points: 3102</span>
 
-<span style={{color: "#E35205",
-fontfamily: "Univers LT Std",
-fontSize: "17.333px",
-fontStyle: "normal",
-lineHeight: "normal",
-marginBottom:"20px",
-fontWeight: 'bold',
-marginTop:"5px"
-}}
->Gold Membership</span>
+            <span style={{
+              color: "#E35205",
+              fontfamily: "Univers LT Std",
+              fontSize: "17.333px",
+              fontStyle: "normal",
+              lineHeight: "normal",
+              marginBottom: "20px",
+              fontWeight: 'bold',
+              marginTop: "5px"
+            }}
+            >Gold Membership</span>
 
-{/* --ProfilePersonal--Progressbar */}
+            {/* --ProfilePersonal--Progressbar */}
 
-{/* <Box sx={{ marginTop:"-10px"}}>
+            {/* <Box sx={{ marginTop:"-10px"}}>
 
 <Box><span style={{color: "#003087",
 fontFamily: "Univers LT Std",
@@ -166,13 +169,13 @@ marginTop:"-20px"
 
 </Box> */}
 
-{/* --ProfilePersonal Progressbar end-- */}
+            {/* --ProfilePersonal Progressbar end-- */}
 
-</Box>
+          </Box>
 
 
 
-</Box>
+        </Box>
 
 
         <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -198,68 +201,68 @@ marginTop:"-20px"
             <CustomButton color="#003087" title={"Trophies"} /> */}
 
 
-<Button
-   style={{
-    width:"273px",
-    height:"63px",
-       borderRadius: 35,
-       backgroundColor: "#FFFFFF",
-       padding: "18px 36px",
-       color:"#003087", 
-textAlign: "center",
-fontFamily: "Univers LT Std",
-fontSize: "21.238px",
-fontStyle: "normal",
-fontWeight: "700",
-lineHeight: "normal",
- textTransform:"none"
-   }}
-   variant="contained"
->
-   About
-</Button>
+            <Button
+              style={{
+                width: "273px",
+                height: "63px",
+                borderRadius: 35,
+                backgroundColor: "#FFFFFF",
+                padding: "18px 36px",
+                color: "#003087",
+                textAlign: "center",
+                fontFamily: "Univers LT Std",
+                fontSize: "21.238px",
+                fontStyle: "normal",
+                fontWeight: "700",
+                lineHeight: "normal",
+                textTransform: "none"
+              }}
+              variant="contained"
+            >
+              About
+            </Button>
 
-<Button
-   style={{
-    width:"273px",
-    height:"63px",
-       borderRadius: 35,
-       backgroundColor: "#003087",
-       padding: "18px 36px",
-       color:"#FFFFFF", 
-textAlign: "center",
-fontFamily: "Univers LT Std",
-fontSize: "21.238px",
-fontStyle: "normal",
-fontWeight: "700",
-lineHeight: "normal",
- textTransform:"none"
-   }}
-   variant="contained"
->
-   Profiles
-</Button>
+            <Button
+              style={{
+                width: "273px",
+                height: "63px",
+                borderRadius: 35,
+                backgroundColor: "#003087",
+                padding: "18px 36px",
+                color: "#FFFFFF",
+                textAlign: "center",
+                fontFamily: "Univers LT Std",
+                fontSize: "21.238px",
+                fontStyle: "normal",
+                fontWeight: "700",
+                lineHeight: "normal",
+                textTransform: "none"
+              }}
+              variant="contained"
+            >
+              Profiles
+            </Button>
 
-<Button
-   style={{
-    width:"273px",
-    height:"63px",
-       borderRadius: 35,
-       backgroundColor: "#FFFFFF",
-       padding: "18px 36px",
-       color:"#003087", 
-textAlign: "center",
-fontFamily: "Univers LT Std",
-fontSize: "21.238px",
-fontStyle: "normal",
-fontWeight: "700",
-lineHeight: "normal",
-textTransform:"none"
-   }}
-   variant="contained"
->
-   Trophies
-</Button>
+            <Button
+              style={{
+                width: "273px",
+                height: "63px",
+                borderRadius: 35,
+                backgroundColor: "#FFFFFF",
+                padding: "18px 36px",
+                color: "#003087",
+                textAlign: "center",
+                fontFamily: "Univers LT Std",
+                fontSize: "21.238px",
+                fontStyle: "normal",
+                fontWeight: "700",
+                lineHeight: "normal",
+                textTransform: "none"
+              }}
+              variant="contained"
+            >
+              Trophies
+            </Button>
 
 
 
@@ -269,8 +272,8 @@ textTransform:"none"
           </Box>
         </Box>
 
-      
- {/* secondhalf */}
+
+        {/* secondhalf */}
 
         {/* 1 */}
         <Box
@@ -279,23 +282,24 @@ textTransform:"none"
             flexDirection: "row",
             alignItems: "center",
             gap: "20px",
-            justifyContent:"space-around"
+            justifyContent: "space-around"
           }}
         >
-        
 
-<Box className="purchaseCard" sx={{width:"820px", height:"236px", marginLeft:"-10px"}}>
-              <Box className="top">
-                
-                <Box sx={{ display:"flex", flexDirection:"row" ,justifyContent:"space-between", alignItems:"center"}}> 
-                 
-                  <Typography sx={{fontWeight: 'bold',
-                fontFamily: "Univers LT Std",
-                fontSize: "16px",
-                fontStyle: "normal",
+
+          <Box className="purchaseCard" sx={{ width: "820px", height: "236px", marginLeft: "-10px" }}>
+            <Box className="top">
+
+              <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+
+                <Typography sx={{
+                  fontWeight: 'bold',
+                  fontFamily: "Univers LT Std",
+                  fontSize: "16px",
+                  fontStyle: "normal",
                 }}>Your Team</Typography>
 
-                  <div className="vbtn" style={{}}>
+                <div className="vbtn" style={{}}>
                   {/* <CustomButton sx={{fontSize:"10px",marginRight:"-300px", fontWeight:"bold",height:"30px"}}
                     className=".viewall-btn"
                     title="View All"
@@ -305,254 +309,257 @@ textTransform:"none"
 
                     
                     /> */}
-                   
-                   <Button
-   style={{
-       borderRadius: 35,
-       backgroundColor: "#21b6ae",
-       fontSize: "12px",
-       height:"30px",
-       width:"106px",
-       padding: "7px 23px",
-       marginRight:"-730px"
-   }}
-   onClick={handleTeam}
-   variant="contained"
->
-   View All
-</Button>
 
-                  </div>
-
-
-                </Box>
-                
-
-              </Box>
-              <Box>
-                <Box
-                  className="item"
-                  sx={{ display: "flex", flexDirection: "column", alignItems: "center"   
-                  }}
-                >
-                    <Box sx={{display:"flex", flexDirection:"row",alignItems:"center", justifyContent:"space-between", marginLeft:"-200px", gap:"100px"}} >
-
-                <Box sx={{display:"flex",justifyContent:"space-around" ,width:"100%", marginRight:"200px"}} >
-                <Avatar
-                    alt="John Smith"
-                    src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
-                    sx={{marginRight:"15px"}}
-                  />
-
-                 
-
-                  
-                  <Box>
-                  <Typography>Ralph Edwards</Typography>
-                <Typography><span style={{color: "#003087"}}>Reward Points: 3214</span></Typography>
-                  </Box>
-                </Box>
-
-                  
-                  <Box sx={{marginRight:"-200px"}}> 
-                  {/* arrow */}
-                  <CustomButton sx={{width: "50px", marginLeft:"160px"}}
-                                            className='arrow-btn'
-                                            icon={nextArrow}/> 
-                        </Box>
-              
-                  </Box>
-
-                </Box>
-
-
-                <Box
-                  className="item"
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                    <Box sx={{display:"flex", flexDirection:"row",alignItems:"center", justifyContent:"space-between", marginLeft:"-200px", gap:"100px"}}  >
-
-                    <Box sx={{display:"flex",justifyContent:"space-around" ,width:"100%", marginRight:"200px"}} >
-                        
-                <Avatar
-                    alt="John Smith"
-                    src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
-                    sx={{marginRight:"15px"}}
-                  />
-
-                 
-
-                  
-                  <Box>
-                  <Typography>Therese Webb</Typography>
-                <Typography><span style={{color: "#003087"}}>Reward Points: 3214</span></Typography>
-                  </Box>
-                </Box>
-
-                  
-                <Box sx={{marginRight:"-200px"}}> <CustomButton sx={{width: "50px", marginLeft:"160px"}}
-                                            className='arrow-btn'
-                                            icon={nextArrow}/> 
-                        </Box>
-                  </Box>
-
-                </Box>
-              </Box>
-           
-          </Box>
- {/* 2 */}
-          
-            <Box className="purchaseCard" sx={{width:"820px", height:"236px", marginLeft:"-10px"}}>
-              <Box className="top">
-                <Box sx={{ display:"flex", flexDirection:"row" ,justifyContent:"space-around", alignItems:"center"}}>
-                  <Typography sx={{fontWeight: 'bold',
-                fontFamily: "Univers LT Std",
-                fontSize: "16px",
-                fontStyle: "normal",
-                }}>Your Pack</Typography>
-                  
-                  <div className="vbtn">
-                  
                   <Button
-   style={{
-       borderRadius: 35,
-       backgroundColor: "#21b6ae",
-       fontSize: "12px",
-       height:"30px",
-       width:"106px",
-       padding: "7px 23px",
-       marginRight:"-730px"
-   }}
-   
-   variant="contained"
->
-   View All
-</Button>
+                    style={{
+                      borderRadius: 35,
+                      backgroundColor: "#21b6ae",
+                      fontSize: "12px",
+                      height: "30px",
+                      width: "106px",
+                      padding: "7px 23px",
+                      marginRight: "-730px"
+                    }}
+                    onClick={handleTeam}
+                    variant="contained"
+                  >
+                    View All
+                  </Button>
 
-                   
+                </div>
 
+
+              </Box>
+
+
+            </Box>
+            <Box>
+              <Box
+                className="item"
+                sx={{
+                  display: "flex", flexDirection: "column", alignItems: "center"
+                }}
+              >
+                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginLeft: "-200px", gap: "100px" }} >
+
+                  <Box sx={{ display: "flex", justifyContent: "space-around", width: "100%", marginRight: "200px" }} >
+                    <Avatar
+                      alt="John Smith"
+                      src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                      sx={{ marginRight: "15px" }}
+                    />
+
+
+
+
+                    <Box>
+                      <Typography>Ralph Edwards</Typography>
+                      <Typography><span style={{ color: "#003087" }}>Reward Points: 3214</span></Typography>
+                    </Box>
+                  </Box>
+
+
+                  <Box sx={{ marginRight: "-200px" }}>
+                    {/* arrow */}
+                    <CustomButton sx={{ width: "50px", marginLeft: "160px" }}
+                      className='arrow-btn'
+                      icon={nextArrow} />
+                  </Box>
+
+                </Box>
+
+              </Box>
+
+
+              <Box
+                className="item"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", marginLeft: "-200px", gap: "100px" }}  >
+
+                  <Box sx={{ display: "flex", justifyContent: "space-around", width: "100%", marginRight: "200px" }} >
+
+                    <Avatar
+                      alt="John Smith"
+                      src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                      sx={{ marginRight: "15px" }}
+                    />
+
+
+
+
+                    <Box>
+                      <Typography>Therese Webb</Typography>
+                      <Typography><span style={{ color: "#003087" }}>Reward Points: 3214</span></Typography>
+                    </Box>
+                  </Box>
+
+
+                  <Box sx={{ marginRight: "-200px" }}> <CustomButton sx={{ width: "50px", marginLeft: "160px" }}
+                    className='arrow-btn'
+                    icon={nextArrow} />
+                  </Box>
+                </Box>
+
+              </Box>
+            </Box>
+
+          </Box>
+          {/* 2 */}
+
+          <Box className="purchaseCard" sx={{ width: "820px", height: "236px", marginLeft: "-10px" }}>
+            <Box className="top">
+              <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
+                <Typography sx={{
+                  fontWeight: 'bold',
+                  fontFamily: "Univers LT Std",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                }}>Your Pack</Typography>
+
+                <div className="vbtn">
+
+                  <Button
+                    style={{
+                      borderRadius: 35,
+                      backgroundColor: "#21b6ae",
+                      fontSize: "12px",
+                      height: "30px",
+                      width: "106px",
+                      padding: "7px 23px",
+                      marginRight: "-730px"
+                    }}
+
+                    variant="contained"
+                  >
+                    View All
+                  </Button>
+
+
+
+                </div>
+
+              </Box>
+            </Box>
+
+
+            <Box>
+              <Box
+                className="item"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center"
+
+                }}
+              >
+                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", }} >
+
+                  <Box sx={{ display: "flex", justifyContent: "space-around", width: "100%", marginRight: "200px" }} >
+                    <Avatar
+                      alt="John Smith"
+                      src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                      sx={{ marginRight: "15px" }}
+                    />
+
+
+
+
+                    <Box>
+                      <Typography>Cooper</Typography>
+                      <Typography><span style={{ color: "#003087" }}>Marvin McKinney</span></Typography>
+                    </Box>
+                  </Box>
+
+
+                  <Box sx={{ marginLeft: "150px" }}>
+                    <Typography><span style={{ color: "#E35205" }}>Firedog</span></Typography>
+                  </Box>
+
+                  <div className="arrow-btn">
+                    <CustomButton sx={{ width: "50px", marginLeft: "10px" }}
+                      className='arrow-btn'
+                      icon={nextArrow}
+                      backgroundColor='#fff'
+                    // onClick={() => setActive(0)}
+                    />
                   </div>
-       
                 </Box>
+
               </Box>
 
 
-              <Box>
-                <Box
-                  className="item"
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center"
-                    
-                  }}
-                >
-                    <Box sx={{display:"flex", flexDirection:"row",alignItems:"center", }} >
-                        
-                <Box sx={{display:"flex",justifyContent:"space-around" ,width:"100%", marginRight:"200px"}} >
-                <Avatar
-                    alt="John Smith"
-                    src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
-                   sx={{marginRight:"15px"}}
-                  />
+              <Box
+                className="item"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
+                <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", }} >
 
-                 
+                  <Box sx={{ display: "flex", justifyContent: "space-around", width: "100%", marginRight: "200px" }} >
+                    <Avatar
+                      alt="John Smith"
+                      src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                      sx={{ marginRight: "15px" }}
+                    />
 
-                  
-                  <Box>
-                    <Typography>Cooper</Typography>
-                  <Typography><span style={{color: "#003087"}}>Marvin McKinney</span></Typography>
+
+
+
+                    <Box>
+                      <Typography>Max</Typography>
+                      <Typography><span style={{ color: "#003087" }}>Theresa Web</span></Typography>
+                    </Box>
                   </Box>
-                </Box>
 
-                  
-                <Box sx={{ marginLeft:"150px"}}>
-                  <Typography><span style={{color: "#E35205"}}>Firedog</span></Typography>
+
+                  <Box sx={{ marginLeft: "150px" }}>
+                    <Typography><span style={{ color: "#E35205" }}>Underdog</span></Typography>
                   </Box>
 
                   <div className="arrow-btn">
-                  <CustomButton sx={{width: "50px", marginLeft:"10px"}}
-                                            className='arrow-btn'
-                                            icon={nextArrow}
-                                            backgroundColor='#fff'
-                                            // onClick={() => setActive(0)}
-                                        />   
-</div>  
-                  </Box>
-
+                    <CustomButton sx={{ width: "50px", marginLeft: "10px" }}
+                      className='arrow-btn'
+                      color='#red'
+                      icon={nextArrow}
+                      backgroundColor='#fff'
+                    // onClick={() => setActive(0)}
+                    />
+                  </div>
                 </Box>
 
-
-                <Box
-                  className="item"
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                    <Box sx={{display:"flex", flexDirection:"row",alignItems:"center", }} >
-
-                <Box sx={{display:"flex",justifyContent:"space-around" ,width:"100%", marginRight:"200px"}} >
-                <Avatar
-                    alt="John Smith"
-                    src="https://th.bing.com/th?id=OIP.wRtvON_8JKRQghdROw5QvQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
-                    sx={{marginRight:"15px"}}
-                  />
-
-                 
-
-                  
-<Box>
-                    <Typography>Max</Typography>
-                  <Typography><span style={{color: "#003087"}}>Theresa Web</span></Typography>
-                  </Box>
-                </Box>
-
-                  
-                <Box sx={{ marginLeft:"150px"}}>
-                  <Typography><span style={{color: "#E35205"}}>Underdog</span></Typography>
-                  </Box>
-
-                  <div className="arrow-btn">
-                  <CustomButton sx={{width: "50px", marginLeft:"10px"}}
-                                            className='arrow-btn'
-                                            color='#red'
-                                            icon={nextArrow}
-                                            backgroundColor='#fff'
-                                            // onClick={() => setActive(0)}
-                                        />   
-</div>  
-                  </Box>
-
-                </Box>
               </Box>
-           
+            </Box>
+
           </Box>
 
           {/* end */}
           <Box>
-          <Box
-             style={{display: "flex",
-             width: "77px",
-             height: "77px",
+            <Box
+              style={{
+                display: "flex",
+                width: "77px",
+                height: "77px",
                 flexdirection: "column",
                 justifycontent: "center",
                 alignitems: "center",
                 borderRadius: "80px",
                 background: "#003087",
-                padding: "8px",position:"absolute",
-                right:"50px",
-                bottom:"80px"
-                }}
-          >
- <ChatIcon sx={{color:"white",fontSize:"30px",display:"flex", alignItems:"center", justifyContent:"center", width:"32px", height:"32px",margin:"16px"}}/>
+                padding: "8px", position: "absolute",
+                right: "50px",
+                bottom: "80px"
+              }}
+            >
+              <ChatIcon sx={{ color: "white", fontSize: "30px", display: "flex", alignItems: "center", justifyContent: "center", width: "32px", height: "32px", margin: "16px" }} />
+            </Box>
           </Box>
-        </Box>
 
         </Box>
       </Stack>
