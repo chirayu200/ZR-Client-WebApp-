@@ -212,7 +212,7 @@ export default function Memberships({ handleNext, clientDetail }) {
 					</Box>
 				</Box>
 				<Box className="historyBox" onClick={() => {
-						handleNext('History', clientDetail);
+						handleNext('Purchase History', clientDetail);
 
 					}}>
 					

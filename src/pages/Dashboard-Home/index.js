@@ -84,14 +84,14 @@ export default function Home({clientDetail}) {
                         <Box className='dashboard-mid-section'>
                             {/*to uncoomet this section you need to comment the classname and then uncomment the only schedule section class and comment the below boxes then uncommnt this section*/}
                             <Box
-                                className='schedule-section second-section'
-                                className='schedule-section'
+                                 className='schedule-section second-section'
+                                // className='schedule-section'
                             >
-                                <Box className='visit-schedule' onClick={() => setOpen(true)}>
+                                {/* <Box className='visit-schedule' onClick={() => setOpen(true)}>
 							<Typography>SCHEDULE A VISIT</Typography>
 							<img src={dog} alt='dog' />
-						</Box>
-                                {/* <Box className='main-schedule-box'>
+						</Box> */}
+                                <Box className='main-schedule-box'>
                                     <YourSchedule/>
                                     <Box className='class-footer'>
                                         <Box className='visit-history'>
@@ -102,7 +102,7 @@ export default function Home({clientDetail}) {
                                         <Link onClick={() => setOpen(true)} className='link-line'>+Schedule A
                                             Visit</Link>
                                     </Box>
-                                </Box> */}
+                                </Box>
 
                             </Box>
                             <Box className='achievements-section'>

@@ -35,6 +35,7 @@ export default function ShopMain({clientDetail}) {
     //         })
 
     // }, [clientDetail])
+    console.log(clientDetail, 'clientDetailclientDetailclientDetail');
     const handleListScreen = (type) => {
         setActive(1)
         setSelectedType(type);

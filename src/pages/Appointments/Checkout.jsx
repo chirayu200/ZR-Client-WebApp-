@@ -11,7 +11,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 
 const visaCard = require("../../assets/images/visaCard.svg").default;
-export default function Checkout({handleNext, buyNow}) {
+export default function Checkout({handleNext, buyNow}) {  // buyNow was available in function call like this - {handleNext, buyNow}
     const [value, setValue] = useState("");
     const [selectedValue, setSelectedValue] = useState("payBy"); // Default selected value
     const [isChecked, setIsChecked] = useState(true);
