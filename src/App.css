@@ -1,387 +1,395 @@
 @font-face {
-    font-family: "Univers LT Std";
-    src: url("assets/fonts/UniversLTStd.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Myriad Pro";
-    src: url("assets/fonts/MYRIADPRO-REGULAR.woff") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Bebas Neue";
-    src: url("assets/fonts/BebasNeue-Regular.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Inter";
-    src: url("assets/fonts/BebasNeue-Regular.ttf") format("truetype");
-  }
-  
-  /* circular progress */
-  .progress-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  
-  /* Splash */
-  .splash-container {
-    height: 100vh;
-    /* height: 100%; */
-    max-width: 396px !important;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .splash-container.MuiContainer-root {
-    padding: 0 !important;
-    box-sizing: unset !important;
-  }
-  
-  .splash-container .typo-logo {
-    margin: 0 auto 112px;
-    text-align: center;
-  }
-  
-  .splash-logo {
-    margin-bottom: 20px;
-    height: 233px;
-    width: 230px;
-  }
-  
-  .splash-container .typo-logo p {
-    font-size: 20px;
-    font-weight: 600;
-    color: #003087;
-  }
-  
-  .splash-container .splash-btn {
-    display: flex;
-    height: 150px;
-    width: 100%;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 2;
-  }
-  .splash-btn button {
-    font-size: 18px;
-    font-weight: 600;
-  }
-  /* splash End */
-  /* sign up */
-  .signup-container.MuiContainer-root {
-    background-color: #e35205;
-    height: 100%;
-    padding: 0 !important;
-    max-width: 100% !important;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .signup-container .signup-header {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
-    padding: 25px 0;
-    flex: 1 1 auto;
-  }
-  
-  .signup-container .signup-main {
-    background-color: #fff;
-    border-top-left-radius: 54px;
-    border-top-right-radius: 54px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .signup-main .social-signup {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .divider {
-    background-color: #003087;
-    border-radius: 54px;
-    width: 132px;
-    height: 9px;
-    margin: 11px auto !important;
-  }
-  
-  .signup-main .signup-tabs-main .signup-tabs {
-    background-color: #003087;
-    border-radius: 10px;
-    width: 591px;
-  }
-  
-  .signup-tabs .MuiTabs-flexContainer {
-    padding: 5px;
-  }
-  
-  .signup-tabs .MuiTab-root {
-    color: #fff;
-  }
-  
-  .signup-tabs .Mui-selected {
-    color: #003087 !important;
-    background: white;
-    border-radius: 10px;
-  }
-  
-  .signup-tabs .MuiTabs-indicator {
-    display: none !important;
-  }
-  
-  .signup-main .signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    width: 591px;
-    padding: 20px;
-  }
-  
-  .signup-form .form-fullwidth-field {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .form-fullwidth-field .field-section {
-    width: 50%;
-  }
-  
-  .form-fullwidth-field .field-section label {
-    color: #5b5b5b;
-    font-family: Myriad Pro;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 125%; /* 22.5px */
-    text-transform: capitalize;
-  }
-  
-  .signup-form label {
-    color: #5b5b5b;
-    font-family: Myriad Pro;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 125%; /* 22.5px */
-    text-transform: capitalize;
-  }
-  
-  .signup-form .MuiFormHelperText-root {
-    margin-left: 4px !important;
-  }
-  
-  .signup-form .MuiInputBase-root.MuiOutlinedInput-root {
-    border-radius: 10px !important;
-  }
-  
-  .signup-form
-    .MuiButtonBase-root.MuiCheckbox-root.MuiCheckbox-indeterminate.Mui-checked {
-    color: #e35205 !important;
-  }
-  
-  .signup-form .remember-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #525252;
-    font-family: Myriad Pro;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 125%; /* 17.5px */
-    text-transform: capitalize;
-  }
-  
-  .forgot-link.MuiTypography-root.MuiLink-root {
-    color: #003087;
-    text-decoration: none;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  
-  .signup-footer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 5%;
-    margin-bottom: 20px;
-  }
-  
-  .signup-footer .line {
-    height: 0.801px;
-    width: 153.934px;
-    background: #d8dadc;
-  }
-  
-  .signup-footer p {
-    color: rgba(0, 0, 0, 0.7);
-    font-family: Myriad Pro;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 125%; /* 20px */
-    text-transform: capitalize;
-  }
-  
-  /* signup end */
-  /* forgot Password */
-  .forgot-main {
-    display: flex;
-    align-items: stretch;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    gap: 40px;
-  
-    padding: 60px 0;
-    min-width: 561px;
-  }
-  
-  .forgot-main h3 {
-    color: #003087;
-    font-family: Myriad Pro;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 130%; /* 39px */
-    letter-spacing: -0.3px;
-    text-transform: uppercase;
-  }
-  
-  .forgot-main .forgot-description {
-    color: #525252;
-    font-family: Myriad Pro;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 125%; /* 20px */
-  }
-  
-  .forgot-main .MuiOutlinedInput-notchedOutline {
-    border-radius: 10px !important;
-  }
-  
-  .circle-back-btn.MuiButtonBase-root.MuiButton-root {
-    border-radius: 50%;
-    border: 1px solid #e35205;
-    background: #fff;
-    color: #003087;
-    height: 35px;
-    min-width: 35px;
-    width: 35px;
-    box-shadow: none;
-    margin-bottom: 20px;
-  }
-  
-  .circle-back-btn.MuiButtonBase-root.MuiButton-root:hover {
-    background: #fff;
-    color: #003087;
-  }
-  
-  .circle-back-btn .MuiButton-startIcon {
-    margin: 0px auto 0px 6px;
-  }
-  
-  .forgot-main .send-code {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 5px;
-  }
-  
-  .error-danger {
-    color: #f54135;
-    font-family: Myriad Pro;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 125%; /* 20px */
-    text-transform: capitalize;
-  }
-  
-  .password-success {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  /* end */
-  /* Dashboard Start */
-  .global.MuiBox-root {
-    background: #e7eff9 !important;
-    height: auto;
-  }
-  
-  .dashboard-container.MuiContainer-root.MuiContainer-maxWidthLg {
-    margin: 0;
-    padding: 20px;
-    max-width: 100%;
-    /* margin-top: -60px; */
-  }
-  
-  .top-header {
-    width: 100%;
-    background: #fff;
-    border-radius: 40px;
-    padding: 15.3px 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-  }
-  
-  .top-header .header-btn {
-    font-weight: 700;
-    padding: 10px 75px !important;
-  }
-  
-  .dashboard-container .dashboard-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1%;
-  }
-  
-  .notification-section.MuiButtonBase-root {
-    color: #003087;
-    cursor: pointer;
-    padding: 0;
-    width: max-content;
-    min-width: auto;
-  }
-  
-  .notification-section .MuiSvgIcon-root {
-    height: 27px;
-    width: 26px;
-    margin-right: -3px;
-  }
+  font-family: "Univers LT Std";
+  src: url("assets/fonts/UniversLTStd.ttf") format("truetype");
+}
 
-  .MuiBadge-badge.MuiBadge-dot {
-      background-color: #F14F1B;
-      top:9px;
-  }
-  
-  
-  /* .header-text.MuiTypography-root.MuiTypography-body1 {
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("assets/fonts/MYRIADPRO-REGULAR.woff") format("truetype");
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/BebasNeue-Regular.ttf") format("truetype");
+}
+
+/* circular progress */
+.progress-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Splash */
+.splash-container {
+  height: 100vh;
+  /* height: 100%; */
+  max-width: 396px !important;
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-container.MuiContainer-root {
+  padding: 0 !important;
+  box-sizing: unset !important;
+}
+
+.splash-container .typo-logo {
+  margin: 0 auto 112px;
+  text-align: center;
+}
+
+.splash-logo {
+  margin-bottom: 20px;
+  height: 233px;
+  width: 230px;
+}
+
+.splash-container .typo-logo p {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003087;
+}
+
+.splash-container .splash-btn {
+  display: flex;
+  height: 150px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 2;
+}
+
+.splash-btn button {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* splash End */
+/* sign up */
+.signup-container.MuiContainer-root {
+  background-color: #e35205;
+  height: 100%;
+  padding: 0 !important;
+  max-width: 100% !important;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-container .signup-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  padding: 25px 0;
+  flex: 1 1 auto;
+}
+
+.signup-container .signup-main {
+  background-color: #fff;
+  border-top-left-radius: 54px;
+  border-top-right-radius: 54px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-main .social-signup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.divider {
+  background-color: #003087;
+  border-radius: 54px;
+  width: 132px;
+  height: 9px;
+  margin: 11px auto !important;
+}
+
+.signup-main .signup-tabs-main .signup-tabs {
+  background-color: #003087;
+  border-radius: 10px;
+  width: 591px;
+}
+
+.signup-tabs .MuiTabs-flexContainer {
+  padding: 5px;
+}
+
+.signup-tabs .MuiTab-root {
+  color: #fff;
+}
+
+.signup-tabs .Mui-selected {
+  color: #003087 !important;
+  background: white;
+  border-radius: 10px;
+}
+
+.signup-tabs .MuiTabs-indicator {
+  display: none !important;
+}
+
+.signup-main .signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 591px;
+  padding: 20px;
+}
+
+.signup-form .form-fullwidth-field {
+  display: flex;
+  gap: 20px;
+}
+
+.form-fullwidth-field .field-section {
+  width: 50%;
+}
+
+.form-fullwidth-field .field-section label {
+  color: #5b5b5b;
+  font-family: Myriad Pro;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  /* 22.5px */
+  text-transform: capitalize;
+}
+
+.signup-form label {
+  color: #5b5b5b;
+  font-family: Myriad Pro;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  /* 22.5px */
+  text-transform: capitalize;
+}
+
+.signup-form .MuiFormHelperText-root {
+  margin-left: 4px !important;
+}
+
+.signup-form .MuiInputBase-root.MuiOutlinedInput-root {
+  border-radius: 10px !important;
+}
+
+.signup-form .MuiButtonBase-root.MuiCheckbox-root.MuiCheckbox-indeterminate.Mui-checked {
+  color: #e35205 !important;
+}
+
+.signup-form .remember-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #525252;
+  font-family: Myriad Pro;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  /* 17.5px */
+  text-transform: capitalize;
+}
+
+.forgot-link.MuiTypography-root.MuiLink-root {
+  color: #003087;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.signup-footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  margin-bottom: 20px;
+}
+
+.signup-footer .line {
+  height: 0.801px;
+  width: 153.934px;
+  background: #d8dadc;
+}
+
+.signup-footer p {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Myriad Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  /* 20px */
+  text-transform: capitalize;
+}
+
+/* signup end */
+/* forgot Password */
+.forgot-main {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+
+  padding: 60px 0;
+  min-width: 561px;
+}
+
+.forgot-main h3 {
+  color: #003087;
+  font-family: Myriad Pro;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  /* 39px */
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+}
+
+.forgot-main .forgot-description {
+  color: #525252;
+  font-family: Myriad Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  /* 20px */
+}
+
+.forgot-main .MuiOutlinedInput-notchedOutline {
+  border-radius: 10px !important;
+}
+
+.circle-back-btn.MuiButtonBase-root.MuiButton-root {
+  border-radius: 50%;
+  border: 1px solid #e35205;
+  background: #fff;
+  color: #003087;
+  height: 35px;
+  min-width: 35px;
+  width: 35px;
+  box-shadow: none;
+  margin-bottom: 20px;
+}
+
+.circle-back-btn.MuiButtonBase-root.MuiButton-root:hover {
+  background: #fff;
+  color: #003087;
+}
+
+.circle-back-btn .MuiButton-startIcon {
+  margin: 0px auto 0px 6px;
+}
+
+.forgot-main .send-code {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.error-danger {
+  color: #f54135;
+  font-family: Myriad Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%;
+  /* 20px */
+  text-transform: capitalize;
+}
+
+.password-success {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+/* end */
+/* Dashboard Start */
+.global.MuiBox-root {
+  background: #e7eff9 !important;
+  height: auto;
+}
+
+.dashboard-container.MuiContainer-root.MuiContainer-maxWidthLg {
+  margin: 0;
+  padding: 20px;
+  max-width: 100%;
+  /* margin-top: -60px; */
+}
+
+.top-header {
+  width: 100%;
+  background: #fff;
+  border-radius: 40px;
+  padding: 15.3px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.top-header .header-btn {
+  font-weight: 700;
+  padding: 10px 75px !important;
+}
+
+.dashboard-container .dashboard-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1%;
+}
+
+.notification-section.MuiButtonBase-root {
+  color: #003087;
+  cursor: pointer;
+  padding: 0;
+  width: max-content;
+  min-width: auto;
+}
+
+.notification-section .MuiSvgIcon-root {
+  height: 27px;
+  width: 26px;
+  margin-right: -3px;
+}
+
+.MuiBadge-badge.MuiBadge-dot {
+  background-color: #F14F1B;
+  top: 9px;
+}
+
+
+/* .header-text.MuiTypography-root.MuiTypography-body1 {
     color: var(--primary-blue, #003087);
     font-family: Univers LT Std;
     font-size: 16px;
@@ -389,758 +397,753 @@
     font-weight: 700;
     line-height: normal;
   } */
-  
-  .header-text span {
-    color: #f14f1b;
-    font-weight: 700;
-  }
-  
-  .warning-section {
-    width: 100%;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    padding: 20.2px 21px;
-    align-items: center;
-    border-radius: 50px;
-    background: #fff0e8;
-    gap: 11px;
-  }
-  
-  .warning-section p {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .dashboard-container .dashboard-mid-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 2%;
-  }
-  
-  .dashboard-mid-section .schedule-section {
-    width: 42%;
-    height: 297px;
-    border-radius: 20px;
-    background: linear-gradient(
-      180deg,
+
+.header-text span {
+  color: #f14f1b;
+  font-weight: 700;
+}
+
+.warning-section {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  padding: 20.2px 21px;
+  align-items: center;
+  border-radius: 50px;
+  background: #fff0e8;
+  gap: 11px;
+}
+
+.warning-section p {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dashboard-container .dashboard-mid-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 2%;
+}
+
+.dashboard-mid-section .schedule-section {
+  width: 42%;
+  height: 297px;
+  border-radius: 20px;
+  background: linear-gradient(180deg,
       #32b2ac 62.33%,
       #289691 92.01%,
-      #1f807b 100%
-    );
-  }
-  
-  .schedule-section .visit-schedule {
-    display: flex;
-    cursor: pointer;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 168px 0px 168px;
-    height: 100%;
-  }
-  
-  .visit-schedule p {
-    color: #fff;
-    text-align: center;
-    font-family: Bebas Neue;
-    font-size: 45px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 111.3%; /* 50.085px */
-  }
-  
-  .dashboard-container .achievements-section {
-    width: 58%;
-    padding: 35px;
-    border-radius: 20px;
-    height: 297px;
-    background: #fff;
-  }
-  
-  .achievements-section .viewAllBtn,
-  .trophyBoxHead .viewAllBtn {
-    width: 119px;
-    height: 37px;
-    padding: 6px 23px 7px 23px !important;
-  }
-  
-  .top-achieved-list {
-    margin-top: 20px;
-    width: 100%;
-    border-radius: 20px;
-    /* height: 458px; */
-    height: 100%;
-    background: #fff;
-    padding: 30px;
-  }
-  
-  .top-achieved-list .achieved-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .achieved-header .heading {
-    color: var(--c-1, #003087);
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .top-achieved-list .description {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: capitalize;
-    margin-bottom: 20px;
-  }
+      #1f807b 100%);
+}
+
+.schedule-section .visit-schedule {
+  display: flex;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 168px 0px 168px;
+  height: 100%;
+}
+
+.visit-schedule p {
+  color: #fff;
+  text-align: center;
+  font-family: Bebas Neue;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 111.3%;
+  /* 50.085px */
+}
+
+.dashboard-container .achievements-section {
+  width: 58%;
+  padding: 35px;
+  border-radius: 20px;
+  height: 297px;
+  background: #fff;
+}
+
+.achievements-section .viewAllBtn,
+.trophyBoxHead .viewAllBtn {
+  width: 119px;
+  height: 37px;
+  padding: 6px 23px 7px 23px !important;
+}
+
+.top-achieved-list {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 20px;
+  /* height: 458px; */
+  height: 100%;
+  background: #fff;
+  padding: 30px;
+}
+
+.top-achieved-list .achieved-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.achieved-header .heading {
+  color: var(--c-1, #003087);
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.top-achieved-list .description {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
 
 
 
-  .arrow-btn {
-    border-radius: 50% !important;
-    padding: 0 !important;
-    height: 39px !important;
-    min-width: 41px !important;
-  }
-  
-  .holders-item {
-    border-radius: 50px;
-    background: #e7eff9;
-    box-shadow: 0px 1.1576770544052124px 12.734447479248047px 0px
-      rgba(0, 0, 0, 0.05);
-    height: 63px;
-    width: 100%;
-    padding: 0 130px 0 35px;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .holders-item.selected {
-    background: #003087;
-  }
-  
-  .holders-item p {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    text-transform: capitalize;
-  }
-  
-  .holders-item.selected p {
-    color: #fff;
-   
-  }
-  
-  .holders-item.selected .text {
-    color: #003087;
-  }
-  
-  /* .holders-item .text {
+.arrow-btn {
+  border-radius: 50% !important;
+  padding: 0 !important;
+  height: 39px !important;
+  min-width: 41px !important;
+}
+
+.holders-item {
+  border-radius: 50px;
+  background: #e7eff9;
+  box-shadow: 0px 1.1576770544052124px 12.734447479248047px 0px rgba(0, 0, 0, 0.05);
+  height: 63px;
+  width: 100%;
+  padding: 0 130px 0 35px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.holders-item.selected {
+  background: #003087;
+}
+
+.holders-item p {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.holders-item.selected p {
+  color: #fff;
+
+}
+
+.holders-item.selected .text {
+  color: #003087;
+}
+
+/* .holders-item .text {
     color: #fff;
    margin-right: -15px;
   } */
-  
-  
-  .holders-item .item-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .item-content .first-section {
-    gap: 10%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .first-section .border-white {
-    border: 3px solid transparent;
-    border-radius: 50%;
-  }
-  
-  .first-section .avatar {
-    border: 3px solid #e35205;
-    border-radius: 50%;
-  }
-  
-  .holders-item.selected .counter {
-    background-color: #ffff !important;
-  }
-  
-  .holders-item.selected .counter {
-    color: #003087;
-  }
-  
-  .items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 3) .counter {
-    background-color: #32b2ac;
-  }
-  
-  .items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 2) .counter {
-    background-color: #003087;
-  }
-  
-  .items-wrapper > .MuiStack-root.holders-item:nth-of-type(3n + 1) .counter {
-    background-color: #e35205;
-   
-  }
-  
-  .first-section .counter {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .simpleBarImg {
-    width: 75px;
-    /* margin-left:-8px; */
-    height: 40px;
-  }
-  
-  .dottedImg {
-    width: 75px;
-  }
-  
-  .adjBonImg {
-    height: 52px;
-  }
-  
-  .stepText {
-    color: #000;
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    display: block;
-  }
-  
-  .circlePBar .MuiCircularProgress-circle {
-    stroke-width: 2 !important;
-  }
-  
-  .adjDogImg {
-    width: 53.913px;
-    height: 58.261px;
-    border-radius: 50%;
-  }
-  
-  /* End */
-  /* ---------------------M-styling start---------------- */
-  html,
-  body,
-  #root,
-  .global {
-    min-height: 100vh;
-    height: auto;
-  }
-  
-  main > div:nth-of-type(1) {
-    display: none;
-  }
-  
-  .chatBtn.MuiButtonBase-root {
-    position: fixed;
-    bottom: 70px;
-    right: 35px;
-  }
 
-  .chatBtn.MuiButtonBase-root img {
-    width: 70px;    
-  }
 
-  .mainSidebar .MuiListItem-root .MuiListItemButton-root {
-    width: 43px;
-    height: 43px;
-    padding: 0px;
-    margin: 0 20px;
-    min-height: 43px;
-    border-radius: 50%;
-  }
-  
-  .mainSidebar .MuiPaper-root.MuiDrawer-paper {
-    overflow: visible;
-  }
-  
-  .mainSidebar .MuiListItem-root:hover .global .mainSidebar .MuiListItem-root .MuiListItemButton-root , .global .mainSidebar .MuiListItem-root .MuiListItemButton-root:hover {
-    background: #e35205;
-  }
-  .mainSidebar .MuiListItem-root:hover {
-    background-color: #f6e6dd !important; 
-    border-radius: 5%;
+.holders-item .item-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-content .first-section {
+  gap: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.first-section .border-white {
+  border: 3px solid transparent;
+  border-radius: 50%;
+}
+
+.first-section .avatar {
+  border: 3px solid #e35205;
+  border-radius: 50%;
+}
+
+.holders-item.selected .counter {
+  background-color: #ffff !important;
+}
+
+.holders-item.selected .counter {
+  color: #003087;
+}
+
+.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 3) .counter {
+  background-color: #32b2ac;
+}
+
+.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 2) .counter {
+  background-color: #003087;
+}
+
+.items-wrapper>.MuiStack-root.holders-item:nth-of-type(3n + 1) .counter {
+  background-color: #e35205;
+
+}
+
+.first-section .counter {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simpleBarImg {
+  width: 75px;
+  /* margin-left:-8px; */
+  height: 40px;
+}
+
+.dottedImg {
+  width: 75px;
+}
+
+.adjBonImg {
+  height: 52px;
+}
+
+.stepText {
+  color: #000;
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: block;
+}
+
+.circlePBar .MuiCircularProgress-circle {
+  stroke-width: 2 !important;
+}
+
+.adjDogImg {
+  width: 53.913px;
+  height: 58.261px;
+  border-radius: 50%;
+}
+
+/* End */
+/* ---------------------M-styling start---------------- */
+html,
+body,
+#root,
+.global {
+  min-height: 100vh;
+  height: auto;
+}
+
+main>div:nth-of-type(1) {
+  display: none;
+}
+
+.chatBtn.MuiButtonBase-root {
+  position: fixed;
+  bottom: 70px;
+  right: 35px;
+}
+
+.chatBtn.MuiButtonBase-root img {
+  width: 70px;
+}
+
+.mainSidebar .MuiListItem-root .MuiListItemButton-root {
+  width: 43px;
+  height: 43px;
+  padding: 0px;
+  margin: 0 20px;
+  min-height: 43px;
+  border-radius: 50%;
+}
+
+.mainSidebar .MuiPaper-root.MuiDrawer-paper {
+  overflow: visible;
+}
+
+.mainSidebar .MuiListItem-root:hover .global .mainSidebar .MuiListItem-root .MuiListItemButton-root,
+.global .mainSidebar .MuiListItem-root .MuiListItemButton-root:hover {
+  background: #e35205;
+}
+
+.mainSidebar .MuiListItem-root:hover {
+  background-color: #f6e6dd !important;
+  border-radius: 5%;
 }
 
 .mainSidebar .MuiListItem-root:hover .menuitem {
-    color: blue !important;
+  color: blue !important;
 }
 
 /* .mainSidebar .MuiListItem-root:hover .MuiListItemIcon-root {
     background: #e35205 !important; */
-    /* overflow: visible; */
-    /* border-radius: 50%;
+/* overflow: visible; */
+/* border-radius: 50%;
     width: 40px;
     height: 40px; */
 /* } */
 
-  .mainSidebar .MuiListItem-root {
-    margin-bottom: 20px;
-    padding: 7px;
+.mainSidebar .MuiListItem-root {
+  margin-bottom: 20px;
+  padding: 7px;
 
   /* display: block;
   padding: 2px 0px 0px 10px !important;
   list-style-type: none;
   cursor: pointer; */
-  }
-  /* .mainSidebar .MuiListItem-root:hover{
+}
+
+/* .mainSidebar .MuiListItem-root:hover{
     background-color: #f6e6dd !important; 
     border-radius: 5%;
   } */
 
-  .mainSidebar .MuiListItem-root .MuiListItemIcon-root {
-    margin-right: 38px;
-    padding-left: 8px;
-  }
-  
-  .mainSidebar .MuiListItemIcon-root.css-1ddsiuw-MuiListItemIcon-root,
-  .css-10z9ko2 {
-    padding-left: 34px !important;
-  }
-  
-  .mainSidebar .MuiPaper-elevation {
-    background: #003087;
-  }
-  
-  .mainSidebar .MuiListItem-root .MuiListItemButton-root .MuiSvgIcon-root,
-  .mainSidebar .MuiListItemText-root {
-    color: #fff;
-  }
-  
-  .drawerCloseBtn.MuiButtonBase-root {
-    background: #fff0e8;
-    width: 37px;
-    height: 37px;
-    position: absolute;
-    right: -19px;
-    top: 60px;
-    z-index: 9;
-  }
-  
-  .drawerCloseBtn.MuiButtonBase-root:hover {
-    background: #fff0e8;
-  }
-  
-  .drawerCloseBtn.MuiButtonBase-root .MuiSvgIcon-root {
-    color: #e35205;
-  }
-  
-  /*.mainSidebar .css-1r9jet7 {*/
-  /*  padding: 0;*/
-  /*}*/
-  
-  .mainSidebar .MuiList-root {
-    padding-top: 60px;
-  }
-  
-  .mainSidebar .sideLogo {
-    transform: translate(-50%, 0px);
-    position: absolute;
-    top: 5px;
-    left: 50%;
-  }
-  
-  .sidebar-footer .profileBtn.MuiButtonBase-root {
-    width: max-content;
-    padding: 0;
-    position: absolute;
-    bottom: 25px;
-    transform: translate(-50%, 0px);
-    left: 50%;
-    /* margin-bottom: 30px; */
-  }
-  
-  .sidebar-footer .profileBtnSecond.MuiButtonBase-root {
-    width: max-content;
-    padding: 0;
-    position: absolute;
-    bottom: 0;
-    transform: translate(-50%, 0px);
-    left: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .profileBtn > img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-  }
-  
-  .proceedBtn.MuiButtonBase-root.Mui-disabled {
-    background: #003087 !important;
-    opacity: 0.5;
-  }
-  
-  .popups.MuiPaper-root {
-    background: #fff0e8;
-  }
-  
-  /*---------cart page--------*/
-  .cartWrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .cartWrap .template-list-main {
-    width: 49%;
-    /* height: 264px; */
-  }
-  .cartWrap .template-list-about {
-    width: 49%;
-    height: 264px !important;
-  }
-  .cartWrap .template-list-main .item {
-    border-radius: 35px;
-    background-color: #e7eff9;
-    padding: 9px 29px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .cartWrap
-    .template-list-main
-    .item
-    .MuiBox-root:nth-of-type(1)
-    p:nth-of-type(1),
-  .codeBox p {
-    color: #000;
-    font-weight: 700;
-    font-size: 16px;
-  }
-  
-  .cartWrap
-    .template-list-main
-    .item
-    .MuiBox-root:nth-of-type(1)
-    p:nth-of-type(2) {
-    color: #003087;
-    font-size: 14px;
-  }
-  
-  .cartWrap .template-list-main .item .MuiBox-root:nth-of-type(2) {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-  
-  .cartWrap .template-list-main .item .MuiBox-root:nth-of-type(2) button {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-    box-shadow: 0px 4px 4px 0px #00000040;
-    padding: 0;
-    border-radius: 50%;
-    margin-left: 15px;
-  }
-  
-  .checkProcess {
-    width: 49%;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .checkProcess > div,
-  .purchaseCard {
-    border-radius: 32px;
-    background: #fff;
-    box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
-    padding: 15px 36px;
-  }
-  
-  .codeBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .codeBox .MuiInputBase-root {
-    margin-top: 0;
-  }
-  
-  .codeBox .MuiFormLabel-root.MuiInputLabel-root {
-    top: -15px;
-  }
-  
-  .codeBox .MuiInputBase-root.MuiInput-root:after,
-  .codeBox .MuiInputBase-root.MuiInput-root:before {
-    border-bottom-style: dotted;
-  }
-  
-  .summaryBox > p {
-    color: #003087;
-    font-size: 18px;
-    font-weight: 700;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #00000080;
-    margin-bottom: 15px;
-  }
-  
-  .summaryBox > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .checkoutModal .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
-    max-width: 440px;
-    border-radius: 20px;
-  }
-  
-  .checkoutModal .MuiDialogContent-root {
-    padding: 0;
-    text-align: center;
-  }
-  
-  .checkoutModal .checktext {
-    padding: 30px 20px;
-  }
-  
-  .checktext > p:nth-of-type(1) {
-    font-size: 24px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: 10px;
-  }
-  
-  .confirmCheckBtn.MuiButtonBase-root {
-    padding: 15px;
-    color: #003087;
-    font-size: 18px;
-    font-weight: 600;
-    text-transform: capitalize;
-    border: none;
-    width: 100%;
-    border-top: 1px solid #0000002e;
-    border-radius: 0;
-  }
-  
-  .topStack {
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .topStack button {
-    color: #003087;
-    background: #fff;
-    padding: 6px 16px;
-    text-transform: capitalize;
-    min-width: 104px;
-    border-radius: 25px;
-    box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
-  }
-  
-  .topStack button.active {
-    background: #003087;
-    color: #fff;
-  }
-  
-  .purchaseFlex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .purchaseFlex > div {
-    width: 49%;
-  }
-  
-  .purchaseCard {
-    margin-bottom: 20px;
-  }
-  
-  .purchaseCard .top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .purchaseCard .top p:nth-of-type(1) {
-    color: #003087;
-    font-size: 12px;
-    text-transform: capitalize;
-  }
-  
-  .purchaseCard .top p:nth-of-type(2),
-  .purchaseCard .item p:nth-of-type(1) {
-    font-size: 17px;
-    font-weight: 700;
-    color: #000;
-  }
-  
-  .purchaseCard .item {
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 35px;
-    background-color: #e7eff9;
-    padding: 9px 29px;
-  }
-  
-  /*-------- notification sidebar --------*/
-  .notifyHead {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .closeNotify.MuiButtonBase-root {
-    width: 30px;
-    height: 30px;
-    background: #e7eff9;
-    border-radius: 50%;
-    min-width: 30px;
-    color: #003087;
-  }
-  
-  .notifySidebar .MuiPaper-root {
-    border-radius: 15px 0 0 15px;
-  }
-  
-  .MuiBackdrop-root.MuiModal-backdrop {
-    background: #00308780;
-  }
-  
-  .notifyHead p:nth-of-type(1) {
-    color: #003087;
-    font-weight: 700;
-    font-size: 17px;
-    text-transform: uppercase;
-  }
-  
-  /* .notifyHead button:nth-of-type(2) {
+.mainSidebar .MuiListItem-root .MuiListItemIcon-root {
+  margin-right: 38px;
+  padding-left: 8px;
+}
+
+.mainSidebar .MuiListItemIcon-root.css-1ddsiuw-MuiListItemIcon-root,
+.css-10z9ko2 {
+  padding-left: 34px !important;
+}
+
+.mainSidebar .MuiPaper-elevation {
+  background: #003087;
+}
+
+.mainSidebar .MuiListItem-root .MuiListItemButton-root .MuiSvgIcon-root,
+.mainSidebar .MuiListItemText-root {
+  color: #fff;
+}
+
+.drawerCloseBtn.MuiButtonBase-root {
+  background: #fff0e8;
+  width: 37px;
+  height: 37px;
+  position: absolute;
+  right: -19px;
+  top: 60px;
+  z-index: 9;
+}
+
+.drawerCloseBtn.MuiButtonBase-root:hover {
+  background: #fff0e8;
+}
+
+.drawerCloseBtn.MuiButtonBase-root .MuiSvgIcon-root {
+  color: #e35205;
+}
+
+/*.mainSidebar .css-1r9jet7 {*/
+/*  padding: 0;*/
+/*}*/
+
+.mainSidebar .MuiList-root {
+  padding-top: 60px;
+}
+
+.mainSidebar .sideLogo {
+  transform: translate(-50%, 0px);
+  position: absolute;
+  top: 5px;
+  left: 50%;
+}
+
+.sidebar-footer .profileBtn.MuiButtonBase-root {
+  width: max-content;
+  padding: 0;
+  position: absolute;
+  bottom: 25px;
+  transform: translate(-50%, 0px);
+  left: 50%;
+  /* margin-bottom: 30px; */
+}
+
+.sidebar-footer .profileBtnSecond.MuiButtonBase-root {
+  width: max-content;
+  padding: 0;
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 0px);
+  left: 50%;
+  margin-bottom: 10px;
+}
+
+.profileBtn>img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.proceedBtn.MuiButtonBase-root.Mui-disabled {
+  background: #003087 !important;
+  opacity: 0.5;
+}
+
+.popups.MuiPaper-root {
+  background: #fff0e8;
+}
+
+/*---------cart page--------*/
+.cartWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cartWrap .template-list-main {
+  width: 49%;
+  /* height: 264px; */
+}
+
+.cartWrap .template-list-about {
+  width: 49%;
+  height: 264px !important;
+}
+
+.cartWrap .template-list-main .item {
+  border-radius: 35px;
+  background-color: #e7eff9;
+  padding: 9px 29px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(1) p:nth-of-type(1),
+.codeBox p {
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(1) p:nth-of-type(2) {
+  color: #003087;
+  font-size: 14px;
+}
+
+.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cartWrap .template-list-main .item .MuiBox-root:nth-of-type(2) button {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  padding: 0;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.checkProcess {
+  width: 49%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkProcess>div,
+.purchaseCard {
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
+  padding: 15px 36px;
+}
+
+.codeBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.codeBox .MuiInputBase-root {
+  margin-top: 0;
+}
+
+.codeBox .MuiFormLabel-root.MuiInputLabel-root {
+  top: -15px;
+}
+
+.codeBox .MuiInputBase-root.MuiInput-root:after,
+.codeBox .MuiInputBase-root.MuiInput-root:before {
+  border-bottom-style: dotted;
+}
+
+.summaryBox>p {
+  color: #003087;
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #00000080;
+  margin-bottom: 15px;
+}
+
+.summaryBox>div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkoutModal .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
+  max-width: 440px;
+  border-radius: 20px;
+}
+
+.checkoutModal .MuiDialogContent-root {
+  padding: 0;
+  text-align: center;
+}
+
+.checkoutModal .checktext {
+  padding: 30px 20px;
+}
+
+.checktext>p:nth-of-type(1) {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.confirmCheckBtn.MuiButtonBase-root {
+  padding: 15px;
+  color: #003087;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: capitalize;
+  border: none;
+  width: 100%;
+  border-top: 1px solid #0000002e;
+  border-radius: 0;
+}
+
+.topStack {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+
+.topStack button {
+  color: #003087;
+  background: #fff;
+  padding: 6px 16px;
+  text-transform: capitalize;
+  min-width: 104px;
+  border-radius: 25px;
+  box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
+}
+
+.topStack button.active {
+  background: #003087;
+  color: #fff;
+}
+
+.purchaseFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.purchaseFlex>div {
+  width: 49%;
+}
+
+.purchaseCard {
+  margin-bottom: 20px;
+}
+
+.purchaseCard .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.purchaseCard .top p:nth-of-type(1) {
+  color: #003087;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.purchaseCard .top p:nth-of-type(2),
+.purchaseCard .item p:nth-of-type(1) {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+}
+
+.purchaseCard .item {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 35px;
+  background-color: #e7eff9;
+  padding: 9px 29px;
+}
+
+/*-------- notification sidebar --------*/
+.notifyHead {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeNotify.MuiButtonBase-root {
+  width: 30px;
+  height: 30px;
+  background: #e7eff9;
+  border-radius: 50%;
+  min-width: 30px;
+  color: #003087;
+}
+
+.notifySidebar .MuiPaper-root {
+  border-radius: 15px 0 0 15px;
+}
+
+.MuiBackdrop-root.MuiModal-backdrop {
+  background: #00308780;
+}
+
+.notifyHead p:nth-of-type(1) {
+  color: #003087;
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+/* .notifyHead button:nth-of-type(2) {
     color: #000;
     font-weight: 400;
     text-transform: none;
     font-size: 16px;
   }
    */
-  .notifyHead button:nth-of-type(3) {
-    color: #003087;
-  }
-  
-  .notifyWrap {
-    position: relative;
-  }
-  
-  /* .notifyWrap .item {
+.notifyHead button:nth-of-type(3) {
+  color: #003087;
+}
+
+.notifyWrap {
+  position: relative;
+}
+
+/* .notifyWrap .item {
     padding: 30px 30px 30px 15px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid #00000029;
   } */
-  
-  .notifyWrap .iconWrap {
-    z-index: 2;
-    margin: 0 10px;
-    box-shadow: 0px 4px 4px 0px #00000080;
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 50%;
-    flex-shrink: 0;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    color: #e35205;
-  }
-  
-  .notifyWrap .item > p,
-  .notifyWrap .item > .MuiBox-root p:nth-of-type(2) {
-    font-size: 14px;
-    color: #00000080;
-  }
-  
-  .notifyWrap .item > .MuiBox-root p:nth-of-type(1) {
-    color: #000;
-    font-weight: 700;
-    font-size: 16px;
-  }
-  
-  .notifyWrap .item:before {
-    content: "";
-    width: 3px;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    left: 105px;
-    top: 0;
-    background: #b3c1db;
-  }
-  
-  .notifyWrap .item.unread {
-    background: #e7eff9;
-    border-bottom: none;
-  }
-  
-  /* .notifyWrap .item.unread > p,
+
+.notifyWrap .iconWrap {
+  z-index: 2;
+  margin: 0 10px;
+  box-shadow: 0px 4px 4px 0px #00000080;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: #e35205;
+}
+
+.notifyWrap .item>p,
+.notifyWrap .item>.MuiBox-root p:nth-of-type(2) {
+  font-size: 14px;
+  color: #00000080;
+}
+
+.notifyWrap .item>.MuiBox-root p:nth-of-type(1) {
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.notifyWrap .item:before {
+  content: "";
+  width: 3px;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 105px;
+  top: 0;
+  background: #b3c1db;
+}
+
+.notifyWrap .item.unread {
+  background: #e7eff9;
+  border-bottom: none;
+}
+
+/* .notifyWrap .item.unread > p,
   .notifyWrap .item.unread > .MuiBox-root p:nth-of-type(2) {
     color: #000;
     font-weight: bold;
   } */
-  
-  /*---------- location sidebar -------------*/
-  .locationSidebar {
-    padding: 30px;
-    width: 440px !important;
-  }
-  
-  .locationSidebar .MuiPaper-root {
-    border-radius: 15px 0 0 15px;
-  }
-  
-  .locationHead {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* .locationHead > div:nth-of-type(1) {
+
+/*---------- location sidebar -------------*/
+.locationSidebar {
+  padding: 30px;
+  width: 440px !important;
+}
+
+.locationSidebar .MuiPaper-root {
+  border-radius: 15px 0 0 15px;
+}
+
+.locationHead {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .locationHead > div:nth-of-type(1) {
     padding: 7px 10px;
     border-radius: 20px;
     box-shadow: 0px 0px 8px 0px #0000001a;
@@ -1148,39 +1151,39 @@
     justify-content: center;
     align-items: center;
   } */
-  
-  .locationHead > div:nth-of-type(1) .MuiSvgIcon-root {
-    width: 15px;
-    color: #003087;
-    margin-right: 5px;
-  }
-  
-  .locationHead > div:nth-of-type(1) p {
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 14px;
-    color: #003087;
-    letter-spacing: 0.1px;
-  }
-  
-  .locationHead > p:nth-of-type(1) {
-    background: #32b2ac;
-    color: #fff;
-    padding: 15px 20px !important;
-    border-radius: 37px;
-    font-size: 12px;
-    font-weight: 700;
-    margin: 0 10px;
-    
-text-align: center;
-font-family: Univers LT Std;
-font-style: normal;
-line-height: normal;
 
-  } 
-  
-  /* .locationHead > p:nth-of-type(2) {
+.locationHead>div:nth-of-type(1) .MuiSvgIcon-root {
+  width: 15px;
+  color: #003087;
+  margin-right: 5px;
+}
+
+.locationHead>div:nth-of-type(1) p {
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #003087;
+  letter-spacing: 0.1px;
+}
+
+.locationHead>p:nth-of-type(1) {
+  background: #32b2ac;
+  color: #fff;
+  padding: 15px 20px !important;
+  border-radius: 37px;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 10px;
+
+  text-align: center;
+  font-family: Univers LT Std;
+  font-style: normal;
+  line-height: normal;
+
+}
+
+/* .locationHead > p:nth-of-type(2) {
     font-size: 15px;
     font-weight: 400;
     line-height: 14px;
@@ -1191,38 +1194,38 @@ line-height: normal;
 font-style: normal;
 line-height: 14px;
   } */
-  
-  .locationSidebar > button {
-    margin-bottom: 20px;
-  }
-  
-  .locationSidebar .main-schedule-box {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 2px 20px 0px #1e386033;
-  }
-  
-  .dirBox {
-    margin-bottom: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid #00000029;
-  }
-  
-  .dirBox > div:nth-of-type(1) {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .dirBox > div > div {
-    margin-bottom: 20px;
-  }
-  
-  /* .dirBox p:nth-of-type(1) {
+
+.locationSidebar>button {
+  margin-bottom: 20px;
+}
+
+.locationSidebar .main-schedule-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 20px 0px #1e386033;
+}
+
+.dirBox {
+  margin-bottom: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #00000029;
+}
+
+.dirBox>div:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dirBox>div>div {
+  margin-bottom: 20px;
+}
+
+/* .dirBox p:nth-of-type(1) {
     font-family: Univers LT Std;
     font-size: 12px;
     font-weight: bold;
@@ -1230,8 +1233,8 @@ line-height: 14px;
     letter-spacing: 0em;
     color: #003087;
   } */
-  
-  /* .dirBox p:nth-of-type(2) {
+
+/* .dirBox p:nth-of-type(2) {
     font-family: Univers LT Std;
     font-size: 14px;
     font-weight: 400;
@@ -1239,8 +1242,8 @@ line-height: 14px;
     letter-spacing: 0em;
     color: #000;
   } */
-  
-  /* .dirBox button {
+
+/* .dirBox button {
     color: #003087;
     font-size: 14px;
     font-weight: 700;
@@ -1248,227 +1251,227 @@ line-height: 14px;
     letter-spacing: 0em;
     
   } */
-  
-  /*-------- index phase section -------*/
-  .phaseFlex {
-    padding-top: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .progresswrap {
-    position: relative;
-  }
-  
-  .phaseFlex .item > img {
-    margin: 0 auto;
-    display: block;
-    width: 44px;
-    margin-bottom: 5px;
-  }
-  
-  .phaseFlex .item > span {
-    font-size: 12px;
-    display: block;
-    text-align: center;
-    margin-bottom: 25px;
-  }
-  
-  .circlePBar {
-    width: 70px !important;
-    height: 70px !important;
-    margin: 0 auto;
-    display: block !important;
-  }
-  
-  .progresswrap > img {
-    width: 50px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .phaseFlex .item {
-    position: relative;
-  }
-  
-  .phaseFlex .item:after {
-    content: "";
-    position: absolute;
-    width: 240%;
-    height: 3px;
-    border-bottom: 5px dotted #d5dcea;
-    right: -220%;
-    top: 30px;
-  }
-  
-  .phaseFlex .item.done:after {
-    border-bottom: 3px solid #d5dcea;
-  }
-  
-  .phaseFlex .item:nth-last-of-type(1):after {
-    width: 50%;
-    right: -50%;
-  }
-  
-  /*----------- membership right side----------*/
-  .memberRight {
-    width: 50%;
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .memBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #003087;
-    padding: 30px;
-    border-radius: 20px;
-  }
-  
-  .memBox div p:nth-of-type(1) {
-    font-family: Bebas Neue;
-    font-size: 38px;
-    font-weight: 400;
-    line-height: 42px;
-    color: #fff;
-  }
-  
-  .memBox div p:nth-of-type(2) {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    color: #fff;
-  }
-  
-  .bundleBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .bundleBox > div {
-    width: 49%;
-    border-radius: 20px;
-    background: #fff;
-    text-align: center;
-    padding: 30px;
-  }
-  
-  .bundleBox div p:nth-of-type(1),
-  .historyBox p:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-  }
-  
-  .bundleBox div p:nth-of-type(2),
-  .historyBox p:nth-of-type(2) {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-  }
-  
-  .bundleBox div:nth-of-type(2) {
-    background: #fff0e8;
-  }
-  
-  .historyBox {
-    text-align: center;
-    background: #fff;
-    padding: 30px 30px;
-    border-radius: 32px;
-  }
-  
-  /* membership filters */
-  .membership-filters .dropdown-select {
-    width: 100%;
-    background: #fff;
-    border: none;
-    border-radius: 50px;
-  }
-  
-  .membership-filters .dropdown-select .MuiOutlinedInput-notchedOutline {
-    border-color: #fff !important;
-  }
-  
-  .membership-filters .dropdown-select .MuiButtonBase-root {
-    border: none !important;
-  }
-  
-  .dropItem.MuiMenuItem-root {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #00000033;
-    background: transparent !important;
-    padding: 14px 25px;
-  }
-  
-  .expiryBtn.MuiButtonBase-root {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    text-decoration: underline;
-    color: #003087;
-    text-transform: capitalize;
-    display: block;
-    margin: 10px auto;
-  }
-  
-  /*------------ achievements -----------*/
-  .dogSlides {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    margin: 50px 0 20px;
-  }
-  
-  .dogSlides > button {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .dogSlides > button img {
-    opacity: 0.5;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    outline: 3px solid #e35205;
-  }
-  
-  .dogSlides > button p {
-    display: none;
-    font-size: 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    color: #000;
-  }
-  
-  .dogSlides > button.active img {
-    outline: 3px solid #003087;
-    transform: scale(1.3);
-    margin-bottom: 20px;
-    opacity: 1;
-  }
-  
-  .dogSlides > button.active p {
-    display: block;
-  }
-  
-  /* .topStack.trophyTopStack button {
+
+/*-------- index phase section -------*/
+.phaseFlex {
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progresswrap {
+  position: relative;
+}
+
+.phaseFlex .item>img {
+  margin: 0 auto;
+  display: block;
+  width: 44px;
+  margin-bottom: 5px;
+}
+
+.phaseFlex .item>span {
+  font-size: 12px;
+  display: block;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.circlePBar {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  display: block !important;
+}
+
+.progresswrap>img {
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.phaseFlex .item {
+  position: relative;
+}
+
+.phaseFlex .item:after {
+  content: "";
+  position: absolute;
+  width: 240%;
+  height: 3px;
+  border-bottom: 5px dotted #d5dcea;
+  right: -220%;
+  top: 30px;
+}
+
+.phaseFlex .item.done:after {
+  border-bottom: 3px solid #d5dcea;
+}
+
+.phaseFlex .item:nth-last-of-type(1):after {
+  width: 50%;
+  right: -50%;
+}
+
+/*----------- membership right side----------*/
+.memberRight {
+  width: 50%;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.memBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #003087;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.memBox div p:nth-of-type(1) {
+  font-family: Bebas Neue;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 42px;
+  color: #fff;
+}
+
+.memBox div p:nth-of-type(2) {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #fff;
+}
+
+.bundleBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.bundleBox>div {
+  width: 49%;
+  border-radius: 20px;
+  background: #fff;
+  text-align: center;
+  padding: 30px;
+}
+
+.bundleBox div p:nth-of-type(1),
+.historyBox p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.bundleBox div p:nth-of-type(2),
+.historyBox p:nth-of-type(2) {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.bundleBox div:nth-of-type(2) {
+  background: #fff0e8;
+}
+
+.historyBox {
+  text-align: center;
+  background: #fff;
+  padding: 30px 30px;
+  border-radius: 32px;
+}
+
+/* membership filters */
+.membership-filters .dropdown-select {
+  width: 100%;
+  background: #fff;
+  border: none;
+  border-radius: 50px;
+}
+
+.membership-filters .dropdown-select .MuiOutlinedInput-notchedOutline {
+  border-color: #fff !important;
+}
+
+.membership-filters .dropdown-select .MuiButtonBase-root {
+  border: none !important;
+}
+
+.dropItem.MuiMenuItem-root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #00000033;
+  background: transparent !important;
+  padding: 14px 25px;
+}
+
+.expiryBtn.MuiButtonBase-root {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  text-decoration: underline;
+  color: #003087;
+  text-transform: capitalize;
+  display: block;
+  margin: 10px auto;
+}
+
+/*------------ achievements -----------*/
+.dogSlides {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 50px 0 20px;
+}
+
+.dogSlides>button {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dogSlides>button img {
+  opacity: 0.5;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  outline: 3px solid #e35205;
+}
+
+.dogSlides>button p {
+  display: none;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: #000;
+}
+
+.dogSlides>button.active img {
+  outline: 3px solid #003087;
+  transform: scale(1.3);
+  margin-bottom: 20px;
+  opacity: 1;
+}
+
+.dogSlides>button.active p {
+  display: block;
+}
+
+/* .topStack.trophyTopStack button {
     min-width: 273px;
     padding: 10px 26px;
     font-size: 21px;
@@ -1477,1164 +1480,1198 @@ line-height: 14px;
     
 
   } */
-  
-  .earnedFlex {
-    margin: 20px 0 50px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
-  }
-  
-  .earnedFlex button {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .earnedFlex button p {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    text-transform: capitalize;
-    color: #000;
-  }
-  
-  p.earnTitle {
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 22px;
-    color: #003087;
-  }
-  
-  .journeyFlex {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-  
-  .jouneyItem {
-    margin-bottom: 25px;
-    width: 49%;
-    background: #fff;
-    border-radius: 32px;
-    padding: 30px;
-  }
-  
-  .jouneyItem:hover {
-    cursor: pointer;
-  }
-  
-  .jouneyItem > div:nth-of-type(1) {
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .jouneyItem > div:nth-of-type(1) img {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .jouneyItem > div:nth-of-type(1) p {
-    margin-top: 6px;
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-weight: 700;
-    color: #000;
-    line-height: 28px;
-  }
-  
-  .jonFlex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-  
-  .jonFlex:after {
-    width: 80%;
-    height: 5px;
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background: #e5eaf3;
-    z-index: 1;
-  }
-  
-  .jonFlex > div {
-    position: relative;
-  }
-  
-  .jonFlex > div > img:nth-of-type(1) {
-    z-index: 2;
-    position: relative;
-    background: #e5eaf3;
-    border-radius: 50%;
-  }
-  
-  .jonFlex > div > img:nth-of-type(2) {
-    z-index: 3;
-    position: absolute;
-    right: 0;
-    bottom: 2px;
-  }
-  
-  .jonFlex > div p {
-    position: absolute;
-    font-size: 14px;
-    right: -65%;
-    bottom: 20px;
-  }
-  
-  .trophyShelfFlex {
-    /* display: flex; justify-content: space-between; align-items: flex-start; */
-  }
-  
-  .trophyShelfFlex > .item {
-    display: inline-flex;
-    flex-direction: column;
-    width: 49%;
-    background: #fff;
-    border-radius: 32px;
-    padding: 30px;
-  }
-  
-  .trophyShelfFlex > .item:nth-of-type(2) {
-    margin-left: 24px;
-  }
-  
-  .dogProgress {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .dogProgress > img {
-    margin-right: 30px;
-  }
-  
-  .dogProgress > div p:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-  }
-  
-  .dogProgress > div p:nth-of-type(2) {
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 14px;
-    color: #003087;
-  }
-  
-  .achieveProgress.MuiLinearProgress-root {
-    background-color: #e5eaf3;
-  }
-  
-  .achieveProgress.MuiLinearProgress-root .MuiLinearProgress-bar {
-    background: #e35205;
-  }
-  
-  .dogProgress .linearProgressWrap {
-    position: relative;
-    padding-top: 20px;
-  }
-  
-  .dogProgress .linearProgressWrap span:nth-of-type(1) {
-    position: absolute;
-    right: 0;
-    top: -10px;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    letter-spacing: 0em;
-    color: #000;
-  }
-  
-  .dogProgress > div {
-    flex: 1 1 auto;
-  }
-  
-  .trophyScroller {
-    padding-bottom: 10px;
-    overflow-x: scroll;
-    white-space: nowrap;
-    max-width: 100%;
-  }
-  
-  .trophyScroller > img {
-    display: inline-block;
-    width: 66px;
-    height: 66px;
-    border-radius: 50%;
-    margin-right: 100px;
-  }
-  
-  .trophyScroller .progresswrap {
-    margin-right: 100px;
-    display: inline-block;
-  }
-  
-  .trophyShelfFlex > .item:nth-of-type(2) .trophyScroller {
-    margin: 35px 0;
-  }
-  
-  .dogModal .MuiPaper-root {
-    width: 303px;
-    border-radius: 20px;
-  }
-  
-  .dogModal .modalCont {
-    position: relative;
-    padding: 70px 0 30px;
-    text-align: center;
-  }
-  
-  .dogModal .modalCont > button:nth-of-type(1) {
-    position: absolute;
-    right: -21px;
-    top: -5px;
-  }
-  
-  .dogModal .modalCont > button:nth-of-type(1) + img,
-  .dogModal .modalCont > button:nth-of-type(1) + .progresswrap {
-    margin-bottom: 20px;
-  }
-  
-  .dogModal .modalCont > button:nth-of-type(1) + .progresswrap .circlePBar {
-    width: 91px !important;
-    height: 91px !important;
-  }
-  
-  .dogModal .modalCont > button:nth-of-type(1) + .progresswrap > img {
-    width: 84px;
-  }
-  
-  .dogModal .modalCont div p:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 29px;
-    color: #000;
-    margin-bottom: 5px;
-  }
-  
-  .dogModal .modalCont div p:nth-of-type(1) span {
-    margin-left: 5px;
-    color: #e35205;
-  }
-  
-  .dogModal .modalCont div p:nth-of-type(2) {
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-  }
-  
-  .dogModal .modalCont button:nth-of-type(2) {
-    padding: 5px 29px !important;
-    border-radius: 18px !important;
-    margin: 15px 0 0;
-  }
-  
-  .modalProgress.MuiLinearProgress-root {
-    height: 38px;
-    border-radius: 100px;
-    background-color: #e5eaf3;
-  }
-  
-  .modalProgress.MuiLinearProgress-root .MuiLinearProgress-bar {
-    background: #003087;
-    border-radius: 30px;
-  }
-  
-  .dogModal .linearProgressWrap {
-    margin-top: 20px;
-    position: relative;
-  }
-  
-  .dogModal .linearProgressWrap > span:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    letter-spacing: 0em;
-    color: #fff;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9;
-  }
-  
-  .foxWrap {
-    text-align: center;
-    margin-top: 40px;
-  }
-  
-  .foxWrap p {
-    font-family: Univers LT Std;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    color: #000;
-  }
-  
-  .individualJon {
-    text-align: center;
-  }
-  
-  .individualJon .box {
-    position: relative;
-    height: 249px;
-  }
-  
-  .individualJon .box .imgBox {
-    position: relative;
-  }
-  
-  .individualJon .box .imgBox img:nth-of-type(3) {
-    position: absolute;
-    left: 51%;
-    top: 77px;
-    transform: translate(-50%, 0px);
-  }
-  
-  .individualJon .box.even .imgBox img:nth-of-type(3) {
-    left: 48%;
-  }
-  
-  .individualJon .box .imgBox img:nth-of-type(2) {
-    position: absolute;
-    left: 49.5%;
-    top: 57px;
-    width: 39px;
-  }
-  
-  .individualJon .box.even .imgBox img:nth-of-type(2) {
-    left: 45.9%;
-    top: 45px;
-  }
-  
-  .individualJon .box .textBox {
-    text-align: left;
-    width: 200px;
-    position: absolute;
-    left: 54%;
-    top: 0;
-  }
-  
-  .individualJon .box .textBox p:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 22px;
-    letter-spacing: 0em;
-    color: #000;
-    margin-bottom: 10px;
-  }
-  
-  .individualJon .box .textBox p:nth-of-type(2) {
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 19px;
-    letter-spacing: 0em;
-    color: #000;
-  }
-  
-  .individualJon .box.even .textBox {
-    text-align: right;
-    left: 28.5%;
-  }
-  
-  /* profile screen */
-  .profilArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-  }
-  
-  .profilArea > div:nth-of-type(1) {
-    position: relative;
-    width: 130px;
-    height: 130px;
-    margin-right: 35px;
-  }
-  
-  .profilArea > div:nth-of-type(1) img:nth-of-type(1) {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-  }
-  
-  .profilArea > div:nth-of-type(1) img:nth-of-type(2) {
-    position: absolute;
-    bottom: -31px;
-    right: -20px;
-  }
-  
-  .profilArea > div:nth-of-type(2) p:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 45px;
-    letter-spacing: 0em;
-    color: #000;
-  }
-  
-  .profilArea > div:nth-of-type(2) p:nth-of-type(2),
-  .profilArea div:nth-of-type(2) p:nth-of-type(3) {
-    font-family: Univers LT Std;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0em;
-    color: #003087;
-    margin-bottom: 5px;
 
-  }
-  
-  .profilArea > div:nth-of-type(2) p:nth-of-type(4) {
-    font-family: Univers LT Std;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 21px;
-    letter-spacing: 0.02px;
-    color: #e35205;
-    margin-bottom: 10px;
-  }
-  .profilArea > div:nth-of-type(2) p:nth-of-type(2),
-  .profilArea div:nth-of-type(2) p:nth-of-type(3) {
-    font-family: Univers LT Std;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0em;
-    color: #003087;
-  }
-  .profileProgressWrap {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .profileProgressWrap .MuiLinearProgress-root {
-    width: 160px !important;
-  }
-  
-  .profileProgressWrap .achieveProgress.MuiLinearProgress-root {
-    background: #fff;
-    height: 7px;
-    border-radius: 10px;
-  }
-  
-  .profileProgressWrap button {
-    padding: 0;
-    color: #e35205;
-    font-family: Univers LT Std;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 18px;
-    letter-spacing: 0em;
-    text-decoration: underline;
-    text-transform: capitalize;
-    margin-left: 5px;
-  }
-  
-  .profileStack.topStack {
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  
-  .trophyBoxHead {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .cartWrap.profileCartWrap .template-list-main .item .itemImgWrap {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .cartWrap.profileCartWrap .template-list-main .item .itemImgWrap img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .cartWrap.profileCartWrap
-    .template-list-main
-    .item
-    .MuiBox-root:nth-of-type(2)
-    > p {
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0em;
-    color: #e35205;
-  }
-  .teamWrap {
-    text-align: center;
-    margin-right: -40px;
-  }
-  .teamWrap img {
-    width: 89px;
-    height: 89px;
-    border-radius: 50%;
-    margin-left: -40px;
-  }
-  .yourTeamTop p {
-    font-family: Univers LT Std;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    color: #000;
-    text-align: center;
-    margin: 10px 0 40px;
-  }
-  .profileUpload {
-    width: 300px;
-    height: 300px;
-    background: #fff;
-    border-radius: 50%;
-    position: relative;
-  }
-  .profileUpload > img:nth-of-type(1) {
-    z-index: 2;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-  }
-  .profileUpload > img:nth-of-type(2) {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    z-index: 1;
-  }
-  .profileUpload:hover {
-    cursor: pointer;
-  }
-  .addPetWrap {
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .addPetWrap .profileImg {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-  }
-  .addPetWrap > div {
-    width: 50%;
-  }
-  .addPetWrap > div:nth-of-type(1) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: stretch;
-  }
-  .addPetWrap > div:nth-of-type(2) {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .learnDogScreen > p:nth-of-type(1) {
-    font-family: Univers LT Std;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 36px;
-    letter-spacing: -0.02em;
-    color: #003087;
-    margin-bottom: 20px;
-  }
-  .learnDogScreen .MuiPaper-root.MuiAccordion-rounded {
-    border-radius: 25px;
-    border: none;
-    box-shadow: none;
-    margin-bottom: 20px;
-  }
-  .learnDogScreen .MuiPaper-root.MuiAccordion-rounded:before {
-    display: none;
-  }
-  .learnDogScreen .MuiAccordionSummary-content {
-    align-items: center;
-  }
-  .learnDogScreen .MuiAccordionSummary-content .MuiSvgIcon-root {
-    color: #003087;
-    margin-right: 20px;
-  }
-  .learnDogScreen .MuiAccordionSummary-content p {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 14px;
-    letter-spacing: 0px;
-    color: #000;
-  }
-  .learnDogScreen .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root {
-    font-size: 30px;
-    color: #000;
-  }
-  .learnDogScreen .MuiToggleButtonGroup-root button.MuiButtonBase-root {
-    background: transparent;
-    border: 1px solid #003087;
-    font-family: Myriad Pro;
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: #003087;
-    margin: 0 10px;
-    width: 92px;
-    border-radius: 30px;
-    padding: 10px 10px;
-    line-height: 1;
-  }
-  .learnDogScreen .MuiToggleButtonGroup-root button.Mui-selected {
-    background: #003087;
-    color: #fff;
-  }
-  .learnDogScreen
-    .MuiCollapse-wrapper
-    .MuiAccordionDetails-root
-    .MuiToggleButtonGroup-root {
-    background: #f8fbff;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 40px 0;
-  }
-  .learnDogScreen > button:nth-last-of-type(1) {
-    margin-top: 20px;
-  }
-  .profileBtnWrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .profileBtnWrap button.confirmCheckBtn {
-    width: 50%;
-  }
-  .profileBtnWrap button.confirmCheckBtn:nth-of-type(1) {
-    color: #d13a00;
-    border-right: 1px solid #0000002e;
-  }
-  
-  /* ---------------------M-styling-end---------------- */
-  /* Custom Modal for schedule a visit*/
-  .dialog-main .MuiPaper-root {
-    border-radius: 30px;
-    background: #fff;
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.19);
-    padding: 35px 20px 0px 35px;
-  }
-  
-  .dialog-main .dialog-actions {
-    justify-content: start;
-    gap: 26%;
-    align-items: center;
-  }
-  
-  .dialog-actions p {
-    color: #003087;
-    text-align: center;
-    font-family: 'Bebas Neue' !important;
-    font-size: 38px;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  
-  .schedule-section-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-  }
-  
-  .schedule-section-wrap .schedule-section-box {
-    width: 527px;
-    height: 275px;
-    border-radius: 32px;
-    padding: 154px 60px 0px 60px;
-  }
-  
-  .schedule-section-wrap .schedule-section-box:nth-of-type(1) {
-    background: url("./assets/images/banner1New.png") center no-repeat;
-    background-size:cover;
-  }
-  
-  .schedule-section-wrap .schedule-section-box:nth-of-type(2) {
-    background: url("./assets/images/banner2New.png") center no-repeat;
-    background-size: cover;
-  }
-  
-  .schedule-section-box .schedule-section-action {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .schedule-section-action .action-btn {
-    border-radius: 50px !important;
-    width: 254px !important;
-    padding: 10px !important;
-    border: 0 !important;
-    font-family: 'Univers LT Std' !important;
-    font-size: 16px;
-    text-transform: inherit;
-    font-weight: 700;
-  }
-  
-  .schedule-section-action p {
-    color: #fff;
-    text-align: center;
-    font-family: 'Univers LT Std' !important;
-    /* font-size: 21px; */
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; /* 21px */
-  }
-
-  .f-21{
-    font-size: 21px !important;
-  }
-
-  .f-14{
-    font-size: 14px !important;
-  }
-  
-  .header-text .dialog-link.MuiLink-root {
-    text-decoration: underline;
-    color: #e35205;
-    cursor: pointer;
-  }
-  
-  /* Appintment section */
-  .appointment-container.MuiContainer-root.MuiContainer-maxWidthLg {
-    margin: 0;
-    padding: 20px;
-    max-width: 100%;
-    /* height: 100vh; */
-  }
-  
-  .appointment-container .appointment-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2%;
-    margin-bottom: 20px;
-  }
-  
-  .appointment-header .top-header {
-    justify-content: flex-start;
-    gap: 16px;
-  }
-  
-  .appointment-header .top-header .arrow-btn {
-    border: 0 !important;
-    height: 20px !important;
-    min-width: 24px !important;
-  }
-  
-  .appointment-header .top-header .header-text,
-  .trophyShelfWrap .header-text {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .appointment-main {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .appointment-main .field-section {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 20px;
-  }
-  
-  .field-section .appointment-dropdown {
-    width: 50%;
-  }
-  
-  .appointment-dropdown .MuiFormLabel-root.MuiInputLabel-root {
-    color: var(--20, #333);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-bottom: 15px;
-  }
-  
-  .custom-select {
-    background: white;
-    border-radius: 36px;
-  }
-  
-  .custom-select .MuiOutlinedInput-notchedOutline {
-    border: 0;
-  }
-  
-  .appointment-dropdown .MuiOutlinedInput-notchedOutline {
-    border: 0;
-  }
-  
-  .custom-select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
-    color: #003087;
-  
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .custom-select .arrow-btn {
-    border: 0 !important;
-    height: 32px !important;
-    min-width: 32px !important;
-  }
-  
-  .custom-select .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
-    border-radius: 30px !important;
-    margin-top: 5px;
-  }
-  
-  .custom-select .custom-date-select .MuiButtonBase-root.MuiIconButton-root {
-    background: #e7eff9;
-    height: 32px;
-    color: #e35205;
-    width: 32px;
-    margin-right: -1px;
-  }
-  
-  .custom-date-select .MuiInputBase-input.MuiOutlinedInput-input {
-    color: #003087;
-  }
-  
-  .MuiPickersCalendarHeader-root .MuiPickersCalendarHeader-label {
-    color: #003087 !important;
-    font-weight: 600;
-  }
-  
-  .MuiDayCalendar-header
-    .MuiPickersCalendarHeader-switchViewButton
-    .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
-    color: #003087 !important;
-  }
-  
-  .MuiPickersArrowSwitcher-root button {
-    color: #003087 !important;
-    background-color: #e7eff9 !important;
-  }
-  
-  .MuiDayCalendar-header span {
-    color: #003087 !important;
-    font-weight: 600;
-  }
-  
-  .MuiDayCalendar-monthContainer button {
-    font-weight: 600;
-  }
-  
-  .MuiDateCalendar-root {
-    width: 540px !important;
-  }
-  
-  .MuiDayCalendar-header {
-    justify-content: space-around !important;
-  }
-  
-  .MuiDayCalendar-weekContainer {
-    justify-content: space-around !important;
-  }
-  
-  .MuiYearCalendar-root {
-    width: 100% !important;
-  }
-  
-  .appointment-dropdown .text-field {
-    border-radius: 25px;
-    background: var(--secondary-white, #fff);
-    height: 179px;
-    width: 100%;
-    padding: 22px 18px 12px 26px;
-  }
-  
-  .text-field .MuiInputBase-input.MuiOutlinedInput-input {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .appointment-dropdown .drag-drop-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed #003087;
-    border-radius: 25px;
-    background: var(--secondary-white, #fff);
-    height: 179px;
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
-    gap: 5px;
-  }
-  
-  .drag-drop-box .drop-box-text {
-    color: #003087;
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .drop-box-text .drop-box-span {
-    text-decoration: underline;
-    color: #003087;
-    /* text-decoration: overline; */
-  }
-  
-  .book-btn {
-    padding: 17px 28px !important;
-    border: 0 !important;
-    font-size: 18px;
-    font-weight: 700;
-  }
-  
-  .book-btn svg {
-    background: white;
-    color: #32b2ac;
-    border-radius: 50%;
-  }
-  
-  .available-slots {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .slots-wrap {
-    display: flex;
-    margin-top: 10px;
-    width: 100%;
-    padding: 13px 18px 18px 26px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    flex-shrink: 0;
-    border-radius: 25px;
-    background: var(--secondary-white, #fff);
-  }
-  
-  .slots-wrap .slot-title {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .slots-wrap .slots-display {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .slots-display .slots {
-    border-radius: 25px !important;
-    padding: 11.5px 12px 9.5px 12px !important;
-  }
-  
-  .slots.active {
-    color: #ffff !important;
-    background-color: #003087 !important;
-  }
-  
-  /* Confirm Booking */
-  .confirm-booking-main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px;
-    width: 100%;
-  }
-  
-  .display-booking-wrap {
-    border-radius: 20px;
-    width: 100%;
-    background-color: #fff;
-    /*height: 283px;*/
+.earnedFlex {
+  margin: 20px 0 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
-  
-  .booking-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding: 40px 50px 50px 30px;
-    width: 100%;
-    gap: 37px;
-  }
-  
-  .booking-notes-wrap {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    gap: 44px;
-  }
-  
-  .booking-notes {
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background: #fff;
-    padding: 25px 34px 34px 47px;
-    box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
-  }
-  
-  .booking-notes .heading {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .booking-notes .description {
-    color: rgba(0, 0, 0, 0.7);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px; /* 142.857% */
-    text-transform: lowercase;
-  }
-  
-  .booking-notes .see-more {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.7);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    cursor: pointer;
-  }
-  
-  .display-booking-wrap .display-attendee {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    gap: 3px;
+.earnedFlex button {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-  .display-attendee .attendee-header,
-  .attendee-value {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    gap: 64%;
-  }
+.earnedFlex button p {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  text-transform: capitalize;
+  color: #000;
+}
+
+p.earnTitle {
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #003087;
+}
+
+.journeyFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.jouneyItem {
+  margin-bottom: 25px;
+  width: 49%;
+  background: #fff;
+  border-radius: 32px;
+  padding: 30px;
+}
+
+.jouneyItem:hover {
+  cursor: pointer;
+}
+
+.jouneyItem>div:nth-of-type(1) {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.jouneyItem>div:nth-of-type(1) img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.jouneyItem>div:nth-of-type(1) p {
+  margin-top: 6px;
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  line-height: 28px;
+}
+
+.jonFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.jonFlex:after {
+  width: 80%;
+  height: 5px;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #e5eaf3;
+  z-index: 1;
+}
+
+.jonFlex>div {
+  position: relative;
+}
+
+.jonFlex>div>img:nth-of-type(1) {
+  z-index: 2;
+  position: relative;
+  background: #e5eaf3;
+  border-radius: 50%;
+}
+
+.jonFlex>div>img:nth-of-type(2) {
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  bottom: 2px;
+}
+
+.jonFlex>div p {
+  position: absolute;
+  font-size: 14px;
+  right: -65%;
+  bottom: 20px;
+}
+
+.trophyShelfFlex {
+  /* display: flex; justify-content: space-between; align-items: flex-start; */
+}
+
+.trophyShelfFlex>.item {
+  display: inline-flex;
+  flex-direction: column;
+  width: 49%;
+  background: #fff;
+  border-radius: 32px;
+  padding: 30px;
+}
+
+.trophyShelfFlex>.item:nth-of-type(2) {
+  margin-left: 24px;
+}
+
+.dogProgress {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.dogProgress>img {
+  margin-right: 30px;
+}
+
+.dogProgress>div p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.dogProgress>div p:nth-of-type(2) {
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  color: #003087;
+}
+
+.achieveProgress.MuiLinearProgress-root {
+  background-color: #e5eaf3;
+}
+
+.achieveProgress.MuiLinearProgress-root .MuiLinearProgress-bar {
+  background: #e35205;
+}
+
+.dogProgress .linearProgressWrap {
+  position: relative;
+  padding-top: 20px;
+}
+
+.dogProgress .linearProgressWrap span:nth-of-type(1) {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: #000;
+}
+
+.dogProgress>div {
+  flex: 1 1 auto;
+}
+
+.trophyScroller {
+  padding-bottom: 10px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.trophyScroller>img {
+  display: inline-block;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  margin-right: 100px;
+}
+
+.trophyScroller .progresswrap {
+  margin-right: 100px;
+  display: inline-block;
+}
+
+.trophyShelfFlex>.item:nth-of-type(2) .trophyScroller {
+  margin: 35px 0;
+}
+
+.dogModal .MuiPaper-root {
+  width: 303px;
+  border-radius: 20px;
+}
+
+.dogModal .modalCont {
+  position: relative;
+  padding: 70px 0 30px;
+  text-align: center;
+}
+
+.dogModal .modalCont>button:nth-of-type(1) {
+  position: absolute;
+  right: -21px;
+  top: -5px;
+}
+
+.dogModal .modalCont>button:nth-of-type(1)+img,
+.dogModal .modalCont>button:nth-of-type(1)+.progresswrap {
+  margin-bottom: 20px;
+}
+
+.dogModal .modalCont>button:nth-of-type(1)+.progresswrap .circlePBar {
+  width: 91px !important;
+  height: 91px !important;
+}
+
+.dogModal .modalCont>button:nth-of-type(1)+.progresswrap>img {
+  width: 84px;
+}
+
+.dogModal .modalCont div p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 29px;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.dogModal .modalCont div p:nth-of-type(1) span {
+  margin-left: 5px;
+  color: #e35205;
+}
+
+.dogModal .modalCont div p:nth-of-type(2) {
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.dogModal .modalCont button:nth-of-type(2) {
+  padding: 5px 29px !important;
+  border-radius: 18px !important;
+  margin: 15px 0 0;
+}
+
+.modalProgress.MuiLinearProgress-root {
+  height: 38px;
+  border-radius: 100px;
+  background-color: #e5eaf3;
+}
+
+.modalProgress.MuiLinearProgress-root .MuiLinearProgress-bar {
+  background: #003087;
+  border-radius: 30px;
+}
+
+.dogModal .linearProgressWrap {
+  margin-top: 20px;
+  position: relative;
+}
+
+.dogModal .linearProgressWrap>span:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+}
+
+.foxWrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.foxWrap p {
+  font-family: Univers LT Std;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #000;
+}
+
+.individualJon {
+  text-align: center;
+}
+
+.individualJon .box {
+  position: relative;
+  height: 249px;
+}
+
+.individualJon .box .imgBox {
+  position: relative;
+}
+
+.individualJon .box .imgBox img:nth-of-type(3) {
+  position: absolute;
+  left: 51%;
+  top: 77px;
+  transform: translate(-50%, 0px);
+}
+
+.individualJon .box.even .imgBox img:nth-of-type(3) {
+  left: 48%;
+}
+
+.individualJon .box .imgBox img:nth-of-type(2) {
+  position: absolute;
+  left: 49.5%;
+  top: 57px;
+  width: 39px;
+}
+
+.individualJon .box.even .imgBox img:nth-of-type(2) {
+  left: 45.9%;
+  top: 45px;
+}
+
+.individualJon .box .textBox {
+  text-align: left;
+  width: 200px;
+  position: absolute;
+  left: 54%;
+  top: 0;
+}
+
+.individualJon .box .textBox p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.individualJon .box .textBox p:nth-of-type(2) {
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  color: #000;
+}
+
+.individualJon .box.even .textBox {
+  text-align: right;
+  left: 28.5%;
+}
+
+/* profile screen */
+.profilArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profilArea>div:nth-of-type(1) {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin-right: 35px;
+}
+
+.profilArea>div:nth-of-type(1) img:nth-of-type(1) {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.profilArea>div:nth-of-type(1) img:nth-of-type(2) {
+  position: absolute;
+  bottom: -31px;
+  right: -20px;
+}
+
+.profilArea>div:nth-of-type(2) p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: 0em;
+  color: #000;
+}
+
+.profilArea>div:nth-of-type(2) p:nth-of-type(2),
+.profilArea div:nth-of-type(2) p:nth-of-type(3) {
+  font-family: Univers LT Std;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: #003087;
+  margin-bottom: 5px;
+
+}
+
+.profilArea>div:nth-of-type(2) p:nth-of-type(4) {
+  font-family: Univers LT Std;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: 0.02px;
+  color: #e35205;
+  margin-bottom: 10px;
+}
+
+.profilArea>div:nth-of-type(2) p:nth-of-type(2),
+.profilArea div:nth-of-type(2) p:nth-of-type(3) {
+  font-family: Univers LT Std;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  color: #003087;
+}
+
+.profileProgressWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profileProgressWrap .MuiLinearProgress-root {
+  width: 160px !important;
+}
+
+.profileProgressWrap .achieveProgress.MuiLinearProgress-root {
+  background: #fff;
+  height: 7px;
+  border-radius: 10px;
+}
+
+.profileProgressWrap button {
+  padding: 0;
+  color: #e35205;
+  font-family: Univers LT Std;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-decoration: underline;
+  text-transform: capitalize;
+  margin-left: 5px;
+}
+
+.profileStack.topStack {
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.trophyBoxHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.cartWrap.profileCartWrap .template-list-main .item .itemImgWrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cartWrap.profileCartWrap .template-list-main .item .itemImgWrap img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.cartWrap.profileCartWrap .template-list-main .item .MuiBox-root:nth-of-type(2)>p {
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+  color: #e35205;
+}
+
+.teamWrap {
+  text-align: center;
+  margin-right: -40px;
+}
+
+.teamWrap img {
+  width: 89px;
+  height: 89px;
+  border-radius: 50%;
+  margin-left: -40px;
+}
+
+.yourTeamTop p {
+  font-family: Univers LT Std;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #000;
+  text-align: center;
+  margin: 10px 0 40px;
+}
+
+.profileUpload {
+  width: 300px;
+  height: 300px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.profileUpload>img:nth-of-type(1) {
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+}
+
+.profileUpload>img:nth-of-type(2) {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.profileUpload:hover {
+  cursor: pointer;
+}
+
+.addPetWrap {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addPetWrap .profileImg {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.addPetWrap>div {
+  width: 50%;
+}
+
+.addPetWrap>div:nth-of-type(1) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+}
+
+.addPetWrap>div:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.learnDogScreen>p:nth-of-type(1) {
+  font-family: Univers LT Std;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+  color: #003087;
+  margin-bottom: 20px;
+}
+
+.learnDogScreen .MuiPaper-root.MuiAccordion-rounded {
+  border-radius: 25px;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 20px;
+}
+
+.learnDogScreen .MuiPaper-root.MuiAccordion-rounded:before {
+  display: none;
+}
+
+.learnDogScreen .MuiAccordionSummary-content {
+  align-items: center;
+}
+
+.learnDogScreen .MuiAccordionSummary-content .MuiSvgIcon-root {
+  color: #003087;
+  margin-right: 20px;
+}
+
+.learnDogScreen .MuiAccordionSummary-content p {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0px;
+  color: #000;
+}
+
+.learnDogScreen .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root {
+  font-size: 30px;
+  color: #000;
+}
+
+.learnDogScreen .MuiToggleButtonGroup-root button.MuiButtonBase-root {
+  background: transparent;
+  border: 1px solid #003087;
+  font-family: Myriad Pro;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #003087;
+  margin: 0 10px;
+  width: 92px;
+  border-radius: 30px;
+  padding: 10px 10px;
+  line-height: 1;
+}
+
+.learnDogScreen .MuiToggleButtonGroup-root button.Mui-selected {
+  background: #003087;
+  color: #fff;
+}
+
+.learnDogScreen .MuiCollapse-wrapper .MuiAccordionDetails-root .MuiToggleButtonGroup-root {
+  background: #f8fbff;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.learnDogScreen>button:nth-last-of-type(1) {
+  margin-top: 20px;
+}
+
+.profileBtnWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profileBtnWrap button.confirmCheckBtn {
+  width: 50%;
+}
+
+.profileBtnWrap button.confirmCheckBtn:nth-of-type(1) {
+  color: #d13a00;
+  border-right: 1px solid #0000002e;
+}
+
+/* ---------------------M-styling-end---------------- */
+/* Custom Modal for schedule a visit*/
+.dialog-main .MuiPaper-root {
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.19);
+  padding: 35px 20px 0px 35px;
+}
+
+.dialog-main .dialog-actions {
+  justify-content: start;
+  gap: 26%;
+  align-items: center;
+}
+
+.dialog-actions p {
+  color: #003087;
+  text-align: center;
+  font-family: 'Bebas Neue' !important;
+  font-size: 38px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.schedule-section-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.schedule-section-wrap .schedule-section-box {
+  width: 527px;
+  height: 275px;
+  border-radius: 32px;
+  padding: 154px 60px 0px 60px;
+}
+
+.schedule-section-wrap .schedule-section-box:nth-of-type(1) {
+  background: url("./assets/images/banner1New.png") center no-repeat;
+  background-size: cover;
+}
+
+.schedule-section-wrap .schedule-section-box:nth-of-type(2) {
+  background: url("./assets/images/banner2New.png") center no-repeat;
+  background-size: cover;
+}
+
+.schedule-section-box .schedule-section-action {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.schedule-section-action .action-btn {
+  border-radius: 50px !important;
+  width: 254px !important;
+  padding: 10px !important;
+  border: 0 !important;
+  font-family: 'Univers LT Std' !important;
+  font-size: 16px;
+  text-transform: inherit;
+  font-weight: 700;
+}
+
+.schedule-section-action p {
+  color: #fff;
+  text-align: center;
+  font-family: 'Univers LT Std' !important;
+  /* font-size: 21px; */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 21px */
+}
+
+.f-21 {
+  font-size: 21px !important;
+}
+
+.f-14 {
+  font-size: 14px !important;
+}
+
+.header-text .dialog-link.MuiLink-root {
+  text-decoration: underline;
+  color: #e35205;
+  cursor: pointer;
+}
+
+/* Appintment section */
+.appointment-container.MuiContainer-root.MuiContainer-maxWidthLg {
+  margin: 0;
+  padding: 20px;
+  max-width: 100%;
+  /* height: 100vh; */
+}
+
+.appointment-container .appointment-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2%;
+  margin-bottom: 20px;
+}
+
+.appointment-header .top-header {
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.appointment-header .top-header .arrow-btn {
+  border: 0 !important;
+  height: 20px !important;
+  min-width: 24px !important;
+}
+
+.appointment-header .top-header .header-text,
+.trophyShelfWrap .header-text {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.appointment-main {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.appointment-main .field-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.field-section .appointment-dropdown {
+  width: 50%;
+}
+
+.appointment-dropdown .MuiFormLabel-root.MuiInputLabel-root {
+  color: var(--20, #333);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+.custom-select {
+  background: white;
+  border-radius: 36px;
+}
+
+.custom-select .MuiOutlinedInput-notchedOutline {
+  border: 0;
+}
+
+.appointment-dropdown .MuiOutlinedInput-notchedOutline {
+  border: 0;
+}
+
+.custom-select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
+  color: #003087;
+
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.custom-select .arrow-btn {
+  border: 0 !important;
+  height: 32px !important;
+  min-width: 32px !important;
+}
+
+.custom-select .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
+  border-radius: 30px !important;
+  margin-top: 5px;
+}
+
+.custom-select .custom-date-select .MuiButtonBase-root.MuiIconButton-root {
+  background: #e7eff9;
+  height: 32px;
+  color: #e35205;
+  width: 32px;
+  margin-right: -1px;
+}
+
+.custom-date-select .MuiInputBase-input.MuiOutlinedInput-input {
+  color: #003087;
+}
+
+.MuiPickersCalendarHeader-root .MuiPickersCalendarHeader-label {
+  color: #003087 !important;
+  font-weight: 600;
+}
+
+.MuiDayCalendar-header .MuiPickersCalendarHeader-switchViewButton .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
+  color: #003087 !important;
+}
+
+.MuiPickersArrowSwitcher-root button {
+  color: #003087 !important;
+  background-color: #e7eff9 !important;
+}
+
+.MuiDayCalendar-header span {
+  color: #003087 !important;
+  font-weight: 600;
+}
+
+.MuiDayCalendar-monthContainer button {
+  font-weight: 600;
+}
+
+.MuiDateCalendar-root {
+  width: 540px !important;
+}
+
+.MuiDayCalendar-header {
+  justify-content: space-around !important;
+}
+
+.MuiDayCalendar-weekContainer {
+  justify-content: space-around !important;
+}
+
+.MuiYearCalendar-root {
+  width: 100% !important;
+}
+
+.appointment-dropdown .text-field {
+  border-radius: 25px;
+  background: var(--secondary-white, #fff);
+  height: 179px;
+  width: 100%;
+  /* padding: 22px 18px 12px 26px; */
+  padding:0px !important;
+}
+
+.text-field .MuiInputBase-input.MuiOutlinedInput-input {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.appointment-dropdown .drag-drop-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #003087;
+  border-radius: 25px;
+  background: var(--secondary-white, #fff);
+  height: 179px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.drag-drop-box .drop-box-text {
+  color: #003087;
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.drop-box-text .drop-box-span {
+  text-decoration: underline;
+  color: #003087;
+  /* text-decoration: overline; */
+}
+
+.book-btn,.book-btn-help-support  {
+  padding: 17px 28px !important;
+  border: 0 !important;
+  font-size: 18px;
+  font-weight: 700;
   
-  .attendee-header p {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-transform: uppercase;
-    flex-shrink: 0;
-  }
-  
-  .attendee-value p {
-    color: var(--rgb-000, #000);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    flex-shrink: 0;
-  }
-  
-  .booking-attendee p {
-    color: #000;
-  }
-  
-  /* .visitHeader-footer .value-weight {
+}
+
+.br-50{
+  border-radius: 50px !important;
+}
+
+.book-btn svg {
+  background: white;
+  color: #32b2ac;
+  border-radius: 50%;
+}
+.book-btn-help-support svg{
+  background: white;
+  color: #E35205;
+  border-radius: 50%;
+}
+
+.available-slots {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.slots-wrap {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  padding: 13px 18px 18px 26px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: var(--secondary-white, #fff);
+}
+
+.slots-wrap .slot-title {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.slots-wrap .slots-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 12px;
+}
+
+.slots-display .slots {
+  border-radius: 25px !important;
+  padding: 11.5px 12px 9.5px 12px !important;
+}
+
+.slots.active {
+  color: #ffff !important;
+  background-color: #003087 !important;
+}
+
+/* Confirm Booking */
+.confirm-booking-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+}
+
+.display-booking-wrap {
+  border-radius: 20px;
+  width: 100%;
+  background-color: #fff;
+  /*height: 283px;*/
+}
+
+
+.booking-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding: 40px 50px 50px 30px;
+  width: 100%;
+  gap: 37px;
+}
+
+.booking-notes-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 44px;
+}
+
+.booking-notes {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #fff;
+  padding: 25px 34px 34px 47px;
+  box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
+}
+
+.booking-notes .heading {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.booking-notes .description {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 142.857% */
+  text-transform: lowercase;
+}
+
+.booking-notes .see-more {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.display-booking-wrap .display-attendee {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  gap: 3px;
+}
+
+.display-attendee .attendee-header,
+.attendee-value {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 64%;
+}
+
+.attendee-header p {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.attendee-value p {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  flex-shrink: 0;
+}
+
+.booking-attendee p {
+  color: #000;
+}
+
+/* .visitHeader-footer .value-weight {
     font-size: 24px !important;
     font-weight: bold;
   } */
-  .visitHeader-footer div p:nth-of-type(1) {
-    font-size: 24px;
-    color: var(--rgb-000, #000);
-    font-family: Univers LT Std;
+.visitHeader-footer div p:nth-of-type(1) {
+  font-size: 24px;
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
 
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%;
-    text-transform: capitalize
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: capitalize
 }
-.attendee-value p, .visitHeader div p:nth-of-type(2) {
+
+.attendee-value p,
+.visitHeader div p:nth-of-type(2) {
   color: var(--rgb-000, #000);
   font-family: Univers LT Std;
   font-size: 16px;
@@ -2644,6 +2681,7 @@ line-height: 14px;
 
   text-transform: capitalize;
 }
+
 .visitHeader {
   display: flex;
   justify-content: space-between;
@@ -2657,7 +2695,9 @@ line-height: 14px;
   width: 100%;
 }
 
-.attendee-header p, .visitHeader div p:nth-of-type(1), .visitHeader-footer div p:nth-of-type(2) {
+.attendee-header p,
+.visitHeader div p:nth-of-type(1),
+.visitHeader-footer div p:nth-of-type(2) {
   color: #003087;
   font-family: Univers LT Std;
   font-size: 12px;
@@ -2668,7 +2708,8 @@ line-height: 14px;
 
 }
 
-.attendee-value p, .visitHeader div p:nth-of-type(2) {
+.attendee-value p,
+.visitHeader div p:nth-of-type(2) {
   color: var(--rgb-000, #000);
   font-family: Univers LT Std;
   font-size: 16px;
@@ -2682,738 +2723,741 @@ line-height: 14px;
 .booking-attendee p {
   color: #000;
 }
-  .attendee-header span {
-    font-weight: 700;
-  }
-  
-  /* Checkout */
-  .checkout-header {
-    margin-bottom: 25px;
-  }
-  
-  .checkout-header .radio-main.MuiFormGroup-root {
-    gap: 50px;
-  }
-  
-  .radio-main .MuiFormControlLabel-root .MuiFormControlLabel-label {
-    color: var(--rgb-000, #000);
-    font-family: Myriad Pro;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-  }
-  
-  .radio-main .MuiButtonBase-root.MuiRadio-root.Mui-checked {
-    color: #003087;
-  }
-  
-  .card-detail-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    gap: 30px;
-  }
-  
-  .card-detail-wrap .available-slots {
-    font-weight: 700;
-  }
-  
-  .card-detail-wrap .card-detail {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: flex-start; */
-    align-items: flex-start;
-    gap: 15px;
-  }
-  
-  .card-detail-wrap .appointment-dropdown {
-    width: 100%;
-  }
-  
-  .input-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    gap: 15px;
-  }
-  
-  .input-section .MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root {
-    max-width: 65%;
-  }
-  
-  .save-card {
-    display: flex;
-    flex-direction: row;
-    gap: 25px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .save-card p {
-    color: var(--rgb-000, #000);
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%; /* 14px */
-    letter-spacing: 0.14px;
-  }
-  
-  .slots-wrap.card-list-detail-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .card-list-detail-wrap .card-list-detail {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    width: 100%;
-  }
-  
-  .save-card .MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
-    color: #003087;
-  }
-  
-  .card-list-detail .MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
-    color: #003087;
-  }
-  
-  .card-list-section {
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: flex-start;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  .card-list-section .heading {
-    color: var(--rgb-000, #000);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-  }
-  
-  .card-list-section .sub-heading {
-    color: rgba(0, 0, 0, 0.7);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-  }
-  
-  .color-btn-wrap {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-  }
-  
-  .gray-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
-    color: rgba(0, 0, 0, 0.5);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px; /* 142.857% */
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .blue-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .red-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
-    color: #e35205;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .MuiOutlinedInput-input[type="number"] {
-    -moz-appearance: textfield; /* For Firefox */
-    appearance: none; /* For Chrome, Safari, and newer versions of Firefox */
-  }
-  
-  /* Remove the inner and outer spin buttons for WebKit browsers */
-  .MuiOutlinedInput-input[type="number"]::-webkit-inner-spin-button,
-  .MuiOutlinedInput-input[type="number"]::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-  }
-  
-  .input-section div:nth-child(2) {
-    width: 35%;
-  }
-  
-  .card-input .MuiInputBase-input.MuiOutlinedInput-input {
-    color: #003087;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    padding: 16.5px 23px;
-  }
-  
-  .card-input {
-    background-color: #fff;
-    border-radius: 30px;
-    /* padding: 13px 18px 12px 26px; */
-  }
-  
-  .card-input.search img {
-    background: rgb(231, 239, 249);
-    border-radius: 50%;
-    padding: 6px;
-  }
-  
-  .card-input .MuiOutlinedInput-notchedOutline {
-    border: 0;
-  }
-  
-  /* Booking terms */
-  .display-booking-wrap.video-main {
-    height: auto;
-  }
-  
-  .video-main .booking-wrap {
-    padding: 26px;
-    gap: 16px;
-  }
-  
-  .video-main p {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .booking-wrap .video-wrap {
-    width: 609.095px;
-    height: 292px;
-    border-radius: 20px;
-    position: relative;
-  }
-  
-  .video-wrap > button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-    color: #fff;
-    transform: translate(-50%, -50%);
-  }
-  
-  .video-wrap > button svg {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .booking-notes.signature-box {
-    margin-top: 0;
-    box-shadow: none;
-    border-radius: 20px;
-    background: var(--secondary-white, #fff);
-    height: 100px;
-    width: 100%;
-    padding: 13px 18px 12px 26px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .signature-box .see-more {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    cursor: pointer;
-  }
-  
-  .booking-notes-wrap.book-term {
-    gap: 34px;
-  }
-  
-  .booking-success {
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    /* padding-top: 100px; */
-    align-content: flex-end;
-    flex-direction: row;
-    /* flex-wrap: nowrap; */
-    padding: 10% 35% 0 35%;
-    text-align: center;
-  }
-  
-  .booking-success .password-success {
-    gap: 25px;
-  }
-  
-  .link-line.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%; /* 24px */
-    text-decoration-line: underline;
-    text-decoration-color: #003087;
-    cursor: pointer;
-  }
-  
-  .red-link-line.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
-    color: var(--primary-orange, #e35205);
-    font-family: Myriad Pro;
-    text-decoration-color: #e35205;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.16px;
-    cursor: pointer;
-    text-decoration-line: underline;
-  }
-  
-  /* Explore */
-  .explore-main {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 30px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .filter-section {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    gap: 50px;
-    justify-content: space-between;
-    align-items: center;
-  }
 
-  .no-space{
-    display: flex;
-    justify-content: flex-start !important;
-  }
-  
-  .filter-section .days-section,
-  .filter-dropdown-section {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .days-section .week-days-box {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .days-section .slots {
-    border-radius: 34.414px !important;
-    border: 0 !important;
-    background: #fff;
-    width: 144px !important;
-    height: 45px;
-    padding: 17px 5px !important;
-    box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.1);
-    color: var(--primary-blue, #003087);
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .week-days-box .slots {
-    border-radius: 50% !important;
-    min-width: 49px !important;
-    width: 49px !important;
-  }
-  
-  .filter-dropdown-section
-    .custom-select
-    .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
-    min-height: 0;
-  }
-  
-  .filter-dropdown-section
-    .card-input
-    .MuiInputBase-input.MuiOutlinedInput-input {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: 3rem;
-  }
-  
-  .cards-list-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  
-  .cards-list-wrap .card-item-wrap {
-    border-radius: 32px;
-    background: #fff;
-    box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.1);
-    display: flex;
-    width: 32.2%;
-    height: 238.488px;
-    padding: 60px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 55px;
-    flex-shrink: 0;
-  }
-  
-  .card-item-head .viewAllBtn {
-    border-radius: 25px !important;
-  
-    padding: 2px 16px !important;
-  }
-  
-  .card-item-head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  .card-item-footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  /* book Service */
-  .appointment-dropdown.book-service {
-    width: 100%;
-  }
-  
-  .booking-notes.service-wrap {
-    width: 100%;
-    gap: 32px;
-  }
-  
-  .service-wrap .first-section {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .service-wrap .avatar-list {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 23px;
-  }
-  
-  .custom-heading.MuiTypography-root.MuiTypography-body1 {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .service-wrap .avatar-list p {
-    color: #000;
-    text-align: right;
-    font-family: Myriad Pro;
-    font-size: 11px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.11px;
-  }
-  
-  .display-booking-wrap.book-service-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: auto;
-  }
-  
-  .book-service-left .service-img {
-    border-radius: 20px 20px 0px 0px;
-    width: 100%;
-    height: 236px;
-    display: block;
-  }
-  
-  .book-service-left .img-section {
-    width: 100%;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .overlay-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    z-index: 1;
-    gap: 84px;
-    padding: 35px 50px 0px 50px;
-  }
-  
-  .overlay-content .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .overlay-content p {
-    color: #fff;
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.12px;
-    text-transform: uppercase;
-  }
-  
-  .overlay-content .header .heading {
-    color: #fff;
-    font-family: Univers LT Std;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.24px;
-  }
-  
-  .img-footer .heading.MuiTypography-root.MuiTypography-body1 {
-    color: #fff;
-    font-family: Univers LT Std;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.24px;
-  }
-  
-  .overlay-content .header .img-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .rating-section {
-    display: flex;
-    gap: 10px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: center;
-  }
-  
-  .rating-section .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
-    color: #e35205;
-  }
-  
-  .booking-notes.service-description {
-    border-radius: 0px 0px 20px 20px;
-    width: 100%;
-  }
-  
-  /* checkout */
-  .card-detail .credit-remain {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 60px;
-  }
-  
-  .credit-remain p:first-of-type {
-    color: #e35205;
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.16px;
-  }
-  
-  .credit-remain p:nth-of-type(2) {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.16px;
-  }
-  
-  /* Buy credit  */
-  .buy-credit-main {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-  }
-  
-  .buy-credit-main .available-credit-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-  }
-  
-  .available-credit-list .credit-box {
-    border-radius: 32px;
-    background: #fff;
-    box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
-    height: 139px;
-    width: 49%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 57px;
-  }
-  
-  .credit-box .credit-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-  }
-  
-  .credit-header p {
-    color: var(--rgb-000, #000);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 150%; /* 24px */
-  }
-  
-  .credit-box .credit-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-  }
-  
-  .credit-footer p:nth-child(even) {
-    color: #003087;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  /* dashboard */
-  .schedule-section.second-section {
-    background: #fff;
-  }
-  
-  .second-section .main-schedule-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 25px;
-  }
-  
-  .main-schedule-box .class-section-box {
-    border-radius: 32px;
-    background: #e7eff9;
-    display: flex;
-    width: 100%;
-    height: 60.035px;
-    padding: 10px 13px 10px 25px;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-  }
-  
-  .main-schedule-box .class-section-box .class-section {
-    text-align: left;
-  }
-  
-  .main-schedule-box p:first-child {
-    color: var(--primary-blue, #003087);
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  /* .class-section-box .class-section p:first-child {
+.attendee-header span {
+  font-weight: 700;
+}
+
+/* Checkout */
+.checkout-header {
+  margin-bottom: 25px;
+}
+
+.checkout-header .radio-main.MuiFormGroup-root {
+  gap: 50px;
+}
+
+.radio-main .MuiFormControlLabel-root .MuiFormControlLabel-label {
+  color: var(--rgb-000, #000);
+  font-family: Myriad Pro;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.radio-main .MuiButtonBase-root.MuiRadio-root.Mui-checked {
+  color: #003087;
+}
+
+.card-detail-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 30px;
+}
+
+.card-detail-wrap .available-slots {
+  font-weight: 700;
+}
+
+.card-detail-wrap .card-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.card-detail-wrap .appointment-dropdown {
+  width: 100%;
+}
+
+.input-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+.input-section .MuiFormControl-root.MuiFormControl-fullWidth.MuiTextField-root {
+  max-width: 65%;
+}
+
+.save-card {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-card p {
+  color: var(--rgb-000, #000);
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  /* 14px */
+  letter-spacing: 0.14px;
+}
+
+.slots-wrap.card-list-detail-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card-list-detail-wrap .card-list-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.save-card .MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
+  color: #003087;
+}
+
+.card-list-detail .MuiButtonBase-root.MuiCheckbox-root.Mui-checked {
+  color: #003087;
+}
+
+.card-list-section {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-list-section .heading {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.card-list-section .sub-heading {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.color-btn-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.gray-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  /* 142.857% */
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.blue-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.red-btn.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
+  color: #e35205;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.MuiOutlinedInput-input[type="number"] {
+  -moz-appearance: textfield;
+  /* For Firefox */
+  appearance: none;
+  /* For Chrome, Safari, and newer versions of Firefox */
+}
+
+/* Remove the inner and outer spin buttons for WebKit browsers */
+.MuiOutlinedInput-input[type="number"]::-webkit-inner-spin-button,
+.MuiOutlinedInput-input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.input-section div:nth-child(2) {
+  width: 35%;
+}
+
+.card-input .MuiInputBase-input.MuiOutlinedInput-input {
+  color: #003087;
+  font-family: "Inter, Arial, sans-serif";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  padding: 16.5px 23px;
+}
+
+.card-input {
+  background-color: #fff;
+  border-radius: 30px;
+  /* padding: 13px 18px 12px 26px; */
+}
+
+.card-input.search img {
+  background: rgb(231, 239, 249);
+  border-radius: 50%;
+  padding: 6px;
+}
+
+.card-input .MuiOutlinedInput-notchedOutline {
+  border: 0;
+}
+
+/* Booking terms */
+.display-booking-wrap.video-main {
+  height: auto;
+}
+
+.video-main .booking-wrap {
+  padding: 26px;
+  gap: 16px;
+}
+
+.video-main p {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.booking-wrap .video-wrap {
+  width: 609.095px;
+  height: 292px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.video-wrap>button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  color: #fff;
+  transform: translate(-50%, -50%);
+}
+
+.video-wrap>button svg {
+  width: 35px;
+  height: 35px;
+}
+
+.booking-notes.signature-box {
+  margin-top: 0;
+  box-shadow: none;
+  border-radius: 20px;
+  background: var(--secondary-white, #fff);
+  height: 100px;
+  width: 100%;
+  padding: 13px 18px 12px 26px;
+  justify-content: center;
+  align-items: center;
+}
+
+.signature-box .see-more {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.booking-notes-wrap.book-term {
+  gap: 34px;
+}
+
+.booking-success {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  /* padding-top: 100px; */
+  align-content: flex-end;
+  flex-direction: row;
+  /* flex-wrap: nowrap; */
+  padding: 10% 35% 0 35%;
+  text-align: center;
+}
+
+.booking-success .password-success {
+  gap: 25px;
+}
+
+.link-line.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 24px */
+  text-decoration-line: underline;
+  text-decoration-color: #003087;
+  cursor: pointer;
+}
+
+.red-link-line.MuiTypography-root.MuiTypography-inherit.MuiLink-root.MuiLink-underlineAlways {
+  color: var(--primary-orange, #e35205);
+  font-family: Myriad Pro;
+  text-decoration-color: #e35205;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.16px;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+/* Explore */
+.explore-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-space {
+  display: flex;
+  justify-content: flex-start !important;
+}
+
+.filter-section .days-section,
+.filter-dropdown-section {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.days-section .week-days-box {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.days-section .slots {
+  border-radius: 34.414px !important;
+  border: 0 !important;
+  background: #fff;
+  width: 144px !important;
+  height: 45px;
+  padding: 17px 5px !important;
+  box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.1);
+  color: var(--primary-blue, #003087);
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.week-days-box .slots {
+  border-radius: 50% !important;
+  min-width: 49px !important;
+  width: 49px !important;
+}
+
+.filter-dropdown-section .custom-select .MuiSelect-select.MuiSelect-outlined.MuiInputBase-input {
+  min-height: 0;
+}
+
+.filter-dropdown-section .card-input .MuiInputBase-input.MuiOutlinedInput-input {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 3rem;
+}
+
+.cards-list-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.cards-list-wrap .card-item-wrap {
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 32.2%;
+  height: 238.488px;
+  padding: 60px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 55px;
+  flex-shrink: 0;
+}
+
+.card-item-head .viewAllBtn {
+  border-radius: 25px !important;
+
+  padding: 2px 16px !important;
+}
+
+.card-item-head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.card-item-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* book Service */
+.appointment-dropdown.book-service {
+  width: 100%;
+}
+
+.booking-notes.service-wrap {
+  width: 100%;
+  gap: 32px;
+}
+
+.service-wrap .first-section {
+  display: flex;
+  gap: 15px;
+}
+
+.service-wrap .avatar-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 23px;
+}
+
+.custom-heading.MuiTypography-root.MuiTypography-body1 {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.service-wrap .avatar-list p {
+  color: #000;
+  text-align: right;
+  font-family: Myriad Pro;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.11px;
+}
+
+.display-booking-wrap.book-service-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+}
+
+.book-service-left .service-img {
+  border-radius: 20px 20px 0px 0px;
+  width: 100%;
+  height: 236px;
+  display: block;
+}
+
+.book-service-left .img-section {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+  gap: 84px;
+  padding: 35px 50px 0px 50px;
+}
+
+.overlay-content .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.overlay-content p {
+  color: #fff;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.12px;
+  text-transform: uppercase;
+}
+
+.overlay-content .header .heading {
+  color: #fff;
+  font-family: Univers LT Std;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.24px;
+}
+
+.img-footer .heading.MuiTypography-root.MuiTypography-body1 {
+  color: #fff;
+  font-family: Univers LT Std;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.24px;
+}
+
+.overlay-content .header .img-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rating-section {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rating-section .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
+  color: #e35205;
+}
+
+.booking-notes.service-description {
+  border-radius: 0px 0px 20px 20px;
+  width: 100%;
+}
+
+/* checkout */
+.card-detail .credit-remain {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 60px;
+}
+
+.credit-remain p:first-of-type {
+  color: #e35205;
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.16px;
+}
+
+.credit-remain p:nth-of-type(2) {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.16px;
+}
+
+/* Buy credit  */
+.buy-credit-main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.buy-credit-main .available-credit-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.available-credit-list .credit-box {
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
+  height: 139px;
+  width: 49%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 57px;
+}
+
+.credit-box .credit-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.credit-header p {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%;
+  /* 24px */
+}
+
+.credit-box .credit-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.credit-footer p:nth-child(even) {
+  color: #003087;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* dashboard */
+.schedule-section.second-section {
+  background: #fff;
+}
+
+.second-section .main-schedule-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+}
+
+.main-schedule-box .class-section-box {
+  border-radius: 32px;
+  background: #e7eff9;
+  display: flex;
+  width: 100%;
+  height: 60.035px;
+  padding: 10px 13px 10px 25px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.main-schedule-box .class-section-box .class-section {
+  text-align: left;
+}
+
+.main-schedule-box p:first-child {
+  color: var(--primary-blue, #003087);
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* .class-section-box .class-section p:first-child {
     color: var(--rgb-000, #000);
     font-family: Univers LT Std;
     font-size: 14px;
@@ -3421,84 +3465,85 @@ line-height: 14px;
     font-weight: 700;
     line-height: 150%;
   } */
-  
-  .class-section-box .class-section p:nth-child(2) {
-    color: #003087;
-    /*text-align: center;*/
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .class-section-box .arrow-btn {
-    border: 0 !important;
-    min-width: 37px !important;
-    width: 30px !important;
-    height: 33px !important;
-  }
-  
-  .main-schedule-box .class-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    gap: 23px;
-  }
-  
-  .class-footer .visit-history {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .visit-history .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
-    color: #003087;
-  }
-  
-  /* visit history */
-  .history-box {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 18px;
+
+.class-section-box .class-section p:nth-child(2) {
+  color: #003087;
+  /*text-align: center;*/
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.class-section-box .arrow-btn {
+  border: 0 !important;
+  min-width: 37px !important;
+  width: 30px !important;
+  height: 33px !important;
+}
+
+.main-schedule-box .class-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  gap: 23px;
+}
+
+.class-footer .visit-history {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.visit-history .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium {
+  color: #003087;
+}
+
+/* visit history */
+.history-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 18px;
 }
 
 .history-box .display-booking-wrap {
-    width: 32.2%;
+  width: 32.2%;
 }
 
 .history-box .attendee-header {
-    width: 100%;
-}
-  .attendee-header .with-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    gap: 25%;
-  }
-  
-  .checked-in.MuiTypography-root.MuiTypography-body1 {
-    color: #003087;
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: capitalize;
-    flex-shrink: 0;
+  width: 100%;
 }
 
-  
+.attendee-header .with-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 25%;
+}
+
+.checked-in.MuiTypography-root.MuiTypography-body1 {
+  color: #003087;
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  flex-shrink: 0;
+}
+
+
 .cancel.MuiTypography-root.MuiTypography-body1 {
   color: #e35205;
   text-align: center;
@@ -3509,7 +3554,7 @@ line-height: 14px;
   line-height: normal;
   text-transform: capitalize;
 }
-  
+
 .absent.MuiTypography-root.MuiTypography-body1 {
   color: rgba(0, 0, 0, 0.7);
   text-align: center;
@@ -3520,847 +3565,856 @@ line-height: 14px;
   line-height: normal;
   text-transform: capitalize;
 }
-  
-  /* Shop cart */
-  .shop-cart {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 37px;
-    background: #e7eff9;
-    padding: 8px 14px;
-    gap: 10px;
-  }
-  
-  .shop-cart p {
-    color: #003087;
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 14.6px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .shop-cart span {
-    font-weight: 700;
-  }
-  
-  .top-header.shop-header {
-    justify-content: space-between;
-    padding: 10px 13px;
-  }
-  
-  .shop-header .first-box {
-    display: flex;
-    gap: 10px;
-  }
-  
-  /* Membership */
-  .membership-main {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  
-  .membership-main .filter-slider-wrap {
-    display: flex;
-    flex-direction: column;
-    width: 49%;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .filter-slider-wrap .membership-filters {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-  
-    gap: 20px;
-  }
-  
-  .filter-slider-wrap .slider-wrap {
-    border-radius: 20px;
-    background: #fff;
-    width: 100%;
-  
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .heading.MuiTypography-root.MuiTypography-body1 {
-    color: #003087;
-    /* text-align: center; */
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .slider-wrap .slider-section {
-    border-radius: 20px;
-    background: #e7eff9;
-    width: 100%;
-  
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .slider-section .image-section {
-    width: 200px;
-    align-self: stretch;
-  }
-  
-  .image-section img {
-    width: 100%;
-    height: 100%;
-  
-    border-radius: 20px;
-  }
-  
-  .slider-section .content-section {
-    display: flex;
-    flex-direction: column;
-    width: calc(100% - 200px);
-    justify-content: center;
-    align-items: flex-start;
-    gap: 25px;
-    padding: 40px;
-  }
-  
-  .slider-section
-    .content-section
-    > p.heading.MuiTypography-root.MuiTypography-body1 {
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 24px;
-    color: #000;
-  }
-  
-  .slider-section .content-section .MuiBox-root p {
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 17px;
-    color: #003087;
-  }
-  
-  .slider-section .content-section button.MuiButtonBase-root {
-    font-family: Univers LT Std;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 14px;
-    background: #fff;
-    color: #003087;
-    padding: 10px 30px;
-    border-radius: 30px;
-    text-transform: capitalize;
-    letter-spacing: 0.1px;
-  }
-  
-  /* template  */
-  .template-list-main {
-    border-radius: 32px;
-    background: #fff;
-    box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
-    width: 100%;
-  
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 36px;
-    gap: 20px;
-  }
-  
-  .template-list-main .list-section {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .list-section .main-schedule-box {
-    width: 49%;
-    cursor: pointer;
-  }
-  
-  /* Item  detail */
-  .item-detail-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    width: 100%;
-  }
-  
-  .item-detail-wrap .top-section {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-  }
-  
-  .top-section .mid-section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .mid-section .mid-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-  }
-  .mid-section .item-detail-price{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .mid-section .item-detail-value{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
-  .footer-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    gap: 36px;
-  }
-  
-  .book-btn.item-detail-btn {
-    border-radius: 50px !important;
-    border: 2px solid #32b2ac !important;
-    background-color: transparent !important;
-  }
-  
-  .book-btn.item-detail-btn svg {
-    background: #32b2ac;
-    color: #fff;
-  }
-  
-  .loader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .loader .MuiCircularProgress-root {
-    color: #003087;
-    /*height: 60px !important;*/
-    /*width: 60px !important;*/
-  }
-  
-  /*profile*/
-  .profile-main {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 40px;
-    width: 100%;
-  }
-  
-  .profile-main .dp-section {
-    position: relative;
-    width: 168px;
-    height: 168px;
-  }
-  
-  .profile-main .dp-section > img {
-    border-radius: 50%;
-    width: 168px;
-    height: 168px;
-  }
-  
-  .profile-main .dp-section .img-input {
-    right: -12px;
-    position: absolute;
-    top: 29px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-  }
-  
-  .img-input img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .img-input > input {
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    right: 0;
-    top: 0;
-    opacity: 0;
-  }
-  
-  .profile-main .form-section {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-  
-  .form-section .input-item-wrap {
-    width: 49%;
-  }
-  
-  .form-section .section-heading {
-    color: var(--c-1, #003087);
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.18px;
-    width: 100%;
-  }
-  
-  .input-item-wrap .liability-btn-wrap {
-    background: white;
-    padding: 13px 23px;
-    border-radius: 34px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .liability-btn-wrap .expiryBtn {
-    margin: 0;
-  }
-  
-  .liability-btn-wrap svg {
-    color: #32b2ac;
-  }
-  
-  .form-inputs .MuiInputBase-root.MuiOutlinedInput-root {
-    background: white;
-    border-radius: 40px !important;
-    padding-left: 21px;
-    color: #003087;
-  }
-  
-  .form-inputs .MuiOutlinedInput-notchedOutline {
-    border: 0;
-  }
-  
-  .form-inputs .MuiInputBase-input.MuiOutlinedInput-input {
-    padding: 15.5px 14px;
-  }
-  
-  .form-inputs .MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
-    background: #fff;
-  }
-  
-  /*dog profile*/
-  .input-toggle-wrap {
-  }
-  
-  .input-toggle-wrap .toggle-btn.MuiButtonBase-root.MuiToggleButton-root {
-    background: transparent;
-    border-radius: 33px;
-    color: #003087;
-    width: 118px;
-    border: 1px solid #003087;
-    padding: 6px 22px;
-  }
-  
-  .input-toggle-wrap
-    .toggle-btn.MuiButtonBase-root.MuiToggleButton-root.Mui-selected {
-    color: white;
-    background: #003087;
-    border: 2px solid #003087;
-  }
-  
-  .toggle-btn.MuiButtonBase-root.Mui-disabled.MuiToggleButton-root.Mui-selected {
-    border: 2px solid rgba(0, 48, 135, 0.29);
-    background: rgba(0, 48, 135, 0.29);
-  }
-  
-  .toggle-btn.MuiButtonBase-root.MuiToggleButton-root.Mui-disabled {
-    border-color: rgba(0, 48, 135, 0.29);
-    color: rgba(0, 48, 135, 0.29);
-  }
-  
-  .input-toggle-wrap {
-    margin-bottom: 20px;
-  }
-  
-  .input-toggle-wrap .MuiToggleButtonGroup-root {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1%;
-  }
-  
-  .input-toggle-wrap > p {
-    color: var(--rgb-000, #000);
-    font-family: Univers LT Std;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 30px;
-    letter-spacing: -0.28px;
-    margin-bottom: 20px;
-  }
-  
-  .input-item-wrap .liability-btn-wrap.upload {
-    border: 2px dashed #003087;
-  }
-  
-  .input-item-wrap.q-and-a {
-    width: 100%;
-  }
-  
-  .input-toggle-wrap .text-field {
-    width: 100%;
-    background: white;
-    height: 100%;
-    border-radius: 30px;
-    padding: 0px 0px 27px 13px;
-  }
-  
-  .input-toggle-wrap .text-field .MuiOutlinedInput-notchedOutline {
-    border: 0;
-  }
-  
-  .input-toggle-wrap .text-field .MuiInputBase-input.MuiOutlinedInput-input {
-    height: auto;
-  }
-  
-  .input-item-wrap > label {
-    margin-bottom: 15px;
-  }
-  
-  .input-item-wrap .custom-select .MuiInputBase-input.MuiOutlinedInput-input {
-    padding-left: 32px;
-  }
-  
-  .dropdown-select .MuiSvgIcon-root {
-    display: none;
-  }
-  
-  .dropdown-select .MuiSelect-nativeInput {
-    height: 100%;
-  }
-  
-  .custom-select
-    .dropdown-select
-    .MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiAutocomplete-inputRoot {
-    padding-right: 16px;
-  }
-  
-  .custom-select .dropdown-select .MuiAutocomplete-input {
-    color: #003087;
-  }
-  
-  .sidebar-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 30px;
-    position: absolute;
-    left: 50%;
-    width: max-content;
-    bottom: 0;
-    transform: translate(-50%, 0px);
-  }
-  
-  .sidebar-footer-horizontal {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    position: absolute;
-    left: 50%;
-    width: max-content;
-    bottom: 0;
-    transform: translate(-50%, 0px);
-    margin-bottom: 15px;
-  }
-  
-  .global-modal-main .MuiPaper-root.MuiPaper-elevation {
-    border-radius: 20px;
-  }
-  
-  .global-modal-main .MuiDialogContent-root {
-    background: #e7eff9;
-    width: 100%;
-    padding: 37px;
-  }
-  
-  .global-modal-main .modal-content-wrap {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  
-  /*confrim pop up*/
-  .global-modal-main .confirm-main {
-    padding: 24px;
-    max-width: 329px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-direction: column;
-  }
-  
-  .confirm-main .modal-heading {
-    color: var(--label-color-light-primary, #000);
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 22px; /* 137.5% */
-    letter-spacing: -0.408px;
-  }
-  
-  .confirm-main .modal-description {
-    color: var(--label-color-light-primary, #000);
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 18px; /* 128.571% */
-    letter-spacing: -0.078px;
-  }
-  
-  .global-modal-main .MuiDialogActions-root.MuiDialogActions-spacing {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid #3c3c435c;
-    padding: 0;
-  }
-  
-  .global-modal-main .MuiDialogActions-root.MuiDialogActions-spacing button {
-    width: 100%;
-  }
-  
-  /*end*/
-  .modal-content-wrap .modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    flex-direction: row;
-  }
-  
-  .modal-header button {
-    min-width: 36px;
-    height: 34px;
-    width: 24px;
-    border-radius: 50%;
-    background: #fff;
-    padding: 0;
-  }
-  
-  .modal-header .MuiSvgIcon-root {
-    color: #e35205;
-  }
-  
-  .modal-content-wrap .terms-box {
-    border-radius: 25px;
-    width: 100%;
-    padding: 31px;
-    background: var(--secondary-white, #fff);
-  }
-  
-  .terms-box p {
-    color: #333;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 21px;
-  }
-  
-  .modal-content-wrap .clear-link {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .modal-content-wrap .clear-link button {
-    color: #000;
-    font-family: Myriad Pro;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.17px;
-    text-decoration-line: underline;
-    text-transform: capitalize;
-  }
-  
-  .profile-btn-divider {
-    width: 1px;
-    background: #3c3c435c;
-    height: 48px;
-  }
-  
-  .confirm-main-wrap .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
-    border-radius: 14px;
-  }
-  
-  .confirm-main-wrap .MuiButtonBase-root.MuiButton-root {
-    padding: 12px;
-    margin: 0;
-  }
-  
-  .confirm-main-wrap .red-btn {
-    color: var(--rgb-209580, #d13a00);
-    text-align: center;
-    text-transform: capitalize;
-    font-feature-settings: "case" on;
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 22px; /* 157.143% */
-    letter-spacing: -0.408px;
-  }
-  
-  .confirm-main-wrap .blue-btn {
-    color: var(--primary-blue, #003087);
-    text-align: center;
-    font-feature-settings: "case" on;
-    font-family: Univers LT Std;
-    text-transform: capitalize;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 22px; /* 157.143% */
-    letter-spacing: -0.408px;
-  }
-  
-  /*signature pad*/
-  .signature-canvas {
-    width: 300px;
-    height: 100px;
-  }
-  
-  .book-btn.Mui-disabled.MuiButton-root {
-    background-color: rgb(50 178 172 / 65%) !important;
-  }
-  
-  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper {
-    border-radius: 30px;
-  }
-  
-  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiAutocomplete-paper {
-    border-radius: 30px;
-    position: absolute;
-    top: 6px;
-    width: 100%;
-  }
-  
-  .MuiAutocomplete-listbox .MuiAutocomplete-option.Mui-focused {
-    background-color: #b3c1db !important;
-  }
-  
-  /*featured slider fk*/
-  .slider-wrap > div {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .slider-wrap .MuiMobileStepper-dot.MuiMobileStepper-dotActive {
-    background: #e35205;
-  }
-  
-  .slider-wrap .react-swipeable-view-container {
-    /*width:100%;*/
-  }
-  
-  /*teams modal*/
-  
-  .teams-main-wrap
-    .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiDialog-paper {
-    border-radius: 20px;
-    width: 334px;
-    padding: 17px 20px 50px 20px;
-  }
-  
-  .teams-main-wrap .modal-header {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    align-items: flex-start;
-  }
-  
-  .modal-header.profile-content .close-button {
-    margin: 0;
-  }
-  
-  .modal-header.profile-content .close-button > svg {
-    color: #003087;
-  }
-  
-  .modal-header .close-button {
-    background: rgb(231, 239, 249);
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .team-main .team-main-heading {
-    color: #000;
-    font-family: Univers LT Std;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: capitalize;
-  }
-  
-  .team-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 40px;
-    width: 100%;
-  }
-  
-  .team-main .teams-content {
-    width: 100%;
-  }
-  
-  .teams-content .custom-select .MuiOutlinedInput-notchedOutline {
-    border-radius: 30px;
-    border: 1px solid rgb(0 0 0 / 30%);
-  }
-  
-  .team-main .book-btn.MuiButtonBase-root.MuiButton-root.MuiButton-text {
-    border-radius: 30px !important;
-    padding: 8px 28px !important;
-  }
-  
-  .liability-btn-wrap .expiryBtn > div {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-  }
-  
-  .expiryBtn .img-input > input {
-    height: 100%;
-    width: 100%;
-  }
-  
-  .team-main > svg {
-    height: 50px;
-    width: 50px;
-    color: #e35205;
-  }
-  
-  .team-main .teams-content .invite-para {
-    color: #000;
-    text-align: center;
-    font-family: Univers LT Std;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 150%;
-  }
-  
-  .team-main.invite-main {
-    gap: 20px;
-  }
-  .profile-mid-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .profile-mid-section p,
-  .MuiTypography-root.MuiTypography-body1 .see-more {
-    color: rgba(0, 0, 0, 0.7);
-    font-family: Univers LT Std;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    text-decoration: none;
-  }
-  .profile-mid-section .see-more {
-    cursor: pointer;
-  }
-  .profile-no-data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-  }
-  .profile-no-data button {
-    background: #e35205;
-    color: #fff;
-    border-radius: 30px;
-    padding: 10px 70px;
-  }
-  .profile-no-data button:hover {
-    background: #e35205;
-    color: #fff;
-  }
-  .profileProgressWrap .MuiTypography-root.MuiTypography-body1 {
-    color: #003087 !important;
-    font-family: Univers LT Std !important;
-    font-size: 12px !important;
-    font-style: normal;
-    font-weight: 400 !important;
-    line-height: normal !important;
-    padding-left: 10px;
-  }
-  .logoWithName {
-    width: 230px; /* Adjust the width to your preference */
-    height: 50px;  /* Adjust the font size */
+
+/* Shop cart */
+.shop-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 37px;
+  background: #e7eff9;
+  padding: 8px 14px;
+  gap: 10px;
 }
-  
+
+.shop-cart p {
+  color: #003087;
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 14.6px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.shop-cart span {
+  font-weight: 700;
+}
+
+.top-header.shop-header {
+  justify-content: space-between;
+  padding: 10px 13px;
+}
+
+.shop-header .first-box {
+  display: flex;
+  gap: 10px;
+}
+
+/* Membership */
+.membership-main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.membership-main .filter-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.filter-slider-wrap .membership-filters {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.filter-slider-wrap .slider-wrap {
+  border-radius: 20px;
+  background: #fff;
+  width: 100%;
+
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.heading.MuiTypography-root.MuiTypography-body1 {
+  color: #003087;
+  /* text-align: center; */
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.slider-wrap .slider-section {
+  border-radius: 20px;
+  background: #e7eff9;
+  width: 100%;
+
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider-section .image-section {
+  width: 200px;
+  align-self: stretch;
+}
+
+.image-section img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 20px;
+}
+
+.slider-section .content-section {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 200px);
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 40px;
+}
+
+.slider-section .content-section>p.heading.MuiTypography-root.MuiTypography-body1 {
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: #000;
+}
+
+.slider-section .content-section .MuiBox-root p {
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #003087;
+}
+
+.slider-section .content-section button.MuiButtonBase-root {
+  font-family: Univers LT Std;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  background: #fff;
+  color: #003087;
+  padding: 10px 30px;
+  border-radius: 30px;
+  text-transform: capitalize;
+  letter-spacing: 0.1px;
+}
+
+/* template  */
+.template-list-main {
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0px 2px 20px 0px rgba(30, 56, 96, 0.2);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 36px;
+  gap: 20px;
+}
+
+.template-list-main .list-section {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.list-section .main-schedule-box {
+  width: 49%;
+  cursor: pointer;
+}
+
+/* Item  detail */
+.item-detail-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+}
+
+.item-detail-wrap .top-section {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.top-section .mid-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+}
+
+.mid-section .mid-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.mid-section .item-detail-price {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.mid-section .item-detail-value {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  gap: 36px;
+}
+
+.book-btn.item-detail-btn {
+  border-radius: 50px !important;
+  border: 2px solid #32b2ac !important;
+  background-color: transparent !important;
+}
+
+.book-btn.item-detail-btn svg {
+  background: #32b2ac;
+  color: #fff;
+}
+
+.loader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader .MuiCircularProgress-root {
+  color: #003087;
+  /*height: 60px !important;*/
+  /*width: 60px !important;*/
+}
+
+/*profile*/
+.profile-main {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+}
+
+.profile-main .dp-section {
+  position: relative;
+  width: 168px;
+  height: 168px;
+}
+
+.profile-main .dp-section>img {
+  border-radius: 50%;
+  width: 168px;
+  height: 168px;
+}
+
+.profile-main .dp-section .img-input {
+  right: -12px;
+  position: absolute;
+  top: 29px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.img-input img {
+  width: 50px;
+  height: 50px;
+}
+
+.img-input>input {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.profile-main .form-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.form-section .input-item-wrap {
+  width: 49%;
+}
+
+.form-section .section-heading {
+  color: var(--c-1, #003087);
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  width: 100%;
+}
+
+.input-item-wrap .liability-btn-wrap {
+  background: white;
+  padding: 13px 23px;
+  border-radius: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.liability-btn-wrap .expiryBtn {
+  margin: 0;
+}
+
+.liability-btn-wrap svg {
+  color: #32b2ac;
+}
+
+.form-inputs .MuiInputBase-root.MuiOutlinedInput-root {
+  background: white;
+  border-radius: 40px !important;
+  padding-left: 21px;
+  color: #003087;
+}
+
+.form-inputs .MuiOutlinedInput-notchedOutline {
+  border: 0;
+}
+
+.form-inputs .MuiInputBase-input.MuiOutlinedInput-input {
+  padding: 15.5px 14px;
+}
+
+.form-inputs .MuiInputBase-input-MuiOutlinedInput-input:-webkit-autofill {
+  background: #fff;
+}
+
+/*dog profile*/
+.input-toggle-wrap {}
+
+.input-toggle-wrap .toggle-btn.MuiButtonBase-root.MuiToggleButton-root {
+  background: transparent;
+  border-radius: 33px;
+  color: #003087;
+  width: 118px;
+  border: 1px solid #003087;
+  padding: 6px 22px;
+}
+
+.input-toggle-wrap .toggle-btn.MuiButtonBase-root.MuiToggleButton-root.Mui-selected {
+  color: white;
+  background: #003087;
+  border: 2px solid #003087;
+}
+
+.toggle-btn.MuiButtonBase-root.Mui-disabled.MuiToggleButton-root.Mui-selected {
+  border: 2px solid rgba(0, 48, 135, 0.29);
+  background: rgba(0, 48, 135, 0.29);
+}
+
+.toggle-btn.MuiButtonBase-root.MuiToggleButton-root.Mui-disabled {
+  border-color: rgba(0, 48, 135, 0.29);
+  color: rgba(0, 48, 135, 0.29);
+}
+
+.input-toggle-wrap {
+  margin-bottom: 20px;
+}
+
+.input-toggle-wrap .MuiToggleButtonGroup-root {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1%;
+}
+
+.input-toggle-wrap>p {
+  color: var(--rgb-000, #000);
+  font-family: Univers LT Std;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: -0.28px;
+  margin-bottom: 20px;
+}
+
+.input-item-wrap .liability-btn-wrap.upload {
+  border: 2px dashed #003087;
+}
+
+.input-item-wrap.q-and-a {
+  width: 100%;
+}
+
+.input-toggle-wrap .text-field {
+  width: 100%;
+  background: white;
+  height: 100%;
+  border-radius: 30px;
+  padding: 0px 0px 27px 13px;
+}
+
+.input-toggle-wrap .text-field .MuiOutlinedInput-notchedOutline {
+  border: 0;
+}
+
+.input-toggle-wrap .text-field .MuiInputBase-input.MuiOutlinedInput-input {
+  height: auto;
+}
+
+.input-item-wrap>label {
+  margin-bottom: 15px;
+}
+
+.input-item-wrap .custom-select .MuiInputBase-input.MuiOutlinedInput-input {
+  padding-left: 32px;
+}
+
+.dropdown-select .MuiSvgIcon-root {
+  display: none;
+}
+
+.dropdown-select .MuiSelect-nativeInput {
+  height: 100%;
+}
+
+.custom-select .dropdown-select .MuiInputBase-formControl.MuiInputBase-adornedEnd.MuiAutocomplete-inputRoot {
+  padding-right: 16px;
+}
+
+.custom-select .dropdown-select .MuiAutocomplete-input {
+  color: #003087;
+}
+
+.sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  position: absolute;
+  left: 50%;
+  width: max-content;
+  bottom: 0;
+  transform: translate(-50%, 0px);
+}
+
+.sidebar-footer-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  width: max-content;
+  bottom: 0;
+  transform: translate(-50%, 0px);
+  margin-bottom: 15px;
+}
+
+.global-modal-main .MuiPaper-root.MuiPaper-elevation {
+  border-radius: 20px;
+}
+
+.global-modal-main .MuiDialogContent-root {
+  background: #e7eff9;
+  width: 100%;
+  padding: 37px;
+}
+
+.global-modal-main .modal-content-wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+/*confrim pop up*/
+.global-modal-main .confirm-main {
+  padding: 24px;
+  max-width: 329px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.confirm-main .modal-heading {
+  color: var(--label-color-light-primary, #000);
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  /* 137.5% */
+  letter-spacing: -0.408px;
+}
+
+.confirm-main .modal-description {
+  color: var(--label-color-light-primary, #000);
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  /* 128.571% */
+  letter-spacing: -0.078px;
+}
+
+.global-modal-main .MuiDialogActions-root.MuiDialogActions-spacing {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #3c3c435c;
+  padding: 0;
+}
+
+.global-modal-main .MuiDialogActions-root.MuiDialogActions-spacing button {
+  width: 100%;
+}
+
+/*end*/
+.modal-content-wrap .modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+}
+
+.modal-header button {
+  min-width: 36px;
+  height: 34px;
+  width: 24px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 0;
+}
+
+.modal-header .MuiSvgIcon-root {
+  color: #e35205;
+}
+
+.modal-content-wrap .terms-box {
+  border-radius: 25px;
+  width: 100%;
+  padding: 31px;
+  background: var(--secondary-white, #fff);
+}
+
+.terms-box p {
+  color: #333;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.modal-content-wrap .clear-link {
+  width: 100%;
+  text-align: center;
+}
+
+.modal-content-wrap .clear-link button {
+  color: #000;
+  font-family: Myriad Pro;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.17px;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+}
+
+.profile-btn-divider {
+  width: 1px;
+  background: #3c3c435c;
+  height: 48px;
+}
+
+.confirm-main-wrap .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded {
+  border-radius: 14px;
+}
+
+.confirm-main-wrap .MuiButtonBase-root.MuiButton-root {
+  padding: 12px;
+  margin: 0;
+}
+
+.confirm-main-wrap .red-btn {
+  color: var(--rgb-209580, #d13a00);
+  text-align: center;
+  text-transform: capitalize;
+  font-feature-settings: "case" on;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  /* 157.143% */
+  letter-spacing: -0.408px;
+}
+
+.confirm-main-wrap .blue-btn {
+  color: var(--primary-blue, #003087);
+  text-align: center;
+  font-feature-settings: "case" on;
+  font-family: Univers LT Std;
+  text-transform: capitalize;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  /* 157.143% */
+  letter-spacing: -0.408px;
+}
+
+/*signature pad*/
+.signature-canvas {
+  width: 300px;
+  height: 100px;
+}
+
+.book-btn.Mui-disabled.MuiButton-root {
+  background-color: rgb(50 178 172 / 65%) !important;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiMenu-paper.MuiPopover-paper.MuiMenu-paper {
+  border-radius: 30px;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation1.MuiAutocomplete-paper {
+  border-radius: 30px;
+  position: absolute;
+  top: 6px;
+  width: 100%;
+}
+
+.MuiAutocomplete-listbox .MuiAutocomplete-option.Mui-focused {
+  background-color: #b3c1db !important;
+}
+
+/*featured slider fk*/
+.slider-wrap>div {
+  width: 100%;
+  justify-content: center;
+}
+
+.slider-wrap .MuiMobileStepper-dot.MuiMobileStepper-dotActive {
+  background: #e35205;
+}
+
+.slider-wrap .react-swipeable-view-container {
+  /*width:100%;*/
+}
+
+/*teams modal*/
+
+.teams-main-wrap .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiDialog-paper {
+  border-radius: 20px;
+  width: 334px;
+  padding: 17px 20px 50px 20px;
+}
+
+.teams-main-wrap .modal-header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.modal-header.profile-content .close-button {
+  margin: 0;
+}
+
+.modal-header.profile-content .close-button>svg {
+  color: #003087;
+}
+
+.modal-header .close-button {
+  background: rgb(231, 239, 249);
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.team-main .team-main-heading {
+  color: #000;
+  font-family: Univers LT Std;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.team-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+}
+
+.team-main .teams-content {
+  width: 100%;
+}
+
+.teams-content .custom-select .MuiOutlinedInput-notchedOutline {
+  border-radius: 30px;
+  border: 1px solid rgb(0 0 0 / 30%);
+}
+
+.team-main .book-btn.MuiButtonBase-root.MuiButton-root.MuiButton-text {
+  border-radius: 30px !important;
+  padding: 8px 28px !important;
+}
+
+.liability-btn-wrap .expiryBtn>div {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.expiryBtn .img-input>input {
+  height: 100%;
+  width: 100%;
+}
+
+.team-main>svg {
+  height: 50px;
+  width: 50px;
+  color: #e35205;
+}
+
+.team-main .teams-content .invite-para {
+  color: #000;
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.team-main.invite-main {
+  gap: 20px;
+}
+
+.profile-mid-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.profile-mid-section p,
+.MuiTypography-root.MuiTypography-body1 .see-more {
+  color: rgba(0, 0, 0, 0.7);
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.profile-mid-section .see-more {
+  cursor: pointer;
+}
+
+.profile-no-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.profile-no-data button {
+  background: #e35205;
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 70px;
+}
+
+.profile-no-data button:hover {
+  background: #e35205;
+  color: #fff;
+}
+
+.profileProgressWrap .MuiTypography-root.MuiTypography-body1 {
+  color: #003087 !important;
+  font-family: Univers LT Std !important;
+  font-size: 12px !important;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: normal !important;
+  padding-left: 10px;
+}
+
+.logoWithName {
+  width: 230px;
+  /* Adjust the width to your preference */
+  height: 50px;
+  /* Adjust the font size */
+}
+
 /* Add your existing styles above */
 
 /* Hover styling for list items */
@@ -4397,12 +4451,13 @@ line-height: 14px;
   margin-top: -10px !important;
 } */
 /* Change text color to blue on hover */
-.mainSidebar .MuiListItem-root:hover .list-item-text, .list-item-text:hover {
+.mainSidebar .MuiListItem-root:hover .list-item-text,
+.list-item-text:hover {
   color: #003087 !important;
 }
 
 
-.service-btn{
+.service-btn {
   width: 186.22px;
   height: 41.25px;
   position: absolute;
@@ -4419,7 +4474,7 @@ line-height: 14px;
 
 }
 
-.service-btn2{
+.service-btn2 {
   width: 187.44px;
   height: 41.25px;
   top: 495.892578125px;
@@ -4436,7 +4491,7 @@ line-height: 14px;
 
 /*------------------------ Style 1 css for fixes start ------------------------*/
 
-.locationHead > div:nth-of-type(1) {
+.locationHead>div:nth-of-type(1) {
   border-radius: 20px;
   box-shadow: 0px 0px 8px 0px #0000001a;
   display: flex;
@@ -4447,22 +4502,22 @@ line-height: 14px;
 }
 
 
-.locationHead > p:nth-of-type(1) {
+.locationHead>p:nth-of-type(1) {
   background: #32b2ac;
   color: #fff;
   padding: 10px 18px;
   border-radius: 37px;
   font-size: 12px;
   font-weight: 700;
-  
-text-align: center;
-font-family: Univers LT Std;
-font-style: normal;
-line-height: normal;
+
+  text-align: center;
+  font-family: Univers LT Std;
+  font-style: normal;
+  line-height: normal;
 
 }
 
- .locationHead > p:nth-of-type(2) {
+.locationHead>p:nth-of-type(2) {
   font-size: 15px;
   font-weight: 400;
   line-height: 14px;
@@ -4470,8 +4525,8 @@ line-height: normal;
 
   font-family: Univers LT Std;
 
-font-style: normal;
-line-height: 14px;
+  font-style: normal;
+  line-height: 14px;
 }
 
 .class-section-box .class-section p:first-child {
@@ -4492,7 +4547,7 @@ line-height: 14px;
   color: #003087;
 }
 
- .dirBox p:nth-of-type(2) {
+.dirBox p:nth-of-type(2) {
   font-family: Univers LT Std;
   font-size: 14px;
   font-weight: bold;
@@ -4500,6 +4555,7 @@ line-height: 14px;
   letter-spacing: 0em;
   color: #000;
 }
+
 .dirBox button {
   color: #003087;
   font-size: 14px;
@@ -4507,7 +4563,7 @@ line-height: 14px;
   line-height: 21px;
   letter-spacing: 0em;
   margin-top: -10px;
-  
+
 }
 
 .notifyHead button:nth-of-type(2) {
@@ -4520,11 +4576,13 @@ line-height: 14px;
   font-style: normal;
   line-height: 16px;
 }
-.notifyWrap .item.unread > p,
-.notifyWrap .item.unread > .MuiBox-root p:nth-of-type(2) {
+
+.notifyWrap .item.unread>p,
+.notifyWrap .item.unread>.MuiBox-root p:nth-of-type(2) {
   color: #000;
   font-weight: bold;
 }
+
 .notifyWrap .item {
   padding: 30px 30px 30px 15px;
   display: flex;
@@ -4545,38 +4603,43 @@ line-height: 14px;
 
 .holders-item .dogname {
   color: #003087;
-  font-weight: bold ;
+  font-weight: bold;
 }
+
 .holders-item .text {
   color: #fff;
- margin-right: -15px;
+  margin-right: -15px;
 }
+
 .topStack.trophyTopStack button {
   min-width: 273px;
   padding: 10px 26px;
   letter-spacing: 0.1px;
   margin-bottom: 30px;
-  
-font-family: Univers LT Std;
-font-size: 21px;
-font-style: normal; 
-font-weight: 700;
-/* line-height: normal; */
+
+  font-family: Univers LT Std;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  /* line-height: normal; */
 }
 
 
-.followus{
+.followus {
   color: #000;
   font-weight: 700;
   width: 106.958px;
-font-family: Univers LT Std;
-font-size: 14px;
+  font-family: Univers LT Std;
+  font-size: 14px;
 
-    }
+}
 
-.social{
+.social {
 
-margin-top: 5px;
-    }
-    
+  margin-top: 5px;
+}
+
 /*------------------------ Style 1 css for fixes end ------------------------*/
+
+/*-----------Bugs css starts-----*/
+

@@ -17,9 +17,9 @@ const IOSSwitch = styled((props) => (
       transform: 'translateX(16px)',
       color: '#fff',
       '& + .MuiSwitch-track': {
-        backgroundColor: theme.palette.mode === 'dark' ? '#b8d2f4' : '#65C466',
+        backgroundColor: 'rgba(0, 48, 135, 0.3)', // Set background color to white when switch is on
         opacity: 1,
-        border: 0
+        border: '0'
       },
       '&.Mui-disabled + .MuiSwitch-track': {
         opacity: 0.5
@@ -42,17 +42,24 @@ const IOSSwitch = styled((props) => (
   '& .MuiSwitch-thumb': {
     boxSizing: 'border-box',
     width: 22,
-    height: 22
+    height: 22,
+    backgroundColor: '#003087',
+    
+    
   },
   '& .MuiSwitch-track': {
     borderRadius: 26 / 2,
-    backgroundColor: theme.palette.mode === 'light' ? '#E9E9EA' : '#39393D',
+    backgroundColor: 'white', // Set background color to #003087 when switch is off
     opacity: 1,
+    border:'2px solid #003087',
     transition: theme.transitions.create(['background-color'], {
       duration: 500
     })
   }
 }));
+
+export default IOSSwitch;
+
 
 export function Toggle({
   value,
@@ -68,7 +75,7 @@ export function Toggle({
   
 }) {
   const handleToggle = (e) => {
-    onChange(name, e.target.checked);
+    onChange(e.target.checked);
   };
 
   return (

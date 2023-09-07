@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { CustomButton } from "../../Components/Common";
-
+import React, { useState,useEffect } from "react";
+import { CustomButton, NotificationSection } from "../../Components/Common";
+// import {CustomButton} from "../../Components/Common";
 import { Avatar, Typography, Box, List, ListItem, ListItemIcon, Grid, Button } from "@mui/material";
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
@@ -15,17 +15,24 @@ import './settingStyle.css';
 const notification      = require("../../assets/images/notification.png");
 const security          = require("../../assets/images/security.png");
 const aboutApp          = require("../../assets/images/aboutapp.png");
+const location          = require("../../assets/images/locationNew.png");
 const helpAndSupport    = require("../../assets/images/help&support.png");
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
-export default function Settings() {
+export default function Settings({clientDetail}) {
 
     const [active, setActive] = useState(0);
+    const [franchiseeId,setFranchiseeId]= useState('');
     // const components = [
 
     //     <Payments />
     // ] 
+
+    useEffect(() =>{
+        console.log(clientDetail);
+        setFranchiseeId(clientDetail.franchiseeId)
+    },[])
     return (
         <>
             {(() => {
@@ -46,7 +53,7 @@ export default function Settings() {
                     case 3:
                         return (
                             <>
-                                <Notifications setActive={setActive} />
+                                <Notifications setActive={setActive} franchiseeId={franchiseeId} />
                             </>
                         )
                     case 4:
@@ -84,10 +91,11 @@ export default function Settings() {
                                             />
                                             <Typography className='header-text-blue font-weight-700 f-18'>Settings</Typography>
                                         </Box>
-
+                                        
                                     </Box>
-
+                                    <NotificationSection/>
                                 </Box>
+                                
                                 <List sx={{ width: '100%', maxWidth: 360 }}>
                                     <ListItem>
                                         <ListItemIcon>
@@ -106,9 +114,9 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground">
-                                                        <LocationOnIcon className="icon-style cursor-pointer" onClick={() => setActive(2)} />
-                                                    </Avatar>
+                                                    <Avatar alt='D' className="back-ground location-icon-styling" src={location} onClick={() => setActive(2)}/>
+                                                        {/* <LocationOnIcon className="icon-style cursor-pointer" />
+                                                    </Avatar> */}
                                                 </Box>
                                             </Box>
                                         </ListItemIcon>
@@ -118,7 +126,7 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={notification} onClick={() => setActive(3)} />
+                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer notification-icon-styling" src={notification} onClick={() => setActive(3)} />
                                                     {/* <NotificationsIcon /> */}
                                                     {/* </Avatar> */}
                                                 </Box>
@@ -130,7 +138,7 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={security} onClick={() => setActive(4)} />
+                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer security-icon" src={security} onClick={() => setActive(4)} />
                                                     {/* <ShieldIcon /> */}
                                                     {/* </Avatar> */}
                                                 </Box>
@@ -143,7 +151,7 @@ export default function Settings() {
                                         <ListItemIcon>
                                             <Box className='avatar'>
                                                 <Box className='border-white '>
-                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer" src={aboutApp} onClick={() => setActive(5)} />
+                                                    <Avatar alt='D' className="back-ground p-11 cursor-pointer about-app-icon" src={aboutApp} onClick={() => setActive(5)} />
                                                     {/* <ShieldIcon />
                                                     </Avatar> */}
                                                 </Box>
@@ -166,10 +174,10 @@ export default function Settings() {
                                 </List>
                                 <Grid container spacing={2} sx={{ mt: 4 }}>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-16" fullWidth> Privacy policy </Button>
+                                        <Button className="white-btn f-12 font-weight-700 text-styling" fullWidth> Privacy policy </Button>
                                     </Grid>
                                     <Grid item sm={6} md={6} xs={6}>
-                                        <Button className="white-btn f-16" fullWidth> Terms and condition </Button>
+                                        <Button className="white-btn f-12 font-weight-700 text-styling" fullWidth> Terms and condition </Button>
                                     </Grid>
                                 </Grid>
                             </>
