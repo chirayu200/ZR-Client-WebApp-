@@ -1,5 +1,5 @@
 import React  from "react";
-import { CustomButton, CustomInput} from "../../Components/Common";
+import { CustomButton, CustomInput, NotificationSection} from "../../Components/Common";
 import { Box, Checkbox, Container,  Link, InputLabel, Typography } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -27,8 +27,9 @@ export default function Security({ setActive }) {
                         </Box>
 
                     </Box>
+                    <NotificationSection/>
                 </Box>
-                <Typography className="header-text-blue">Change your password</Typography>
+                <Typography className="header-text-blue font-weight-700">Change your password</Typography>
                 <Box className='appointment-main'>
                     <Box className='field-section'>
                         <Box className='appointment-dropdown'>
@@ -38,7 +39,7 @@ export default function Security({ setActive }) {
                                 name='password'
                                 placeholder='Current Password'
                                 fullWidth
-                                className='card-input'
+                                className='card-input password'
 
                             />
                         </Box>
@@ -49,7 +50,7 @@ export default function Security({ setActive }) {
                                 name='password'
                                 placeholder='New Password'
                                 fullWidth
-                                className='card-input'
+                                className='card-input password'
 
                             />
                         </Box>
@@ -63,7 +64,7 @@ export default function Security({ setActive }) {
                                 name='password'
                                 placeholder='Confirm Password'
                                 fullWidth
-                                className='card-input'
+                                className='card-input password'
 
                             />
                         </Box>
@@ -73,7 +74,7 @@ export default function Security({ setActive }) {
                     <Box className='field-section'>
                         <Box className='appointment-dropdown'>
                             <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                <Checkbox checked sx={{ color: '#003087' }} />
+                                <Checkbox  sx={{ color: '#003087' }} />
                                 <Typography className="header-text-black font-weight-400 f-14">Remember password</Typography>
                             </Box>
 
@@ -83,7 +84,7 @@ export default function Security({ setActive }) {
                     <Box className='field-section'>
                         <Box className='appointment-dropdown'>
                             <CustomButton
-                                className='book-btn-payment'
+                                className='book-btn'
                                 title={"Save password"}
                                 color='#fff'
                                 // disabled={selectedValue !== "payBy"}
@@ -97,7 +98,7 @@ export default function Security({ setActive }) {
                     </Box>
                 </Box>
                 <Box className='field-section' sx={{mt:3}}>
-                    <Typography className="header-text-blue font-weight-700 f-18">Update biometric</Typography>
+                    <Typography className="header-text-blue font-weight-700 f-18">Update Biometric</Typography>
                     <Box className='appointment-dropdown' sx={{mt:3}}>
 
                         <Box className='slots-wrap card-list-detail-wrap'>

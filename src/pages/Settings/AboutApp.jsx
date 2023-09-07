@@ -1,11 +1,11 @@
 import React from "react";
-import { CustomButton } from "../../Components/Common";
+import { CustomButton, NotificationSection } from "../../Components/Common";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
+// import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-
+import { ReactComponent as InstagramSvg } from '../../assets/images/instagramsvg.svg';
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
@@ -27,16 +27,17 @@ export default function AboutApp({ setActive }) {
                         </Box>
                        
                     </Box>
+                    <NotificationSection/>
                 </Box>
                 <Box className='item-detail-wrap'>
                     <Box className='top-section'>
-                        <Typography className='header-text-blue'>What’s New</Typography>
+                        <Typography className='header-text-blue font-weight-700'>What’s New</Typography>
                         <Typography className="header-text-black font-weight-700">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ipsum ac felis tristique consectetur. Etiam a sapien dignissim, vehicula ipsum quis, consequat elitLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat ipsum ac felis tristique consectetur. Etiam a sapien dignissim, vehicula ipsum quis, consequat elit
                         </Typography>
                     </Box>
                     <Box className='top-section'>
-                        <Typography className='header-text-blue'>About this app</Typography>
+                        <Typography className='header-text-blue font-weight-700'>About this app</Typography>
                         <Box className='mid-section'>
                             <Box className='mid-item'>
                                 <Typography className="header-text-black font-weight-700">Version</Typography>
@@ -51,8 +52,9 @@ export default function AboutApp({ setActive }) {
                                 <Typography className="header-text-black font-weight-700">iOS 16.5 and up</Typography>
                             </Box>
                             <Box className='mid-item'>
-                                <Typography className="header-text-black font-weight-700">Required OS</Typography>
+                                <Typography className="header-text-black font-weight-700">Ratings</Typography>
                                 <Box>
+                                <StarIcon className="icon-style"/>
                                 <StarIcon className="icon-style"/>
                                 <StarIcon className="icon-style"/>
                                 <StarIcon className="icon-style"/>
@@ -70,12 +72,12 @@ export default function AboutApp({ setActive }) {
                             Phasellus eu fermentum augue. Nullam lobortis nibh quis elit feugiat tincidunt. Nunc neque erat, porttitor in blandit sit amet, pulvinar vitae lectus. Pellentesque et orci tellus. Proin pretium in magna eu euismod.
                         </Typography>
                         <Typography className="font-weight-400 header-text-orange">KEEP ZOOMING!</Typography>
-                        <Box className='mid-section'>
+                        <Box className='mid-section mt-23'>
                             <Box className='mid-item'>
-                                <Typography className="header-text-black font-weight-400">Follow us on
-                                <Stack flexDirection="row"><FacebookIcon className="facebook-style"/> <InstagramIcon/> <TwitterIcon className="twiter-style"/></Stack>
+                                <Typography className="header-text-black font-weight-400">Follow us on:
+                                <Stack flexDirection="row" gap={'10px'} alignItems="center"><FacebookIcon className="facebook-style"/> <InstagramSvg/> <TwitterIcon className="twiter-style"/></Stack>
                                 </Typography>
-                                <a href="/" className='header-text-blue'>Rate your app</a>
+                                <a href="/" className='header-text-blue'>Rate our app</a>
                                 
                             </Box>
                         </Box>

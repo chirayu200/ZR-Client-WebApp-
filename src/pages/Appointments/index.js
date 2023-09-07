@@ -12,6 +12,7 @@ import BuyCredit from "./BuyCredit";
 import {useNavigate} from "react-router-dom";
 import { getLocalData } from "../../Utils";
 
+
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
 export default function Appointment() {

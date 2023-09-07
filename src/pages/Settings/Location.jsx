@@ -1,11 +1,15 @@
 import React from "react";
-import { CustomButton,  CustomInput } from "../../Components/Common";
+import { CustomButton,  CustomInput, NotificationSection } from "../../Components/Common";
 import { Box, Container, Typography } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
+import SearchIcon from '@mui/icons-material/Search';
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
 export default function Location({ setActive, active }) {
+
+    const getValue = (e) => {
+        alert(e.target.value)
+    }
     return (
         <>
             <Container className='appointment-container'>
@@ -18,18 +22,22 @@ export default function Location({ setActive, active }) {
                                 icon={backArrow}
                                 backgroundColor='#E7EFF9'
                                 onClick={() => setActive(0)}
+                                
                             />
                             <Typography className='header-text-blue font-weight-700 f-18'>Location</Typography>
                         </Box>
 
                     </Box>
+                    <NotificationSection/>
                 </Box>
                 <CustomInput
                     type='text'
                     name='Name'
                     placeholder='Change location'
                     fullWidth
-                    className='card-input'
+                    className='card-input search-bar'
+                    onChange={(e) =>getValue(e)}
+                    icon={<SearchIcon/>}
                 />
                 <CustomButton
                     className='book-btn-payment'

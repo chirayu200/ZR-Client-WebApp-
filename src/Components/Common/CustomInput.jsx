@@ -64,7 +64,7 @@ export const CustomInput = ({
 						  }
 						: icon
 						? {
-								endAdornment: <img src={icon} alt='icon' />,
+								endAdornment:icon
 						  }
 						: {}
 				}

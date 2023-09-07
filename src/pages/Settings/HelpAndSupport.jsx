@@ -1,8 +1,9 @@
 import React  from "react";
-import { CustomButton,  CustomInput } from "../../Components/Common";
+import { CustomButton,  CustomInput, NotificationSection } from "../../Components/Common";
 import { Box,Container, Typography,TextField } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
+import SearchIcon from '@mui/icons-material/Search';
+import './settingStyle.css'; 
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
@@ -25,6 +26,7 @@ export default function HelpAndSupport({ setActive }) {
                             <Typography className='header-text-blue font-weight-700 f-18'>Help & Support</Typography>
                         </Box>
                     </Box>
+                    <NotificationSection/>
                   </Box>
                 <Typography className='header-text-blue font-weight-700 f-16'>How can we help you today?</Typography>
                 <CustomInput
@@ -32,13 +34,14 @@ export default function HelpAndSupport({ setActive }) {
                     name='Name'
                     placeholder='Search queries'
                     fullWidth
-                    className='card-input'
+                    className='card-input search-bar'
                     sx={{ mt: 2 }}
+                    icon={<SearchIcon/>}
                 />
 
                 <Typography sx={{ mt: 2 }} className='header-text-blue font-weight-700 f-16'>Top Categories</Typography>
                 <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                    className='book-btn-help-support br-50  item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={"Trouble on devices"}
                     backgroundColor='white'
                     color='black'
@@ -48,7 +51,7 @@ export default function HelpAndSupport({ setActive }) {
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                    className='book-btn-help-support br-50 item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={"Help with your account"}
                     backgroundColor='white'
                     color='black'
@@ -58,7 +61,7 @@ export default function HelpAndSupport({ setActive }) {
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                    className='book-btn-help-support br-50 item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={"Bundles"}
                     backgroundColor='white'
                     color='black'
@@ -68,7 +71,7 @@ export default function HelpAndSupport({ setActive }) {
                 // onClick={handleNext}
                 />
                 <CustomButton
-                    className='book-btn item-detail-btn-sub header-text-black font-weight-700 f-14'
+                    className='book-btn-help-support br-50 item-detail-btn-sub header-text-black font-weight-700 f-14'
                     title={" Special Pricing"}
                     backgroundColor='white'
                     color='black'
@@ -84,10 +87,10 @@ export default function HelpAndSupport({ setActive }) {
                     <TextField value='Leave your feedback here...' className='text-field height-90 header-text-blue font-weight-400 f-14' />
                 </Box>
                 </Box>
-                <Box className='field-section' sx={{ mt: 8 }}>
+                <Box className='field-section' sx={{ mt:3}}>
                     <Box className='appointment-dropdown'>
                         <CustomButton
-                            className='book-btn-payment'
+                            className='book-btn'
                             title={"Send"}
                             color='#fff'
                             // disabled={selectedValue !== "payBy"}
