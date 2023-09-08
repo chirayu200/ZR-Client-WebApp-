@@ -8,3 +8,4 @@ export { NotificationSection } from './NotificationSection';
 export { LeadershipBoard } from './LeadershipBoard';
 export { LinearProgressBar } from './LinearProgressBar';
 export { Toggle } from './Toggle';
+export { CustomLoader } from "./CustomLoader";

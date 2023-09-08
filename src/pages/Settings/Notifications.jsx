@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { CustomButton,Toggle, NotificationSection } from "../../Components/Common";
+import { CustomButton,Toggle, NotificationSection,CustomLoader} from "../../Components/Common";
 import { Box, Container,Grid, Typography } from "@mui/material";
 import {getInitialSettings,updateSettings} from '../../Services/APIs/nofication';
 import { getLocalData } from "../../Utils";
@@ -17,14 +17,18 @@ export default function Notifications({setActive,franchiseeId}) {
     const [serviceConfirmation, setServiceConfirmation] = useState(false);
     const [connectionAlert, setConnectionAlert] = useState(false);
     const [membershipExpire, setMembershipExpire] = useState(false);
+    const [isStatesUpdated,setIsStatesUpdated] = useState(false);
+    const [loader,setLoader]= useState(true);
+
+    console.log("Marketing",marketingCommunication);
  
 
     const handleCheck = (name,event) => {
         setNotification(name,event); 
     }
 
-    const getInitialData = async () => {
-        await getInitialSettings(clientId,locationId).then((response) => {
+    const getInitialData = () => {
+         getInitialSettings(clientId,locationId).then((response) => {
             console.log(response.data.Items[0]);  
             if(response?.data?.Items[0])  {
                 console.log(response.data.Items[0]?.vaccination);
@@ -34,6 +38,7 @@ export default function Notifications({setActive,franchiseeId}) {
                 setServiceConfirmation(response.data.Items[0]?.serviceConfirmation);
                 setConnectionAlert(response.data.Items[0]?.connectionAlert);
                 setMembershipExpire(response.data.Items[0]?.membershipExpirationAlert);
+                setIsStatesUpdated(true)
             } 
         })
     }
@@ -81,6 +86,11 @@ export default function Notifications({setActive,franchiseeId}) {
          updateSettings(clientId,locationId,body)            
     }
 
+    const backScreen = () =>{
+        setActive(0)
+        setIsStatesUpdated(false)
+    }
+
     useEffect(() => {
         getInitialData();
     },[]);
@@ -88,6 +98,7 @@ export default function Notifications({setActive,franchiseeId}) {
 
     return (
         <>
+        <CustomLoader IsLoading={loader}/>
             <Container className='appointment-container'>
                 <Box className='appointment-header'>
                     <Box className='top-header shop-header'>
@@ -97,43 +108,44 @@ export default function Notifications({setActive,franchiseeId}) {
                                 color='#E35205'
                                 icon={backArrow}
                                 backgroundColor='#E7EFF9'
-                                onClick={() =>setActive(0)}
+                                onClick={() => backScreen()}
                             />
                             <Typography className='header-text-blue font-weight-700 f-18'>Notifications</Typography>
                         </Box>
-
                     </Box>
                     <NotificationSection/>
                 </Box>
-                <Grid container>
-                    <Grid item xs={5.5} md={5.5} sm={5.5} className="display-flex">
-                        <Typography className="header-text-black font-weight-700">Marketing Communication</Typography>
-                        <Toggle onChange={(e) => handleCheck("MarketingCommunication",e)} value={marketingCommunication} />
-                    </Grid>
-                    <Grid item xs={1} md={1} sm={1}/>
-                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex">
-                        <Typography className="header-text-black font-weight-700">Vaccination</Typography>
-                        <Toggle onChange={(e) => handleCheck("Vaccination",e)} value={vaccinationEnabled} />
-                    </Grid>
-                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
-                        <Typography className="header-text-black font-weight-700">Service Reminder</Typography>
-                        <Toggle onChange={(e) => handleCheck("ServiceRemainder",e)} value={serviceRemainder} />
-                    </Grid>
-                    <Grid item xs={1} md={1} sm={1}/>
-                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
-                        <Typography className="header-text-black font-weight-700">Service Confirmation</Typography>
-                        <Toggle onChange={(e) => handleCheck("ServiceConfirmation",e)} value={serviceConfirmation}  />
-                    </Grid>
-                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
-                        <Typography className="header-text-black font-weight-700">Connection Alert</Typography>
-                        <Toggle onChange={(e) => handleCheck("ConnectionAlert",e)}   value={connectionAlert}/>
-                    </Grid>
-                    <Grid item xs={1} md={1} sm={1}/>
-                    <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
-                        <Typography className="header-text-black font-weight-700">Membership Expiration Alert</Typography>
-                        <Toggle onChange={(e) => handleCheck("MembershipExpiration",e)}  value={membershipExpire} />
-                    </Grid>
-                </Grid>
+              {isStatesUpdated && (
+                  <Grid container>
+                  <Grid item xs={5.5} md={5.5} sm={5.5} className="display-flex">
+                      <Typography className="header-text-black font-weight-700">Marketing Communication</Typography>
+                      <Toggle onChange={(e) => handleCheck("MarketingCommunication",e)} value={marketingCommunication} />
+                  </Grid>
+                  <Grid item xs={1} md={1} sm={1}/>
+                  <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex">
+                      <Typography className="header-text-black font-weight-700">Vaccination</Typography>
+                      <Toggle onChange={(e) => handleCheck("Vaccination",e)} value={vaccinationEnabled} />
+                  </Grid>
+                  <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
+                      <Typography className="header-text-black font-weight-700">Service Reminder</Typography>
+                      <Toggle onChange={(e) => handleCheck("ServiceRemainder",e)} value={serviceRemainder} />
+                  </Grid>
+                  <Grid item xs={1} md={1} sm={1}/>
+                  <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
+                      <Typography className="header-text-black font-weight-700">Service Confirmation</Typography>
+                      <Toggle onChange={(e) => handleCheck("ServiceConfirmation",e)} value={serviceConfirmation}  />
+                  </Grid>
+                  <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
+                      <Typography className="header-text-black font-weight-700">Connection Alert</Typography>
+                      <Toggle onChange={(e) => handleCheck("ConnectionAlert",e)}   value={connectionAlert}/>
+                  </Grid>
+                  <Grid item xs={1} md={1} sm={1}/>
+                  <Grid item xs={5.5} md={5.5} sm={5.5}  className="display-flex" sx={{mt:3}}>
+                      <Typography className="header-text-black font-weight-700">Membership Expiration Alert</Typography>
+                      <Toggle onChange={(e) => handleCheck("MembershipExpiration",e)}  value={membershipExpire} />
+                  </Grid>
+              </Grid>
+              )}
             </Container>
         </>
     )

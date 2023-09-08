@@ -11,6 +11,7 @@ import Security from "./Security";
 import AboutApp from "./AboutApp";
 import HelpAndSupport from "./HelpAndSupport";
 import './settingStyle.css';
+import { getLocalData } from "../../Utils";
 
 const notification      = require("../../assets/images/notification.png");
 const security          = require("../../assets/images/security.png");
@@ -21,9 +22,12 @@ const helpAndSupport    = require("../../assets/images/help&support.png");
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
 export default function Settings({clientDetail}) {
-
+    
+    const locationId=getLocalData('locationId');
+    const clientId=getLocalData('clientId');
     const [active, setActive] = useState(0);
     const [franchiseeId,setFranchiseeId]= useState('');
+    const [cognitoId,setCognitoId]= useState('');
     // const components = [
 
     //     <Payments />
@@ -31,7 +35,8 @@ export default function Settings({clientDetail}) {
 
     useEffect(() =>{
         console.log(clientDetail);
-        setFranchiseeId(clientDetail.franchiseeId)
+        setFranchiseeId(clientDetail.franchiseeId);
+        setCognitoId(clientDetail.cognitoId);
     },[])
     return (
         <>
@@ -59,7 +64,7 @@ export default function Settings({clientDetail}) {
                     case 4:
                         return (
                             <>
-                                <Security setActive={setActive} />
+                                <Security setActive={setActive} cognitoId={cognitoId} />
                             </>
                         )
                     case 5:
@@ -72,7 +77,7 @@ export default function Settings({clientDetail}) {
                     case 6:
                         return (
                             <>
-                                <HelpAndSupport setActive={setActive} />
+                                <HelpAndSupport setActive={setActive} franchiseeId={franchiseeId} locationId={locationId} clientId={clientId}  />
                             </>
                         )
                     default:

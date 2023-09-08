@@ -1,14 +1,35 @@
-import React  from "react";
+import React ,{useState} from "react";
 import { CustomButton,  CustomInput, NotificationSection } from "../../Components/Common";
 import { Box,Container, Typography,TextField } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SearchIcon from '@mui/icons-material/Search';
-import './settingStyle.css'; 
+import './settingStyle.css';
+import { getFeedBack } from '../../Services/APIs/security';
 
 const backArrow = require("../../assets/images/orangeArrow.svg").default;
 
-export default function HelpAndSupport({ setActive }) {
+export default function HelpAndSupport({ setActive,franchiseeId,locationId,clientId }) {
 
+    const[feedBack,setFeedBack] = useState('')
+    const body={
+        locationId:locationId,
+        clientId:clientId,
+        createdBy:clientId,
+        feedback:feedBack,
+        franchiseeId:franchiseeId
+    }
+
+     const getFeedBackValue = (value) =>{
+        setFeedBack(value);
+    }
+
+     const setFeedBackValue = () => {
+        getFeedBack(body).then((response) =>{
+            setActive(0);
+            setFeedBack('');
+            console.log(response);
+        })
+     }
  
     return (
         <>
@@ -84,7 +105,7 @@ export default function HelpAndSupport({ setActive }) {
                 <Typography sx={{ mt: 2 }} className='header-text-black font-weight-400 f-14'>Leave Your Feedback</Typography>
                 <Box className='field-section' sx={{mt:2}}>
                 <Box className='appointment-dropdown'>
-                    <TextField value='Leave your feedback here...' className='text-field height-90 header-text-blue font-weight-400 f-14' />
+                    <TextField value={feedBack} className='text-field height-90 header-text-blue font-weight-400 f-14' onChange={(e) => getFeedBackValue(e.target.value)} />
                 </Box>
                 </Box>
                 <Box className='field-section' sx={{ mt:3}}>
@@ -97,7 +118,7 @@ export default function HelpAndSupport({ setActive }) {
                             backgroundColor='#32B2AC'
                             iconJsx={<ChevronRightIcon />}
                             fullWidth
-                        // onClick={handleNext}
+                            onClick={setFeedBackValue}
                         />
                     </Box>
                 </Box>

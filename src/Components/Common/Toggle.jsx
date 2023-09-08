@@ -76,8 +76,9 @@ export function Toggle({
 }) {
   const handleToggle = (e) => {
     onChange(e.target.checked);
-  };
 
+  };
+console.log(value);
   return (
     <Box>
       <FormControlLabel
