@@ -6,12 +6,12 @@
 }
 
 .header-text-blue{
-    font-family: 'UniversLTStd' !important;
+    font-family: 'Univers LT Std' !important;
     color:#003087 !important;
     line-height: 21.6px !important;
 }
 .header-text-black{
-    font-family: 'UniversLTStd' !important;
+    font-family: 'Univers LT Std' !important;
     color:#000000 !important;
     
 }
@@ -61,6 +61,18 @@
     border: 0 !important;
 }
 
+.search-bar .MuiInputBase-input.MuiOutlinedInput-input{
+    font-family: 'Univers LT Std' !important;
+    font-weight:400 !important;
+    font-size: 14px !important;
+    color: #003087 !important;
+   
+}
+
+.text-styling{
+    font-family: 'UniversLTStd' !important;
+}
+
 .twiter-style{
     color:#00ACEE !important;
 }
@@ -99,5 +111,38 @@
   border-radius: 35px;
   padding: 10px;
   font-weight: bold;
+  color: #003087 !important;
 }
+.font-weight-700{
+    font-weight: 700 !important;
+  }
+  .security-icon .MuiAvatar-img{
+    width: 89% !important;
+    height: 100% !important;
+  }
+  .location-icon-styling .MuiAvatar-img  {
+    width: 37%;
+    height: 46%;
+  }
+  
+  .notification-icon-styling .MuiAvatar-img  {
+    width: 93%;
+    height: 96%;
+  }
+
+  .about-app-icon .MuiAvatar-img{
+    width: 125% !important;
+    height: 125% !important;
+  }
+  
+  .mt-23{
+    margin-top: -23px;
+  }
+
+  .search-bar .css-i4bv87-MuiSvgIcon-root{
+    color: #003087 !important;
+  }
+  .password .css-i4bv87-MuiSvgIcon-root{
+    color: #003087 !important;
+  }
 /* -------------------------Setting Style End ------------------------*/

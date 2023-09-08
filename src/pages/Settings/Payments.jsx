@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomButton, CustomInput } from "../../Components/Common";
+import { CustomButton, CustomInput, NotificationSection } from "../../Components/Common";
 import { Box, Container, Typography, Checkbox, Link } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
@@ -25,6 +25,7 @@ export default function Payments({setActive,active}) {
                         </Box>
 
                     </Box>
+                    <NotificationSection/>
                 </Box>
                 <Box className='card-detail-wrap' sx={{mt:5}}>
                     <Box className='card-detail'>
