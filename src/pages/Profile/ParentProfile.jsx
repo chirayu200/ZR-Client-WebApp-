@@ -195,7 +195,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        // Basic validation: Check if required fields are filled
+        // Basic validation: Check if required fields are fill
         const requiredFields = [
             'firstName',
             'lastName',
