@@ -9,7 +9,7 @@ export {
     GetBundleDetail,
     GetOrderHistory
 } from './shop';
-export {GetClientDetailByEmailId, GetAllPets} from './client'
+export {GetClientDetailByEmailId, GetAllPets,GetAllClients} from './client'
 export {
     CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail,getClientProfileProgress
 } from './profile';

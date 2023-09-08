@@ -95,29 +95,30 @@ export default function ProfileMain({ clientDetail }) {
                             icon={backArrow}
                             backgroundColor='#E7EFF9'
                             onClick={() => {
-                                // if (initialState.userType==='dog') {
-                                // window.location.reload();
-                                // navigate('/')
-                                //     setActive(0)
-                                // } else if(childComponent[active].title === 'Team') {
-                                //     setActive(0)
-                                // }
-                                // else if(childComponent[active].title === 'Add Pet') {
-                                //     setActive(1)
-                                // }
-                                // else if(childComponent[active].title === 'Edit Profile') {
-                                //     setActive(0)
-                                // }
-                                // else if(childComponent[active].title === 'Edit Dog Profile') {
-                                //     setActive(1)
-                                // }
-                                // setActive(active-1)
-                                if (active === 0 && initialState?.userType === 'dog') {
-                                    setInitialState({ ...initialState, userType: 'client' })
+                                if (initialState.userType==='dog') {
+                                window.location.reload();
+                                navigate('/')
+                                    setActive(0)
+                                } else if(childComponent[active].title === 'Team') {
+                                    setActive(0)
                                 }
-                                else {
-                                    setActive(active - 1);
+                                else if(childComponent[active].title === 'Add Pet') {
+                                    setActive(1)
                                 }
+                                else if(childComponent[active].title === 'Edit Profile') {
+                                    setActive(0)
+                                }
+                                else if(childComponent[active].title === 'Edit Dog Profile') {
+                                    setActive(1)
+                                }
+                               // setActive(active-1)
+
+                                // if (active === 0 && initialState?.userType === 'dog') {
+                                //     setInitialState({ ...initialState, userType: 'client' })
+                                // }
+                                // else {
+                                //     setActive(active - 1);
+                                // }
                             }}
                         />
                         <Typography className='header-text'>{childComponent[active].title}</Typography>
@@ -135,7 +136,7 @@ export default function ProfileMain({ clientDetail }) {
                                 }
                                 if (initialState.userType === 'dog') {
                                     if (active !== 0) {
-                                        setActive(2)
+                                        setActive(3)
                                     }
                                     else {
                                         setActive(4)

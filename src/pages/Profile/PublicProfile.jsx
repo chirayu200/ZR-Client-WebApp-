@@ -111,8 +111,8 @@ if (birthDate && birthDate?.length > 0) {
                 <Button className={selected === 0 && 'active'} onClick={() => setSelected(0)}>Profiles</Button>
                 <Button className={selected === 1 && 'active'} onClick={() => setSelected(1)}>Trophies</Button>
             </Box>
-            {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 && !isConnect ?
-            // {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 ?
+            {/* {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 && !isConnect ? */}
+             {selected === 2 ? <ProfileAbout initialState={initialState}/> : selected === 0 ?
 
                 <Box className="cartWrap profileCartWrap">
                     {initialState.userType === 'dog' && initialState.selected !== '' ?

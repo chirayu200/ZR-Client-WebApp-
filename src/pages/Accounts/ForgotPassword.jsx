@@ -25,6 +25,9 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     const [showPassword, setShowPassword] = useState(false);
     const [PasswordError, setPasswordError] = useState(false);
     const [PasswordLength, setPasswordLength] = useState(false);
+    const [matchPassword, setCorrectPassword] = useState(false);
+    const [loader, setLoader] = useState(false);
+
     const [formData, setFormData] = useState({
         email: "",
         confirmationCode: '',
@@ -39,6 +42,9 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
     useEffect(() => {        
         if (authState?.from !== '') {
            setFormData({email: authState.from})
+        //    ResendConfirmationCode({email: authState?.from}).then((response) => {
+        //     console.log('ResendConfirmationCode', response)
+        // })
            setSteps(1)
         }
     }, [authState])
@@ -132,20 +138,48 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
         console.log(errors);
         if (steps !== 3) {
             if (steps === 0) {
+                setLoader(true)
                 ResendForgotPasswordCode(formData).then((response) => {
+                    
                     if (response?.success) {
+                        setLoader(false)
                         setSteps(steps + 1)
                     }else{
+                        setLoader(false)
                         setFormErrors({ email: response.data.error });
                        // errors.email =  ;
                     }
                   
                 })
             }
-            if (steps === 1 ) {
-                formData.newPassword='';
-                formData.confirmPassword=''
+
+            if (steps === 1 && authState.success) {
+                ConfirmAccountByOtp({
+                    email: formData.email,
+                    confirmationCode: formData.confirmationCode
+                }).then((response) => {
+                    if (response?.success) {
+                        handlePrevious(0);
+                    } else {
+                        setError(true);
+                        setTimeout(() => {
+                            setError(false);
+                        }, 10000)
+                    }
+                    console.log(
+                        response, 'ConfirmAccountByOtp'
+                    )
+                })
+            } else if (steps === 1) {
+                formData.confirmPassword = '';
+                formData.newPassword = '';
+                setPasswordLength(false);
                 setError(false)
+                setFormErrors((prevFormErrors) => ({
+                    ...prevFormErrors,
+                    confirmPassword: '',
+                    newPassword: '',
+                }));
                 setErrorData((prevErrorData) => ({
                     ...prevErrorData,
                     type: '',
@@ -158,34 +192,43 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                    }else{
                     setError(true)        
                 }
+
+            }
            
-            }  if (steps === 2) {
+             if (steps === 2) {
                 setErrorData((prevErrorData) => ({
                     ...prevErrorData,
                     type: '',
                     msg: ''
                 }));
-            
                 setPasswordError(false);
-            
+                setPasswordLength(false);
+                setCorrectPassword(false)               
+
                 if (formData.newPassword && formData.confirmPassword) {
                     setPasswordError(false);
                   
-                    if (formData.newPassword.trim().length < 2 && formData.confirmPassword.trim().length < 2) {
+                    if (formData.newPassword.trim().length < 8 && formData.confirmPassword.trim().length < 8) {
                         setPasswordLength(true);
                     }  
                         
                       else if (formData.newPassword === formData.confirmPassword) {
+                        setLoader(true)
                         ResetPassword(formData).then((response) => {
                             setFormErrors((prevFormErrors) => ({
                                 ...prevFormErrors,
                                 confirmPassword: '',
+                                newPassword : ''
                             }));
                             if (response?.success) {
+                                setLoader(false)
                                 setSteps(3);
                             } else {
+                                setLoader(false)
                                 setPasswordError(false);
+                                  setPasswordLength(false);
                                 if (response.data.error) {
+                                   
                                     setErrorData((prevErrorData) => ({
                                         ...prevErrorData,
                                         type: 'error',
@@ -202,13 +245,11 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             type: '',
                             msg: ''
                         }));
-                        setFormErrors((prevFormErrors) => ({
-                            ...prevFormErrors,
-                            confirmPassword: 'Passwords do not match',
-                        }));
+                        setCorrectPassword(true)
                     }
                 } else {
-                    setPasswordError(true);
+                    setPasswordError(true);   
+                    setCorrectPassword(false)               
                 }
             }
             
@@ -272,7 +313,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         <CustomInput
                             type='number'
                             fullWidth
-                            placeholder='confirmationCode'
+                            placeholder='Code'
                             name='confirmationCode'
                             icon={pinCode}
                             value={formData.confirmationCode}
@@ -307,15 +348,15 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                         <CustomInput
                             label='New Password'
                             type='password'
-                            name='password'
+                            name='newPassword'
                             fullWidth
-                            placeholder='new password'
+                            placeholder='New Password'
                             showPassword={showPassword}
                             onTogglePassword={handleTogglePassword}
                             value={formData.newPassword}
-                            onChange={(e => setFormData({...formData, newPassword: e.target.value}))}
-                            // error={!!formErrors.firstName}
-                            // helperText={formErrors.firstName}
+                            onChange={handleInputChange}
+                             error={!!formErrors.newPassword}
+                             helperText={formErrors.newPassword}
                         />
                        
                         <Box sx={{mt:2}}>
@@ -326,9 +367,9 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             fullWidth
                             showPassword={showConfirmPassword}
                             onTogglePassword={handleToggleConfirmPassword}
-                            placeholder='confirm Password'
+                            placeholder='Confirm Password'
                             value={formData.confirmPassword}
-                            onChange={(e => setFormData({...formData, confirmPassword: e.target.value}))}
+                            onChange={handleInputChange}
                             error={!!formErrors.confirmPassword}
                             helperText={formErrors.confirmPassword}
                         />
@@ -342,7 +383,10 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                                         <Typography color="error" variant="body2" sx={{mt:2}}> {errorData.msg} </Typography>
                                       ):''}
                         {PasswordLength? (
-                                        <Typography color="error" variant="body2" sx={{mt:2}}> Password lenght is too short </Typography>
+                                        <Typography color="error" variant="body2" sx={{mt:2}}> Password lenght is too short, must be at least 8 characters </Typography>
+                                      ):''}
+                        {matchPassword? (
+                                        <Typography color="error" variant="body2" sx={{mt:2}}> Password do not match </Typography>
                                       ):''}
                          </>
                 ) : (
@@ -359,6 +403,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                 disabled={!formData.email}
                 backgroundColor='#003087'
                 className="proceedBtn"
+                isLoading={loader}
                 title={
                     steps === 0
                         ? "PROCEED"

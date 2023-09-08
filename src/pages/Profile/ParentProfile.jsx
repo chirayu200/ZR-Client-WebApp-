@@ -6,7 +6,9 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { ProfileModals } from "../../Components/Modals";
 import { Country, State } from 'country-state-city';
 import { UpdateClientDetail } from "../../Services/APIs";
-import { getLocalData } from "../../Utils";
+import { GetAllClients } from "../../Services/APIs";
+import { getLocalData,setLocalData } from "../../Utils";
+import { GetClientDetailByEmailId } from "../../Services/APIs";
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
@@ -31,7 +33,15 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [teamOpen, setTeamOpen] = useState(false);
     const [stateOptions, setStateOptions] = useState([]);
+   const [getclientOptions, setClientOptions] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
+    const [getLocations,setGetLocations] = useState('');
+    const [getStates,setGetStates]= useState('')
+    const [postalCodeErr,setPostalCodeErr]= useState(false)
+    const [mobileNumberError, setMobileNumberError] = useState('');
+    const  userDetail = JSON.parse(getLocalData('user_detail'))
+
+
     const [formData, setFormData] = useState({
         locationId: getLocalData('locationId'),
         location: '',
@@ -55,17 +65,21 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
         signature: null,
         policyCheck: false,
     });
-console.log(clientDetail, 'jfgjdfgjk');
+
     useEffect(() => {
+        callClientDetail(userDetail)
         if (initialState) {
             setFormData(clientDetail)
         }
     }, [])
-    useEffect(() => {
+
+    useEffect(() => {    
+        getLocationsData();
         if(clientDetail&&clientDetail?.profileImage){
             setSelectedFile(clientDetail?.profileImage)
         }
     }, [])
+
     const [errors, setErrors] = useState({});
     const onSelectImage = (e) => {
         const imageFile = e.target.files[0];
@@ -80,7 +94,68 @@ console.log(clientDetail, 'jfgjdfgjk');
         }
     };
 
+    const callClientDetail = (username) => {
 
+        GetClientDetailByEmailId(username.email).then((response) => {
+            const [detail] = response.data.Items;
+            setLocalData('locationId', detail.locationId);
+            setLocalData('clientId', detail.sortKey);
+            console.log(detail, "detail")
+           
+
+        })
+    }
+
+    //get all client details to build your team
+    const getAllClientDetails = () => {
+
+        GetAllClients().then((response) => {
+               
+            //console.log(clientsDetail, "clientsDetail")
+           if(response.statusCode === 200){
+            const clientsDetail = response.data.Items;      
+            const clientOptions = clientsDetail.map((item) => ({
+                label: item.name,
+                value: item.name,
+                
+            }))
+            setClientOptions(clientOptions)
+            //clientOptions(clientDetail)
+           }else{
+
+           }
+
+        })
+    }
+   
+
+
+    const getLocationsData = async () =>{
+        let response= await fetch('https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/locations');
+        const jsonData = await response.json();
+        console.log(jsonData.data.Items);
+        console.log(jsonData.data.Items.length)
+        const locationOptions = jsonData.data.Items.map((item) => ({
+          label: item.locationName,
+          value: item.locationName,
+          id:item.locationId
+      }))
+      setGetLocations(locationOptions)
+    //   setGetLocations(locationOptions)
+    // const stateOptions=jsonData.data.Items.map((item) => ({
+    //     label: item.state,
+    //     value: item.state
+
+    // }))
+      let res= await fetch('https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/locations/getAllStates');
+      const StateData = await res.json();
+      const stateOptions = StateData.data.Items.map((item) => ({
+          label: item.state,
+          value: item.state
+  
+      }))
+      setGetStates(stateOptions)
+      }
     const handleDropdownChange = (name, value) => {
 
         if (name === 'location' && value) {
@@ -151,6 +226,19 @@ console.log(clientDetail, 'jfgjdfgjk');
             hasErrors = true;
         }
 
+        if (formData.mobilePhone && !/^\d{3}-\d{3}-\d{4}$/.test(formData.mobilePhone)) {          
+            hasErrors = true;
+            newErrors.mobilePhone ='Please enter a valid phone number in format: xxx-xxx-xxxx';
+          } 
+
+        if (formData.postalCode && !/^[0-9]{5}(?:-[0-9]{4})?$/.test(formData.postalCode)) {          
+            hasErrors = true;
+            newErrors.postalCode ='Please enter a valid postal code';
+          } 
+        if (formData.emergencyContactPhone && !/^\d{3}-\d{3}-\d{4}$/.test(formData.emergencyContactPhone)) {          
+            hasErrors = true;
+            newErrors.emergencyContactPhone ='Please enter a valid phone number in format: xxx-xxx-xxxx';
+          } 
         if (hasErrors) {
             setErrors(newErrors);
             return;
@@ -159,7 +247,7 @@ console.log(clientDetail, 'jfgjdfgjk');
         form.append('locationId', formData.locationId);
         form.append('firstName', formData.firstName);
         form.append('email', formData.email);
-        // form.append('location', formData?.location || '');
+        //form.append('location', formData.location || '');
         form.append('lastName', formData.lastName);
         form.append('mobilePhone', formData.mobilePhone);
         form.append('workPhone', '');
@@ -171,20 +259,26 @@ console.log(clientDetail, 'jfgjdfgjk');
         form.append('city', formData.city);
         form.append('postalCode', formData.postalCode);
         // form.append('birthDate', formData.birthDate||'');
-        form.append('referralSource', formData.referralSource);
-        form.append('emergencyContactName', formData.emergencyContactName);
-        form.append('emergencyContactPhone', formData.emergencyContactPhone);
-        form.append('emergencyContactEmail', formData.emergencyContactEmail);
-        form.append('emergencyContactRelationShip', formData.emergencyContactRelationShip);
-        form.append('signatureImage', formData.signature);
+        form.append('referralSource', formData.referralSource || '');
+        form.append('emergencyContactName', formData.emergencyContactName || '');
+        form.append('emergencyContactPhone', formData.emergencyContactPhone || '');
+        form.append('emergencyContactEmail', formData.emergencyContactEmail || '');
+        form.append('emergencyContactRelationShip', formData.emergencyContactRelationShip || '');
+        form.append('signatureImage', formData.signature || '');
         form.append('isLiabilityWaiverSigned', true);
         form.append('updatedBy', '10000');
         form.append('status', 1);
 
         UpdateClientDetail(form, clientId).then((response) => {
            
-            if (response) {
+            if (response.statusCode ===200) {
+                callClientDetail(userDetail)
                 setConfirmOpen(true);
+            }else{
+                if(response.statusCode === 422){
+                   
+                    //setPostalCodeErr(true)
+                }
             }
         })
 
@@ -196,7 +290,8 @@ console.log(clientDetail, 'jfgjdfgjk');
         } else if (type === 'yes') {
             setConfirmOpen(false);
             setTeamOpen(true);
-            setActive(0);
+            getAllClientDetails();
+            //setActive(0);
 
         }
     }
@@ -219,10 +314,11 @@ console.log(clientDetail, 'jfgjdfgjk');
                     <Box className='input-item-wrap'>
                         <InputLabel>Select Location</InputLabel>
                         <CustomDropdown
-                            value={formData.location}
+                            value={getLocations.locationId}
                             placeHolder={formData.location || 'Select Location'}
                             onChange={handleDropdownChange}
-                            options={locationOptions}
+                            // options={locationOptions}
+                            options={getLocations}
                             icon={downArrow}
                             name='location'
                             error={!!errors.location}
@@ -291,7 +387,7 @@ console.log(clientDetail, 'jfgjdfgjk');
                         <CustomDropdown
                             value={formData.referralSource}
                             placeHolder={formData.referralSource || 'Referral Sources'}
-                            name='referralSources'
+                            name='referralSource'
                             onChange={handleDropdownChange}
                             options={referralSourcesOptions}
                             icon={downArrow}
@@ -336,7 +432,8 @@ console.log(clientDetail, 'jfgjdfgjk');
                             placeHolder={formData.state || 'Select State'}
                             name='state'
                             onChange={handleDropdownChange}
-                            options={stateOptions}
+                            //options={stateOptions}
+                            options ={getStates}
                             icon={downArrow}
                             error={!!errors.state}
                             helperText={errors.state}
@@ -370,6 +467,9 @@ console.log(clientDetail, 'jfgjdfgjk');
                             error={!!errors.postalCode}
                             helperText={errors.postalCode}
                         />
+                        {postalCodeErr ? (
+                                        <Typography color="error" variant="body2">Invalid Zip Code</Typography>
+                                      ):''}
                     </Box>
                     <Typography className='section-heading'>Emergency Contact Person Details</Typography>
                     <Box className='input-item-wrap'>
@@ -458,7 +558,7 @@ console.log(clientDetail, 'jfgjdfgjk');
             <ProfileModals open={confirmOpen} type={'confirm'} handleActionBtn={handleActionBtn} />
 
             <ProfileModals open={teamOpen} handleClose={() => setTeamOpen(false)} type={'team'}
-                handleNext={handleNext} />
+                handleNext={handleNext} getclientOptions={getclientOptions}/>
         </Box>
     )
 }

@@ -252,15 +252,17 @@ export default function AddPet({  initialState, handleNext }) {
                                 helperText={errors.lastName}
                             />
                         </Box>
-                        <Box className='appointment-dropdown'>
+                        <Box className='input-item-wrap'>
 
                             <CustomDropdown
-                                placeHolder='Date of Birth'
+                                placeHolder={'Date of Birth'}                              
                                 value={formData.birthDate}
                                 onChange={handleDateChange}
                                 icon={dateIcon}
                                 name='birthDate'
                                 date
+                                error={!!errors.birthDate}
+                                helperText={errors.birthDate}
                             />
                         </Box>
                         <Box className='input-item-wrap'>
