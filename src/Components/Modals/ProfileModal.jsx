@@ -25,8 +25,9 @@ export const ProfileModals = ({
                                   open, handleClose, fullWidth, type, setFormData,
                                   formData,
                                   handleActionBtn,
-                                  handleNext
+                                  handleNext,getclientOptions
                               }) => {
+                                console.log('----getclientOptions --',getclientOptions)
     const [isSign, setIsSign] = useState(false);
     let sigCanvas = useRef(null);
 
@@ -43,6 +44,12 @@ export const ProfileModals = ({
         setFormData({...formData, signature: null});
         setIsSign(false)
     }
+
+    const handleDropdownChange = (name, value) => {
+
+
+    }
+
     return (
         <>
             <Dialog
@@ -87,10 +94,11 @@ export const ProfileModals = ({
                                         </Typography> : <>
                                             <InputLabel>Select Client</InputLabel>
                                             <CustomDropdown
-                                                value={'Select Clients'}
+                                                value={getclientOptions.value}
                                                 placeHolder={'Select Clients'}
-                                                // onChange={handleDropdownChange}
-                                                options={options}
+                                                //onChange={handleDropdownChange}
+                                                options={getclientOptions}
+                                               
                                                 icon={downArrow}
 
                                             />

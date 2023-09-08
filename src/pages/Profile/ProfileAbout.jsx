@@ -85,10 +85,10 @@ console.log(initialState, 'initialStfdateinitialState');
                     <Typography className='heading'>
                         Completed Service
                     </Typography>
-                    <Box className="service-btn">
+                    {/* <Box className="service-btn">
                     <Button variant="text" sx={{color:'black', display:'flex'}}>Orientation</Button>
-                    </Box>
-                    <Box className="service-btn2">
+                    </Box> */}
+                    <Box className="service-btn2" sx={{mx:3}}>
                     <Button variant="text" sx={{color:'black', display:'flex'}}>Orientation</Button>
                     </Box>
 
