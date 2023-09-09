@@ -98,7 +98,7 @@ export default function Notifications({setActive,franchiseeId}) {
 
     return (
         <>
-        <CustomLoader IsLoading={loader}/>
+        {/* <CustomLoader IsLoading={loader}/> */}
             <Container className='appointment-container'>
                 <Box className='appointment-header'>
                     <Box className='top-header shop-header'>

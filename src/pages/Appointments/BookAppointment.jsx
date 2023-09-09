@@ -1,11 +1,13 @@
-import React, {useEffect, useRef, useState} from "react";
-import {Box, InputLabel, Link, TextField, Typography} from "@mui/material";
+import React, { useEffect, useRef, useState } from "react";
+import { Box, InputLabel, FormHelperText, Link, TextField, Typography } from "@mui/material";
 
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import {CustomButton, CustomDropdown} from "../../Components/Common";
-import {GetAllPets, GetAllServiceCategories, GetAllTrainersAvailability} from "../../Services/APIs";
-import {CalenderDateFormat} from "../../Utils";
-import {GetCategory,getAllService} from "../../Services/APIs/checkout";
+import { CustomButton, CustomDropdown } from "../../Components/Common";
+import { GetAllPets, getServiceCategories, GetAllTrainersAvailability, getAllRooms, getServiceByCategory } from "../../Services/APIs";
+import { CalenderDateFormat } from "../../Utils";
+import { GetCategory, getAllService } from "../../Services/APIs/checkout";
+import { FlashOnRounded } from "@mui/icons-material";
+import { getLocalData } from "../../Utils";
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 const dateIcon = require("../../assets/images/calenderDate.svg").default;
@@ -18,20 +20,57 @@ const dragDrop = require("../../assets/images/dragdrop.svg").default;
 
 
 
-export default function BookAppointment({handleNext,setCategoryId,setServiceId}) {
+export default function BookAppointment({ handleNext, setServiceId }) {
+
+    const locationId = encodeURIComponent(getLocalData('locationId'));
+
     const [selectedOption, setSelectedOption] = useState({
-        pets: {},
+        dog: {},
         serviceName: {},
         fromDate: '',
-        categoryName: ""
+        sortKey: "",
+        categoryName:{},
+        roomName: ""
     });
+
     const [petsOption, setPetOption] = useState([])
     const [trainerAvailability, setTrainerAvailability] = useState([])
     const [serviceOptions, setServiceOptions] = useState([])
     const [isDragOver, setIsDragOver] = useState(false);
     const [selectedFile, setSelectedFile] = useState(null);
     const fileInputRef = useRef(null);
-    const [categoryOptions,setCategoryOptions] = useState([]);
+    const [categoryOptions, setCategoryOptions] = useState([]);
+    const [roomOptions, setRoomOptions] = useState([]);
+    const [notes, setNotes] = useState('');
+
+    const [formDataError, setFormDataError] = useState({
+        dog: '',
+        categoryName: '',
+        serviceName: '',
+        roomName: '',
+        fromDate: '',
+        
+    })
+
+    useEffect(() => {
+        const storedSelectedOption = JSON.parse(localStorage.getItem("selectedOption")) || {
+            dog: {},
+            serviceName: {},
+            fromDate: '',
+            sortKey: "",
+            categoryName: {},
+            roomName: ""
+        };
+
+        setSelectedOption(storedSelectedOption);
+    }, []);
+
+    // Save selectedOption to local storage whenever it changes
+    useEffect(() => {
+        localStorage.setItem("selectedOption", JSON.stringify(selectedOption));
+    }, [selectedOption]);
+
+
     useEffect(() => {
         GetAllPets().then((response) => {
 
@@ -44,24 +83,55 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
             }
 
         })
-        getAllService().then((response) => {
+
+        getServiceCategories('appointment').then((response) => {
             if (response) {
+                console.log(response);
                 const optionList = response.data.Items.map((item) => ({
-                    label: item.categoryName,
+                    label: `${item.name}`,
                     value: item,
                 }))
-                setServiceOptions(optionList);
+                setCategoryOptions(optionList);
             }
-
         })
-        getCategory();
+
+        getAllRooms().then((response) => {
+            console.log("Response is as follows-->", response);
+            if (response) {
+                const optionList = response.data.Items.map((item) => ({
+                    label: item.name,
+                    value: item,
+                }))
+                setRoomOptions(optionList);
+            }
+        })
+
 
     }, [])
     const handleDropdownChange = (name, value) => {
-        setSelectedOption({...selectedOption, [name]: value});
+
+        setSelectedOption({ ...selectedOption, [name]: value });
+        setFormDataError((prevErrors) => ({
+            ...prevErrors,
+            [name]: " "
+        }));
         console.log(value);
-        setCategoryId(value.value.serviceTypeId);
-        setServiceId(value.value.serviceId)
+
+        // setCategoryId(value.value.sortKey);
+        if (name === 'categoryName') {
+            let categoryId = value.value.sortKey
+            getServiceByCategory(categoryId).then((response) => {
+                if (response) {
+                    const optionList = response.data.Items.map((item) => ({
+                        label: item.categoryName,
+                        value: item,
+                    }))
+                    setServiceOptions(optionList);
+                }
+
+            })
+        }
+        // setServiceId(value.value.serviceId)
     };
 
 
@@ -95,24 +165,27 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
         fileInputRef.current.click();
     };
     const handleDateChange = (name, value) => {
-        setSelectedOption({...selectedOption, [name]: CalenderDateFormat(value) || ''})
+       
+        setSelectedOption({ ...selectedOption, [name]: CalenderDateFormat(value) || '' })
         let payload = {
+            locationId:locationId,
             fromDate: CalenderDateFormat(value)
         }
         if (selectedOption.serviceName) {
             payload.categoryName = selectedOption.serviceName.label || '';
-            payload.serviceName = selectedOption.categoryName.value;
+            payload.serviceName = selectedOption.categoryName.value.name;
 
         }
         GetAllTrainersAvailability(payload).then((response) => {
+
             console.log(response.data, "hello response")
             if (response.statusCode === 200) {
-                const convertedArray = response.data.map(range => {
+                const convertedArray = response.data.Items.map(range => {
                     const listObjects = range.availability.map(value => ({
                         slot: value,
                         active: false
                     }));
-                    return {TrainerName: range.TrainerName, availability: listObjects};
+                    return { TrainerName: range.TrainerName, availability: listObjects };
                 });
 
                 console.log(convertedArray, "updated");
@@ -145,30 +218,110 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
 
         return `${formattedStart} - ${formattedEnd}`;
     };
-    const handleSlotClick = (item, slot, index,selectedIndex) => {
+    const handleSlotClick = (item, slot, index, selectedIndex) => {
         let list = [...trainerAvailability];
         const convertedArray = list.map(range => {
             const listObjects = range.availability.map(value => ({
                 slot: value.slot,
                 active: false
             }));
-            return {TrainerName: range.TrainerName, availability: listObjects};
+            return { TrainerName: range.TrainerName, availability: listObjects };
         });
 
         convertedArray[selectedIndex].availability[index].active = true;
         setTrainerAvailability(convertedArray)
     }
 
-    const getCategory = () =>{
-        GetCategory().then((response) =>{
-            if (response) {
-                const optionList = response.data.Items.map((item) => ({
-                    label: `${item.name}`,
-                    value: item,
-                }))
-                setCategoryOptions(optionList);
-            }
-        })
+    const handleNotes = (event) => {
+        const { value } = event.target
+        setNotes(value);
+    }
+    const validateForm = () => {
+        let hasErrors = false;
+        if (Object.keys(selectedOption.dog).length === 0) {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                dog: "Select dog"
+            }));
+            hasErrors = true;
+        } else {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                dog: ""
+            }));
+        }
+        if (!selectedOption.categoryName) {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                categoryName: "Select category"
+            }));
+            hasErrors = true;
+        } else {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                categoryName: ""
+            }));
+        }
+        if (Object.keys(selectedOption.serviceName).length === 0) {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                serviceName: "Select Service"
+            }));
+            hasErrors = true;
+        } else {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                serviceName: ""
+            }));
+        }
+        if (!selectedOption.roomName) {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                roomName: "Select room"
+            }));
+            hasErrors = true;
+        } else {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                roomName: ""
+            }));
+        }
+        if (!selectedOption.fromDate) {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                fromDate: "Select date"
+            }));
+
+            hasErrors = true;
+        } else {
+            setFormDataError((prevErrors) => ({
+                ...prevErrors,
+                fromDate: ""
+            }));
+        }
+        if(trainerAvailability.length ===0){
+            alert("No trainer is availiable");
+            hasErrors = true;
+        }
+        else{
+
+        }
+                return  !hasErrors
+    }
+
+    const bookAppointment = () =>{
+        let valid=validateForm();
+        if(!valid){
+            handleNext();
+        } 
+        else{
+            handleNext();
+        }
+    }
+
+    const backOption = () =>{
+        localStorage.removeItem('selectedOption');
+        handleNext();
     }
     return (
         <Box className='appointment-main'>
@@ -183,6 +336,7 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
                         options={petsOption}
                         icon={downArrow}
                     />
+                    <FormHelperText className="error-text mt-10">{formDataError.dog}</FormHelperText>
                 </Box>
                 <Box className='appointment-dropdown'>
                     <InputLabel>Select Category</InputLabel>
@@ -193,7 +347,9 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
                         options={categoryOptions}
                         icon={downArrow}
                         name={'categoryName'}
+
                     />
+                    <FormHelperText className="error-text mt-10">{formDataError.categoryName}</FormHelperText>
                 </Box>
             </Box>
             <Box className='field-section'>
@@ -207,19 +363,40 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
                         icon={downArrow}
                         name={'serviceName'}
                     />
+                    <FormHelperText className="error-text mt-10">{formDataError.serviceName}</FormHelperText>
                 </Box>
+                <Box className='appointment-dropdown'>
+                    <InputLabel>Select Room</InputLabel>
+                    <CustomDropdown
+                        value={selectedOption.roomName}
+                        placeHolder='Select Type'
+                        onChange={handleDropdownChange}
+                        options={roomOptions}
+                        icon={downArrow}
+                        name={'roomName'}
+                    />
+                    <FormHelperText className="error-text mt-10">{formDataError.roomName}</FormHelperText>
+                </Box>
+
+
+            </Box>
+            <Box className='field-section'>
                 <Box className='appointment-dropdown'>
                     <InputLabel>Select Date</InputLabel>
                     <CustomDropdown
-                        value={selectedOption.fromDate}
-                        onChange={handleDateChange}
-                        name={'fromDate'}
-                        icon={dateIcon}
-                        date
+                    value={selectedOption.fromDate}
+                    onChange={handleDateChange}
+                    name={'fromDate'}
+                    icon={dateIcon}
+                    date
+
                     />
+                    <FormHelperText className="error-text mt-10">{formDataError.fromDate}</FormHelperText>
                 </Box>
+                <Box className='appointment-dropdown'></Box>
 
             </Box>
+
             {trainerAvailability.length > 0 && <Typography className='available-slots'>Availability</Typography>}
             {trainerAvailability.length > 0 && <Box className='field-section'>
                 {trainerAvailability.map((item, index) => (
@@ -231,7 +408,7 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
                                     <CustomButton
                                         color='#003087'
                                         title={formatTimeRange(subItem.slot)}
-                                        onClick={() => handleSlotClick(item, subItem.slot, subIndex,index)}
+                                        onClick={() => handleSlotClick(item, subItem.slot, subIndex, index)}
                                         className={`slots ${subItem.active && 'active'}`}
                                     />
                                 ))}
@@ -252,7 +429,7 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
             <Box className='field-section'>
                 <Box className='appointment-dropdown'>
                     <InputLabel>Add Notes (Optional)</InputLabel>
-                    <TextField value='Add notes (Optional)' className='text-field'/>
+                    <TextField value={notes} placeholder="Add notes(Optional)" className='text-field' onChange={handleNotes} />
                 </Box>
                 <Box className='appointment-dropdown'>
                     <Box
@@ -262,7 +439,7 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
                         onDragOver={handleDragOver}
                         onDrop={handleDrop}
                     >
-                        <img src={dragDrop} alt='drag'/>
+                        <img src={dragDrop} alt='drag' />
                         <Typography className='drop-box-text' onClick={handleBoxClick}>
                             <Link className='drop-box-span'>Click to upload</Link>
                             {isDragOver ? "Release to drop" : " or Drag and Drop"}
@@ -272,7 +449,7 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
                             ref={fileInputRef}
                             type='file'
                             accept='image/*'
-                            style={{display: "none"}}
+                            style={{ display: "none" }}
                             onChange={handleFileChange}
                         />
                     </Box>
@@ -285,9 +462,9 @@ export default function BookAppointment({handleNext,setCategoryId,setServiceId})
                         title={"Book"}
                         color='#fff'
                         backgroundColor='#32B2AC'
-                        iconJsx={<ChevronRightIcon/>}
+                        iconJsx={<ChevronRightIcon />}
                         fullWidth
-                        onClick={handleNext}
+                        onClick={bookAppointment}
                     />
                 </Box>
                 <Box className='appointment-dropdown'></Box>

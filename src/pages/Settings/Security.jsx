@@ -37,60 +37,60 @@ export default function Security({ setActive, cognitoId }) {
         confirmPasswordError: ''
     })
 
-    const isPasswordErrorPresent = () => {
-        return (
-            formDataError.currentPasswordError !== '' ||
-            formDataError.newPasswordError !== '' ||
-            formDataError.confirmPasswordError !== ''
-        )
-    };
+    // const isPasswordErrorPresent = () => {
+    //     return (
+    //         formDataError.currentPasswordError !== '' ||
+    //         formDataError.newPasswordError !== '' ||
+    //         formDataError.confirmPasswordError !== ''
+    //     )
+    // };
 
     const validateForm = () => {
-        if(!formData.currentPassword){
+        let hasErrors = false; // Initialize a flag to track errors
+    
+        if (!formData.currentPassword) {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
                 currentPasswordError: "Current password is required"
-            }))
-        }
-        else{
+            }));
+            hasErrors = true; // Set the flag to true if an error is found
+        } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
                 currentPasswordError: ""
-            }))
+            }));
         }
-        if(!formData.newPassword){
+    
+        if (!formData.newPassword) {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
                 newPasswordError: "New password is required"
-            }))
-        }
-        else{
+            }));
+            hasErrors = true; // Set the flag to true if an error is found
+        } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
                 newPasswordError: ""
-            }))
+            }));
         }
-        if(!formData.confirmPassword){
+    
+        if (!formData.confirmPassword) {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
                 confirmPasswordError: "Confirm password is required"
-            }))
-        }
-        else{
+            }));
+            hasErrors = true; // Set the flag to true if an error is found
+        } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
                 confirmPasswordError: ""
-            }))
+            }));
         }
-        const errorPresent = isPasswordErrorPresent()
-        if(errorPresent){
-            return true;
-        }
-        else{
-            return false;
-        }
-
-    }
+    
+        return !hasErrors; // Return true if no errors are found, false otherwise
+    };
+    
+   
     const handleInputChange = (event) => {
         
         // const patternPassword=/^?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/
@@ -187,15 +187,16 @@ export default function Security({ setActive, cognitoId }) {
 
    
     const modifyPassword = () => {
+        debugger;
         const body = {
             currentPassword: formData.currentPassword,
             newPassword: formData.newPassword,
             confirmPassword: formData.confirmPassword
-            
         }
-        const passwordPresent = validateForm();
-        if (passwordPresent) {
-
+        let passwordPresent = validateForm();
+        if (!passwordPresent) {
+            
+                
         }
         else {
             changePassword(cognitoId,body).then((response) => {

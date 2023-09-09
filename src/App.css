@@ -4663,6 +4663,10 @@ p.earnTitle {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.error-text{
+  color: red !important;
+}
 /*------------------------ Style 1 css for fixes end ------------------------*/
 
 /*-----------Bugs css starts-----*/
