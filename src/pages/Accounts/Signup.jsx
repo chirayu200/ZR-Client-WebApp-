@@ -34,7 +34,9 @@ export default function SignupScreen({onLogin}) {
     })
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
     const handleInputChange = (event) => {
+        const errors = validateForm();
         const {name, value} = event.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
@@ -56,33 +58,42 @@ export default function SignupScreen({onLogin}) {
         const errors = {};
         if (!formData.firstName?.trim()) {
             errors.firstName = "First Name is required";
+        } else if (!/^[A-Za-z]+$/.test(formData.firstName)) {
+            errors.firstName = "Firstname must contain only letters";
         }
+        
         if (!formData.lastName?.trim()) {
             errors.lastName = "Last Name is required";
+        } else if (!/^[A-Za-z]+$/.test(formData.lastName)) {
+            errors.lastName = "LastName must contain only letters";
         }
+
         if (!formData.email?.trim()) {
             errors.email = "Email is required";
         } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)
+            // !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)
+            !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(formData.email)
+
         ) {
             errors.email = "Invalid email address";
         }
         if (!formData.password?.trim()) {
             errors.password = "Password is required";
         }
-        if (formData.password?.trim().length ===  1) {
-            errors.password = "Password length is too short";
-        }
-        if (formData.confirmPassword?.trim().length ===  1) {
-            errors.confirmPassword = "Confirm Password length is too short";
+        if (formData.password && formData.password?.trim().length  < 8) {
+            errors.password = "Password length is too short, must be at least 8 characters";     
+          }
+
+        if (formData.confirmPassword && formData.confirmPassword?.trim().length <  8) {
+            errors.confirmPassword = "Confirm Password length is too short, must be at least 8 characters";
+        }else if (formData.confirmPassword !== formData.password) {
+            errors.confirmPassword = "Passwords does not match";
         }
        
         if (!formData?.confirmPassword?.trim()) {
             errors.confirmPassword = "Confirm Password is required";
             formData.confirmPassword = '';
-        } else if (formData.confirmPassword !== formData.password) {
-            errors.confirmPassword = "Passwords does not match";
-        }
+        } 
         return errors;
     };
     const handleSubmit = (event) => {
@@ -138,6 +149,10 @@ export default function SignupScreen({onLogin}) {
     const handlePrevious = (steps) => {
         console.log("steps", steps);
         setActiveScreen(0)
+        setValue(1)
+        setFormData('') 
+          
+       
     }
 
     return (
@@ -211,10 +226,10 @@ export default function SignupScreen({onLogin}) {
                                     />
                                      
                                     <CustomInput
-                                        label='Password'
+                                        label='Create Password'
                                         type='password'
                                         fullWidth
-                                        placeholder='Password'
+                                        placeholder='Create Password'
                                         showPassword={showPassword}
                                         onTogglePassword={handleTogglePassword}
                                         name='password'
