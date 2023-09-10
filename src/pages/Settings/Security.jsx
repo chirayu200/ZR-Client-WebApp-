@@ -92,14 +92,24 @@ export default function Security({ setActive, cognitoId }) {
     
    
     const handleInputChange = (event) => {
-        
+          debugger
         // const patternPassword=/^?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/
 
         const { name, value } = event.target;
 
         switch (name) {
             case 'currentPassword':
-                if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/.test(formData.currentPassword)) {
+                if (!value) {
+                    setFormDataError((prevErrors) => ({
+                        ...prevErrors,
+                        currentPasswordError: "Current password is required"
+                    }))
+                    setFormData((prevFormData) => ({
+                        ...prevFormData,
+                        [name]: value
+                    }))
+                }
+               else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/.test(formData.currentPassword)) {
                     setFormDataError((prevErrors) => ({
                         ...prevErrors,
                         currentPasswordError: "Password must be 8+ characters with at least one letter, one digit, and special characters allowed"
@@ -122,7 +132,17 @@ export default function Security({ setActive, cognitoId }) {
                 break;
 
             case 'newPassword':
-                if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/.test(formData.newPassword)) {
+                if (!value) {
+                    setFormDataError((prevErrors) => ({
+                        ...prevErrors,
+                        newPasswordError: "New password is required"
+                    }))
+                    setFormData((prevFormData) => ({
+                        ...prevFormData,
+                        [name]: value
+                    }))
+                }
+                else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/.test(formData.newPassword)) {
                     setFormDataError((prevErrors) => ({
                         ...prevErrors,
                         newPasswordError: "Password must be 8+ characters with at least one letter, one digit, and special characters allowed"
@@ -146,10 +166,20 @@ export default function Security({ setActive, cognitoId }) {
                 break;
 
             case 'confirmPassword':
-                if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/.test(formData.confirmPassword)) {
+                if (!value) {
                     setFormDataError((prevErrors) => ({
                         ...prevErrors,
-                        confirmPassword: "Password must be 8+ characters with at least one letter, one digit, and special characters allowed"
+                        confirmPasswordError: "Confirm password is required"
+                    }))
+                    setFormData((prevFormData) => ({
+                        ...prevFormData,
+                        [name]: value
+                    }))
+                }
+                else if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\-]{8,}$/.test(formData.confirmPassword)) {
+                    setFormDataError((prevErrors) => ({
+                        ...prevErrors,
+                        confirmPasswordError: "Password must be 8+ characters with at least one letter, one digit, and special characters allowed"
                     }))
                     setFormData((prevFormData) => ({
                         ...prevFormData,
@@ -159,7 +189,7 @@ export default function Security({ setActive, cognitoId }) {
                 else if (formData.newPassword !== formData.confirmPassword) {
                     setFormDataError((prevErrors) => ({
                         ...prevErrors,
-                        confirmPassword: "New password and Confirm password must match"
+                        confirmPasswordError: "New password and Confirm password must match"
                     }))
                     setFormData((prevFormData) => ({
                         ...prevFormData,
@@ -169,7 +199,7 @@ export default function Security({ setActive, cognitoId }) {
                 else {
                     setFormDataError((prevErrors) => ({
                         ...prevErrors,
-                        confirmPassword: ""
+                        confirmPasswordError: ""
                     }))
                     setFormData((prevFormData) => ({
                         ...prevFormData,
@@ -273,7 +303,7 @@ export default function Security({ setActive, cognitoId }) {
                         </Box>
 
                     </Box>
-                    <Box className='field-section mt-15'>
+                    <Box className={`field-section ${formDataError.currentPasswordError ? 'mt-15' : ''}`}>
                         <Box className='appointment-dropdown'>
                             <InputLabel className="header-text-black font-weight-400 f-14">Confirm Password</InputLabel>
                             <CustomInput

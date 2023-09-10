@@ -12,6 +12,7 @@ import AboutApp from "./AboutApp";
 import HelpAndSupport from "./HelpAndSupport";
 import './settingStyle.css';
 import { getLocalData } from "../../Utils";
+import {useNavigate} from "react-router-dom";
 
 const notification      = require("../../assets/images/notification.png");
 const security          = require("../../assets/images/security.png");
@@ -28,6 +29,7 @@ export default function Settings({clientDetail}) {
     const [active, setActive] = useState(0);
     const [franchiseeId,setFranchiseeId]= useState('');
     const [cognitoId,setCognitoId]= useState('');
+    const navigate = useNavigate();
     // const components = [
 
     //     <Payments />
@@ -91,8 +93,7 @@ export default function Settings({clientDetail}) {
                                                 color='#E35205'
                                                 icon={backArrow}
                                                 backgroundColor='#E7EFF9'
-
-                                            // onClick={() => { if (active === 0) { navigate('/') } else { setActive(active - 1) } }}
+                                                onClick={() => { if (active === 0) { navigate('/') } else { setActive(active - 1) } }}
                                             />
                                             <Typography className='header-text-blue font-weight-700 f-18'>Settings</Typography>
                                         </Box>

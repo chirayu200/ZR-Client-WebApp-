@@ -44,14 +44,21 @@ export default function BookAppointment({ handleNext, setServiceId }) {
     const [notes, setNotes] = useState('');
 
     const [formDataError, setFormDataError] = useState({
-        dog: '',
-        categoryName: '',
-        serviceName: '',
-        roomName: '',
-        fromDate: '',
-        
+        dog:'',
+        categoryName:'',
+        serviceName:'',
+        roomName:'',
+        fromDate:'',
     })
 
+
+  
+
+// Check if either 'dog' or 'categoryName' has an error
+const anyOfTheFieldsHaveError = !!formDataError.dog || !!formDataError.categoryName;
+
+    console.log(anyOfTheFieldsHaveError)
+    console.log(formDataError.dog);
     useEffect(() => {
         const storedSelectedOption = JSON.parse(localStorage.getItem("selectedOption")) || {
             dog: {},
@@ -68,12 +75,12 @@ export default function BookAppointment({ handleNext, setServiceId }) {
     // Save selectedOption to local storage whenever it changes
     useEffect(() => {
         localStorage.setItem("selectedOption", JSON.stringify(selectedOption));
+        
     }, [selectedOption]);
 
 
     useEffect(() => {
         GetAllPets().then((response) => {
-
             if (response) {
                 const optionList = response.data.Items.map((item) => ({
                     label: `${item.firstName || ''} ${item.lastName || ''}`,
@@ -109,12 +116,13 @@ export default function BookAppointment({ handleNext, setServiceId }) {
 
     }, [])
     const handleDropdownChange = (name, value) => {
-
         setSelectedOption({ ...selectedOption, [name]: value });
         setFormDataError((prevErrors) => ({
             ...prevErrors,
             [name]: " "
         }));
+        
+        alert(formDataError.dog);
         console.log(value);
 
         // setCategoryId(value.value.sortKey);
@@ -237,6 +245,7 @@ export default function BookAppointment({ handleNext, setServiceId }) {
         setNotes(value);
     }
     const validateForm = () => {
+        
         let hasErrors = false;
         if (Object.keys(selectedOption.dog).length === 0) {
             setFormDataError((prevErrors) => ({
@@ -247,10 +256,10 @@ export default function BookAppointment({ handleNext, setServiceId }) {
         } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
-                dog: ""
+                dog:''
             }));
         }
-        if (!selectedOption.categoryName) {
+        if (Object.keys(selectedOption.categoryName).length === 0) {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
                 categoryName: "Select category"
@@ -259,19 +268,19 @@ export default function BookAppointment({ handleNext, setServiceId }) {
         } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
-                categoryName: ""
+                categoryName:''
             }));
         }
         if (Object.keys(selectedOption.serviceName).length === 0) {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
-                serviceName: "Select Service"
+                serviceName: "Select service"
             }));
             hasErrors = true;
         } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
-                serviceName: ""
+                serviceName:''
             }));
         }
         if (!selectedOption.roomName) {
@@ -283,7 +292,7 @@ export default function BookAppointment({ handleNext, setServiceId }) {
         } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
-                roomName: ""
+                roomName:''
             }));
         }
         if (!selectedOption.fromDate) {
@@ -296,7 +305,7 @@ export default function BookAppointment({ handleNext, setServiceId }) {
         } else {
             setFormDataError((prevErrors) => ({
                 ...prevErrors,
-                fromDate: ""
+                fromDate:''
             }));
         }
         if(trainerAvailability.length ===0){
@@ -310,19 +319,17 @@ export default function BookAppointment({ handleNext, setServiceId }) {
     }
 
     const bookAppointment = () =>{
+       
         let valid=validateForm();
         if(!valid){
-            handleNext();
+            // handleNext();
         } 
         else{
             handleNext();
         }
     }
 
-    const backOption = () =>{
-        localStorage.removeItem('selectedOption');
-        handleNext();
-    }
+   
     return (
         <Box className='appointment-main'>
             <Box className='field-section'>
@@ -335,6 +342,8 @@ export default function BookAppointment({ handleNext, setServiceId }) {
                         name={'dog'}
                         options={petsOption}
                         icon={downArrow}
+                        // error={!!formDataError.dog}
+                        // helperText={formDataError.dog}
                     />
                     <FormHelperText className="error-text mt-10">{formDataError.dog}</FormHelperText>
                 </Box>
@@ -352,7 +361,7 @@ export default function BookAppointment({ handleNext, setServiceId }) {
                     <FormHelperText className="error-text mt-10">{formDataError.categoryName}</FormHelperText>
                 </Box>
             </Box>
-            <Box className='field-section'>
+            <Box className={`field-section ${formDataError.dog !== '' ? 'mt-15' : ''}`}>
                 <Box className='appointment-dropdown'>
                     <InputLabel>Select Service</InputLabel>
                     <CustomDropdown
