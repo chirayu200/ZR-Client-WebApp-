@@ -2313,7 +2313,10 @@ p.earnTitle {
   align-items: flex-end;
   gap: 20px;
 }
-
+.appointment-main .error-text {
+  position: absolute;
+ /* bottom: -20px; Adjust the value as needed */
+}
 .field-section .appointment-dropdown {
   width: 50%;
 }
@@ -2624,7 +2627,8 @@ p.earnTitle {
 .attendee-value {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  justify-content:space-between;
   align-items: center;
   width: 100%;
   gap: 64%;
@@ -4638,7 +4642,39 @@ p.earnTitle {
 
   margin-top: 5px;
 }
+.loader-container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #000000;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader-container .loader-img {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
+.error-text{
+  color: red !important;
+}
+
+.mt-15{
+  margin-top: 15px !important;
+}
+.mt-0{
+  margin-top: 0px !important;
+}
 /*------------------------ Style 1 css for fixes end ------------------------*/
 
 /*-----------Bugs css starts-----*/

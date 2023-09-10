@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import {Box, Container, Typography} from "@mui/material";
-
-
 import {CustomButton, NotificationSection} from "../../Components/Common";
 import ConfirmBooking from "./ConfirmBooking";
 import BookAppointment from "./BookAppointment";
@@ -18,16 +16,16 @@ const backArrow = require("../../assets/images/orangeArrow.svg").default;
 export default function Appointment() {
     const [active, setActive] = useState(0);
     const navigate = useNavigate();
-    const [categoryId,setCategoryId] = useState('');
+    // const [categoryId,setCategoryId] = useState('');
     const [serviceId,setServiceId] = useState('');
       
     // const ClientId = encodeURIComponent(getLocalData('clientId'));
     const selected={
-        categoryId:categoryId,
+        // categoryId:categoryId,
         serviceId:serviceId
     }
     const childComponent = [
-        {title: "Book An Appointment", component: <BookAppointment handleNext={() => setActive(1)} setCategoryId={setCategoryId} setServiceId={setServiceId}/>},
+        {title: "Book An Appointment", component: <BookAppointment handleNext={() => setActive(1)}  setServiceId={setServiceId}/>},
         {title: "Confirm Booking", component: <ConfirmBooking handleNext={() => setActive(2)}/>},
         {title: "Checkout", component: <Checkout handleNext={() => setActive(3)} setPage={setActive}/>},
         {title: "Book An Appointment", component: <BookingTerms handleNext={() => setActive(4)}/>},
@@ -52,7 +50,8 @@ export default function Appointment() {
                                 backgroundColor='#E7EFF9'
                                 onClick={() => {
                                     if (active === 0) {
-                                        navigate('/')
+                                        navigate('/');
+                                        localStorage.removeItem('selectedOption');
                                     } else {
                                         setActive(active - 1)
                                     }

@@ -20,13 +20,13 @@ export const getInitialSettings = async (ClientId,locationId) =>{
 }
 
 
-export const updateSettings = async (clientId,franchiseeId,payload) => {
+export const updateSettings = async (clientId,locationId,payload) => {
 
     const encodedClientId = encodeURIComponent(clientId);
-    const encodedFranchiseeId = encodeURIComponent(franchiseeId);
+    const encodedLocationId = encodeURIComponent(locationId);
     try {
         return await ApiServices.put(
-            `${Base_URL}/client/updateSetting?clientId=${encodedClientId}&franchiseeIdId=${encodedFranchiseeId}`,
+            `${Base_URL}client/updateSetting?locationId=${encodedLocationId}&clientId=${encodedClientId}`,
             payload
             
         );

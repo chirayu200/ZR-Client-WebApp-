@@ -38,16 +38,16 @@ export const CustomDropdown = ({
         onChange(name, newValue);
     };
 
-    const dateArr = {
-        Su: "SUN",
-        Mo: "MON",
-        Tu: "TUE",
-        We: "WED",
-        Th: "THU",
-        Fr: "FRI",
-        Sa: "SAT",
+    // const dateArr = {
+    //     Su: "SUN",
+    //     Mo: "MON",
+    //     Tu: "TUE",
+    //     We: "WED",
+    //     Th: "THU",
+    //     Fr: "FRI",
+    //     Sa: "SAT",
 
-    }
+    // }
 
 
 
@@ -61,7 +61,7 @@ export const CustomDropdown = ({
                             className="custom-date-select"
                             onChange={handleDateChange}
                             value={dayjs(value)}
-                            dayOfWeekFormatter={(day) => dateArr[day]}
+                            // dayOfWeekFormatter={(day) => dateArr[day]}
                         // value={formattedValue}
                         // dayOfWeekFormatter={(day) => {
                         //     console.log(day);
