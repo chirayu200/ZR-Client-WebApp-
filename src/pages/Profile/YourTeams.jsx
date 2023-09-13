@@ -6,18 +6,17 @@ import React from "react";
 const profileImg = require("../../assets/images/profileImg.svg").default;
 const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 const profileTeam = require("../../assets/images/profile-team.svg").default;
-export default function YourTeams({ setActive, initialState, setInitialState, details }) {
+export default function YourTeams({ setActive, initialState, setInitialState, details,teamData }) {
   const handleNextPage = () => {
     setActive(1);
-    setInitialState({ ...initialState, userType: 'client' });
+    setInitialState({ ...initialState, userType: 'client',client :'client' });
   };
 
-  console.log(details, 'detailsdetaifls');
 
   return (
     <Box className="template-list-main">
         
-      {initialState.userType === 'dog' && initialState.selected !== '' ? (
+        {initialState.userType === 'dog' && initialState.selected !== '' ? (
         <Box className="trophyBoxHead">
           <Typography className='header-text'>
             Client
@@ -34,13 +33,20 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
           <Typography className='header-text'>
             {initialState.userType==='dog'? 'Your Pack': 'Your Team'}
           </Typography>
-          <CustomButton
-            onClick={handleNextPage}
-            className='viewAllBtn'
-            title={"View All"}
-            color='#fff'
-            backgroundColor='#32B2AC'
-          />
+         { 
+         (initialState.userType === 'client' && initialState.selected === '') && initialState.client === ''
+         
+         ?
+         <CustomButton
+         onClick={handleNextPage}
+         className='viewAllBtn'
+         title={"View All"}
+         color='#fff'
+         backgroundColor='#32B2AC'
+       /> 
+         : 
+         ''
+         }
         </Box>
       )}
  {initialState.userType === 'dog' && initialState.selected !== '' ? (
@@ -59,7 +65,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
                       <Box>
                           <Button
                               onClick={() => {
-                                  setInitialState({ ...initialState, selected: details, userType: 'dog' });
+                                  setInitialState({ ...initialState, selected: '', userType: 'client', client: '' });
                                   setActive(0);
                               } }
                           >
@@ -68,7 +74,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
                       </Box>
 
                   </Box>
- ) :(initialState.userType === 'dog'&&initialState.selected === '' && details?.pets?.length > 0 ? (
+ ) :(initialState.userType === 'dog' && initialState.selected === '' && details?.pets?.length > 0 ? (
         details?.pets.map((pet, index) => (
           <Box key={index} className="item">
             <Box className="itemImgWrap">
@@ -81,7 +87,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
             <Box>
               <Button
                 onClick={() => {
-                  setInitialState({ ...initialState, selected: details, userType: 'dog' });
+                  setInitialState({ ...initialState, selected: pet, userType: 'dog' });
                   setActive(0);
                 }}
               >
@@ -91,53 +97,29 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
           </Box>
         ))
       ) : (
-        <><Box className="item">
-                      <Box className="itemImgWrap">
-                          <img src={profileImg} alt="profile" />
-                          <Box>
-                              <Typography>
-                                  {initialState.userType === 'dog'
-                                      ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}`
-                                      : 'Jon Smith'}
-                              </Typography>
-                              <Typography>Reward Points: 3214</Typography>
-                          </Box>
-                      </Box>
-                      <Box>
-                          <Button
-                              onClick={() => {
-                                  setInitialState({ ...initialState, selected: details, userType: 'dog' });
-                                  setActive(0);
-                              } }
-                          >
-                              <img src={rightCircle} alt='close' />
-                          </Button>
-                      </Box>
-
-                  </Box><Box className="item">
-                          <Box className="itemImgWrap">
-                              <img src={initialState?.userType === 'dog' ? details?.profileImage : profileTeam} alt="profile" />
-                              <Box>
-                                  <Typography>
-                                      {initialState.userType === 'dog'
-                                          ? `${details?.firstName || 'John'} ${details?.lastName || 'Smith'}`
-                                          : 'Lilly Bloom'}
-                                  </Typography>
-                                  <Typography>Reward Points: 3965</Typography>
-                              </Box>
-                          </Box>
-                          <Box>
-                              <Button
-                                  onClick={() => {
-                                      setInitialState({ ...initialState, selected: details, userType: 'dog' });
-                                      setActive(0);
-                                  } }
-                              >
-                                  <img src={rightCircle} alt='close' />
-                              </Button>
-                          </Box>
-
-                      </Box></>
+        
+        teamData?.Items?.map((item, index) => (
+  <Box className="item" key={index}>
+      <Box className="itemImgWrap">
+          <img src={item?.profileImage ? item?.profileImage : profileTeam} alt="dog" />
+          <Box>
+              <Typography>{`${item?.firstName || ''} ${item?.lastName || ''}`}</Typography>
+              <Typography>
+                  Reward Points: 5550
+              </Typography>
+          </Box>
+      </Box>
+      <Box>
+          <Typography>{item?.breed}</Typography>
+          <Button onClick={() => {
+              setInitialState({ ...initialState, selected: item, userType: 'client' });
+              setActive(0);
+              
+          }}><img src={rightCircle} alt='close' /> </Button>
+      </Box>
+  </Box>
+))
+                 
       )
  )
     }

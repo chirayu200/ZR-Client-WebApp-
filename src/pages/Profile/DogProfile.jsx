@@ -207,7 +207,7 @@ const DogProfile = ({initialState,setActive}) => {
 
     const handleActionBtn = (type) => {
         if(type === 'yes'){
-            setActive(2)
+            setActive(0)
         }
         else if(type === 'notNow'){
             setActive(0)

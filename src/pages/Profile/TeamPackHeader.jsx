@@ -10,6 +10,7 @@ const profileImgs = require("../../assets/images/profileImg.svg").default;
 const secondImage = require("../../assets/images/team-img.svg").default;
 export default function TeamPackHeader({setActive, initialState,setInitialState,details}) {
     const firstTwoPets = details?.pets?.slice(0, 2);
+    const firstTwoTeams = details?.teams?.slice(0, 2);
 
 console.log('dog view all......',initialState.userType)
     return (
@@ -19,7 +20,7 @@ console.log('dog view all......',initialState.userType)
 
                 <Box className="teamWrap">
                     <img src={initialState?.userType==='dog' ? firstTwoPets[0]?.profileImage : secondImage} alt="profile"/>
-                    <img src={initialState?.userType==='dog' ? firstTwoPets[1]?.profileImage : profileImgs} alt="profile"/>
+                    {firstTwoPets.length > 1 || firstTwoTeams.length > 1 ?<img src={initialState?.userType==='dog' ? firstTwoPets[1]?.profileImage : profileImgs} alt="profile"/>:''}
                 </Box>
                 <Typography>Your {initialState.userType==='dog'?'Pack':"Team"}</Typography>
             </Box>

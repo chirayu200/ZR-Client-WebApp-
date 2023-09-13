@@ -104,15 +104,16 @@ export const CustomDialogue = ({open, handleClose, fullWidth, handleNext, type, 
 
                                 >Skip</Button>
                                 <Button onClick={ () => {
-          handleDogCreation();
-          handleClose();
-        }}
+                                    handleDogCreation();
+                                    handleClose();
+                                    }}
                                   
                                         className='confirmCheckBtn'
 
                                 >Yes, I want</Button>
                                 </Box>
                             </DialogContent>
+                            
                     </> :
                 type === "appointment" ?
                     <Box className="mindDialog">

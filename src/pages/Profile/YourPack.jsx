@@ -6,12 +6,11 @@ import rightCircle from '../../assets/images/rightCircle.svg';
 const Dog = require("../../assets/images/dog-round.svg").default;
 const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 
-export default function YourPack({ details, setInitialState, initialState, setActive }) {
+export default function YourPack({ details, setInitialState, initialState, setActive ,familyPets}) {
     const [showTwoPets, setShowTwoPets] = useState(false);
 
     const firstTwoPets = details?.pets?.slice(0, 2);
     const viewNotSelectedPets = details?.pets?.filter(pet => pet !== initialState.selected);
-    console.log(viewNotSelectedPets, 'filter selected...');
     console.log(initialState, 'activeeeee...');
 
     const handleNextPage = () => {

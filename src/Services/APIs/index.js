@@ -10,9 +10,13 @@ export {
     GetOrderHistory,
 
 } from './shop';
-export {GetClientDetailByEmailId, GetAllPets,GetAllClients} from './client'
+export {GetClientDetailByEmailId, GetAllPets,GetAllClients,getClientProfileProgress,searchTeamMembers,
+    AddTeamMembers,getYourFamilyMembers,getFamilyPets,getPetProfileProgress
+
+
+} from './client'
 export {
-    CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail,getClientProfileProgress
+    CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail
 } from './profile';
 export {GetAllTrainersAvailability} from './appointments';
 export {getInitialSettings } from './nofication';
