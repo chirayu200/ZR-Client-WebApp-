@@ -37,8 +37,9 @@ export const ProfileModals = ({
     const [showList, setList] = useState(false);
     const [error, setError] = useState(false);
     const [signError, setSignError] = useState(false);
-    const [isCheck, setCheck] = useState (false);
-    const [isAgree, setAgreeCheck] = useState (false);
+    const [searchValue, setSearchValue] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
+    const [isError, setCheckError] = useState('');
 
     const [clientList, setClientOptions] = useState ([]);
     const [openConfirmation, setConfirmation] = useState (false);
@@ -78,35 +79,39 @@ export const ProfileModals = ({
     
   
     const handleCategoryChange = (e,key) => {
-        if(key && key === true){
-            setAgreeCheck(false)
-        }else{
-            setAgreeCheck(true)
- 
-        }
+        const { name, value } = e.target;
+       setSearchValue(value);
+        if (value === '') {
+         setError('Search box cannot be empty.');
+        } else {
+        setError('');
+    }
         console.log('chage value---', e.target.value,)
         console.log('chage key---', key)
-        setClientOptions(key)    
-        //setSelectedData(value)
-       // setSelectedData((prevState) => ({ ...prevState, data: value }));
-    
+        setClientOptions(key)          
       };
 
-    
+    //accepts terms on add team poppu
+      const handleCheckBoxChange = (event) => {
+        const { name, checked } = event.target;
+        if (name === 'agreeBox') {
+          setIsChecked(checked);
+        }
+      };
     
     const openConfirmationModal = (name) => {
-       if(isAgree){
-        setError(true)
-        setConfirmation(false)
-       }else{
-        setError(false)
-        setConfirmation(true)
-       }
-       // setCheck(true);
-        
-        
-        
+           if (searchValue === '') {
+            setCheckError('Search box cannot be empty.');
+            return;
+            }
+           if (!isChecked) {
+            setCheckError('Please accept terms & conditions.');
+            return;
+          }             
+          setConfirmation(true)
+          setError('');
     }
+
     const filterData = (text) => {
         const newData = getclientOptions.filter((item) => {
           const itemData = `${item.firstName} ${item.lastName} ${item.email}`;
@@ -191,7 +196,7 @@ export const ProfileModals = ({
                          <Box >
                            <Box className='confirm-team-box'>
                             <Typography className='modal-description-confirm'>
-                                {`Are you sure you want to add ${'Alex'} to your family?`}
+                                {`Are you sure you want to add ${clientList.firstName || 'Alex'} to your family?`}
 
                             </Typography>
 
@@ -204,97 +209,86 @@ export const ProfileModals = ({
                         </Box>   
                                         </>
                                            :
-                                           <Box className='teamSearch'>
-                                           {/* <InputLabel>Select Client</InputLabel> */}
-                    
-                                    {/* <CustomDropdown
-                                        placeholder='Select Client'
-                                        onChange={handleDropdownChange}
-                                        name='SearchClient'
-                                        value={clientList.value}
-                                            options={clientList}
-                                            icon={downArrow}
-                                        /> */}
-
-
-<div className="search-team">
-      <Autocomplete
-        className='card-input search-bar'
-        id="free-solo-demo"
-        name='searchTeam'
-        freeSolo
-        options={getclientOptions}
-        getOptionLabel={(option) => `${option.firstName} ${option.lastName}`}
-        onChange={handleCategoryChange}
-        onInputChange={(event, newInputValue) => {
-          filterData(newInputValue);
-        }}
-        renderInput={(params) => (
-          <TextField
-          
-          className="autocomplete-list-boxx"
-            {...params}
-            InputLabelProps={{
-                className: 'autocomplete-list-box'
-            }}
-            InputProps={{
-              ...params.InputProps,
-              endAdornment: (
-                <SearchIcon style={{ cursor: 'pointer', color: 'orangered' }} />
-              ),
-            }}
-          />
-        )}
-        renderOption={(props, option) => {
-            const { firstName,lastName ,email} = option;
-            return (
-               <div {...props}>
-                 <span style={{padding:'10px 10px 0px 15px'}} >
-                <span style={{ color: "rgba(0, 0, 0, 1)", fontSize: 16 }}>{firstName + ' ' + lastName}</span><br></br>
-                <span style={{ color: "rgba(0, 0, 0, 0.7)", fontSize: 14 }}>{email}</span> <br/>
-                <span style={{ color: "rgba(0, 0, 0, 0.2)", width:'100px!important' }}><hr ></hr></span>
-                </span>  
-                </div>
-          );
-        }}
-        icon={<SearchIcon />}
-        
-        
-      />
-    
-    </div>
+                                           <Box className=' my-autocomplete autocomplete-list-box'>                                       
+                                        <div className="search-team">
+                                            <Autocomplete
+                                                className='card-inputt search-bar'
+                                                id="free-solo-demo"
+                                                name='searchTeam'
+                                                freeSolo
+                                               
+                                                options={getclientOptions}
+                                                getOptionLabel={(option) => `${option.firstName} ${option.lastName}`}
+                                                onChange={handleCategoryChange}
+                                                onInputChange={(event, newInputValue) => {
+                                                filterData(newInputValue);
+                                                }}
+                                                renderInput={(params) => (
+                                                <TextField
+                                                style={{ width: '100%'}}
+                                                className="myCustomAutocomplete"
+                                                    {...params}
+                                                   
+                                                    InputProps={{
+                                                    ...params.InputProps,
+                                                    endAdornment: (
+                                                 <TeamSearchIcon style={{ position: 'absolute', right: '25px', top: '50%', transform: 'translateY(-50%)', margin: 0 }} />
+                                                        ),
+                                                    }}
+                                                    
+                                                />
+                                                
+                                                )}
+                                                
+                                                renderOption={(props, option) => {
+                                                    const { firstName,lastName ,email} = option;
+                                                    return (
+                                                                                                         
+                                                    <div className=""  {...props} >
+                                                        <div style={{ padding: '0px 0px 0px 0px',width: '100%'}}>
+                                                        <span style={{ color: "rgba(0, 0, 0, 1)", fontSize: 16 }}>{firstName + ' ' + lastName}</span><br />
+                                                        <span style={{ color: "rgba(0, 0, 0, 0.7)", fontSize: 14 }}>{email}</span><br />
+                                                        <span style={{ color: "rgba(0, 0, 0, 0.2)" }}>
+                                                        <hr></hr>
+                                                        </span>
+                                                        </div>
+                                                    </div>
+                                                
+                                                );
+                                                }}
+                                               
+                                                
+                                                
+                                            />
+                                            
+                                            </div>
 
                    
 
 
-                                         <Box className='save-car' sx={{ mt: 2 }}>
+                                         <Box className='save-car' sx={{ mt: 1 }}>
                                            <label style={{ display: 'flex', alignItems: 'center' }}>
-                                           <Checkbox style={{marginBottom : '6em',color: '#003087' }} name="agreeBox" className="agree-select"
-                                            onChange={handleCategoryChange}
-                                        //    onChange={(e) => handleDropdownChange({
-                                             
-                                        //     agreeBox: e.target.checked
-                                        //    })}
-
+                                           <Checkbox style={{marginBottom : '3.2em',color: '#003087' }} name="agreeBox" className="agree-select"
+                                            onChange={handleCheckBoxChange}                                      
                                            />
-                                           <p style={{ marginLeft: '8px' }}>
+                                           <p style={{ marginLeft: '0px' }} className=" modal-description-team">
                                            By proceeding with adding a person into your family, you acknowledge that you are granting them control over your credit,
                                            which may also be utilized for their dog's needs.
                                            </p>
                                            </label>
                                            </Box>
-                                           {(error) && (
-                                           <Typography
-                                           style={{
-                                               color: "red",
-                                               marginVertical: 5,
-                                               marginStart: 8,
-                                           }}
-                                           >
-                                           {"Please Accept Terms&condition"}
-                                           </Typography>
-                                       )}
-                                       </Box>
+                                           {isError && (
+                                                <Typography
+                                                style={{
+                                                    color: 'red',
+                                                    marginVertical: 5,
+                                                   paddingLeft:12
+                                                }}
+                                                >
+                                                {isError}
+                                                </Typography>
+                                            )}
+                                         </Box>
 
 
                                         }

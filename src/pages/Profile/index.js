@@ -99,10 +99,23 @@ export default function ProfileMain({ clientDetail ,teamData}) {
                             onClick={() => {
                                 
                                 if (childComponent[active].title === 'Profile') {
-                                    if(initialState?.userType === 'client' && initialState.selected ===''){
-                                        navigate('/')  
+                                    if(active===0){
+                                        if(initialState.userType === 'client' && initialState.selected !== ''){
+                                            setInitialState({ ...initialState, userType: 'client', selected : '' })
+                                            setActive(0)
+                                        }else {
+                                            if(initialState.userType === 'dog'){
+                                                setInitialState({ ...initialState, userType: 'client', selected : '' })
+                                            setActive(0) 
+                                            }else{
+                                                navigate('/') 
+                                            }
+                                            
+                                            
+                                        }
+                                       
                                     }else{
-                                       // window.location.reload();
+                                      // window.location.reload();
                                         setInitialState({ ...initialState, userType: 'client', selected : '' })
                                             setActive(0)
                                     }
@@ -119,14 +132,7 @@ export default function ProfileMain({ clientDetail ,teamData}) {
                                  if(childComponent[active].title === 'Edit Dog Profile') {
                                     setActive(0)
                                 }
-                               // setActive(active-1)
-
-                                // if (active === 0 && initialState?.userType === 'dog') {
-                                //     setInitialState({ ...initialState, userType: 'client' })
-                                // }
-                                // else {
-                                //     setActive(active - 1);
-                                // }
+                              
                             }}
                         />
                         <Typography className='header-text'>{childComponent[active].title}</Typography>

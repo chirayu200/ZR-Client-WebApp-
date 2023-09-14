@@ -114,3 +114,16 @@ export const GetAllBreedList = async () => {
 
     }
 }
+export const getClientTrophies = async () => {
+
+    try {
+        return await ApiServices.get(
+            `${API_URL_3}trophy/getAllTrophyByclient?clientId=${clientId}`
+        );
+
+    } catch (error) {
+        console.error(error.message);
+        return error;
+
+    }
+}
