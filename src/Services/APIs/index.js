@@ -18,5 +18,5 @@ export {GetClientDetailByEmailId, GetAllPets,GetAllClients,getClientProfileProgr
 export {
     CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail
 } from './profile';
-export {GetAllTrainersAvailability} from './appointments';
+export {GetAllTrainersAvailability,getServiceCategories,getAllPets,getAllRooms,getServiceByCategory} from './appointments';
 export {getInitialSettings } from './nofication';

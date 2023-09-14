@@ -1,8 +1,29 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Box, Typography } from "@mui/material";
 import { CustomButton } from "../../Components/Common";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 export default function ConfirmBooking({handleNext}) {
+	const [selectedOption, setSelectedOption] = useState({
+        dog: {},
+        serviceName: {},
+        fromDate: '',
+        sortKey: "",
+        categoryName:{},
+        roomName: ""
+    });
+
+	useEffect(() => {
+        const storedSelectedOption = JSON.parse(localStorage.getItem("selectedOption")) || {
+            dog: {},
+            serviceName: {},
+            fromDate: '',
+            sortKey: "",
+            categoryName: {},
+            roomName: ""
+        };
+			console.log("Option of selected form is as follows------->",storedSelectedOption.dog.label);
+           setSelectedOption(storedSelectedOption);
+    }, []);
 	return (
 		<Box className='confirm-booking-main'>
 			<Box className='display-booking-wrap'>
@@ -13,7 +34,7 @@ export default function ConfirmBooking({handleNext}) {
 							<Typography>Trainer</Typography>
 						</Box>
 						<Box className='attendee-value'>
-							<Typography>Max</Typography>
+							<Typography>{selectedOption.dog.label}</Typography>
 							<Typography>Karen Pryor</Typography>
 						</Box>
 					</Box>

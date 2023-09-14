@@ -96,7 +96,13 @@
 .f-18{
     font-size: 18px !important;
 }
+.mt-10{
+    margin-top: 10px !important;
+}
 
+.mt-20{
+    margin-top: 25px !important;
+}
 .height-90{
     height: 90px !important;
 }
@@ -145,4 +151,5 @@
   .password .css-i4bv87-MuiSvgIcon-root{
     color: #003087 !important;
   }
+ 
 /* -------------------------Setting Style End ------------------------*/
