@@ -45,3 +45,80 @@ export const GetAllClients = async () => {
 
     }
 }
+
+export const getClientProfileProgress = async () => {   
+     try {
+         return await ApiServices.get(
+             `${API_URL_3}client/getClientProfileProgress?locationId=${locationId}&clientId=${clientId}`
+         );
+ 
+     } catch (error) {
+         console.error(error.message);
+         return error;
+ 
+     }
+ }
+ 
+export const getPetProfileProgress = async (childId) => {   
+    const encodedchildId= encodeURIComponent(childId);
+
+     try {
+         return await ApiServices.get(
+             `${API_URL_3}client/getChildProfileProgress?childId=${encodedchildId}&clientId=${clientId}`
+         );
+ 
+     } catch (error) {
+         console.error(error.message);
+         return error;
+ 
+     }
+ }
+ 
+export const AddTeamMembers = async (obj) => {  
+     try {
+         return await ApiServices.post(
+             `${API_URL_3}client/addFamilyMember`,obj
+         );
+ 
+     } catch (error) {
+         console.error(error.message);
+         return error;
+ 
+     }
+ }
+export const searchTeamMembers = async () => {
+     try {
+         return await ApiServices.get(
+             `${API_URL_2}client?locationId=${locationId}`
+         );
+ 
+     } catch (error) {
+         console.error(error.message);
+         return error;
+ 
+     }
+ }
+export const getYourFamilyMembers = async () => {
+     try {
+         return await ApiServices.get(
+             `${API_URL_3}client/getFamilyByClient?locationId=${locationId}&clientId=${clientId}`
+         );
+ 
+     } catch (error) {
+         console.error(error.message);
+         return error;
+ 
+     }
+ }
+export const getFamilyPets = async () => {
+     try {
+         return await ApiServices.get(
+             `${API_URL_3}client/getFamilyWithPet?locationId=${locationId}&clientId=${clientId}`
+         );
+ 
+     } catch (error) {
+         console.error(error.message);
+         return error;
+ 
+     }
+ }

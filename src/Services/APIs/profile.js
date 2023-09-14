@@ -24,7 +24,7 @@ export const UpdateClientDetail = async (payload, clientId) => {
     const encodedClientId = encodeURIComponent(clientId);
     try {
         return await ApiServices.put(
-            `${Base_URL}client?id=${encodedClientId}`,
+            `${Base_URL}client/updateClientDetails?id=${encodedClientId}`,
             payload
         );
 
@@ -106,21 +106,6 @@ export const GetAllBreedList = async () => {
     try {
         return await ApiServices.get(
             `${Base_URL}breed-list`
-        );
-
-    } catch (error) {
-        console.error(error.message);
-        return error;
-
-    }
-}
-export const getClientProfileProgress = async () => {
-
-   // const encodedClientId = encodeURIComponent(clientId);
-    try {
-        return await ApiServices.get(
-            `${API_URL_3}client/getClientProfileProgress?locationId=${locationId}&clientId=${clientId}`
-           // `https://ifcxqbb98k.execute-api.us-east-1.amazonaws.com/dev/client/getClientProfileProgress?locationId=${locationId}&clientId=${clientId}`
         );
 
     } catch (error) {

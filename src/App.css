@@ -25,6 +25,59 @@
   justify-content: center;
 }
 
+
+/* Add a border to the Autocomplete dropdown list */
+
+.search-team .MuiAutocomplete-root .MuiAutocomplete-paper.MuiPaper-root {
+
+  border: rgba(0, 0, 0, 0.3) 1px solid;
+
+  border-radius: 4px; /* Add border radius if needed */
+
+  z-index: 1000; /* Ensure it appears above other elements */
+
+  height: 255px !important;
+
+  overflow: hidden !important;
+
+ 
+
+}
+/* Remove scrolling from the Autocomplete dropdown */
+.search-team .MuiAutocomplete-listbox {
+  max-height: none !important;
+  overflow: hidden !important;
+}
+.MuiAutocomplete-popperr {
+  max-height: none !important;
+  overflow: hidden !important;
+}
+/* Style the Autocomplete input field */
+.search-team .MuiAutocomplete-root .MuiOutlinedInput-root {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 30px !important;
+}
+
+/* Remove the border color change when focused */
+.search-team .MuiAutocomplete-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+
+.search-team .MuiAutocomplete-hasPopupIcon.css-1h51icj-MuiAutocomplete-root .MuiOutlinedInput-root,
+.MuiAutocomplete-hasClearIcon.css-1h51icj-MuiAutocomplete-root .MuiOutlinedInput-root
+{ border-radius: 30px!important; /* Adjust the value as needed for your desired border radius */
+
+}
+
+/* Remove the border color change on hover and focus */
+.search-team .MuiAutocomplete-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
+.MuiAutocomplete-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+
+
 /* Splash */
 .splash-container {
   height: 100vh;
@@ -42,7 +95,8 @@
 }
 
 .splash-container .typo-logo {
-  margin: 0 auto 112px;
+  /* margin: 0 auto 80px; */
+  margin: 25px auto ;
   text-align: center;
 }
 
@@ -960,7 +1014,7 @@ main>div:nth-of-type(1) {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 }
 
 .topStack button {
@@ -2947,8 +3001,7 @@ p.earnTitle {
 }
 
 .card-input .MuiOutlinedInput-notchedOutline {
-  border: 0;
-}
+border-radius: 2em;}
 
 /* Booking terms */
 .display-booking-wrap.video-main {
@@ -4089,6 +4142,26 @@ p.earnTitle {
   gap: 10px;
   flex-direction: column;
 }
+.global-modal-main .confirm-team-box {
+  padding: 0px 0px 0px 1px;
+  max-width: 329px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.confirm-team-box .modal-description-confirm {
+  color: var(--label-color-light-primary, #000);
+  text-align: center;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  /* 128.571% */
+  letter-spacing: -0.078px;
+}
 
 .confirm-main .modal-heading {
   color: var(--label-color-light-primary, #000);
@@ -4211,7 +4284,33 @@ p.earnTitle {
   /* 157.143% */
   letter-spacing: -0.408px;
 }
+.confirm-profile .red-btn {
+  color: var(--rgb-209580, #d13a00);
+  text-align: center;
+  text-transform: capitalize;
+  font-feature-settings: "case" on;
+  font-family: Univers LT Std;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  /* 157.143% */
+  letter-spacing: -0.408px;
+}
 
+.confirm-profile .blue-btn {
+  color: var(--primary-blue, #003087);
+  text-align: center;
+  font-feature-settings: "case" on;
+  font-family: Univers LT Std;
+  text-transform: capitalize;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px;
+  /* 157.143% */
+  letter-spacing: -0.408px;
+}
 .confirm-main-wrap .blue-btn {
   color: var(--primary-blue, #003087);
   text-align: center;
@@ -4269,8 +4368,13 @@ p.earnTitle {
 
 .teams-main-wrap .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiDialog-paper {
   border-radius: 20px;
-  width: 334px;
+  width: 400px;
   padding: 17px 20px 50px 20px;
+}
+.confirm-profile .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiDialog-paper {
+  border-radius: 20px;
+  width: 400px;
+  padding: 0px 0px 0px 10px;
 }
 
 .teams-main-wrap .modal-header {
@@ -4403,7 +4507,7 @@ p.earnTitle {
 }
 
 .profileProgressWrap .MuiTypography-root.MuiTypography-body1 {
-  color: #003087 !important;
+  color:#e35205 !important;
   font-family: Univers LT Std !important;
   font-size: 12px !important;
   font-style: normal;
@@ -4616,7 +4720,7 @@ p.earnTitle {
 }
 
 .topStack.trophyTopStack button {
-  min-width: 273px;
+  min-width: 300px;
   padding: 10px 26px;
   letter-spacing: 0.1px;
   margin-bottom: 30px;

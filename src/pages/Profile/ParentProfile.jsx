@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, InputLabel, Typography } from "@mui/material";
+import { Box, Button, InputLabel, Typography,TextField } from "@mui/material";
 import { CustomButton, CustomDropdown, CustomInput } from "../../Components/Common";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -8,7 +8,7 @@ import { Country, State } from 'country-state-city';
 import { UpdateClientDetail } from "../../Services/APIs";
 import { GetAllClients } from "../../Services/APIs";
 import { getLocalData,setLocalData } from "../../Utils";
-import { GetClientDetailByEmailId } from "../../Services/APIs";
+import { GetClientDetailByEmailId ,searchTeamMembers} from "../../Services/APIs";
 
 
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
@@ -36,6 +36,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
    const [getclientOptions, setClientOptions] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
     const [getLocations,setGetLocations] = useState('');
+    const [selectedLocation,setLocations] = useState('');
     const [getStates,setGetStates]= useState('')
     const [postalCodeErr,setPostalCodeErr]= useState(false)
     const [mobileNumberError, setMobileNumberError] = useState('');
@@ -43,7 +44,8 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
 
 
     const [formData, setFormData] = useState({
-        locationId: getLocalData('locationId'),
+       // locationId: getLocalData('locationId'),
+        locationId: '',
         location: '',
         profileImage: "",
         firstName: '',
@@ -64,8 +66,8 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
         isLiabilityWaiverSigned: false,
         signature: null,
         policyCheck: false,
+       // yourSelf:''
     });
-
     useEffect(() => {
         callClientDetail(userDetail)
         if (initialState) {
@@ -96,60 +98,28 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
 
     const callClientDetail = (username) => {
 
-        GetClientDetailByEmailId(username.email).then((response) => {
-            const [detail] = response.data.Items;
-            setLocalData('locationId', detail.locationId);
-            setLocalData('clientId', detail.sortKey);
-            console.log(detail, "detail")
-           
-
+        GetClientDetailByEmailId(username.email).then((response) => {        
         })
     }
-
-    //get all client details to build your team
-    const getAllClientDetails = () => {
-
-        GetAllClients().then((response) => {
-               
-            //console.log(clientsDetail, "clientsDetail")
-           if(response.statusCode === 200){
-            const clientsDetail = response.data.Items;      
-            const clientOptions = clientsDetail.map((item) => ({
-                label: item.name,
-                value: item.name,
-                
-            }))
-            setClientOptions(clientOptions)
-            //clientOptions(clientDetail)
-           }else{
-
-           }
-
-        })
-    }
-   
 
 
     const getLocationsData = async () =>{
         let response= await fetch('https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/locations');
         const jsonData = await response.json();
-        console.log(jsonData.data.Items);
-        console.log(jsonData.data.Items.length)
         const locationOptions = jsonData.data.Items.map((item) => ({
+
           label: item.locationName,
           value: item.locationName,
           id:item.locationId
       }))
+      const filterData = locationOptions.find((el) => el.id === clientDetail.locationId);
+      setLocations(filterData)
       setGetLocations(locationOptions)
-    //   setGetLocations(locationOptions)
-    // const stateOptions=jsonData.data.Items.map((item) => ({
-    //     label: item.state,
-    //     value: item.state
-
-    // }))
+     // setFormData({ ...formData})
       let res= await fetch('https://vtqf4ke0yj.execute-api.us-east-1.amazonaws.com/dev/locations/getAllStates');
       const StateData = await res.json();
       const stateOptions = StateData.data.Items.map((item) => ({
+        //console.log('!!!!!',)
           label: item.state,
           value: item.state
   
@@ -157,17 +127,14 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
       setGetStates(stateOptions)
       }
     const handleDropdownChange = (name, value) => {
-
+        //const { name, value } = event.target;
         if (name === 'location' && value) {
-            const options = State.getStatesOfCountry(value.value.isoCode)
-                .map((item) => ({
-                    label: item.name,
-                    value: item
-                }))
+            setFormData({ ...formData, [name]: value?.id || '' })
+        }else{
+            setFormData({ ...formData, [name]: value?.value || '' })
 
-            setStateOptions(options)
         }
-        setFormData({ ...formData, [name]: value?.label || '' })
+       
         if (errors[name]) {
             setErrors((prevFormErrors) => ({
                 ...prevFormErrors,
@@ -244,28 +211,34 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
             return;
         }
         const form = new FormData();
-        form.append('locationId', formData.locationId);
+       // form.append('locationId', formData.location);
         form.append('firstName', formData.firstName);
         form.append('email', formData.email);
+        form.append('currentLocationId', formData.locationId);
+        form.append('newLocationId', formData.locationId);
+        form.append('cognitoId', formData.cognitoId);
+        form.append('yourSelf', formData.yourSelf);
         //form.append('location', formData.location || '');
         form.append('lastName', formData.lastName);
         form.append('mobilePhone', formData.mobilePhone);
-        form.append('workPhone', '');
-        form.append('homePhone', '');
+        form.append('registrationMethod', 'email');
+        //form.append('workPhone', '');
+        //form.append('homePhone', '');
         form.append('profileImage', formData.profileImage || '');
         form.append('addressLine1', formData.addressLine1);
         form.append('addressLine2', formData.addressLine2);
         form.append('state', formData?.state);
         form.append('city', formData.city);
         form.append('postalCode', formData.postalCode);
-        // form.append('birthDate', formData.birthDate||'');
+        //form.append('birthDate', formData.birthDate||'');
         form.append('referralSource', formData.referralSource || '');
         form.append('emergencyContactName', formData.emergencyContactName || '');
         form.append('emergencyContactPhone', formData.emergencyContactPhone || '');
         form.append('emergencyContactEmail', formData.emergencyContactEmail || '');
         form.append('emergencyContactRelationShip', formData.emergencyContactRelationShip || '');
         form.append('signatureImage', formData.signature || '');
-        form.append('isLiabilityWaiverSigned', true);
+        // form.append('isLiabilityWaiverSigned', formData.signature ? true : false);
+        form.append('isLiabilityWaiverSigned', formData.signature ? true : false);
         form.append('updatedBy', '10000');
         form.append('status', 1);
 
@@ -275,7 +248,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
                 callClientDetail(userDetail)
                 setConfirmOpen(true);
             }else{
-                if(response.statusCode === 422){
+                if(response.statusCode === 502){
                    
                     //setPostalCodeErr(true)
                 }
@@ -290,11 +263,28 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
         } else if (type === 'yes') {
             setConfirmOpen(false);
             setTeamOpen(true);
-            getAllClientDetails();
+            searchAllClientDetails();
             //setActive(0);
 
         }
     }
+//get all client details to build your team
+const searchAllClientDetails = () => {
+    searchTeamMembers()
+        .then((response) => {
+            // Check if the request was successful (status code 200)
+            if (response.statusCode === 200) {
+                const clientsDetail = response.data.Items;
+               
+                setClientOptions(clientsDetail);
+            } else {
+                console.error('API request was not successful. Status code:', response.statusCode);
+            }
+        })
+        .catch((error) => {
+            console.error('An error occurred during the API request:', error);
+        });
+};
 
 
     return (
@@ -314,10 +304,9 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
                     <Box className='input-item-wrap'>
                         <InputLabel>Select Location</InputLabel>
                         <CustomDropdown
-                            value={getLocations.locationId}
-                            placeHolder={formData.location || 'Select Location'}
+                            value={selectedLocation.id}
+                            placeHolder={selectedLocation.value || 'Select Location'}
                             onChange={handleDropdownChange}
-                            // options={locationOptions}
                             options={getLocations}
                             icon={downArrow}
                             name='location'
@@ -396,6 +385,22 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
 
                         />
                     </Box>
+                   <Box className='input-item-wrap'>
+                   <InputLabel>Tell Us About Yourself</InputLabel>
+                   <Box className='input-toggle-wrap'>
+                  
+                        <TextField
+                            onChange={handleInputChange}
+                            name='yourSelf'
+                            className='text-field'
+                            placeholder='Yourself'
+                            fullWidth
+                            value={formData.yourSelf}
+                            error={!!errors.yourSelf}
+                            helperText={errors.yourSelf}
+                        />
+                    </Box>
+                   </Box>
                     <Typography className='section-heading'>Address Details</Typography>
                     <Box className='input-item-wrap'>
                         <CustomInput
@@ -428,12 +433,14 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
                     <Box className='input-item-wrap'>
                         <InputLabel>State</InputLabel>
                         <CustomDropdown
-                            value={formData.state}
                             placeHolder={formData.state || 'Select State'}
                             name='state'
                             onChange={handleDropdownChange}
                             //options={stateOptions}
                             options ={getStates}
+                            value={formData.state}
+                          //  getOptionLabel={(option) => option?.label || ''}
+
                             icon={downArrow}
                             error={!!errors.state}
                             helperText={errors.state}
@@ -533,7 +540,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
                             <Button className="expiryBtn" onClick={() => setOpen(true)}>
                                 Liability Waiver
                             </Button>
-                            {(formData.isLiabilityWaiverSigned) && <CheckCircleIcon />}
+                            {(formData.isLiabilityWaiverSigned) ? <CheckCircleIcon/> : ''}
                         </Box>
                     </Box>
                     <Box className='input-item-wrap'>
@@ -558,7 +565,7 @@ const ParentProfile = ({ initialState, handleNext, clientDetail, setActive }) =>
             <ProfileModals open={confirmOpen} type={'confirm'} handleActionBtn={handleActionBtn} />
 
             <ProfileModals open={teamOpen} handleClose={() => setTeamOpen(false)} type={'team'}
-                handleNext={handleNext} getclientOptions={getclientOptions}/>
+                handleNext={handleNext} getclientOptions={getclientOptions} clientDetail={clientDetail}/>
         </Box>
     )
 }
