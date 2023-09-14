@@ -9,7 +9,8 @@ const profileTeam = require("../../assets/images/profile-team.svg").default;
 export default function YourTeams({ setActive, initialState, setInitialState, details,teamData }) {
   const handleNextPage = () => {
    
-    setInitialState({ ...initialState, userType: 'client',client :'client' });
+    setInitialState({ ...initialState,userType: 'client',client :'client' });
+    console.log('team data on state 1 ',initialState)
     setActive(1);
   };
   
@@ -51,7 +52,37 @@ console.log('initial data...',initialState)
          }
         </Box>
       )}
-    {initialState.userType === 'dog' && initialState.selected !== '' && 
+
+{
+        (initialState.userType === 'client' &&  initialState.selected === ''  &&
+        teamData?.Items?.slice(0, 2).map((item, index) => (
+  <Box className="item" key={index}>
+      <Box className="itemImgWrap">
+          <img src={item?.profileImage ? item?.profileImage : profileTeam} alt="dog" />
+          <Box>
+              <Typography>{`${item?.firstName || ''} ${item?.lastName || ''}`}</Typography>
+              <Typography>
+                  Reward Points: 7474
+              </Typography>
+          </Box>
+      </Box>
+      <Box>
+          <Typography>{item?.breed}</Typography>
+          <Button onClick={() => {
+              setInitialState({ ...initialState, selected: item, userType: 'client' });
+              setActive(0);
+              
+          }}><img src={rightCircle} alt='close' /> </Button>
+      </Box>
+  </Box>
+))
+                 
+      
+ 
+   ) }
+
+
+    {(initialState.userType === 'dog' && initialState.selected !== '') && 
     <Box className="item">
                       <Box className="itemImgWrap">
                           <img src={initialState?.userType === 'dog' ? details?.profileImage : profileImg} alt="profile" />
@@ -85,7 +116,7 @@ console.log('initial data...',initialState)
               <img src={pet?.profileImage || petPlaceholder} alt={`profile-${index}`} />
               <Box>
                 <Typography>{`${pet?.firstName || 'John'} ${pet?.lastName || 'Smith'}`}</Typography>
-                <Typography>Reward Points: 3214</Typography>
+                <Typography>Reward Points: 1010</Typography>
               </Box>
             </Box>
             <Box>
@@ -101,33 +132,7 @@ console.log('initial data...',initialState)
           </Box>
         ))
               }
-      {
-        (initialState.userType === 'client' &&  initialState.selected === ''  &&
-        teamData?.Items?.slice(0, 2).map((item, index) => (
-  <Box className="item" key={index}>
-      <Box className="itemImgWrap">
-          <img src={item?.profileImage ? item?.profileImage : profileTeam} alt="dog" />
-          <Box>
-              <Typography>{`${item?.firstName || ''} ${item?.lastName || ''}`}</Typography>
-              <Typography>
-                  Reward Points: 5550
-              </Typography>
-          </Box>
-      </Box>
-      <Box>
-          <Typography>{item?.breed}</Typography>
-          <Button onClick={() => {
-              setInitialState({ ...initialState, selected: item, userType: 'client' });
-              setActive(0);
-              
-          }}><img src={rightCircle} alt='close' /> </Button>
-      </Box>
-  </Box>
-))
-                 
-      
- 
-   ) }
+    
     </Box> // Add the missing closing </Box> tag hereelse condition then ho
     
   );

@@ -25,42 +25,46 @@
   justify-content: center;
 }
 
+.my-autocomplete {
+  overflow: hidden;
+}
 
 /* Add a border to the Autocomplete dropdown list */
-
-.search-team .MuiAutocomplete-root .MuiAutocomplete-paper.MuiPaper-root {
-
+ .MuiAutocomplete-paper.MuiPaper-root {
   border: rgba(0, 0, 0, 0.3) 1px solid;
-
-  border-radius: 4px; /* Add border radius if needed */
-
-  z-index: 1000; /* Ensure it appears above other elements */
-
-  height: 255px !important;
-
-  overflow: hidden !important;
-
- 
-
+  border-radius: 4px;
+  z-index: 1000; 
+  height: 225px !important;
+  overflow: hidden;
 }
-/* Remove scrolling from the Autocomplete dropdown */
-.search-team .MuiAutocomplete-listbox {
-  max-height: none !important;
-  overflow: hidden !important;
+
+/* Hide the scrollbar while allowing scrolling */
+.MuiAutocomplete-popper .MuiPaper-root .MuiAutocomplete-listbox {
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+  -ms-overflow-style: none; 
 }
-.MuiAutocomplete-popperr {
-  max-height: none !important;
-  overflow: hidden !important;
+
+/* Show the scrollbar when the list is scrolled */
+ .MuiAutocomplete-popper .MuiPaper-root .MuiAutocomplete-listbox::-webkit-scrollbar {
+  width: 5px; 
 }
+
+.MuiAutocomplete-popper .MuiPaper-root .MuiAutocomplete-listbox::-webkit-scrollbar-thumb {
+  background-color: transparent; 
+}
+
 /* Style the Autocomplete input field */
 .search-team .MuiAutocomplete-root .MuiOutlinedInput-root {
   border-color: rgba(0, 0, 0, 0.3) !important;
   border-radius: 30px !important;
+  overflow: hidden;
+
 }
 
 /* Remove the border color change when focused */
 .search-team .MuiAutocomplete-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(0, 0, 0, 0.3) 1px solid;
 }
 
 
@@ -4154,6 +4158,16 @@ border-radius: 2em;}
 .confirm-team-box .modal-description-confirm {
   color: var(--label-color-light-primary, #000);
   text-align: center;
+  font-family: Univers LT Std;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  /* 128.571% */
+  letter-spacing: -0.078px;
+}
+.modal-description-team {
+  color: var(--label-color-light-primary, #000);
   font-family: Univers LT Std;
   font-size: 14px;
   font-style: normal;

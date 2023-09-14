@@ -11,12 +11,12 @@ export {
 
 } from './shop';
 export {GetClientDetailByEmailId, GetAllPets,GetAllClients,getClientProfileProgress,searchTeamMembers,
-    AddTeamMembers,getYourFamilyMembers,getFamilyPets,getPetProfileProgress
+    AddTeamMembers,getYourFamilyMembers,getFamilyPets,getPetProfileProgress,
 
 
 } from './client'
 export {
-    CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail
+    CheckClientDetail, GetAllBreedList, UpdateDogProfile, CreateDogProfile, UpdateClientDetail, GetDogDetail,getClientTrophies
 } from './profile';
 export {GetAllTrainersAvailability,getServiceCategories,getAllPets,getAllRooms,getServiceByCategory} from './appointments';
 export {getInitialSettings } from './nofication';

@@ -2,6 +2,7 @@ import {Box, Button, Typography} from '@mui/material';
 import React, {useEffect, useState} from 'react'
 import {LinearProgressBar} from '../../Components/Common';
 import ProfileAbout from "./ProfileAbout";
+import Trophies from './Trophies';
 import {ProfileModals} from "../../Components/Modals";
 import YourPack from "./YourPack";
 import YourTeams from "./YourTeams";
@@ -171,10 +172,7 @@ if (birthDate && birthDate?.length > 0) {
 
                </Box> : <Box className='profile-no-data'>
 
-                    <Typography>There’s nothing to see here.</Typography>
-                    <Button onClick={() => {
-                        setOpen(true);
-                    }}>Connect</Button>
+               <Trophies initialState={initialState} details={details}/>
                 </Box>}
             <ProfileModals open={open} handleClose={() => setOpen(false)} type={'invite'}
                            handleNext={() => {
