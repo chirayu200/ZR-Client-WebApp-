@@ -8,10 +8,12 @@ const petPlaceholder = "https://www.petcloud.com.au/img/pet_placeholder.png";
 const profileTeam = require("../../assets/images/profile-team.svg").default;
 export default function YourTeams({ setActive, initialState, setInitialState, details,teamData }) {
   const handleNextPage = () => {
-    setActive(1);
+   
     setInitialState({ ...initialState, userType: 'client',client :'client' });
+    setActive(1);
   };
-
+  
+console.log('initial data...',initialState)
 
   return (
     <Box className="template-list-main">
@@ -49,7 +51,7 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
          }
         </Box>
       )}
- {initialState.userType === 'dog' && initialState.selected !== '' ? (
+    {initialState.userType === 'dog' && initialState.selected !== '' && 
     <Box className="item">
                       <Box className="itemImgWrap">
                           <img src={initialState?.userType === 'dog' ? details?.profileImage : profileImg} alt="profile" />
@@ -74,7 +76,9 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
                       </Box>
 
                   </Box>
- ) :(initialState.userType === 'dog' && initialState.selected === '' && details?.pets?.length > 0 ? (
+}
+  
+  {initialState.userType === 'dog' && initialState.selected === '' && details?.pets?.length > 0 &&
         details?.pets.map((pet, index) => (
           <Box key={index} className="item">
             <Box className="itemImgWrap">
@@ -96,9 +100,10 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
             </Box>
           </Box>
         ))
-      ) : (
-        
-        teamData?.Items?.map((item, index) => (
+              }
+      {
+        (initialState.userType === 'client' &&  initialState.selected === ''  &&
+        teamData?.Items?.slice(0, 2).map((item, index) => (
   <Box className="item" key={index}>
       <Box className="itemImgWrap">
           <img src={item?.profileImage ? item?.profileImage : profileTeam} alt="dog" />
@@ -120,9 +125,9 @@ export default function YourTeams({ setActive, initialState, setInitialState, de
   </Box>
 ))
                  
-      )
- )
-    }
+      
+ 
+   ) }
     </Box> // Add the missing closing </Box> tag hereelse condition then ho
     
   );

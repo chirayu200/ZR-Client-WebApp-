@@ -26,15 +26,56 @@
 }
 
 
-.teamSearch .css-1aikvp0-MuiAutocomplete-listbox {
-  list-style: none;
-  margin: 0;
-  padding: 8px 5px;
-  max-height: 40vh;
-  overflow: auto;
-  background: #fff;
-  color: #000;
+/* Add a border to the Autocomplete dropdown list */
+
+.search-team .MuiAutocomplete-root .MuiAutocomplete-paper.MuiPaper-root {
+
+  border: rgba(0, 0, 0, 0.3) 1px solid;
+
+  border-radius: 4px; /* Add border radius if needed */
+
+  z-index: 1000; /* Ensure it appears above other elements */
+
+  height: 255px !important;
+
+  overflow: hidden !important;
+
+ 
+
 }
+/* Remove scrolling from the Autocomplete dropdown */
+.search-team .MuiAutocomplete-listbox {
+  max-height: none !important;
+  overflow: hidden !important;
+}
+.MuiAutocomplete-popperr {
+  max-height: none !important;
+  overflow: hidden !important;
+}
+/* Style the Autocomplete input field */
+.search-team .MuiAutocomplete-root .MuiOutlinedInput-root {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+  border-radius: 30px !important;
+}
+
+/* Remove the border color change when focused */
+.search-team .MuiAutocomplete-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+
+.search-team .MuiAutocomplete-hasPopupIcon.css-1h51icj-MuiAutocomplete-root .MuiOutlinedInput-root,
+.MuiAutocomplete-hasClearIcon.css-1h51icj-MuiAutocomplete-root .MuiOutlinedInput-root
+{ border-radius: 30px!important; /* Adjust the value as needed for your desired border radius */
+
+}
+
+/* Remove the border color change on hover and focus */
+.search-team .MuiAutocomplete-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
+.MuiAutocomplete-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(0, 0, 0, 0.3) !important;
+}
+
 
 
 /* Splash */
@@ -54,7 +95,8 @@
 }
 
 .splash-container .typo-logo {
-  margin: 0 auto 112px;
+  /* margin: 0 auto 80px; */
+  margin: 25px auto ;
   text-align: center;
 }
 

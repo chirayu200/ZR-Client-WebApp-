@@ -14,6 +14,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import { searchTeamMembers,AddTeamMembers } from "../../Services/APIs";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { ReactComponent as TeamSearchIcon} from "../../assets/images/teamSearch.svg"
+import { Padding } from "@mui/icons-material";
+
 const downArrow = require("../../assets/images/dropdownArrow.svg").default;
 
 const options = [
@@ -31,12 +34,13 @@ export const ProfileModals = ({
                                   handleNext,getclientOptions,clientDetail
                               }) => {
     const [isSign, setIsSign] = useState(false);
+    const [showList, setList] = useState(false);
     const [error, setError] = useState(false);
     const [signError, setSignError] = useState(false);
     const [isCheck, setCheck] = useState (false);
     const [isAgree, setAgreeCheck] = useState (false);
-    const [clientList, setClientOptions] = useState ({});
-    const [selectedData, setSelectedData] = useState ({});
+
+    const [clientList, setClientOptions] = useState ([]);
     const [openConfirmation, setConfirmation] = useState (false);
     let sigCanvas = useRef(null);
     const navigate = useNavigate();
@@ -73,30 +77,54 @@ export const ProfileModals = ({
     }
     
   
-    const handleCategoryChange = (value,key) => {
-        setClientOptions(value)    
-        setSelectedData(value)
+    const handleCategoryChange = (e,key) => {
+        if(key && key === true){
+            setAgreeCheck(false)
+        }else{
+            setAgreeCheck(true)
+ 
+        }
+        console.log('chage value---', e.target.value,)
+        console.log('chage key---', key)
+        setClientOptions(key)    
+        //setSelectedData(value)
        // setSelectedData((prevState) => ({ ...prevState, data: value }));
     
       };
 
-
+    
+    
     const openConfirmationModal = (name) => {
-
-        setCheck(true);
+       if(isAgree){
         setError(true)
+        setConfirmation(false)
+       }else{
+        setError(false)
         setConfirmation(true)
+       }
+       // setCheck(true);
+        
+        
         
     }
-       
+    const filterData = (text) => {
+        const newData = getclientOptions.filter((item) => {
+          const itemData = `${item.firstName} ${item.lastName} ${item.email}`;
+          const textData = text;
+          return itemData.toLowerCase().includes(textData.toLowerCase());
+        });
+    
+        setClientOptions(newData);
+      };
+    
     const AddTeam = () => {
       
        //const res = selectedData.data.selectedClient
        //console.log('ressssssss',res)
         const result = {
-            franchiseeId: selectedData.selectedClient.franchiseeId,
+            franchiseeId: clientList.franchiseeId,
             locationId: clientDetail.locationId,
-            addresseeId: selectedData.selectedClient.sortKey,
+            addresseeId: clientList.sortKey,
             requesterId: clientDetail.sortKey,
             createdBy: clientDetail.firstName,
             status: 1,
@@ -169,7 +197,7 @@ export const ProfileModals = ({
 
                         </Box>
                         <DialogActions style={{marginBottom:'2px'}}>
-                            <Button className='red-btn' style={{color:'#d13a00',textTransform: 'capitalize',fontWeight: '700'}} onClick={handleClose}> No </Button>
+                            <Button className='red-btn' style={{color:'#d13a00',textTransform: 'capitalize',fontWeight: '700'}} onClick={handleNext}> No </Button>
                             <Divider className='profile-btn-divider'/>
                             <Button className='blue-btn' style={{color:'#003087', textTransform: 'capitalize',fontWeight: '700'}}  onClick={AddTeam}>Yes</Button>
                         </DialogActions>
@@ -187,91 +215,67 @@ export const ProfileModals = ({
                                             options={clientList}
                                             icon={downArrow}
                                         /> */}
-                                       {/* <Autocomplete
-                                className='card-input search-bar'
-                                id="free-solo-demo"
-                                name='searchTeam'
-                                freeSolo
-                                options={getclientOptions.map((option) => `${option.firstName} ${option.lastName}` || '')}
-                                getOptionLabel={(option) => option}
-                                onChange={(event, newValue) => {
-                                    const selectedClient = getclientOptions.find((client) => client.firstName === newValue);
-
-                                    if (selectedClient) {
-                                    handleCategoryChange({ selectedClient });
-                                    }
-                                }}
-                                renderInput={(params) => (
-                                    <TextField
-                                    {...params}
-                                    InputProps={{
-                                        ...params.InputProps,
-                                        endAdornment: (
-                                        <SearchIcon style={{ cursor: 'pointer', color: 'orangered' }} />
-                                        ),
-                                    }}
-                                    />
-                                )}
-                                icon={<SearchIcon />}
-                                /> */}
 
 
-        <Autocomplete
+<div className="search-team">
+      <Autocomplete
         className='card-input search-bar'
         id="free-solo-demo"
         name='searchTeam'
         freeSolo
-        // options={getclientOptions.map((option) => ({
-        //   firstName: option.firstName,
-        //   lastName: option.lastName,
-        //   email: option.email, })) || ''}
         options={getclientOptions}
-        // getOptionLabel={(option) => (
-        //   <div>
-        //     <div style={{fontSize:'16px'}}>{`${option.firstName} ${option.lastName}`}</div>
-        //     <div>{option.email}</div>
-        //   </div>
-        // )}
-        getOptionLabel={(option) =>
-           option.firstName + ' ' + option.lastName
-
-          }
-
-        onChange={(event, selectedOptions) => {
-
-            handleCategoryChange(selectedOptions);
-
-          }}
-        // onChange={(event, newValue) => {
-        //   const selectedClient = getclientOptions.find(
-        //     (client) => `${client.firstName}` === newValue
-        //   );
-        //  console.log('222222222',selectedClient)
-        //   setClientOptions(selectedClient); 
-
-        //   if (selectedClient) {
-        //     handleCategoryChange(selectedClient);
-        //   }
-        // }}
+        getOptionLabel={(option) => `${option.firstName} ${option.lastName}`}
+        onChange={handleCategoryChange}
+        onInputChange={(event, newInputValue) => {
+          filterData(newInputValue);
+        }}
         renderInput={(params) => (
-
-            <TextField {...params} label={params?.label || 'SEARCH CLIENT'} className="input-field-styling" />
-
-          )}
-        icon={<SearchIcon />
-    }
+          <TextField
+          
+          className="autocomplete-list-boxx"
+            {...params}
+            InputLabelProps={{
+                className: 'autocomplete-list-box'
+            }}
+            InputProps={{
+              ...params.InputProps,
+              endAdornment: (
+                <SearchIcon style={{ cursor: 'pointer', color: 'orangered' }} />
+              ),
+            }}
+          />
+        )}
+        renderOption={(props, option) => {
+            const { firstName,lastName ,email} = option;
+            return (
+               <div {...props}>
+                 <span style={{padding:'10px 10px 0px 15px'}} >
+                <span style={{ color: "rgba(0, 0, 0, 1)", fontSize: 16 }}>{firstName + ' ' + lastName}</span><br></br>
+                <span style={{ color: "rgba(0, 0, 0, 0.7)", fontSize: 14 }}>{email}</span> <br/>
+                <span style={{ color: "rgba(0, 0, 0, 0.2)", width:'100px!important' }}><hr ></hr></span>
+                </span>  
+                </div>
+          );
+        }}
+        icon={<SearchIcon />}
+        
+        
       />
+    
+    </div>
 
-
+                   
 
 
                                          <Box className='save-car' sx={{ mt: 2 }}>
                                            <label style={{ display: 'flex', alignItems: 'center' }}>
-                                           <Checkbox style={{marginBottom : '6em',color: '#003087' }}  className="agree-select"
-                                           onChange={(e) => handleDropdownChange({
+                                           <Checkbox style={{marginBottom : '6em',color: '#003087' }} name="agreeBox" className="agree-select"
+                                            onChange={handleCategoryChange}
+                                        //    onChange={(e) => handleDropdownChange({
                                              
-                                               agree: e.target.checked
-                                           })}
+                                        //     agreeBox: e.target.checked
+                                        //    })}
+
                                            />
                                            <p style={{ marginLeft: '8px' }}>
                                            By proceeding with adding a person into your family, you acknowledge that you are granting them control over your credit,
@@ -279,7 +283,7 @@ export const ProfileModals = ({
                                            </p>
                                            </label>
                                            </Box>
-                                           {error && !isCheck && (
+                                           {(error) && (
                                            <Typography
                                            style={{
                                                color: "red",

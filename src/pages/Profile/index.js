@@ -99,9 +99,14 @@ export default function ProfileMain({ clientDetail ,teamData}) {
                             onClick={() => {
                                 
                                 if (childComponent[active].title === 'Profile') {
-                                window.location.reload();
-                                navigate('/')
-                                    setActive(0)
+                                    if(initialState?.userType === 'client' && initialState.selected ===''){
+                                        navigate('/')  
+                                    }else{
+                                       // window.location.reload();
+                                        setInitialState({ ...initialState, userType: 'client', selected : '' })
+                                            setActive(0)
+                                    }
+                               
                                 }  if(childComponent[active].title === 'Team') {
                                     setActive(0)
                                 }

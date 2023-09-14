@@ -129,7 +129,7 @@ if (birthDate && birthDate?.length > 0) {
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography>
                     <Typography>{initialState.userType === 'client' && "Body - Universe"}</Typography>
 
-{/*                   
+            {/*                   
                     <Typography>{initialState.userType === 'dog' ? "ZR Sherman Oaks" : "Gold Membership"}</Typography> */}
                    
                   {(initialState.userType === 'client' && initialState.selected ==='')|| initialState.userType === 'dog' ? <Box className="profileProgressWrap">
@@ -158,15 +158,15 @@ if (birthDate && birthDate?.length > 0) {
                     {(initialState.userType === 'dog' && initialState.selected !== '') ?
                         <>
                             <YourPack setActive={setActive} initialState={initialState}
-                                      setInitialState={setInitialState} details={details} familyPets={getTeamPets}/>
+                                      setInitialState={setInitialState} details={details} familyPets={getTeamPets}  teamData={getFamily}/>
                             <YourTeams setActive={setActive} initialState={initialState}
-                                       setInitialState={setInitialState} details={details} teamData={getFamily}/>
+                                       setInitialState={setInitialState} details={details} teamData={getFamily} familyPets={getTeamPets}/>
                         </>
                         : <>
                             <YourTeams setActive={setActive} initialState={initialState}
-                                       setInitialState={setInitialState} details={details} teamData={getFamily}/>
+                                       setInitialState={setInitialState} details={details} teamData={getFamily} familyPets={getTeamPets}/>
                             <YourPack setActive={setActive} initialState={initialState}
-                                      setInitialState={setInitialState} details={details} familyPets={getTeamPets}/>
+                                      setInitialState={setInitialState} details={details} familyPets={getTeamPets}  teamData={getFamily}/>
                         </>}
 
                </Box> : <Box className='profile-no-data'>

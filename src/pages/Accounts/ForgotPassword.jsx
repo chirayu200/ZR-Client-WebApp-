@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Box, Button, Link, Typography} from "@mui/material";
+import { ReactComponent as PinCode } from "../../assets/images/paste.svg";
 
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {
@@ -10,7 +11,7 @@ import {
 } from "../../Services/APIs/account";
 import {CustomButton, CustomInput} from "../../Components/Common";
 
-const pinCode = require("../../assets/images/paste.svg").default;
+//const pinCode = require("../../assets/images/paste.svg").default;
 const passwordSucces = require("../../assets/images/passSuccess.svg").default;
 
 
@@ -315,7 +316,7 @@ const ForgotPassword = ({handlePrevious, authState, setAuthState, onLogin}) => {
                             fullWidth
                             placeholder='Code'
                             name='confirmationCode'
-                            icon={pinCode}
+                            icon={<PinCode />}
                             value={formData.confirmationCode}
                             onChange={handleInputChange}
                             error={!!formErrors.confirmationCode}

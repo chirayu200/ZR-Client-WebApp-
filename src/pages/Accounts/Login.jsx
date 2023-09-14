@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Box, Checkbox, Link,Typography} from "@mui/material";
+import {Box, Checkbox, Link,Typography, colors} from "@mui/material";
 import {LoginCall} from '../../Services/APIs';
 import {CustomButton, CustomInput} from "../../Components/Common";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
@@ -15,6 +15,7 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
     const [formErrors, setFormErrors] = useState({});
     const [CheckUser, setUserExist] = useState(false);
     const [InvalidUserErr, setInvalidErrors] = useState('');
+    const [showEmailIcon, setEmailIcon] = useState(false);
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -25,24 +26,42 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
 
     const handleInputChange = (event) => {
         const {name, value} = event.target;
+
+        const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+
+        // Check if the input value matches the email pattern
+        if (emailPattern.test(value)) {
+          setEmailIcon(true);
+        } else {
+          setEmailIcon(false);
+        }
+
         setFormData((prevFormData) => ({
             ...prevFormData,
             [name]: value,
         }));
+
+       
         if (formErrors[name]) {
             setFormErrors((prevFormErrors) => ({
                 ...prevFormErrors,
                 [name]: "",
             }));
+            setEmailIcon(false)
         }
     };
     const validateForm = () => {
         const errors = {};
         if (!formData.email.trim()) {
             errors.email = "Email is required";
+            setEmailIcon(false)
         }else{
         if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(formData.email)) {
             errors.email = "Invalid email address";
+            setEmailIcon(false)
+            
+        }else{
+            setEmailIcon(true)  
         }
         }
         
@@ -101,7 +120,7 @@ export default function Login({setActiveScreen, setAuthState, authState,onLogin}
                     name='email'
                     fullWidth
                     placeholder='Email'
-                    showCheckbox
+                    icon={!showEmailIcon ? '' : <CheckCircleIcon style={{ color: '#d13a00' }} />}
                     value={formData.email}
                     onChange={handleInputChange}
                     error={!!formErrors.email}
